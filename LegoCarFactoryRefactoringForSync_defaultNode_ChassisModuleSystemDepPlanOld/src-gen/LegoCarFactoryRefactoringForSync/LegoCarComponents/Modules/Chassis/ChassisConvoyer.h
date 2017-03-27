@@ -237,7 +237,7 @@ public:
 	 * @return ret 
 	 */
 	bool fromChoicetoSendEndOfModuleEventGuard();
-
+	::CarFactoryLibrary::Colors color;
 private:
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)

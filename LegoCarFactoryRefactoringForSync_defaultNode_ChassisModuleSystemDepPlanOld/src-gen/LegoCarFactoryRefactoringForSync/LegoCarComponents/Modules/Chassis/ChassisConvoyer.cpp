@@ -19,7 +19,7 @@
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
-
+#include "CarFactoryLibrary/Conveyor.h"
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
@@ -71,7 +71,7 @@ bool ChassisConvoyer::check_presence() {
  */
 int ChassisConvoyer::get_current_module() {
 
-	return ((CarFactoryLibrary::Conveyor*) this)->pModule.requiredIntf->getCurrentModule();
+	return this->pModule.requiredIntf->getCurrentModule();
 }
 
 /**
@@ -107,8 +107,7 @@ ChassisConvoyer::ChassisConvoyer() :
  */
 void ChassisConvoyer::set_status(
 		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
-	static_cast<CarFactoryLibrary::Convoyer*>(this)->pModule.requiredIntf->setStatus(
-			status);
+	CarFactoryLibrary::Conveyor::pModule.requiredIntf->setStatus(status);
 }
 
 /**

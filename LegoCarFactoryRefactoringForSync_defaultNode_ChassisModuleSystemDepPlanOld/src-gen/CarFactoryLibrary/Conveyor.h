@@ -15,6 +15,7 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppLargeMotor.h"
 #include "EV3PapyrusLibrary/CppColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
+#include "CarFactoryLibrary/IModule.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {

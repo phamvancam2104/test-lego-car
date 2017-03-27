@@ -14,6 +14,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Rack.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
+#include "CarFactoryLibrary/IModule.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
