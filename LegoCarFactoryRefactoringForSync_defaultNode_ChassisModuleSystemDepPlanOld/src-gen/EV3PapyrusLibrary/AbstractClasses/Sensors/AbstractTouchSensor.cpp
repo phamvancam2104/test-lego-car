@@ -12,6 +12,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/Sensors/AbstractTouchSensor.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/Interfaces/Sensors/ITouchSensor.h"
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {

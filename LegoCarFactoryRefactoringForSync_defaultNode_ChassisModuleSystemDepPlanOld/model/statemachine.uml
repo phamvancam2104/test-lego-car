@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_0S1CwhYYEeevmcXpc9RVVQ" name="statemachine">
+  <uml:Model xmi:id="_zG1pYhYbEee-w9VJBTJ8OQ" name="statemachine">
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_hNs5oCdSEea6h5xPEh8iAg" name="ThreadFunctions">
       <ownedLiteral xmi:id="_kWR0ICdSEea6h5xPEh8iAg" name="TF_CHANGE_EVENT"/>
       <ownedLiteral xmi:id="_tj4MICdSEea6h5xPEh8iAg" name="TF_TIME_EVENT"/>
@@ -272,22 +272,22 @@ return ret;</body>
       <appliedProfile href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_0S1CyBYYEeevmcXpc9RVVQ" header="// common definitions for statemachine&#xD;&#xA;#include &quot;time.h&quot;&#xD;&#xA;#include &quot;pthread.h&quot;&#xD;&#xA;#define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}" base_package="_0S1CwhYYEeevmcXpc9RVVQ"/>
-  <C_Cpp:Include xmi:id="_0S7wcxYYEeevmcXpc9RVVQ" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Include xmi:id="_0S8XgRYYEeevmcXpc9RVVQ" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_0S8-khYYEeevmcXpc9RVVQ" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_0S-MsBYYEeevmcXpc9RVVQ" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_0S_a0xYYEeevmcXpc9RVVQ" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_0TAo8BYYEeevmcXpc9RVVQ" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
-  <standard:Create xmi:id="_0TBQAhYYEeevmcXpc9RVVQ" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:ConstInit xmi:id="_0TBQAxYYEeevmcXpc9RVVQ" initialisation="data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_0TB3EBYYEeevmcXpc9RVVQ" base_parameter="_fOpsgLGKEea8TLs0FB9Z6g"/>
-  <C_Cpp:Ptr xmi:id="_0TCeJBYYEeevmcXpc9RVVQ" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_0TDFNRYYEeevmcXpc9RVVQ" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ref xmi:id="_0TDsRBYYEeevmcXpc9RVVQ" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_0THWoBYYEeevmcXpc9RVVQ" base_property="_jliRwCkVEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="_0TH9sBYYEeevmcXpc9RVVQ" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:ConstInit xmi:id="_0TH9sRYYEeevmcXpc9RVVQ" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:Ptr xmi:id="_0TH9shYYEeevmcXpc9RVVQ" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="_0TJL0RYYEeevmcXpc9RVVQ" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Include xmi:id="_zG2QchYbEee-w9VJBTJ8OQ" header="// common definitions for statemachine&#xD;&#xA;#include &quot;time.h&quot;&#xD;&#xA;#include &quot;pthread.h&quot;&#xD;&#xA;#define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}" base_package="_zG1pYhYbEee-w9VJBTJ8OQ"/>
+  <C_Cpp:Include xmi:id="_zHJycBYbEee-w9VJBTJ8OQ" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="_zHLnoBYbEee-w9VJBTJ8OQ" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_zHM1wBYbEee-w9VJBTJ8OQ" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_zHPSABYbEee-w9VJBTJ8OQ" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_zHUxkRYbEee-w9VJBTJ8OQ" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_zHXN0BYbEee-w9VJBTJ8OQ" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
+  <standard:Create xmi:id="_zHZqEBYbEee-w9VJBTJ8OQ" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:ConstInit xmi:id="_zHZqERYbEee-w9VJBTJ8OQ" initialisation="data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_zHaRIBYbEee-w9VJBTJ8OQ" base_parameter="_fOpsgLGKEea8TLs0FB9Z6g"/>
+  <C_Cpp:Ptr xmi:id="_zHcGUBYbEee-w9VJBTJ8OQ" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_zHd7gRYbEee-w9VJBTJ8OQ" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ref xmi:id="_zHfJoRYbEee-w9VJBTJ8OQ" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_zHmeYBYbEee-w9VJBTJ8OQ" base_property="_jliRwCkVEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_zHo6oBYbEee-w9VJBTJ8OQ" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:ConstInit xmi:id="_zHo6oRYbEee-w9VJBTJ8OQ" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Ptr xmi:id="_zHphsBYbEee-w9VJBTJ8OQ" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_zHtzIBYbEee-w9VJBTJ8OQ" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
 </xmi:XMI>

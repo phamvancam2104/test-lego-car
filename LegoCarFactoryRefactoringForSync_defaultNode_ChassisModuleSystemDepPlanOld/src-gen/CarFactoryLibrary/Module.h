@@ -22,6 +22,20 @@
 #include "OtherComponentsPapyrusLibrary/ConcreteClasses/CppLedStatus.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
+// Include from Include stereotype (header)
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
+}
+}
+}
+namespace CarFactoryLibrary {
+class IModule;
+}
+
+// End of Include stereotype (header)
+
 namespace CarFactoryLibrary {
 namespace events {
 class EndOfModule;
@@ -98,6 +112,14 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryModule__Controller moduleController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	ProvidedPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * constructor of the Module
 	 * @param sensor_muxPort host port name of the multiplexer of sensor

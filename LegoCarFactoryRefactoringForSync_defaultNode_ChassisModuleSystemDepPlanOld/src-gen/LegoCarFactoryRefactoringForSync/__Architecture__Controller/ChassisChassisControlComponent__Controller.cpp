@@ -44,17 +44,14 @@ void ChassisChassisControlComponent__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISCONTROLCOMPONENT__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case ERRORDETECTION_ID:
-				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
-				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::ErrorDetection));
-				processErrorDetection(sig_ERRORDETECTION_ID);
-				break;
 			case ENDOFMODULE_ID:
 				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
 				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::EndOfModule));
 				processEndOfModule(sig_ENDOFMODULE_ID);
+				break;
+			case TE_50_MS__ID:
+				processTE_50_ms_();
 				break;
 			case STOPPROCESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
@@ -62,8 +59,11 @@ void ChassisChassisControlComponent__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 				processStopProcess(sig_STOPPROCESS_ID);
 				break;
-			case TE_50_MS__ID:
-				processTE_50_ms_();
+			case ERRORDETECTION_ID:
+				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
+				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::ErrorDetection));
+				processErrorDetection(sig_ERRORDETECTION_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -237,45 +237,6 @@ void ChassisChassisControlComponent__Controller::stopBehavior() {
  * 
  * @param sig 
  */
-void ChassisChassisControlComponent__Controller::processErrorDetection(
-		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case EMERGENCYSTOPSTATE_ID:
-			//from EmergencyStopState to Misplace
-			if (true) {
-				EmergencyStopState_Region1_Exit();
-				p_origin->effectFromEmergencyStopStatetoMisplace(sig);
-				activeStateID = MISPLACE_ID;
-				//starting the counters for time events
-				//start activity of Misplace by calling setFlag
-				setFlag(MISPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisControlComponent__Controller::push(
-		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ERRORDETECTION_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::ErrorDetection));
-}
-
-/**
- * 
- * @param sig 
- */
 void ChassisChassisControlComponent__Controller::processEndOfModule(
 		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -321,6 +282,13 @@ void ChassisChassisControlComponent__Controller::push(
 
 /**
  * 
+ */
+void ChassisChassisControlComponent__Controller::processTE_50_ms_() {
+	systemState = statemachine::EVENT_PROCESSING;
+}
+
+/**
+ * 
  * @param sig 
  */
 void ChassisChassisControlComponent__Controller::processStopProcess(
@@ -360,9 +328,41 @@ void ChassisChassisControlComponent__Controller::push(
 
 /**
  * 
+ * @param sig 
  */
-void ChassisChassisControlComponent__Controller::processTE_50_ms_() {
+void ChassisChassisControlComponent__Controller::processErrorDetection(
+		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case EMERGENCYSTOPSTATE_ID:
+			//from EmergencyStopState to Misplace
+			if (true) {
+				EmergencyStopState_Region1_Exit();
+				p_origin->effectFromEmergencyStopStatetoMisplace(sig);
+				activeStateID = MISPLACE_ID;
+				//starting the counters for time events
+				//start activity of Misplace by calling setFlag
+				setFlag(MISPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisControlComponent__Controller::push(
+		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ERRORDETECTION_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::ErrorDetection));
 }
 
 /**

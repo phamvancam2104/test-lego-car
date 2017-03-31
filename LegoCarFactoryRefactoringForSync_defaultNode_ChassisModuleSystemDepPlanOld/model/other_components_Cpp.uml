@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_0QTTMRYYEeevmcXpc9RVVQ" name="other_components_Cpp">
+  <uml:Model xmi:id="_zDFx0BYbEee-w9VJBTJ8OQ" name="other_components_Cpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_DcplYAbJEeaF1M78KmUHVQ" name="led_status">
       <ownedAttribute xmi:id="_h1RpUAbMEeaVw9eaWLzosg" name="red_led_index" visibility="protected">
         <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
@@ -70,8 +70,8 @@ leds[green_led_index].run();</body>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:External xmi:id="_0QTTNhYYEeevmcXpc9RVVQ" base_Classifier="_DcplYAbJEeaF1M78KmUHVQ"/>
-  <C_Cpp:Ref xmi:id="_0QUhUhYYEeevmcXpc9RVVQ" base_parameter="_IbUpYAbKEeaB05f6i8NhVA"/>
-  <C_Cpp:Ref xmi:id="_0QUhVBYYEeevmcXpc9RVVQ" base_parameter="_EJdqQAbYEeaz_pWDQeuMMg"/>
-  <C_Cpp:Ref xmi:id="_0QUhVhYYEeevmcXpc9RVVQ" base_parameter="_ER9e8AbYEeaz_pWDQeuMMg"/>
+  <C_Cpp:External xmi:id="_zDGY4RYbEee-w9VJBTJ8OQ" base_Classifier="_DcplYAbJEeaF1M78KmUHVQ"/>
+  <C_Cpp:Ref xmi:id="_zDI1IhYbEee-w9VJBTJ8OQ" base_parameter="_IbUpYAbKEeaB05f6i8NhVA"/>
+  <C_Cpp:Ref xmi:id="_zDI1JBYbEee-w9VJBTJ8OQ" base_parameter="_EJdqQAbYEeaz_pWDQeuMMg"/>
+  <C_Cpp:Ref xmi:id="_zDJcMRYbEee-w9VJBTJ8OQ" base_parameter="_ER9e8AbYEeaz_pWDQeuMMg"/>
 </xmi:XMI>

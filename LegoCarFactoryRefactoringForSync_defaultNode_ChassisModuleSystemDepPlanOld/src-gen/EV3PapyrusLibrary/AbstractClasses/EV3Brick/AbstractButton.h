@@ -16,6 +16,14 @@
 
 // Include from Include stereotype (header)
 #include <stdint.h>
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class IButton;
+}
+}
+}
+
 // End of Include stereotype (header)
 
 namespace EV3PapyrusLibrary {
@@ -32,6 +40,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickAbstractButton__Controller abstractbuttonController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> buttonPort;
 	/**
 	 * 
 	 * @return ret 

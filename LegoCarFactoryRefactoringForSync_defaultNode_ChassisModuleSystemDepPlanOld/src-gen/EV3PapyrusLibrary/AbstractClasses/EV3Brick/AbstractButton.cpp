@@ -12,6 +12,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractButton.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {

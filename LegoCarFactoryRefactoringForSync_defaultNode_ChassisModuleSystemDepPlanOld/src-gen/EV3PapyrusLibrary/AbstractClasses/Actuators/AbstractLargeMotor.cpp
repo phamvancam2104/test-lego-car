@@ -12,6 +12,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/Actuators/AbstractLargeMotor.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {

@@ -12,6 +12,7 @@
 #include "EV3PapyrusLibrary/AbstractColorSensor.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/IColorSensor.h"
 
 namespace EV3PapyrusLibrary {
 

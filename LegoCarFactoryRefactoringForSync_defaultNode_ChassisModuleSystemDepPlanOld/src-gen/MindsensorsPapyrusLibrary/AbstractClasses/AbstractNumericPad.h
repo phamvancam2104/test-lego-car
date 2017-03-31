@@ -17,6 +17,15 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/AbstractClassesAbstractNumericPad__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
+// Include from Include stereotype (header)
+namespace MindsensorsPapyrusLibrary {
+namespace Interfaces {
+class INumericPad;
+}
+}
+
+// End of Include stereotype (header)
+
 namespace MindsensorsPapyrusLibrary {
 namespace AbstractClasses {
 
@@ -30,6 +39,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::AbstractClassesAbstractNumericPad__Controller abstractnumericpadController;
+	/**
+	 * 
+	 */
+	ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::INumericPad> numericPadPort;
 	/**
 	 * 
 	 * @return ret 

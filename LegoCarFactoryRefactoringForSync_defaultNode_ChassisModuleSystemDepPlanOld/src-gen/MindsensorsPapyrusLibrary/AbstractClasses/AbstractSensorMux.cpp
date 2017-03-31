@@ -12,6 +12,7 @@
 #include "MindsensorsPapyrusLibrary/AbstractClasses/AbstractSensorMux.h"
 
 // Derived includes directives
+#include "MindsensorsPapyrusLibrary/Interfaces/ISensorMux.h"
 
 namespace MindsensorsPapyrusLibrary {
 namespace AbstractClasses {

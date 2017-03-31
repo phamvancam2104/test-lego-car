@@ -12,7 +12,9 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryModule__Controller.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/Module.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace __Architecture__Controller {
@@ -26,6 +28,24 @@ namespace __Architecture__Controller {
 CarFactoryLibraryModule__Controller::CarFactoryLibraryModule__Controller(
 		::CarFactoryLibrary::Module* /*in*/origin) :
 		p_origin(origin) {
+}
+
+/**
+ * 
+ * @return ret 
+ */
+::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* CarFactoryLibraryModule__Controller::get_pLCD() {
+	p_origin->pLCD.providedIntf = &(p_origin->ev3Brick.lcdScreen);
+	return p_origin->pLCD.providedIntf;
+}
+
+/**
+ * 
+ * @return ret 
+ */
+::CarFactoryLibrary::IModule* CarFactoryLibraryModule__Controller::get_pModule() {
+	p_origin->pModule.providedIntf = p_origin;
+	return p_origin->pModule.providedIntf;
 }
 
 } // of namespace __Architecture__Controller

@@ -12,6 +12,7 @@
 #include "MindsensorsPapyrusLibrary/AbstractClasses/AbstractNumericPad.h"
 
 // Derived includes directives
+#include "MindsensorsPapyrusLibrary/Interfaces/INumericPad.h"
 
 namespace MindsensorsPapyrusLibrary {
 namespace AbstractClasses {

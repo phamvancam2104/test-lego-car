@@ -21,6 +21,7 @@ using namespace std;
 #include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/ErrorDetection.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
 namespace CarFactoryLibrary {
 

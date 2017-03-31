@@ -12,7 +12,17 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/Pkg___Architecture__Controller.h"
 
 namespace CarFactoryLibrary {
+class IModule;
+}
+namespace CarFactoryLibrary {
 class Module;
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
+}
+}
 }
 
 namespace LegoCarFactoryRefactoringForSync {
@@ -30,6 +40,16 @@ public:
 	 */
 	CarFactoryLibraryModule__Controller(
 			::CarFactoryLibrary::Module* /*in*/origin);
+	/**
+	 * 
+	 * @return ret 
+	 */
+	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* get_pLCD();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	virtual ::CarFactoryLibrary::IModule* get_pModule();
 
 private:
 	/**

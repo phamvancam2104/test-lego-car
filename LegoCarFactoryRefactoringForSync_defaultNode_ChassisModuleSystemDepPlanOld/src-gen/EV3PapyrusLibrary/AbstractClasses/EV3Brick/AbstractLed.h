@@ -19,6 +19,14 @@
 
 // Include from Include stereotype (header)
 #include <stdint.h>
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILed;
+}
+}
+}
+
 // End of Include stereotype (header)
 
 namespace EV3PapyrusLibrary {
@@ -35,6 +43,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickAbstractLed__Controller abstractledController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> ledPort;
 	/**
 	 * 
 	 * @return ret 

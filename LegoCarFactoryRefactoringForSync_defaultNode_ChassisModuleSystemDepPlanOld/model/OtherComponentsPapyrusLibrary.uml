@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Symbols="http://PapyrusInternal/schemas/Symbols/_eij2kEBcEeKj6r7ThQagKA/2" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://PapyrusInternal/schemas/Symbols/_eij2kEBcEeKj6r7ThQagKA/2 pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA">
-  <uml:Model xmi:id="_0QL-chYYEeevmcXpc9RVVQ" name="OtherComponentsPapyrusLibrary">
-    <packagedElement xmi:type="uml:Package" xmi:id="_0QL-cxYYEeevmcXpc9RVVQ" name="ConcreteClasses">
+  <uml:Model xmi:id="_y8_J0BYbEee-w9VJBTJ8OQ" name="OtherComponentsPapyrusLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_y8_J0RYbEee-w9VJBTJ8OQ" name="ConcreteClasses">
       <packagedElement xmi:type="uml:Class" xmi:id="_skOwcAb6EeauAOm7sMdbCA" name="CppLedStatus">
         <generalization xmi:id="_zLRV4Ab6EeauAOm7sMdbCA" general="_gF3LQAb6EeauAOm7sMdbCA"/>
         <ownedAttribute xmi:id="__S5PAAb6EeauAOm7sMdbCA" name="referencedLed_status" aggregation="composite">
@@ -41,7 +41,7 @@
         <ownedOperation xmi:id="_eWOskEjYEeasuPJrwEAWTQ" name="CppLedStatus"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_0QPo1BYYEeevmcXpc9RVVQ" name="Interfaces">
+    <packagedElement xmi:type="uml:Package" xmi:id="_y9OaYBYbEee-w9VJBTJ8OQ" name="Interfaces">
       <packagedElement xmi:type="uml:Interface" xmi:id="_klvzkAbREeaeQ9YEkGQrug" name="ILedStatus">
         <ownedOperation xmi:id="_tgdr0AbREeaeQ9YEkGQrug" name="all_led_on"/>
         <ownedOperation xmi:id="_wcKA4AbREeaeQ9YEkGQrug" name="all_led_off"/>
@@ -50,7 +50,7 @@
         <ownedOperation xmi:id="_2m2okAbREeaeQ9YEkGQrug" name="green_led"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_0QQP5xYYEeevmcXpc9RVVQ" name="AbstractClasses">
+    <packagedElement xmi:type="uml:Package" xmi:id="_y9PoghYbEee-w9VJBTJ8OQ" name="AbstractClasses">
       <packagedElement xmi:type="uml:Class" xmi:id="_gF3LQAb6EeauAOm7sMdbCA" name="AbstractLedStatus">
         <ownedOperation xmi:id="_3fbSsAb6EeauAOm7sMdbCA" name="all_led_on"/>
         <ownedOperation xmi:id="_3fdu8Ab6EeauAOm7sMdbCA" name="all_led_off"/>
@@ -59,7 +59,7 @@
         <ownedOperation xmi:id="_3fhZUAb6EeauAOm7sMdbCA" name="green_led"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_0QYywRYYEeevmcXpc9RVVQ" name="Types">
+    <packagedElement xmi:type="uml:Package" xmi:id="_zDPi0hYbEee-w9VJBTJ8OQ" name="Types">
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f6LYIAbYEeaz_pWDQeuMMg" name="LocalString"/>
     </packagedElement>
     <profileApplication xmi:id="_ZjeY8AbREeaeQ9YEkGQrug">
@@ -113,13 +113,13 @@
       <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_0QMlgBYYEeevmcXpc9RVVQ" header="#include &quot;iostream&quot;" base_package="_0QL-chYYEeevmcXpc9RVVQ"/>
-  <C_Cpp:Include xmi:id="_0QPo0hYYEeevmcXpc9RVVQ" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;using namespace ev3dev;" base_class="_skOwcAb6EeauAOm7sMdbCA" base_Classifier="_skOwcAb6EeauAOm7sMdbCA"/>
-  <Symbols:TypeSymbolDefinition xmi:id="_0QPo0xYYEeevmcXpc9RVVQ" base_Type="_skOwcAb6EeauAOm7sMdbCA" symbolPath="platform:/plugin/org.eclipse.papyrus.lego.library.other_components.model/images/led_status.png"/>
-  <C_Cpp:Include xmi:id="_0QQ28hYYEeevmcXpc9RVVQ" header="#include &lt;stdint.h>" base_class="_gF3LQAb6EeauAOm7sMdbCA" base_Classifier="_gF3LQAb6EeauAOm7sMdbCA"/>
-  <standard:Create xmi:id="_0QYLsBYYEeevmcXpc9RVVQ" base_BehavioralFeature="_BeqJsAcAEeaaJZ-sElDK0w"/>
-  <C_Cpp:ConstInit xmi:id="_0QYywBYYEeevmcXpc9RVVQ" initialisation="referencedLed_status(red_port, orange_port, green_port)" base_operation="_BeqJsAcAEeaaJZ-sElDK0w"/>
-  <C_Cpp:Include xmi:id="_0QYywxYYEeevmcXpc9RVVQ" header="#include &lt;stdio.h>" base_package="_0QYywRYYEeevmcXpc9RVVQ"/>
-  <C_Cpp:Typedef xmi:id="_0QYyxBYYEeevmcXpc9RVVQ" definition="std::string" base_primitivetype="_f6LYIAbYEeaz_pWDQeuMMg"/>
-  <standard:Create xmi:id="_0QaA4RYYEeevmcXpc9RVVQ" base_BehavioralFeature="_eWOskEjYEeasuPJrwEAWTQ"/>
+  <C_Cpp:Include xmi:id="_y8_w4xYbEee-w9VJBTJ8OQ" header="#include &quot;iostream&quot;" base_package="_y8_J0BYbEee-w9VJBTJ8OQ"/>
+  <C_Cpp:Include xmi:id="_y9NzUBYbEee-w9VJBTJ8OQ" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;using namespace ev3dev;" base_class="_skOwcAb6EeauAOm7sMdbCA" base_Classifier="_skOwcAb6EeauAOm7sMdbCA"/>
+  <Symbols:TypeSymbolDefinition xmi:id="_y9NzURYbEee-w9VJBTJ8OQ" base_Type="_skOwcAb6EeauAOm7sMdbCA" symbolPath="platform:/plugin/org.eclipse.papyrus.lego.library.other_components.model/images/led_status.png"/>
+  <C_Cpp:Include xmi:id="_y9Sr0BYbEee-w9VJBTJ8OQ" header="#include &lt;stdint.h>" base_class="_gF3LQAb6EeauAOm7sMdbCA" base_Classifier="_gF3LQAb6EeauAOm7sMdbCA"/>
+  <standard:Create xmi:id="_zDPi0BYbEee-w9VJBTJ8OQ" base_BehavioralFeature="_BeqJsAcAEeaaJZ-sElDK0w"/>
+  <C_Cpp:ConstInit xmi:id="_zDPi0RYbEee-w9VJBTJ8OQ" initialisation="referencedLed_status(red_port, orange_port, green_port)" base_operation="_BeqJsAcAEeaaJZ-sElDK0w"/>
+  <C_Cpp:Include xmi:id="_zDQJ4BYbEee-w9VJBTJ8OQ" header="#include &lt;stdio.h>" base_package="_zDPi0hYbEee-w9VJBTJ8OQ"/>
+  <C_Cpp:Typedef xmi:id="_zDQJ4RYbEee-w9VJBTJ8OQ" definition="std::string" base_primitivetype="_f6LYIAbYEeaz_pWDQeuMMg"/>
+  <standard:Create xmi:id="_zDR_ERYbEee-w9VJBTJ8OQ" base_BehavioralFeature="_eWOskEjYEeasuPJrwEAWTQ"/>
 </xmi:XMI>

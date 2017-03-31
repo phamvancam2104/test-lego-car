@@ -12,6 +12,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractSound.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {

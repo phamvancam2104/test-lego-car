@@ -19,6 +19,14 @@
 
 // Include from Include stereotype (header)
 #include <stdint.h>
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace Actuators {
+class IServoMotor;
+}
+}
+}
+
 // End of Include stereotype (header)
 
 namespace EV3PapyrusLibrary {
@@ -35,6 +43,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsAbstractServoMotor__Controller abstractservomotorController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> servoMotorPort;
 	/**
 	 * 
 	 * @param v 
