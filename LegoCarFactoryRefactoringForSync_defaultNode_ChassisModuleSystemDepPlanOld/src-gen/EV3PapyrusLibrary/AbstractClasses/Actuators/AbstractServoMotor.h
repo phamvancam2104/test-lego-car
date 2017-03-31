@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractDevice.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ActuatorsAbstractServoMotor__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -39,10 +38,6 @@ namespace Actuators {
  */
 class AbstractServoMotor: public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractDevice {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsAbstractServoMotor__Controller abstractservomotorController;
 	/**
 	 * 
 	 */
@@ -211,10 +206,6 @@ public:
 	 */
 	::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(
 			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
-	/**
-	 * 
-	 */
-	AbstractServoMotor();
 
 };
 /************************************************************/

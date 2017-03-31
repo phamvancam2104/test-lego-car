@@ -21,6 +21,14 @@
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace Sensors {
+class ITouchSensor;
+}
+}
+}
+
 // End of Include stereotype (header)
 
 namespace EV3PapyrusLibrary {
@@ -43,6 +51,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SensorsCppTouchSensor__Controller cpptouchsensorController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Sensors::ITouchSensor> touchSensorPort;
 	/**
 	 * generated comment
 	 * @return ret 

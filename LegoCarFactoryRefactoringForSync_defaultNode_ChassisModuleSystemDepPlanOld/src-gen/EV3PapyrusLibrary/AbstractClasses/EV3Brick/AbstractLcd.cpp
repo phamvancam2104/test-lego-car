@@ -237,13 +237,6 @@ void AbstractLcd::draw_bmp_image(
 		int /*in*/y, bool /*in*/invertColor) {
 }
 
-/**
- * 
- */
-AbstractLcd::AbstractLcd() :
-		abstractlcdController(this) {
-}
-
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary

@@ -17,7 +17,6 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Sensors/CppTouchSensor.h"
 #include "EV3PapyrusLibrary/EV3BrickPackage/CppEV3Brick.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryModule__Controller.h"
 #include "MindsensorsPapyrusLibrary/ConcreteClasses/CppSensorMux.h"
 #include "OtherComponentsPapyrusLibrary/ConcreteClasses/CppLedStatus.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
@@ -29,9 +28,6 @@ namespace EV3Brick {
 class ILcd;
 }
 }
-}
-namespace CarFactoryLibrary {
-class IModule;
 }
 
 // End of Include stereotype (header)
@@ -111,15 +107,7 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryModule__Controller moduleController;
-	/**
-	 * 
-	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	ProvidedPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * constructor of the Module
 	 * @param sensor_muxPort host port name of the multiplexer of sensor

@@ -244,13 +244,6 @@ void AbstractServoMotor::set_attr_string(
 		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
 }
 
-/**
- * 
- */
-AbstractServoMotor::AbstractServoMotor() :
-		abstractservomotorController(this) {
-}
-
 } // of namespace Actuators
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary

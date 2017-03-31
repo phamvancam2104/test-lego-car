@@ -314,13 +314,6 @@ void AbstractLed::set_attr_string(
 		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
 }
 
-/**
- * 
- */
-AbstractLed::AbstractLed() :
-		abstractledController(this) {
-}
-
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary

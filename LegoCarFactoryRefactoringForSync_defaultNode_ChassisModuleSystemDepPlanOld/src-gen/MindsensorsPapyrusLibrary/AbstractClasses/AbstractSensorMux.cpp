@@ -172,13 +172,6 @@ void AbstractSensorMux::set_attr_string(
 		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
 }
 
-/**
- * 
- */
-AbstractSensorMux::AbstractSensorMux() :
-		abstractsensormuxController(this) {
-}
-
 } // of namespace AbstractClasses
 } // of namespace MindsensorsPapyrusLibrary
 

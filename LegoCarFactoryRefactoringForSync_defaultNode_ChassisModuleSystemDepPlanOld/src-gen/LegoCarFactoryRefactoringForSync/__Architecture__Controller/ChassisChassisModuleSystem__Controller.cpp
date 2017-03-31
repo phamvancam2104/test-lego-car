@@ -34,87 +34,87 @@ ChassisChassisModuleSystem__Controller::ChassisChassisModuleSystem__Controller(
 void ChassisChassisModuleSystem__Controller::createConnections() {
 	// realization of connector <Connector_Chassis_to_Shelf>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutStopProcess_Shelf(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisShelf) p_origin->shelf).chassisshelfController.get_pInStopProcess());
+			p_origin->shelf.chassisshelfController.get_pInStopProcess());
 
 	// realization of connector <Connector_control_to_robotic_arm>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutStopProcess_RoboticArm(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisRoboticArm) p_origin->robotic_arm).chassisroboticarmController.get_pInStopProcess());
+			p_origin->robotic_arm.chassisroboticarmController.get_pInStopProcess());
 
 	// realization of connector <Connector1>
 	p_origin->convoyer.chassisconvoyerController.connect_pStopProcess(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pStopProcess_Convoyer());
+			p_origin->chassisController.chassiscontrolcomponentController.get_pStopProcess_Convoyer());
 
 	// realization of connector <Connector2>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutRestart_Shelf(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisShelf) p_origin->shelf).chassisshelfController.get_pInRestart());
+			p_origin->shelf.chassisshelfController.get_pInRestart());
 
 	// realization of connector <Connector3>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutRestart_Robotic(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisRoboticArm) p_origin->robotic_arm).chassisroboticarmController.get_pInRestart());
+			p_origin->robotic_arm.chassisroboticarmController.get_pInRestart());
 
 	// realization of connector <Connector5>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pPrepare(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisConvoyer) p_origin->convoyer).chassisconvoyerController.get_pPrepare());
+			p_origin->convoyer.chassisconvoyerController.get_pPrepare());
 
 	// realization of connector <Connector6>
 	p_origin->robotic_arm.chassisroboticarmController.connect_pDelivered(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisConvoyer) p_origin->convoyer).chassisconvoyerController.get_pDelivered());
+			p_origin->convoyer.chassisconvoyerController.get_pDelivered());
 
 	// realization of connector <Connector7>
 	p_origin->convoyer.chassisconvoyerController.connect_pCheckRack(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisShelf) p_origin->shelf).chassisshelfController.get_pCheckRack());
+			p_origin->shelf.chassisshelfController.get_pCheckRack());
 
 	// realization of connector <Connector8>
 	p_origin->convoyer.chassisconvoyerController.connect_pErrDetect(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pErrDetect());
+			p_origin->chassisController.chassiscontrolcomponentController.get_pErrDetect());
 
 	// realization of connector <Connector9>
 	p_origin->convoyer.chassisconvoyerController.connect_pEndOfMo_Control(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pEndOfMo());
+			p_origin->chassisController.chassiscontrolcomponentController.get_pEndOfMo());
 
 	// realization of connector <Connector10>
 	p_origin->convoyer.chassisconvoyerController.connect_pEndOfMo_Shelf(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisShelf) p_origin->shelf).chassisshelfController.get_pEndOfMo());
+			p_origin->shelf.chassisshelfController.get_pEndOfMo());
 
 	// realization of connector <Connector11>
 	p_origin->convoyer.chassisconvoyerController.connect_pEndOfMo_Robotic(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisRoboticArm) p_origin->robotic_arm).chassisroboticarmController.get_pEndOfMo());
+			p_origin->robotic_arm.chassisroboticarmController.get_pEndOfMo());
 
 	// realization of connector <Connector12>
 	p_origin->shelf.chassisshelfController.connect_pErrDetect(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pErrDetect());
+			p_origin->chassisController.chassiscontrolcomponentController.get_pErrDetect());
 
 	// realization of connector <Connector13>
 	p_origin->shelf.chassisshelfController.connect_pPickPiece(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisRoboticArm) p_origin->robotic_arm).chassisroboticarmController.get_pPickPiece());
+			p_origin->robotic_arm.chassisroboticarmController.get_pPickPiece());
 
 	// realization of connector <Connector20>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutRestart_Convoyer(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisConvoyer) p_origin->convoyer).chassisconvoyerController.get_pRestart());
+			p_origin->convoyer.chassisconvoyerController.get_pRestart());
 
 	// realization of connector <Connector27>
-	p_origin->convoyer.conveyorController.connect_pLCD(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pLCD());
+	p_origin->convoyer.chassisconvoyerController.connect_pLCD(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pLCD());
 
 	// realization of connector <Connector28>
-	p_origin->convoyer.conveyorController.connect_pModule(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pModule());
+	p_origin->convoyer.chassisconvoyerController.connect_pModule(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pModule());
 
 	// realization of connector <Connector29>
-	p_origin->robotic_arm.roboticarmController.connect_pModule(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pModule());
+	p_origin->robotic_arm.chassisroboticarmController.connect_pModule(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pModule());
 
 	// realization of connector <Connector30>
-	p_origin->robotic_arm.roboticarmController.connect_pLCD(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pLCD());
+	p_origin->robotic_arm.chassisroboticarmController.connect_pLCD(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pLCD());
 
 	// realization of connector <Connector31>
-	p_origin->shelf.shelfController.connect_pModule(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pModule());
+	p_origin->shelf.chassisshelfController.connect_pModule(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pModule());
 
 	// realization of connector <Connector32>
-	p_origin->shelf.shelfController.connect_pLCD(
-			((::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisControlComponent) p_origin->chassisController).chassiscontrolcomponentController.get_pLCD());
+	p_origin->shelf.chassisshelfController.connect_pLCD(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pLCD());
 
 }
 

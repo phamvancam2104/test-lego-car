@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractDevice.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/AbstractClassesAbstractNumericPad__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -35,10 +34,6 @@ namespace AbstractClasses {
  */
 class AbstractNumericPad: public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractDevice {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::AbstractClassesAbstractNumericPad__Controller abstractnumericpadController;
 	/**
 	 * 
 	 */
@@ -127,10 +122,6 @@ public:
 	 */
 	::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(
 			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
-	/**
-	 * 
-	 */
-	AbstractNumericPad();
 
 };
 /************************************************************/

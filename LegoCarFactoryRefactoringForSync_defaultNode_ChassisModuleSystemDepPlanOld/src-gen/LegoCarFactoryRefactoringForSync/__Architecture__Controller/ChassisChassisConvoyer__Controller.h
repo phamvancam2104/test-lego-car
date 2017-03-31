@@ -82,6 +82,9 @@ class EndOfModule;
 // End of Include stereotype (header)
 
 namespace CarFactoryLibrary {
+class IModule;
+}
+namespace CarFactoryLibrary {
 namespace events {
 class DeliveredCarConveyor;
 }
@@ -93,6 +96,13 @@ namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
 class ILargeMotor;
+}
+}
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
 }
 }
 }
@@ -130,8 +140,8 @@ namespace __Architecture__Controller {
  */
 class ChassisChassisConvoyer__Controller: public IPush<
 		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
 		public IPush<CarFactoryLibrary::events::DeliveredCarConveyor> {
 public:
 	/**
@@ -232,11 +242,11 @@ public:
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
+		PREPARECONVEYOR_ID,
 		/**
 		 * 
 		 */
-		PREPARECONVEYOR_ID,
+		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
@@ -367,18 +377,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processStopProcess(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processPrepareConveyor(
 			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
@@ -387,6 +385,18 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processStopProcess(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -502,6 +512,17 @@ public:
 	 */
 	virtual void connect_pEndOfMo_Robotic(
 			IPush<CarFactoryLibrary::events::EndOfModule>* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pLCD(
+			::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pModule(::CarFactoryLibrary::IModule* /*in*/ref);
 
 private:
 	/**

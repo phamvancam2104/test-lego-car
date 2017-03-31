@@ -82,6 +82,9 @@ class RoboticArmPickPiece;
 // End of Include stereotype (header)
 
 namespace CarFactoryLibrary {
+class IModule;
+}
+namespace CarFactoryLibrary {
 namespace events {
 class CheckRack;
 }
@@ -93,6 +96,13 @@ class EndOfModule;
 }
 namespace EV3PapyrusLibrary {
 class IColorSensor;
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
+}
+}
 }
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -122,10 +132,9 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisShelf__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>,
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<CarFactoryLibrary::events::EndOfModule>,
 		public IPush<CarFactoryLibrary::events::CheckRack>,
-		public IPush<
-				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess> {
 public:
 	/**
@@ -206,15 +215,15 @@ public:
 		/**
 		 * 
 		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
+		/**
+		 * 
+		 */
 		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
 		CHECKRACK_ID,
-		/**
-		 * 
-		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -333,6 +342,18 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processEndOfModule(
 			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
@@ -350,18 +371,6 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -459,6 +468,17 @@ public:
 	 */
 	virtual void connect_pPickPiece(
 			IPush<CarFactoryLibrary::events::RoboticArmPickPiece>* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pLCD(
+			::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pModule(::CarFactoryLibrary::IModule* /*in*/ref);
 
 private:
 	/**

@@ -15,7 +15,6 @@
 #include "CarFactoryLibrary/Pliers.h"
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppServoMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryRoboticArm__Controller.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -31,9 +30,6 @@ namespace EV3Brick {
 class ILcd;
 }
 }
-}
-namespace CarFactoryLibrary {
-class IModule;
 }
 
 // End of Include stereotype (header)
@@ -95,31 +91,11 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryRoboticArm__Controller roboticarmController;
-	/**
-	 * 
-	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> upDownMotor;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> frontBackMotor;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> rightLeftMotor;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> plierMotor;
-	/**
-	 * 
-	 */
 	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * move the robotic arm to the absolute position x, y and alpha
 	 * @param x distance relative to the rotation center of the two motors (in cm)

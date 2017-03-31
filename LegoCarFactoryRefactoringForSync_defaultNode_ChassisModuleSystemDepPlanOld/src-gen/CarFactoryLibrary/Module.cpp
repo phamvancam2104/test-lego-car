@@ -68,7 +68,7 @@ Module::Module(::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_muxPort,
 		emergency_button(emergency_stopPort), nxt_servo(nxt_servoMotorPort,
 				nxt_servoSensorPort), led_status(status_led_redPort,
 				status_led_orangePort, status_led_greenPort), is_stop(false), is_misplace(
-				true), moduleController(this) {
+				true) {
 	std::vector < EV3PapyrusLibrary::Types::LocalString > tmp = std::vector
 			< EV3PapyrusLibrary::Types::LocalString
 			> ( {	sensor_mux_type1, sensor_mux_type2, sensor_mux_type3});

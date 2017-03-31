@@ -21,6 +21,10 @@
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
+namespace EV3PapyrusLibrary {
+class IColorSensor;
+}
+
 // End of Include stereotype (header)
 
 namespace EV3PapyrusLibrary {
@@ -39,6 +43,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3PapyrusLibraryCppColorSensor__Controller cppcolorsensorController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::IColorSensor> colorSensorPort;
 	/**
 	 * 
 	 * @return ret 

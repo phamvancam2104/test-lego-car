@@ -241,13 +241,6 @@ void AbstractTouchSensor::set_attr_string(
 ::PrimitiveTypes::Boolean AbstractTouchSensor::isTouch() {
 }
 
-/**
- * 
- */
-AbstractTouchSensor::AbstractTouchSensor() :
-		abstracttouchsensorController(this) {
-}
-
 } // of namespace Sensors
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary

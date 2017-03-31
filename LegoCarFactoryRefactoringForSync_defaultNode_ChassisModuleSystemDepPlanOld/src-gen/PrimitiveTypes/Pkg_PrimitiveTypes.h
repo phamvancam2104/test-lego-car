@@ -17,6 +17,9 @@
 
 /* Package dependency header include                        */
 
+// Include from Include stereotype (header)
+#include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
+// End of Include stereotype (header)
 namespace PrimitiveTypes {
 
 // Types defined within the package

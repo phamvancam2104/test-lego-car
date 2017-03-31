@@ -37,6 +37,16 @@ namespace events {
 class DeliveredCarConveyor;
 }
 }
+namespace EV3PapyrusLibrary {
+class IColorSensor;
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace Actuators {
+class ILargeMotor;
+}
+}
+}
 namespace CarFactoryLibrary {
 namespace events {
 class CheckRack;
@@ -51,6 +61,16 @@ namespace CarFactoryLibrary {
 namespace events {
 class EndOfModule;
 }
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
+}
+}
+}
+namespace CarFactoryLibrary {
+class IModule;
 }
 
 // End of Include stereotype (header)
@@ -149,6 +169,14 @@ public:
 	/**
 	 * 
 	 */
+	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pMotor;
+	/**
+	 * 
+	 */
 	OutFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
 	/**
 	 * 
@@ -166,6 +194,14 @@ public:
 	 * 
 	 */
 	OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Robotic;
+	/**
+	 * 
+	 */
+	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * 
 	 * @return ret 

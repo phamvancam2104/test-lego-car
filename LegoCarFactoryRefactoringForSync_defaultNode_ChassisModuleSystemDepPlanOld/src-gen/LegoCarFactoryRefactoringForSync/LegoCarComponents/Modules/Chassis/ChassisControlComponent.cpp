@@ -12,11 +12,18 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisControlComponent.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/ErrorDetection.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
+
+// Include from Include declaration (body)
+void bindPorts(Port& p1, Port& p2) {
+}
+// End of Include declaration (body)
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {

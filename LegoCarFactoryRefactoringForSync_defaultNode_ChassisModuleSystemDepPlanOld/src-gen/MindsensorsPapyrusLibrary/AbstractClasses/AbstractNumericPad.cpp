@@ -129,13 +129,6 @@ void AbstractNumericPad::set_attr_string(
 		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
 }
 
-/**
- * 
- */
-AbstractNumericPad::AbstractNumericPad() :
-		abstractnumericpadController(this) {
-}
-
 } // of namespace AbstractClasses
 } // of namespace MindsensorsPapyrusLibrary
 

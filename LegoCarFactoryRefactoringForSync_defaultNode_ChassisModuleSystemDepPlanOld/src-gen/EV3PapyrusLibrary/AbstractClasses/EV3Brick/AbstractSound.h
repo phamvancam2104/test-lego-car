@@ -13,7 +13,6 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickAbstractSound__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -38,10 +37,6 @@ namespace EV3Brick {
  */
 class AbstractSound {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickAbstractSound__Controller abstractsoundController;
 	/**
 	 * 
 	 */
@@ -103,10 +98,6 @@ public:
 	 */
 	virtual void play_tone(unsigned int /*in*/frequency, unsigned int /*in*/ms =
 			1000, unsigned int /*in*/volume = 100) = 0;
-	/**
-	 * 
-	 */
-	AbstractSound();
 
 };
 /************************************************************/

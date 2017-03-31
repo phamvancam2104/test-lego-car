@@ -12,6 +12,11 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/Pkg___Architecture__Controller.h"
 
 namespace EV3PapyrusLibrary {
+namespace EV3BrickPackage {
+class CppEV3Brick;
+}
+}
+namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace EV3Brick {
 class IButton;
@@ -49,6 +54,12 @@ namespace __Architecture__Controller {
  */
 class EV3BrickPackageCppEV3Brick__Controller {
 public:
+	/**
+	 * 
+	 * @param origin 
+	 */
+	EV3BrickPackageCppEV3Brick__Controller(
+			::EV3PapyrusLibrary::EV3BrickPackage::CppEV3Brick* /*in*/origin);
 	/**
 	 * 
 	 * @return ret 
@@ -110,6 +121,11 @@ public:
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::ISound* get_soundPort();
 
+private:
+	/**
+	 * 
+	 */
+	::EV3PapyrusLibrary::EV3BrickPackage::CppEV3Brick* p_origin;
 };
 /************************************************************/
 /* External declarations (package visibility)               */

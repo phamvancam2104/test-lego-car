@@ -22,6 +22,7 @@
 #include "time.h"
 #include "pthread.h"
 #define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}
+#include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace statemachine {
 

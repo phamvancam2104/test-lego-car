@@ -13,7 +13,6 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickAbstractLcd__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -78,10 +77,6 @@ public:
 	 * 
 	 */
 	static const int LCD_SCREEN_HEIGHT;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickAbstractLcd__Controller abstractlcdController;
 	/**
 	 * 
 	 */
@@ -224,10 +219,6 @@ public:
 	 */
 	void draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/filename,
 			int /*in*/x, int /*in*/y, bool /*in*/invertColor);
-	/**
-	 * 
-	 */
-	AbstractLcd();
 
 };
 /************************************************************/

@@ -41,13 +41,6 @@ namespace EV3Brick {
 ::PrimitiveTypes::Boolean AbstractButton::process_all() {
 }
 
-/**
- * 
- */
-AbstractButton::AbstractButton() :
-		abstractbuttonController(this) {
-}
-
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary

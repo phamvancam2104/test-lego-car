@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Rack.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryShelf__Controller.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -26,9 +25,6 @@ namespace EV3Brick {
 class ILcd;
 }
 }
-}
-namespace CarFactoryLibrary {
-class IModule;
 }
 
 // End of Include stereotype (header)
@@ -71,27 +67,11 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryShelf__Controller shelfController;
-	/**
-	 * 
-	 */
 	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor1;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor2;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor3;
-	/**
-	 * 
-	 */
 	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * check if the rack number rack_number is empty
 	 * @param rack_number rack number to check

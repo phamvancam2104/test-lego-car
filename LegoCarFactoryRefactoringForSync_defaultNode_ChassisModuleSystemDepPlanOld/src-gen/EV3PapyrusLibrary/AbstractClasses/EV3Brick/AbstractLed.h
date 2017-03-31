@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractDevice.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickAbstractLed__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -39,10 +38,6 @@ namespace EV3Brick {
  */
 class AbstractLed: public AbstractDevice {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickAbstractLed__Controller abstractledController;
 	/**
 	 * 
 	 */
@@ -265,10 +260,6 @@ public:
 			::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
 			::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
 			::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match);
-	/**
-	 * 
-	 */
-	AbstractLed();
 
 };
 /************************************************************/

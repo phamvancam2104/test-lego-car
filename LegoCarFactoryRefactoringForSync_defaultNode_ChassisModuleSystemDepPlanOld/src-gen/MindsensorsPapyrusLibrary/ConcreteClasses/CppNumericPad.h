@@ -22,6 +22,12 @@
 // Include from Include stereotype (header)
 #include "numeric_pad.h"
 using namespace ev3dev;
+namespace MindsensorsPapyrusLibrary {
+namespace Interfaces {
+class INumericPad;
+}
+}
+
 // End of Include stereotype (header)
 
 namespace MindsensorsPapyrusLibrary {
@@ -43,6 +49,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ConcreteClassesCppNumericPad__Controller cppnumericpadController;
+	/**
+	 * 
+	 */
+	ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::INumericPad> numericPadPort;
 	/**
 	 * 
 	 * @return ret 

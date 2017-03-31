@@ -16,9 +16,7 @@
 #include "CarFactoryLibrary/Conveyor.h"
 
 // Derived includes directives
-#include "CarFactoryLibrary/IModule.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"
-#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
 namespace CarFactoryLibrary {
@@ -90,8 +88,7 @@ Conveyor::Conveyor(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort,
 		int /*in*/delivered_car_offset) :
 		motor(motorPort), color_sensor(sensorPort), wait_offset(wait_offset), check_presence_offset(
 				check_presence_offset), delivered_car_offset(
-				delivered_car_offset), first_time(true), conveyorController(
-				this) {
+				delivered_car_offset), first_time(true) {
 	color_sensor.set_mode("COL-COLOR");
 	while (color_sensor.mode() != "COL-COLOR") { //Solve problem with robot user in the initialization of the sensor
 		color_sensor.set_mode("COL-COLOR");

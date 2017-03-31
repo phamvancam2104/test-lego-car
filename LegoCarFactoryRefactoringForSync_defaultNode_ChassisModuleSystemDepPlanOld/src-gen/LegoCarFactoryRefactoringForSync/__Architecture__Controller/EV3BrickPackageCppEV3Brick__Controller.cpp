@@ -12,6 +12,7 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickPackageCppEV3Brick__Controller.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/EV3BrickPackage/CppEV3Brick.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
@@ -21,6 +22,15 @@ namespace LegoCarFactoryRefactoringForSync {
 namespace __Architecture__Controller {
 
 // static attributes (if any)
+
+/**
+ * 
+ * @param origin 
+ */
+EV3BrickPackageCppEV3Brick__Controller::EV3BrickPackageCppEV3Brick__Controller(
+		::EV3PapyrusLibrary::EV3BrickPackage::CppEV3Brick* /*in*/origin) :
+		p_origin(origin) {
+}
 
 /**
  * 

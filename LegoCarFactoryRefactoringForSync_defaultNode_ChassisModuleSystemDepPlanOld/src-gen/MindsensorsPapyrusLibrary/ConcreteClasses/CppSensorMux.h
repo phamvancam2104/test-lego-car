@@ -23,6 +23,12 @@
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
+namespace MindsensorsPapyrusLibrary {
+namespace Interfaces {
+class ISensorMux;
+}
+}
+
 // End of Include stereotype (header)
 
 namespace MindsensorsPapyrusLibrary {
@@ -44,6 +50,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ConcreteClassesCppSensorMux__Controller cppsensormuxController;
+	/**
+	 * 
+	 */
+	ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::ISensorMux> sensorMuxPort_host;
 	/**
 	 * generated comment
 	 * @return ret 

@@ -12,12 +12,14 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ChassisChassisConvoyer__Controller.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/CheckRack.h"
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/ErrorDetection.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisConvoyer.h"
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
@@ -53,17 +55,17 @@ void ChassisChassisConvoyer__Controller::dispatchEvent() {
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
-			case STOPPROCESS_ID:
-				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
-				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-				processStopProcess(sig_STOPPROCESS_ID);
-				break;
 			case PREPARECONVEYOR_ID:
 				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
 				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
 				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
+				break;
+			case STOPPROCESS_ID:
+				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
+				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+				processStopProcess(sig_STOPPROCESS_ID);
 				break;
 			case DELIVEREDCARCONVEYOR_ID:
 				::CarFactoryLibrary::events::DeliveredCarConveyor sig_DELIVEREDCARCONVEYOR_ID;
@@ -268,42 +270,6 @@ void ChassisChassisConvoyer__Controller::push(
  * 
  * @param sig 
  */
-void ChassisChassisConvoyer__Controller::processStopProcess(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case PRINCIPALSTATE_ID:
-			//from PrincipalState to Restart
-			if (true) {
-				PrincipalState_Region1_Exit();
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisConvoyer__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-}
-
-/**
- * 
- * @param sig 
- */
 void ChassisChassisConvoyer__Controller::processPrepareConveyor(
 		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -337,6 +303,42 @@ void ChassisChassisConvoyer__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisConvoyer__Controller::processStopProcess(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case PRINCIPALSTATE_ID:
+			//from PrincipalState to Restart
+			if (true) {
+				PrincipalState_Region1_Exit();
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisConvoyer__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 }
 
 /**
@@ -738,6 +740,24 @@ void ChassisChassisConvoyer__Controller::connect_pEndOfMo_Shelf(
 void ChassisChassisConvoyer__Controller::connect_pEndOfMo_Robotic(
 		IPush<CarFactoryLibrary::events::EndOfModule>* /*in*/ref) {
 	p_origin->pEndOfMo_Robotic.outIntf = ref;
+}
+
+/**
+ * 
+ * @param ref 
+ */
+void ChassisChassisConvoyer__Controller::connect_pLCD(
+		::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* /*in*/ref) {
+	p_origin->pLCD.requiredIntf = ref;
+}
+
+/**
+ * 
+ * @param ref 
+ */
+void ChassisChassisConvoyer__Controller::connect_pModule(
+		::CarFactoryLibrary::IModule* /*in*/ref) {
+	p_origin->pModule.requiredIntf = ref;
 }
 
 } // of namespace __Architecture__Controller

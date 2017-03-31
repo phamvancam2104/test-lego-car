@@ -12,7 +12,6 @@
 #include "CarFactoryLibrary/Shelf.h"
 
 // Derived includes directives
-#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/CheckRack.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"
@@ -51,7 +50,7 @@ Shelf::Shelf(int /*in*/number_rack_sensor,
 		::EV3PapyrusLibrary::Types::LocalString /*in*/rack_sensorPort1,
 		::EV3PapyrusLibrary::Types::LocalString /*in*/rack_sensorPort2,
 		::EV3PapyrusLibrary::Types::LocalString /*in*/rack_sensorPort3) :
-		number_rack(number_rack_sensor), shelfController(this) {
+		number_rack(number_rack_sensor) {
 	if (number_rack == 2) {
 		rack_1 = ::CarFactoryLibrary::Rack(rack_sensorPort1);
 		rack_2 = ::CarFactoryLibrary::Rack(rack_sensorPort2);

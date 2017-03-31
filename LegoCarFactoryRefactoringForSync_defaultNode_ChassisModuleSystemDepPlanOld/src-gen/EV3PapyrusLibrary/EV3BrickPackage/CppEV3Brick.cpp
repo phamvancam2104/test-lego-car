@@ -12,6 +12,10 @@
 #include "EV3PapyrusLibrary/EV3BrickPackage/CppEV3Brick.h"
 
 // Derived includes directives
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
@@ -41,7 +45,8 @@ void CppEV3Brick::allLedOff() {
 /**
  * 
  */
-CppEV3Brick::CppEV3Brick() {
+CppEV3Brick::CppEV3Brick() :
+		cppev3brickController(this) {
 	//we init the led
 	//leftGreenLed.referencedLed=&led::green_left;
 	//rightGreenLed.referencedLed=&led::green_right;

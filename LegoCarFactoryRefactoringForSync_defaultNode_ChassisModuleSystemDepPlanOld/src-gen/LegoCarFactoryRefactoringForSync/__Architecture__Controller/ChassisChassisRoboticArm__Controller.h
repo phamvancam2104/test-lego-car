@@ -71,6 +71,9 @@ class DeliveredCarConveyor;
 // End of Include stereotype (header)
 
 namespace CarFactoryLibrary {
+class IModule;
+}
+namespace CarFactoryLibrary {
 namespace events {
 class EndOfModule;
 }
@@ -84,6 +87,13 @@ namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
 class IServoMotor;
+}
+}
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
 }
 }
 }
@@ -115,11 +125,10 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisRoboticArm__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>,
-		public IPush<
-				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece> {
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<CarFactoryLibrary::events::EndOfModule>,
+		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess> {
 public:
 	/**
 	 * 
@@ -195,19 +204,19 @@ public:
 		/**
 		 * 
 		 */
-		ENDOFMODULE_ID,
-		/**
-		 * 
-		 */
 		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
 		ROBOTICARMPICKPIECE_ID,
+		/**
+		 * 
+		 */
+		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
@@ -322,17 +331,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processEndOfModule(
-			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processRestartAfterEmergencyStop(
 			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
@@ -345,14 +343,13 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processStopProcess(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	void processEndOfModule(
+			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -364,6 +361,18 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processStopProcess(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
 	 * 
 	 */
@@ -448,6 +457,17 @@ public:
 	 */
 	virtual void connect_pDelivered(
 			IPush<CarFactoryLibrary::events::DeliveredCarConveyor>* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pLCD(
+			::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pModule(::CarFactoryLibrary::IModule* /*in*/ref);
 
 private:
 	/**

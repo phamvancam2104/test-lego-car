@@ -15,7 +15,6 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppLargeMotor.h"
 #include "EV3PapyrusLibrary/CppColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryConveyor__Controller.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -23,20 +22,10 @@ class IColorSensor;
 }
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
-namespace Actuators {
-class ILargeMotor;
-}
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
 namespace EV3Brick {
 class ILcd;
 }
 }
-}
-namespace CarFactoryLibrary {
-class IModule;
 }
 
 // End of Include stereotype (header)
@@ -81,23 +70,11 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryConveyor__Controller conveyorController;
-	/**
-	 * 
-	 */
 	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pMotor;
-	/**
-	 * 
-	 */
 	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * go to the position to wait the piece of the car
 	 */

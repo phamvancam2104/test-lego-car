@@ -232,13 +232,6 @@ void AbstractColorSensor::set_attr_string(
 		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
 }
 
-/**
- * 
- */
-AbstractColorSensor::AbstractColorSensor() :
-		abstractcolorsensorController(this) {
-}
-
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************

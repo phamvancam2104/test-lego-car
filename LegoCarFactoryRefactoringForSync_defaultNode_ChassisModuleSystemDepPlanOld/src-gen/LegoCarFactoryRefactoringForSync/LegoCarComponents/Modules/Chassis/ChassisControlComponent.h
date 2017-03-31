@@ -18,8 +18,6 @@
 #include "MindsensorsPapyrusLibrary/ConcreteClasses/CppNumericPad.h"
 
 // Include from Include stereotype (header)
-#include "iostream"
-using namespace std;
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
 class StopProcess;
@@ -34,6 +32,16 @@ namespace CarFactoryLibrary {
 namespace events {
 class EndOfModule;
 }
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
+}
+}
+}
+namespace CarFactoryLibrary {
+class IModule;
 }
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
@@ -171,6 +179,14 @@ public:
 	 * 
 	 */
 	InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	ProvidedPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * 
 	 */

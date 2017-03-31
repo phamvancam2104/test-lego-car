@@ -17,7 +17,6 @@
 #include "CarFactoryLibrary/RoboticArm.h"
 
 // Derived includes directives
-#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/RoboticArmPickPiece.h"
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
@@ -194,7 +193,7 @@ RoboticArm::RoboticArm(
 				plier_motor_port, open_pliers_motor_position,
 				close_pliers_motor_position), motor_up_down_offset(
 				up_down_offset), motor_front_back_offset(front_back_offset), motor_right_left_offset(
-				right_left_offset), roboticarmController(this) {
+				right_left_offset) {
 }
 
 /**

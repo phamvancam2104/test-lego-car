@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/AbstractClasses/Sensors/AbstractSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/SensorsAbstractTouchSensor__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -39,10 +38,6 @@ namespace Sensors {
  */
 class AbstractTouchSensor: public AbstractSensor {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SensorsAbstractTouchSensor__Controller abstracttouchsensorController;
 	/**
 	 * 
 	 */
@@ -210,10 +205,6 @@ public:
 	 * @return ret 
 	 */
 	::PrimitiveTypes::Boolean isTouch();
-	/**
-	 * 
-	 */
-	AbstractTouchSensor();
 
 };
 /************************************************************/

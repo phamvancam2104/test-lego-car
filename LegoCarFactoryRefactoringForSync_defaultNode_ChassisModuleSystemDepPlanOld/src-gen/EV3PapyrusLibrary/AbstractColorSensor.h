@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/AbstractClasses/Sensors/AbstractSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3PapyrusLibraryAbstractColorSensor__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -33,10 +32,6 @@ namespace EV3PapyrusLibrary {
  */
 class AbstractColorSensor: public ::EV3PapyrusLibrary::AbstractClasses::Sensors::AbstractSensor {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3PapyrusLibraryAbstractColorSensor__Controller abstractcolorsensorController;
 	/**
 	 * 
 	 */
@@ -214,10 +209,6 @@ public:
 	 * @return ret 
 	 */
 	virtual ::PrimitiveTypes::Integer get_ambient_intensity() = 0;
-	/**
-	 * 
-	 */
-	AbstractColorSensor();
 
 };
 /************************************************************/

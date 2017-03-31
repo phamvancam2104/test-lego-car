@@ -11,7 +11,6 @@
 
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/Pkg_EV3Brick.h"
 
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickAbstractButton__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -39,10 +38,6 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickAbstractButton__Controller abstractbuttonController;
-	/**
-	 * 
-	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> buttonPort;
 	/**
 	 * 
@@ -59,10 +54,6 @@ public:
 	 * @return ret 
 	 */
 	::PrimitiveTypes::Boolean process_all();
-	/**
-	 * 
-	 */
-	AbstractButton();
 
 };
 /************************************************************/

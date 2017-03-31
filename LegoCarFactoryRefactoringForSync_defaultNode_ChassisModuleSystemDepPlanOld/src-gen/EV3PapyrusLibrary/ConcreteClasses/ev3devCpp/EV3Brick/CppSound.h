@@ -21,6 +21,14 @@
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ISound;
+}
+}
+}
+
 // End of Include stereotype (header)
 
 namespace EV3PapyrusLibrary {
@@ -43,6 +51,10 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppSound__Controller cppsoundController;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ISound> soundDevicePort;
 	/**
 	 * generated comment
 	 * @return ret 

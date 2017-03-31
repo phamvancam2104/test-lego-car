@@ -14,7 +14,6 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/AbstractClasses/Actuators/AbstractMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ActuatorsAbstractLargeMotor__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -39,10 +38,6 @@ namespace Actuators {
  */
 class AbstractLargeMotor: public AbstractMotor {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsAbstractLargeMotor__Controller abstractlargemotorController;
 	/**
 	 * 
 	 */
@@ -422,10 +417,6 @@ public:
 	 * @return  
 	 */
 	virtual void stop(bool /*in*/brake) = 0;
-	/**
-	 * 
-	 */
-	AbstractLargeMotor();
 
 };
 /************************************************************/

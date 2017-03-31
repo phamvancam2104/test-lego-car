@@ -72,13 +72,6 @@ unsigned int AbstractSound::volume() {
 void AbstractSound::set_volume(unsigned int /*in*/v) {
 }
 
-/**
- * 
- */
-AbstractSound::AbstractSound() :
-		abstractsoundController(this) {
-}
-
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
