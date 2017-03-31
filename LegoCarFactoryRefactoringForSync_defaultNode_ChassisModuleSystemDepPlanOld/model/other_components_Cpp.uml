@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_0QTTMRYYEeevmcXpc9RVVQ" name="other_components_Cpp">
+    <packagedElement xmi:type="uml:Class" xmi:id="_DcplYAbJEeaF1M78KmUHVQ" name="led_status">
+      <ownedAttribute xmi:id="_h1RpUAbMEeaVw9eaWLzosg" name="red_led_index" visibility="protected">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_3fXXMAbMEeaVw9eaWLzosg" name="orange_led_index" visibility="protected">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_3l9ucAbMEeaVw9eaWLzosg" name="green_led_index" visibility="protected">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FMq8EAbKEeaB05f6i8NhVA" name="led_status" specification="_Alt_EAbKEeaB05f6i8NhVA">
+        <language>C++</language>
+        <body>	for (std::string p : ports) {
+		leds.push_back(servo_motor(p));
+		leds[leds.size() - 1].float_();
+	}</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pGCMEAbKEeaB05f6i8NhVA" name="red_led" specification="_llJfQAbKEeaB05f6i8NhVA">
+        <language>C++</language>
+        <body>all_led_off();
+leds[red_led_index].run();</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vks4oAbKEeaB05f6i8NhVA" name="orange_led" specification="_vkuGwAbKEeaB05f6i8NhVA">
+        <language>C++</language>
+        <body>all_led_off();
+leds[orange_led_index].run();</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4NodUAbKEeaB05f6i8NhVA" name="green_led" specification="_4NodUQbKEeaB05f6i8NhVA">
+        <language>C++</language>
+        <body>all_led_off();
+leds[green_led_index].run();</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-DHC8AbKEeaB05f6i8NhVA" name="all_led_on" specification="_ZCTpwAbKEeaB05f6i8NhVA">
+        <language>C++</language>
+        <body>	for (servo_motor sv : leds) {
+		sv.run();
+	}</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_E5nAsAbLEeaB05f6i8NhVA" name="all_led_off" specification="_cc9LsAbKEeaB05f6i8NhVA">
+        <language>C++</language>
+        <body>	for (servo_motor sv : leds) {
+		sv.float_();
+	}</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_Alt_EAbKEeaB05f6i8NhVA" name="led_status" method="_FMq8EAbKEeaB05f6i8NhVA">
+        <ownedParameter xmi:id="_IbUpYAbKEeaB05f6i8NhVA" name="red_port">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/ev3dev_Cpp.uml#_f3I3n7h-EeWbZ5V_nFbu7g"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_EJdqQAbYEeaz_pWDQeuMMg" name="orange_port">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/ev3dev_Cpp.uml#_f3I3n7h-EeWbZ5V_nFbu7g"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_ER9e8AbYEeaz_pWDQeuMMg" name="green_port">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/ev3dev_Cpp.uml#_f3I3n7h-EeWbZ5V_nFbu7g"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_llJfQAbKEeaB05f6i8NhVA" name="red_led" method="_pGCMEAbKEeaB05f6i8NhVA"/>
+      <ownedOperation xmi:id="_vkuGwAbKEeaB05f6i8NhVA" name="orange_led" method="_vks4oAbKEeaB05f6i8NhVA"/>
+      <ownedOperation xmi:id="_4NodUQbKEeaB05f6i8NhVA" name="green_led" method="_4NodUAbKEeaB05f6i8NhVA"/>
+      <ownedOperation xmi:id="_ZCTpwAbKEeaB05f6i8NhVA" name="all_led_on" method="_-DHC8AbKEeaB05f6i8NhVA"/>
+      <ownedOperation xmi:id="_cc9LsAbKEeaB05f6i8NhVA" name="all_led_off" method="_E5nAsAbLEeaB05f6i8NhVA"/>
+      <ownedOperation xmi:id="_-BRiAEjYEeasuPJrwEAWTQ" name="led_status"/>
+    </packagedElement>
+    <profileApplication xmi:id="_HnfDkAbIEeaR1INeSJWoaQ">
+      <eAnnotations xmi:id="_Hnhf0AbIEeaR1INeSJWoaQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:External xmi:id="_0QTTNhYYEeevmcXpc9RVVQ" base_Classifier="_DcplYAbJEeaF1M78KmUHVQ"/>
+  <C_Cpp:Ref xmi:id="_0QUhUhYYEeevmcXpc9RVVQ" base_parameter="_IbUpYAbKEeaB05f6i8NhVA"/>
+  <C_Cpp:Ref xmi:id="_0QUhVBYYEeevmcXpc9RVVQ" base_parameter="_EJdqQAbYEeaz_pWDQeuMMg"/>
+  <C_Cpp:Ref xmi:id="_0QUhVhYYEeevmcXpc9RVVQ" base_parameter="_ER9e8AbYEeaz_pWDQeuMMg"/>
+</xmi:XMI>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_8nSdABX8Eee3yvvSWdw-Mg" name="componentlib" viewpoint="">
+    <packagedElement xmi:type="uml:Package" xmi:id="_8nSdARX8Eee3yvvSWdw-Mg" name="StdPorts">
+      <packagedElement xmi:type="uml:Class" xmi:id="_N6fa4JsrEd61Eo3nmu3JhQ" name="Cstart" isAbstract="true">
+        <ownedAttribute xmi:id="_94ci4BX8Eee3yvvSWdw-Mg" name="cstartController">
+          <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/LegoCarFactoryRefactoringForSync.uml#_94F9kBX8Eee3yvvSWdw-Mg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_AGNa8BX9Eee3yvvSWdw-Mg" name="start" type="_AGDp8RX9Eee3yvvSWdw-Mg"/>
+        <ownedOperation xmi:id="_96S9ARX8Eee3yvvSWdw-Mg" name="Cstart"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_AGNa8RX9Eee3yvvSWdw-Mg" client="_N6fa4JsrEd61Eo3nmu3JhQ">
+        <supplier xmi:type="uml:Interface" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_AF-xcBX9Eee3yvvSWdw-Mg" name="external">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_AGDp8RX9Eee3yvvSWdw-Mg" name="ProvidedPort&lt;sysinterfaces::IStart>"/>
+    </packagedElement>
+    <profileApplication xmi:id="_O6TiIjLUEd26WNosUASSSw">
+      <eAnnotations xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_ugrx4AHIEd6pm-KfUZMnnQ">
+      <eAnnotations xmi:id="_ugztsAHIEd6pm-KfUZMnnQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_u03PkFRxEd6GqrP6fkWBoQ">
+      <eAnnotations xmi:id="_u1sWAFRxEd6GqrP6fkWBoQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_0x8woBn3EeONpa5JgejICQ">
+      <eAnnotations xmi:id="_01dXoBn3EeONpa5JgejICQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//SRM/SW_Concurrency"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_A_vtYBJeEdy3Td9UhuLFPg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_K7p7kGpIEeaSLtRdInZlZA">
+      <eAnnotations xmi:id="_K7sX0GpIEeaSLtRdInZlZA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Transformation/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:ModelLibrary xmi:id="_8nSdBxX8Eee3yvvSWdw-Mg" base_Package="_8nSdABX8Eee3yvvSWdw-Mg"/>
+  <standard:Create xmi:id="_98Hh8BX8Eee3yvvSWdw-Mg" base_BehavioralFeature="_96S9ARX8Eee3yvvSWdw-Mg"/>
+  <C_Cpp:ConstInit xmi:id="_98R6ABX8Eee3yvvSWdw-Mg" initialisation="cstartController(this)" base_operation="_96S9ARX8Eee3yvvSWdw-Mg"/>
+  <C_Cpp:NoCodeGen xmi:id="_AGDp8BX9Eee3yvvSWdw-Mg" base_element="_AF-xcBX9Eee3yvvSWdw-Mg"/>
+  <C_Cpp:External xmi:id="_AGIicBX9Eee3yvvSWdw-Mg" base_Classifier="_AGDp8RX9Eee3yvvSWdw-Mg"/>
+  <C_Cpp:Include xmi:id="_AGMz4BX9Eee3yvvSWdw-Mg" header="namespace sysinterfaces {class IStart;}&#xD;&#xA;" base_class="_N6fa4JsrEd61Eo3nmu3JhQ" base_Classifier="_N6fa4JsrEd61Eo3nmu3JhQ"/>
+</xmi:XMI>
