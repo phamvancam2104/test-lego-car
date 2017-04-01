@@ -44,27 +44,29 @@ bool ChassisConvoyer::fromChoicetoMisplaceGuard() {
  * @return ret true if the chassis is present and false otherwise
  */
 bool ChassisConvoyer::check_presence() {
-	color_sensor.set_mode("COL-COLOR");
-	int color_state = 0;
-	bool ret = false;
-	//check white - black - white sequence
-	while (motor.speed() == 0)
-		;
-	while (motor.speed() != 0) {
-		char color = color_sensor.value(0);
-		if (color == 6 && color_state == 0) { //first white wheel
-			color_state++;
-		}
-		if (color == 0 && color_state == 1) { //none after white wheel
-			color_state++;
-		}
-		if (color == 6 && color_state == 2) { //detect second white whell
-			color_state++;
-			ret = true;
-		}
-	}
-
-	return ret;
+	/*
+	 color_sensor.set_mode("COL-COLOR");
+	 int color_state = 0;
+	 bool ret = false;
+	 //check white - black - white sequence
+	 while(motor.speed() == 0);
+	 while (motor.speed() != 0) {
+	 char color = color_sensor.value(0);
+	 if (color == 6 && color_state==0) { //first white wheel
+	 color_state++;
+	 }
+	 if (color == 0 && color_state==1) { //none after white wheel
+	 color_state++;
+	 }
+	 if (color == 6 && color_state==2) { //detect second white whell
+	 color_state++;
+	 ret = true;
+	 }
+	 }
+	 
+	 return ret;
+	 */
+	return 0;
 }
 
 /**
@@ -72,7 +74,7 @@ bool ChassisConvoyer::check_presence() {
  * @return ret true if the chassis is present and false otherwise
  */
 int ChassisConvoyer::get_current_module() {
-	return get_module()->current_module;
+	return 0;
 }
 
 /**
@@ -80,7 +82,7 @@ int ChassisConvoyer::get_current_module() {
  * @return ret true if the chassis is present and false otherwise
  */
 ::CarFactoryLibrary::BluetoothSlaveEnum ChassisConvoyer::get_status() {
-	return get_module()->status;
+	return CarFactoryLibrary::NO_SLAVE_MSG;
 }
 
 /**
@@ -89,16 +91,16 @@ int ChassisConvoyer::get_current_module() {
  */
 void ChassisConvoyer::set_status(
 		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
-	get_module()->status = status;
+	//get_module()->status = status;
 }
 
 /**
  * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
  */
 void ChassisConvoyer::send_stop_process_event() {
-	Events::StopProcess s;
-	s.is_emergency_stop = true;
-	static_cast<ChassisModule*>(get_module())->sendStopProcess(s);
+	//Events::StopProcess s;
+	//s.is_emergency_stop = true;
+	//static_cast<ChassisModule*>(get_module())->sendStopProcess(s);
 }
 
 /**
@@ -114,7 +116,7 @@ void ChassisConvoyer::effectFromChoicetoRestart() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice1toReplaceGuard() {
-	return true; //get_current_module() == MASTER_MODULE
+	return true;	//get_current_module() == MASTER_MODULE
 }
 
 /**
@@ -122,7 +124,7 @@ bool ChassisConvoyer::fromChoice1toReplaceGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
-	return true; //get_current_module() == MASTER_MODULE
+	return true;	//get_current_module() == MASTER_MODULE
 }
 
 /**
@@ -130,7 +132,7 @@ bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
-	return true; //is_misplace == true
+	return true;	//is_misplace == true
 }
 
 /**
@@ -138,7 +140,7 @@ bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
-	return true; //get_status() == RESULT_READY
+	return true;	//get_status() == RESULT_READY
 }
 
 /**
@@ -146,7 +148,7 @@ bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
-	return true; //get_status() == RESULT_READY
+	return true;	//get_status() == RESULT_READY
 }
 
 /**

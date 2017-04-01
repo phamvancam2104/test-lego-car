@@ -132,11 +132,10 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisShelf__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<CarFactoryLibrary::events::EndOfModule>,
-		public IPush<
-				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<CarFactoryLibrary::events::CheckRack> {
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		public IPush<CarFactoryLibrary::events::CheckRack>,
+		public IPush<CarFactoryLibrary::events::EndOfModule> {
 public:
 	/**
 	 * 
@@ -216,19 +215,19 @@ public:
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
-		/**
-		 * 
-		 */
-		ENDOFMODULE_ID,
-		/**
-		 * 
-		 */
 		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
+		STOPPROCESS_ID,
+		/**
+		 * 
+		 */
 		CHECKRACK_ID,
+		/**
+		 * 
+		 */
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
@@ -343,29 +342,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processStopProcess(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processEndOfModule(
-			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processRestartAfterEmergencyStop(
 			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
@@ -378,12 +354,35 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processStopProcess(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processEndOfModule(
+			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 */
