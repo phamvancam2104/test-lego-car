@@ -73,7 +73,8 @@ bool ChassisShelf::fromWhich_racktoFirst_rackGuard() {
  * 
  */
 ChassisShelf::ChassisShelf() :
-		chassisshelfController(this) {
+		::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2"), chassisshelfController(
+				this) {
 }
 
 } // of namespace Chassis

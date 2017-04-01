@@ -45,7 +45,10 @@ bool ChassisControlComponent::fromChoice4toSendRestartEventGuard() {
  * 
  */
 ChassisControlComponent::ChassisControlComponent() :
-		chassiscontrolcomponentController(this) {
+		::CarFactoryLibrary::Module("in2", "lego-ev3-color", "lego-ev3-color",
+				"lego-ev3-color", "in4", "in3:i2c88", "outB", "in3:i2c88:sv6",
+				"in3:i2c88:sv7", "in3:i2c88:sv8"), key_pad("in1"), chassiscontrolcomponentController(
+				this) {
 }
 
 /**

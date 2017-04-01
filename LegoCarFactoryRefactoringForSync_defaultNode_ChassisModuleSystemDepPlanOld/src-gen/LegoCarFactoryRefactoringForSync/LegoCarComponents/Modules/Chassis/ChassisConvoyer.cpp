@@ -153,7 +153,8 @@ bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
  * 
  */
 ChassisConvoyer::ChassisConvoyer() :
-		chassisconvoyerController(this) {
+		::CarFactoryLibrary::Conveyor("outC", "in2:i2c80:mux1"), chassisconvoyerController(
+				this) {
 }
 
 } // of namespace Chassis

@@ -125,10 +125,11 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisRoboticArm__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<CarFactoryLibrary::events::EndOfModule>,
-		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess> {
+		CarFactoryLibrary::events::RoboticArmPickPiece>,
+		public IPush<
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		public IPush<CarFactoryLibrary::events::EndOfModule> {
 public:
 	/**
 	 * 
@@ -204,19 +205,19 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
-		/**
-		 * 
-		 */
-		ENDOFMODULE_ID,
-		/**
-		 * 
-		 */
 		ROBOTICARMPICKPIECE_ID,
 		/**
 		 * 
 		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
+		/**
+		 * 
+		 */
 		STOPPROCESS_ID,
+		/**
+		 * 
+		 */
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
@@ -331,6 +332,17 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRoboticArmPickPiece(
+			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processRestartAfterEmergencyStop(
 			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
@@ -343,28 +355,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processEndOfModule(
-			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processRoboticArmPickPiece(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -373,6 +363,17 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processEndOfModule(
+			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 */

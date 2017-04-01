@@ -40,7 +40,9 @@ bool ChassisRoboticArm::fromChoicetoSendDeliveredCarConveyorEventGuard() {
  * 
  */
 ChassisRoboticArm::ChassisRoboticArm() :
-		chassisroboticarmController(this) {
+		::CarFactoryLibrary::RoboticArm("in3:i2c88:sv3", "in3:i2c88:sv2",
+				"in3:i2c88:sv1", "in3:i2c88:sv4"), chassisroboticarmController(
+				this) {
 }
 
 } // of namespace Chassis
