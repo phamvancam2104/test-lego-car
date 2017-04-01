@@ -48,12 +48,6 @@ void ChassisChassisConvoyer__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISCONVOYER__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case DELIVEREDCARCONVEYOR_ID:
-				::CarFactoryLibrary::events::DeliveredCarConveyor sig_DELIVEREDCARCONVEYOR_ID;
-				memcpy(&sig_DELIVEREDCARCONVEYOR_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::DeliveredCarConveyor));
-				processDeliveredCarConveyor(sig_DELIVEREDCARCONVEYOR_ID);
-				break;
 			case STOPPROCESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
 				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
@@ -66,6 +60,12 @@ void ChassisChassisConvoyer__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
+				break;
+			case DELIVEREDCARCONVEYOR_ID:
+				::CarFactoryLibrary::events::DeliveredCarConveyor sig_DELIVEREDCARCONVEYOR_ID;
+				memcpy(&sig_DELIVEREDCARCONVEYOR_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::DeliveredCarConveyor));
+				processDeliveredCarConveyor(sig_DELIVEREDCARCONVEYOR_ID);
 				break;
 			case PREPARECONVEYOR_ID:
 				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
@@ -234,44 +234,6 @@ void ChassisChassisConvoyer__Controller::stopBehavior() {
  * 
  * @param sig 
  */
-void ChassisChassisConvoyer__Controller::processDeliveredCarConveyor(
-		::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == REWIND_ID) {
-		//from Rewind to choice1
-		if (true) {
-			if (p_origin->fromChoice1toReplaceGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] = REPLACE_ID;
-				//starting the counters for time events
-				//start activity of replace by calling setFlag
-				setFlag(REPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
-			} else {
-				states[PRINCIPALSTATE_ID].actives[0] = SENDDELIVERCOMMAND_ID;
-				//starting the counters for time events
-				//start activity of SendDeliverCommand by calling setFlag
-				setFlag(SENDDELIVERCOMMAND_ID, statemachine::TF_DO_ACTIVITY,
-						true);
-			}
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisConvoyer__Controller::push(
-		::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, DELIVEREDCARCONVEYOR_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::DeliveredCarConveyor));
-}
-
-/**
- * 
- * @param sig 
- */
 void ChassisChassisConvoyer__Controller::processStopProcess(
 		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -338,6 +300,44 @@ void ChassisChassisConvoyer__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig,
 			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
 			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisConvoyer__Controller::processDeliveredCarConveyor(
+		::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == REWIND_ID) {
+		//from Rewind to choice1
+		if (true) {
+			if (p_origin->fromChoice1toReplaceGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] = REPLACE_ID;
+				//starting the counters for time events
+				//start activity of replace by calling setFlag
+				setFlag(REPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
+			} else {
+				states[PRINCIPALSTATE_ID].actives[0] = SENDDELIVERCOMMAND_ID;
+				//starting the counters for time events
+				//start activity of SendDeliverCommand by calling setFlag
+				setFlag(SENDDELIVERCOMMAND_ID, statemachine::TF_DO_ACTIVITY,
+						true);
+			}
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisConvoyer__Controller::push(
+		::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, DELIVEREDCARCONVEYOR_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::DeliveredCarConveyor));
 }
 
 /**

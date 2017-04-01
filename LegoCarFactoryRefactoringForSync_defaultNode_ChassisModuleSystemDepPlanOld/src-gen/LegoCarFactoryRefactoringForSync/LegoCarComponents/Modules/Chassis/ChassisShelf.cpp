@@ -34,7 +34,7 @@ namespace Chassis {
  * @return ret 
  */
 bool ChassisShelf::fromWhich_racktoSecond_rackGuard() {
-	return !is_empty(2);
+	return true; //!is_empty(2)
 }
 
 /**
@@ -42,7 +42,7 @@ bool ChassisShelf::fromWhich_racktoSecond_rackGuard() {
  * @return ret 
  */
 bool ChassisShelf::fromChoicetoWait_endGuard() {
-	return get_status() == RESULT_READY;
+	return true; //get_status() == RESULT_READY
 }
 
 /**
@@ -50,7 +50,7 @@ bool ChassisShelf::fromChoicetoWait_endGuard() {
  * @return ret 
  */
 bool ChassisShelf::fromChoicetoEmpty_rackGuard() {
-	return get_status() == RESULT_ERROR;
+	return true; //get_status() == RESULT_ERROR
 }
 
 /**
@@ -58,7 +58,7 @@ bool ChassisShelf::fromChoicetoEmpty_rackGuard() {
  * @return ret 
  */
 bool ChassisShelf::fromTesttoNot_Master_ModuleGuard() {
-	return get_current_module() != MASTER_MODULE;
+	return true; //get_current_module() != MASTER_MODULE
 }
 
 /**
@@ -66,7 +66,7 @@ bool ChassisShelf::fromTesttoNot_Master_ModuleGuard() {
  * @return ret 
  */
 bool ChassisShelf::fromWhich_racktoFirst_rackGuard() {
-	return !is_empty(1);
+	return true; //!is_empty(1)
 }
 
 /**

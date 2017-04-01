@@ -132,8 +132,8 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisShelf__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		public IPush<CarFactoryLibrary::events::EndOfModule>,
 		public IPush<
 				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
 		public IPush<CarFactoryLibrary::events::CheckRack> {
@@ -216,11 +216,11 @@ public:
 		/**
 		 * 
 		 */
-		ENDOFMODULE_ID,
+		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
@@ -343,17 +343,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processEndOfModule(
-			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -362,6 +351,17 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processEndOfModule(
+			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 

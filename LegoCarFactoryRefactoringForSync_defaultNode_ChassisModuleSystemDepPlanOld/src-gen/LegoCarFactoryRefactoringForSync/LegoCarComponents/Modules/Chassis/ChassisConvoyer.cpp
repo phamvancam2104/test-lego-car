@@ -36,7 +36,7 @@ namespace Chassis {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoicetoMisplaceGuard() {
-	return get_status() == RESULT_ERROR;
+	return true; //get_status() == RESULT_ERROR
 }
 
 /**
@@ -114,7 +114,7 @@ void ChassisConvoyer::effectFromChoicetoRestart() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice1toReplaceGuard() {
-	return get_current_module() == MASTER_MODULE;
+	return true; //get_current_module() == MASTER_MODULE
 }
 
 /**
@@ -122,7 +122,7 @@ bool ChassisConvoyer::fromChoice1toReplaceGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
-	return get_current_module() == MASTER_MODULE;
+	return true; //get_current_module() == MASTER_MODULE
 }
 
 /**
@@ -130,7 +130,7 @@ bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
-	return is_misplace == true;
+	return true; //is_misplace == true
 }
 
 /**
@@ -138,7 +138,7 @@ bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
-	return get_status() == RESULT_READY;
+	return true; //get_status() == RESULT_READY
 }
 
 /**
@@ -146,7 +146,7 @@ bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
  * @return ret 
  */
 bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
-	return get_status() == RESULT_READY;
+	return true; //get_status() == RESULT_READY
 }
 
 /**

@@ -38,7 +38,7 @@ namespace Chassis {
  */
 bool ChassisControlComponent::fromChoice4toSendRestartEventGuard() {
 
-	return ev3Brick.topButton.pressed();
+	return true; //ev3Brick.topButton.pressed();
 }
 
 /**
@@ -67,7 +67,7 @@ void ChassisControlComponent::effectFromEmergencyStopStatetoMisplace(
  */
 bool ChassisControlComponent::fromChoice2toPrepareConveyorGuard() {
 
-	return current_module != 3;
+	return true; //current_module != 3;
 }
 
 /**
@@ -76,7 +76,7 @@ bool ChassisControlComponent::fromChoice2toPrepareConveyorGuard() {
  */
 bool ChassisControlComponent::fromChoice1toStopMotorsGuard() {
 
-	return emergency_button.value(0) && current_module == MASTER_MODULE;
+	return true; //emergency_button.value(0) && current_module == MASTER_MODULE;
 }
 
 /**
@@ -85,7 +85,7 @@ bool ChassisControlComponent::fromChoice1toStopMotorsGuard() {
  */
 bool ChassisControlComponent::fromChoice0toSendRestartEventGuard() {
 
-	return current_module != CarFactoryLibrary::MASTER_MODULE;
+	return true;
 }
 
 /**
@@ -94,7 +94,7 @@ bool ChassisControlComponent::fromChoice0toSendRestartEventGuard() {
  */
 bool ChassisControlComponent::fromChoicetoSendRestartEventGuard() {
 
-	return ev3Brick.topButton.pressed();
+	return true; //ev3Brick.topButton.pressed();
 }
 
 /**
@@ -103,7 +103,7 @@ bool ChassisControlComponent::fromChoicetoSendRestartEventGuard() {
  */
 bool ChassisControlComponent::fromChoice13toChooseBackFrontOrderGuard() {
 
-	return init_bluetooth_communication();
+	return true; //init_bluetooth_communication();
 }
 
 /**
@@ -112,7 +112,7 @@ bool ChassisControlComponent::fromChoice13toChooseBackFrontOrderGuard() {
  */
 bool ChassisControlComponent::fromChoice5toSendRestartEventGuard() {
 
-	return current_module != MASTER_MODULE;
+	return true; // current_module != MASTER_MODULE;
 }
 
 } // of namespace Chassis

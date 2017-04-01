@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_BrPpkxbCEeeWsLOW_B9R0A" name="statemachine">
+  <uml:Model xmi:id="_HkYf0RbFEeeWsLOW_B9R0A" name="statemachine">
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_hNs5oCdSEea6h5xPEh8iAg" name="ThreadFunctions">
       <ownedLiteral xmi:id="_kWR0ICdSEea6h5xPEh8iAg" name="TF_CHANGE_EVENT"/>
       <ownedLiteral xmi:id="_tj4MICdSEea6h5xPEh8iAg" name="TF_TIME_EVENT"/>
@@ -271,29 +271,29 @@ return ret;</body>
       </eAnnotations>
       <appliedProfile href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </profileApplication>
-    <profileApplication xmi:id="_FUFYgBbCEeeWsLOW_B9R0A">
-      <eAnnotations xmi:id="_FUFYgRbCEeeWsLOW_B9R0A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="_KJv_kBbFEeeWsLOW_B9R0A">
+      <eAnnotations xmi:id="_KJv_kRbFEeeWsLOW_B9R0A" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_BrQQpBbCEeeWsLOW_B9R0A" header="// common definitions for statemachine&#xD;&#xA;#include &quot;time.h&quot;&#xD;&#xA;#include &quot;pthread.h&quot;&#xD;&#xA;#define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_BrPpkxbCEeeWsLOW_B9R0A"/>
-  <C_Cpp:Include xmi:id="_BrgIQRbCEeeWsLOW_B9R0A" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Include xmi:id="_BrhWYBbCEeeWsLOW_B9R0A" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_BrikgBbCEeeWsLOW_B9R0A" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_BrkZsBbCEeeWsLOW_B9R0A" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_Brp5QRbCEeeWsLOW_B9R0A" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_BrrucRbCEeeWsLOW_B9R0A" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
-  <standard:Create xmi:id="_BruKsRbCEeeWsLOW_B9R0A" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:ConstInit xmi:id="_BruKshbCEeeWsLOW_B9R0A" initialisation="data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_BrvY0BbCEeeWsLOW_B9R0A" base_parameter="_fOpsgLGKEea8TLs0FB9Z6g"/>
-  <C_Cpp:Ptr xmi:id="_Brwm8hbCEeeWsLOW_B9R0A" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_BrycIhbCEeeWsLOW_B9R0A" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ref xmi:id="_BrzqQRbCEeeWsLOW_B9R0A" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_Br6X8BbCEeeWsLOW_B9R0A" base_property="_jliRwCkVEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="_Br8NIBbCEeeWsLOW_B9R0A" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:ConstInit xmi:id="_Br8NIRbCEeeWsLOW_B9R0A" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:Ptr xmi:id="_Br80MBbCEeeWsLOW_B9R0A" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="_Br_3gBbCEeeWsLOW_B9R0A" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Include xmi:id="_HkYf1xbFEeeWsLOW_B9R0A" header="// common definitions for statemachine&#xD;&#xA;#include &quot;time.h&quot;&#xD;&#xA;#include &quot;pthread.h&quot;&#xD;&#xA;#define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_HkYf0RbFEeeWsLOW_B9R0A"/>
+  <C_Cpp:Include xmi:id="_Hkf0kxbFEeeWsLOW_B9R0A" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="_HkgboRbFEeeWsLOW_B9R0A" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_HkhpwBbFEeeWsLOW_B9R0A" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Hki34BbFEeeWsLOW_B9R0A" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_HkktERbFEeeWsLOW_B9R0A" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_HklUIxbFEeeWsLOW_B9R0A" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
+  <standard:Create xmi:id="_HkmiQRbFEeeWsLOW_B9R0A" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:ConstInit xmi:id="_HknJUBbFEeeWsLOW_B9R0A" initialisation="data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_HknwYBbFEeeWsLOW_B9R0A" base_parameter="_fOpsgLGKEea8TLs0FB9Z6g"/>
+  <C_Cpp:Ptr xmi:id="_HkoXcxbFEeeWsLOW_B9R0A" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Hko-hBbFEeeWsLOW_B9R0A" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ref xmi:id="_HkplkxbFEeeWsLOW_B9R0A" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Hkso4hbFEeeWsLOW_B9R0A" base_property="_jliRwCkVEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_HktP8BbFEeeWsLOW_B9R0A" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:ConstInit xmi:id="_HktP8RbFEeeWsLOW_B9R0A" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Ptr xmi:id="_HktP8hbFEeeWsLOW_B9R0A" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_HkvFIRbFEeeWsLOW_B9R0A" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
 </xmi:XMI>

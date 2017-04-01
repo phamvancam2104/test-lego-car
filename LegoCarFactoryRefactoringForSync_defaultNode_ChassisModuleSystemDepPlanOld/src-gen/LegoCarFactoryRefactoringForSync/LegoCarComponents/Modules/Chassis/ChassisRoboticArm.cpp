@@ -33,7 +33,7 @@ namespace Chassis {
  * @return ret 
  */
 bool ChassisRoboticArm::fromChoicetoSendDeliveredCarConveyorEventGuard() {
-	return get_current_module() != MASTER_MODULE;
+	return true; //get_current_module() != MASTER_MODULE
 }
 
 /**

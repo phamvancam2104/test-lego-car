@@ -139,10 +139,10 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisConvoyer__Controller: public IPush<
-		CarFactoryLibrary::events::DeliveredCarConveyor>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		LegoCarFactoryRefactoringForSync::signals::StopProcess>,
 		public IPush<
 				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<CarFactoryLibrary::events::DeliveredCarConveyor>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> {
 public:
 	/**
@@ -239,15 +239,15 @@ public:
 		/**
 		 * 
 		 */
-		DELIVEREDCARCONVEYOR_ID,
-		/**
-		 * 
-		 */
 		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
 		RESTARTAFTEREMERGENCYSTOP_ID,
+		/**
+		 * 
+		 */
+		DELIVEREDCARCONVEYOR_ID,
 		/**
 		 * 
 		 */
@@ -366,17 +366,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processDeliveredCarConveyor(
-			::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -397,6 +386,17 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processDeliveredCarConveyor(
+			::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
