@@ -18,7 +18,6 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppSound.h"
 #include "EV3PapyrusLibrary/EV3BrickPackage/IEV3Brick.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickPackageAbstractEV3Brick__Controller.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -35,27 +34,6 @@ class ILed;
 }
 }
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class IButton;
-}
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ISound;
-}
-}
-}
 
 // End of Include stereotype (header)
 
@@ -68,6 +46,14 @@ namespace EV3BrickPackage {
  */
 class AbstractEV3Brick: public IEV3Brick {
 public:
+	AbstractEV3Brick() :
+			leftGreenLed("ev3-left1:green:ev3dev"), rightGreenLed(
+					"ev3-right1:green:ev3dev"), leftRedLed(
+					"ev3-left0:red:ev3dev"), rightRedLed(
+					"ev3-right0:red:ev3dev"), backButton(KEY_BACKSPACE), leftButton(
+					KEY_LEFT), rightButton(KEY_RIGHT), topButton(KEY_UP), downButton(
+					KEY_DOWN), okButton(KEY_ENTER), bluetoothDevice("useless") {
+	}
 	/**
 	 * 
 	 */
@@ -123,55 +109,7 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickPackageAbstractEV3Brick__Controller abstractev3brickController;
-	/**
-	 * 
-	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> LeftGreenLedPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> LeftRedLedPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> RightGreenLedPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> RightRedLedPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> BackButtonPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> OkButtonPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> DownButtonPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> UpButtonPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> LeftButtonPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> RightButtonPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> screenPort;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ISound> soundPort;
 	/**
 	 * 
 	 */
@@ -212,10 +150,6 @@ public:
 	::PrimitiveTypes::Boolean write(
 			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
 			::EV3PapyrusLibrary::Types::LocalString& /*in*/msg);
-	/**
-	 * 
-	 */
-	AbstractEV3Brick();
 	/**
 	 * 
 	 */

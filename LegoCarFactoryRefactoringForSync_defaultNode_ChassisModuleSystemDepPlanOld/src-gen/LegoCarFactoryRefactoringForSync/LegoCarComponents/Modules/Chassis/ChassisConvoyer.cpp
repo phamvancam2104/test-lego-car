@@ -113,7 +113,7 @@ void ChassisConvoyer::effectFromChoicetoRestart() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
+bool ChassisConvoyer::fromChoice1toReplaceGuard() {
 	return get_current_module() == MASTER_MODULE;
 }
 
@@ -121,7 +121,7 @@ bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice1toReplaceGuard() {
+bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
 	return get_current_module() == MASTER_MODULE;
 }
 
