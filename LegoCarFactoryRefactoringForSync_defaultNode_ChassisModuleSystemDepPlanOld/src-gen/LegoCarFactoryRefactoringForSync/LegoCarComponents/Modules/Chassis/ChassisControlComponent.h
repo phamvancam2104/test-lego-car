@@ -104,6 +104,10 @@ public:
 	/**
 	 * 
 	 */
+	int zadded;
+	/**
+	 * 
+	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ChassisChassisControlComponent__Controller chassiscontrolcomponentController;
 
 	StateMachine ChassisControlStateMachine {

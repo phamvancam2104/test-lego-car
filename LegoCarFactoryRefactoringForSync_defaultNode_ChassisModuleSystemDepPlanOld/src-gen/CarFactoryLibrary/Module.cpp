@@ -316,7 +316,7 @@ void Module::setStatus(BluetoothSlaveEnum /*in*/status) {
  * @return ret 
  */
 int Module::getCurrentModule() {
-	return this.current_module;
+	return this->current_module;
 }
 
 /**
@@ -324,7 +324,7 @@ int Module::getCurrentModule() {
  * @return ret 
  */
 ::EV3PapyrusLibrary::Types::LocalString& Module::getBluetoothName() {
-	return this->bluetooth_name;
+	return (::EV3PapyrusLibrary::Types::LocalString&) (this->bluetooth_name);
 }
 
 /**

@@ -1,202 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_F6q5gheVEee8yL29uJTLIg" name="EV3PapyrusLibrary">
-    <packagedElement xmi:type="uml:Package" xmi:id="_F6q5gxeVEee8yL29uJTLIg" name="Interfaces">
-      <packagedElement xmi:type="uml:Package" xmi:id="_F6rgqheVEee8yL29uJTLIg" name="EV3Brick">
-        <packagedElement xmi:type="uml:Interface" xmi:id="_Vqw6NrufEeWoXOFMIAWWaA" name="ILcd">
-          <ownedOperation xmi:id="_Vqw6S7ufEeWoXOFMIAWWaA" name="available" visibility="public">
-            <ownedParameter xmi:id="_Vqw6TLufEeWoXOFMIAWWaA" name="ret" direction="return">
+  <uml:Model xmi:id="_9TZ-kBfdEee41uykRtKsBA" name="EV3PapyrusLibrary">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_Vqt24LufEeWoXOFMIAWWaA" name="IColorSensor">
+      <generalization xmi:id="_Vqt24bufEeWoXOFMIAWWaA" general="_Vq2ZyrufEeWoXOFMIAWWaA"/>
+      <ownedOperation xmi:id="_PW_FcNP9EeW4nJ2D0KrVNA" name="get_color">
+        <ownedParameter xmi:id="_aRIe0NP9EeW4nJ2D0KrVNA" name="ret" direction="return" effect="create">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_aRIe0dP9EeW4nJ2D0KrVNA" name="color"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gky1QNP9EeW4nJ2D0KrVNA" name="get_reflect_intensity" visibility="public">
+        <ownedParameter xmi:id="_oG3fkNP9EeW4nJ2D0KrVNA" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_ToC9oETdEeaXRrf6q9xGfw" name="get_ambient_intensity" isAbstract="true">
+        <ownedParameter xmi:id="_ToC9oUTdEeaXRrf6q9xGfw" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ToC9okTdEeaXRrf6q9xGfw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ToC9o0TdEeaXRrf6q9xGfw" value="1"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_9Tdo8RfdEee41uykRtKsBA" name="Interfaces">
+      <packagedElement xmi:type="uml:Package" xmi:id="_9Tdo8hfdEee41uykRtKsBA" name="Sensors">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Vq2ZyrufEeWoXOFMIAWWaA" name="ISensor">
+          <generalization xmi:id="_Vq2Zy7ufEeWoXOFMIAWWaA" general="_VqvsELufEeWoXOFMIAWWaA"/>
+          <ownedOperation xmi:id="_Vq2Z7rufEeWoXOFMIAWWaA" name="value" visibility="public">
+            <ownedParameter xmi:id="_Vq2Z77ufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_Vq2Z8LufEeWoXOFMIAWWaA" name="index">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Vq2Z8bufEeWoXOFMIAWWaA" name="default">
+                <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+                <language>C++</language>
+                <body>0</body>
+              </defaultValue>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq2Z8rufEeWoXOFMIAWWaA" name="float_value" visibility="public">
+            <ownedParameter xmi:id="_Vq2Z87ufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_Vq2Z9LufEeWoXOFMIAWWaA" name="index">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Vq2Z9bufEeWoXOFMIAWWaA" name="default">
+                <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+                <language>C++</language>
+                <body>0</body>
+              </defaultValue>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq2Z9rufEeWoXOFMIAWWaA" name="type_name" visibility="public">
+            <ownedParameter xmi:id="_Vq2Z97ufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq2Z-LufEeWoXOFMIAWWaA" name="bin_data_format" visibility="public">
+            <ownedParameter xmi:id="_Vq2Z-bufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq2Z-rufEeWoXOFMIAWWaA" name="bin_data" visibility="public">
+            <ownedParameter xmi:id="_Vq2Z-7ufEeWoXOFMIAWWaA" name="ret" type="_aRzBsMvwEeWAr_trtbj9nQ" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq2Z_LufEeWoXOFMIAWWaA" name="set_command" visibility="public">
+            <ownedParameter xmi:id="_Vq3A0LufEeWoXOFMIAWWaA" name="v" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A0bufEeWoXOFMIAWWaA" name="commands" visibility="public">
+            <ownedParameter xmi:id="_Vq3A0rufEeWoXOFMIAWWaA" name="ret" type="_s4reEL-LEeWoXOFMIAWWaA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A07ufEeWoXOFMIAWWaA" name="decimals" visibility="public">
+            <ownedParameter xmi:id="_Vq3A1LufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A1bufEeWoXOFMIAWWaA" name="driver_name" visibility="public">
+            <ownedParameter xmi:id="_Vq3A1rufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A17ufEeWoXOFMIAWWaA" name="mode" visibility="public">
+            <ownedParameter xmi:id="_Vq3A2LufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A2bufEeWoXOFMIAWWaA" name="set_mode" visibility="public">
+            <ownedParameter xmi:id="_Vq3A27ufEeWoXOFMIAWWaA" name="v" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A3LufEeWoXOFMIAWWaA" name="modes" visibility="public">
+            <ownedParameter xmi:id="_Vq3A3bufEeWoXOFMIAWWaA" name="ret" type="_s4reEL-LEeWoXOFMIAWWaA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A3rufEeWoXOFMIAWWaA" name="num_values" visibility="public">
+            <ownedParameter xmi:id="_Vq3A37ufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A4LufEeWoXOFMIAWWaA" name="port_name" visibility="public">
+            <ownedParameter xmi:id="_Vq3A4bufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vq3A4rufEeWoXOFMIAWWaA" name="units" visibility="public">
+            <ownedParameter xmi:id="_Vq3A47ufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Vq42CLufEeWoXOFMIAWWaA" name="ITouchSensor">
+          <generalization xmi:id="_Vq42CbufEeWoXOFMIAWWaA" general="_Vq2ZyrufEeWoXOFMIAWWaA"/>
+          <ownedOperation xmi:id="_rZfY4MvkEeWAr_trtbj9nQ" name="isTouch" isAbstract="true">
+            <ownedParameter xmi:id="_wBxLkMvkEeWAr_trtbj9nQ" name="ret" direction="return">
               <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Boolean"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6TbufEeWoXOFMIAWWaA" name="resolution_x" visibility="public">
-            <ownedParameter xmi:id="_Vqw6TrufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6T7ufEeWoXOFMIAWWaA" name="resolution_y" visibility="public">
-            <ownedParameter xmi:id="_Vqw6ULufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6UbufEeWoXOFMIAWWaA" name="bits_per_pixel" visibility="public">
-            <ownedParameter xmi:id="_Vqw6UrufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6U7ufEeWoXOFMIAWWaA" name="frame_buffer_size" visibility="public">
-            <ownedParameter xmi:id="_Vqw6VLufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6VbufEeWoXOFMIAWWaA" name="line_length" visibility="public">
-            <ownedParameter xmi:id="_Vqw6VrufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6V7ufEeWoXOFMIAWWaA" name="frame_buffer" visibility="public">
-            <ownedParameter xmi:id="_Vqw6WLufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_YYWiwByeEduyofBvg4RL2w"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6WbufEeWoXOFMIAWWaA" name="fill" visibility="public">
-            <ownedParameter xmi:id="_Vqw6WrufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_Vqw6W7ufEeWoXOFMIAWWaA" name="pixel">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_YYWiwByeEduyofBvg4RL2w"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6XLufEeWoXOFMIAWWaA" name="init" visibility="protected">
-            <ownedParameter xmi:id="_Vqw6XbufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vqw6XrufEeWoXOFMIAWWaA" name="deinit" visibility="protected">
-            <ownedParameter xmi:id="_Vqw6X7ufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZdhsDIjEeaxEdI9C4Zehw" name="clear"/>
-          <ownedOperation xmi:id="_BZuAYDIjEeaxEdI9C4Zehw" name="write_text">
-            <ownedParameter xmi:id="_BZuAYTIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZuAYjIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZuAYzIjEeaxEdI9C4Zehw" name="text" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
-            <ownedParameter xmi:id="_tcrCIDItEeaz7ObJJ9pK5A" name="size" type="_-vo0MDIsEealTsQJVHeUlg">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tcrCITItEeaz7ObJJ9pK5A" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tcrCIjItEeaz7ObJJ9pK5A" value="1"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZvOgDIjEeaxEdI9C4Zehw" name="draw_line">
-            <ownedParameter xmi:id="_BZvOgTIjEeaxEdI9C4Zehw" name="x0">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZvOgjIjEeaxEdI9C4Zehw" name="y0">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZvOgzIjEeaxEdI9C4Zehw" name="x1">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZvOhDIjEeaxEdI9C4Zehw" name="y1">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZvOhTIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZv1kDIjEeaxEdI9C4Zehw" name="draw_full_rectangle">
-            <ownedParameter xmi:id="_BZv1kTIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZv1kjIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZv1kzIjEeaxEdI9C4Zehw" name="width">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZv1lDIjEeaxEdI9C4Zehw" name="height">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZv1lTIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZwcoDIjEeaxEdI9C4Zehw" name="draw_empty_rectangle">
-            <ownedParameter xmi:id="_BZwcoTIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZwcojIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZwcozIjEeaxEdI9C4Zehw" name="width">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZwcpDIjEeaxEdI9C4Zehw" name="height">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZwcpTIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZxqwDIjEeaxEdI9C4Zehw" name="draw_full_circle">
-            <ownedParameter xmi:id="_BZxqwTIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZxqwjIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZxqwzIjEeaxEdI9C4Zehw" name="radius">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZxqxDIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZyR0DIjEeaxEdI9C4Zehw" name="draw_empty_circle">
-            <ownedParameter xmi:id="_BZyR0TIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZyR0jIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZyR0zIjEeaxEdI9C4Zehw" name="radius">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZyR1DIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZy44DIjEeaxEdI9C4Zehw" name="draw_full_ellipse">
-            <ownedParameter xmi:id="_BZy44TIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZy44jIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZy44zIjEeaxEdI9C4Zehw" name="radiusx">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZy45DIjEeaxEdI9C4Zehw" name="radiusy">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZy45TIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZzf8DIjEeaxEdI9C4Zehw" name="draw_empty_ellipse">
-            <ownedParameter xmi:id="_BZzf8TIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZzf8jIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZzf8zIjEeaxEdI9C4Zehw" name="radiusx">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZzf9DIjEeaxEdI9C4Zehw" name="radiusy">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZzf9TIjEeaxEdI9C4Zehw" name="isBlack">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_BZ0HADIjEeaxEdI9C4Zehw" name="draw_bmp_image">
-            <ownedParameter xmi:id="_BZ0HATIjEeaxEdI9C4Zehw" name="filename" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
-            <ownedParameter xmi:id="_BZ0HAjIjEeaxEdI9C4Zehw" name="x">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZ0HAzIjEeaxEdI9C4Zehw" name="y">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_BZ0HBDIjEeaxEdI9C4Zehw" name="invertColor">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedParameter>
-          </ownedOperation>
         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_9TeQAhfdEee41uykRtKsBA" name="EV3Brick">
         <packagedElement xmi:type="uml:Interface" xmi:id="_VqvsELufEeWoXOFMIAWWaA" name="IDevice">
           <ownedOperation xmi:id="_VqvsFrufEeWoXOFMIAWWaA" name="connect" visibility="public">
             <ownedParameter xmi:id="_VqvsF7ufEeWoXOFMIAWWaA" name="ret" direction="return">
@@ -437,6 +346,200 @@
             </ownedParameter>
           </ownedOperation>
         </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Vqw6NrufEeWoXOFMIAWWaA" name="ILcd">
+          <ownedOperation xmi:id="_Vqw6S7ufEeWoXOFMIAWWaA" name="available" visibility="public">
+            <ownedParameter xmi:id="_Vqw6TLufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6TbufEeWoXOFMIAWWaA" name="resolution_x" visibility="public">
+            <ownedParameter xmi:id="_Vqw6TrufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6T7ufEeWoXOFMIAWWaA" name="resolution_y" visibility="public">
+            <ownedParameter xmi:id="_Vqw6ULufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6UbufEeWoXOFMIAWWaA" name="bits_per_pixel" visibility="public">
+            <ownedParameter xmi:id="_Vqw6UrufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6U7ufEeWoXOFMIAWWaA" name="frame_buffer_size" visibility="public">
+            <ownedParameter xmi:id="_Vqw6VLufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6VbufEeWoXOFMIAWWaA" name="line_length" visibility="public">
+            <ownedParameter xmi:id="_Vqw6VrufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_1q1SoOmJEeG_gcDHG3asaQ"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6V7ufEeWoXOFMIAWWaA" name="frame_buffer" visibility="public">
+            <ownedParameter xmi:id="_Vqw6WLufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_YYWiwByeEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6WbufEeWoXOFMIAWWaA" name="fill" visibility="public">
+            <ownedParameter xmi:id="_Vqw6WrufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_Vqw6W7ufEeWoXOFMIAWWaA" name="pixel">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_YYWiwByeEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6XLufEeWoXOFMIAWWaA" name="init" visibility="protected">
+            <ownedParameter xmi:id="_Vqw6XbufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Vqw6XrufEeWoXOFMIAWWaA" name="deinit" visibility="protected">
+            <ownedParameter xmi:id="_Vqw6X7ufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZdhsDIjEeaxEdI9C4Zehw" name="clear"/>
+          <ownedOperation xmi:id="_BZuAYDIjEeaxEdI9C4Zehw" name="write_text">
+            <ownedParameter xmi:id="_BZuAYTIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZuAYjIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZuAYzIjEeaxEdI9C4Zehw" name="text" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_tcrCIDItEeaz7ObJJ9pK5A" name="size" type="_-vo0MDIsEealTsQJVHeUlg">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tcrCITItEeaz7ObJJ9pK5A" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tcrCIjItEeaz7ObJJ9pK5A" value="1"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZvOgDIjEeaxEdI9C4Zehw" name="draw_line">
+            <ownedParameter xmi:id="_BZvOgTIjEeaxEdI9C4Zehw" name="x0">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZvOgjIjEeaxEdI9C4Zehw" name="y0">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZvOgzIjEeaxEdI9C4Zehw" name="x1">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZvOhDIjEeaxEdI9C4Zehw" name="y1">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZvOhTIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZv1kDIjEeaxEdI9C4Zehw" name="draw_full_rectangle">
+            <ownedParameter xmi:id="_BZv1kTIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZv1kjIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZv1kzIjEeaxEdI9C4Zehw" name="width">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZv1lDIjEeaxEdI9C4Zehw" name="height">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZv1lTIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZwcoDIjEeaxEdI9C4Zehw" name="draw_empty_rectangle">
+            <ownedParameter xmi:id="_BZwcoTIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZwcojIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZwcozIjEeaxEdI9C4Zehw" name="width">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZwcpDIjEeaxEdI9C4Zehw" name="height">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZwcpTIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZxqwDIjEeaxEdI9C4Zehw" name="draw_full_circle">
+            <ownedParameter xmi:id="_BZxqwTIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZxqwjIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZxqwzIjEeaxEdI9C4Zehw" name="radius">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZxqxDIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZyR0DIjEeaxEdI9C4Zehw" name="draw_empty_circle">
+            <ownedParameter xmi:id="_BZyR0TIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZyR0jIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZyR0zIjEeaxEdI9C4Zehw" name="radius">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZyR1DIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZy44DIjEeaxEdI9C4Zehw" name="draw_full_ellipse">
+            <ownedParameter xmi:id="_BZy44TIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZy44jIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZy44zIjEeaxEdI9C4Zehw" name="radiusx">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZy45DIjEeaxEdI9C4Zehw" name="radiusy">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZy45TIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZzf8DIjEeaxEdI9C4Zehw" name="draw_empty_ellipse">
+            <ownedParameter xmi:id="_BZzf8TIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZzf8jIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZzf8zIjEeaxEdI9C4Zehw" name="radiusx">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZzf9DIjEeaxEdI9C4Zehw" name="radiusy">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZzf9TIjEeaxEdI9C4Zehw" name="isBlack">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_BZ0HADIjEeaxEdI9C4Zehw" name="draw_bmp_image">
+            <ownedParameter xmi:id="_BZ0HATIjEeaxEdI9C4Zehw" name="filename" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_BZ0HAjIjEeaxEdI9C4Zehw" name="x">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZ0HAzIjEeaxEdI9C4Zehw" name="y">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_BZ0HBDIjEeaxEdI9C4Zehw" name="invertColor">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_Vq4O8LufEeWoXOFMIAWWaA" name="ISound">
           <ownedOperation xmi:id="_Vq4O9bufEeWoXOFMIAWWaA" name="beep" visibility="public">
             <ownedParameter xmi:id="_Vq4O9rufEeWoXOFMIAWWaA" name="ret" direction="return">
@@ -497,89 +600,7 @@
           </ownedOperation>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_F_uYpBeVEee8yL29uJTLIg" name="Sensors">
-        <packagedElement xmi:type="uml:Interface" xmi:id="_Vq2ZyrufEeWoXOFMIAWWaA" name="ISensor">
-          <generalization xmi:id="_Vq2Zy7ufEeWoXOFMIAWWaA" general="_VqvsELufEeWoXOFMIAWWaA"/>
-          <ownedOperation xmi:id="_Vq2Z7rufEeWoXOFMIAWWaA" name="value" visibility="public">
-            <ownedParameter xmi:id="_Vq2Z77ufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_Vq2Z8LufEeWoXOFMIAWWaA" name="index">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
-              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Vq2Z8bufEeWoXOFMIAWWaA" name="default">
-                <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
-                <language>C++</language>
-                <body>0</body>
-              </defaultValue>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq2Z8rufEeWoXOFMIAWWaA" name="float_value" visibility="public">
-            <ownedParameter xmi:id="_Vq2Z87ufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:id="_Vq2Z9LufEeWoXOFMIAWWaA" name="index">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
-              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Vq2Z9bufEeWoXOFMIAWWaA" name="default">
-                <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
-                <language>C++</language>
-                <body>0</body>
-              </defaultValue>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq2Z9rufEeWoXOFMIAWWaA" name="type_name" visibility="public">
-            <ownedParameter xmi:id="_Vq2Z97ufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq2Z-LufEeWoXOFMIAWWaA" name="bin_data_format" visibility="public">
-            <ownedParameter xmi:id="_Vq2Z-bufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq2Z-rufEeWoXOFMIAWWaA" name="bin_data" visibility="public">
-            <ownedParameter xmi:id="_Vq2Z-7ufEeWoXOFMIAWWaA" name="ret" type="_aRzBsMvwEeWAr_trtbj9nQ" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq2Z_LufEeWoXOFMIAWWaA" name="set_command" visibility="public">
-            <ownedParameter xmi:id="_Vq3A0LufEeWoXOFMIAWWaA" name="v" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A0bufEeWoXOFMIAWWaA" name="commands" visibility="public">
-            <ownedParameter xmi:id="_Vq3A0rufEeWoXOFMIAWWaA" name="ret" type="_s4reEL-LEeWoXOFMIAWWaA" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A07ufEeWoXOFMIAWWaA" name="decimals" visibility="public">
-            <ownedParameter xmi:id="_Vq3A1LufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A1bufEeWoXOFMIAWWaA" name="driver_name" visibility="public">
-            <ownedParameter xmi:id="_Vq3A1rufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A17ufEeWoXOFMIAWWaA" name="mode" visibility="public">
-            <ownedParameter xmi:id="_Vq3A2LufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A2bufEeWoXOFMIAWWaA" name="set_mode" visibility="public">
-            <ownedParameter xmi:id="_Vq3A27ufEeWoXOFMIAWWaA" name="v" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A3LufEeWoXOFMIAWWaA" name="modes" visibility="public">
-            <ownedParameter xmi:id="_Vq3A3bufEeWoXOFMIAWWaA" name="ret" type="_s4reEL-LEeWoXOFMIAWWaA" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A3rufEeWoXOFMIAWWaA" name="num_values" visibility="public">
-            <ownedParameter xmi:id="_Vq3A37ufEeWoXOFMIAWWaA" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A4LufEeWoXOFMIAWWaA" name="port_name" visibility="public">
-            <ownedParameter xmi:id="_Vq3A4bufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:id="_Vq3A4rufEeWoXOFMIAWWaA" name="units" visibility="public">
-            <ownedParameter xmi:id="_Vq3A47ufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
-          </ownedOperation>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Interface" xmi:id="_Vq42CLufEeWoXOFMIAWWaA" name="ITouchSensor">
-          <generalization xmi:id="_Vq42CbufEeWoXOFMIAWWaA" general="_Vq2ZyrufEeWoXOFMIAWWaA"/>
-          <ownedOperation xmi:id="_rZfY4MvkEeWAr_trtbj9nQ" name="isTouch" isAbstract="true">
-            <ownedParameter xmi:id="_wBxLkMvkEeWAr_trtbj9nQ" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Boolean"/>
-            </ownedParameter>
-          </ownedOperation>
-        </packagedElement>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_GAKdgheVEee8yL29uJTLIg" name="Actuators">
+      <packagedElement xmi:type="uml:Package" xmi:id="_9VhecBfdEee41uykRtKsBA" name="Actuators">
         <packagedElement xmi:type="uml:Interface" xmi:id="_Vqw6MLufEeWoXOFMIAWWaA" name="ILargeMotor">
           <generalization xmi:id="_Vqw6MbufEeWoXOFMIAWWaA" general="_VqzWdrufEeWoXOFMIAWWaA"/>
         </packagedElement>
@@ -891,12 +912,12 @@
         </packagedElement>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_F6xAIheVEee8yL29uJTLIg" name="Types">
+    <packagedElement xmi:type="uml:Package" xmi:id="_9TfeIRfdEee41uykRtKsBA" name="Types">
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_yDQfoMkaEeWYC4KNqzxWOw" name="LocalString"/>
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-vo0MDIsEealTsQJVHeUlg" name="TextSize"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_zC_zcMQ6EeWMDdeM9STG6A" name="MapStringSetString"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_s4reEL-LEeWoXOFMIAWWaA" name="ModeSet"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_aRzBsMvwEeWAr_trtbj9nQ" name="CustomVectorChar"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-vo0MDIsEealTsQJVHeUlg" name="TextSize"/>
       <profileApplication xmi:id="_hOKesMQgEeWLEf5dvszSMg">
         <eAnnotations xmi:id="_hOLFwMQgEeWLEf5dvszSMg" source="PapyrusVersion">
           <details xmi:id="_hOLFwcQgEeWLEf5dvszSMg" key="Version" value="1.1.0"/>
@@ -916,27 +937,6 @@
         </eAnnotations>
         <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
       </profileApplication>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_Vqt24LufEeWoXOFMIAWWaA" name="IColorSensor">
-      <generalization xmi:id="_Vqt24bufEeWoXOFMIAWWaA" general="_Vq2ZyrufEeWoXOFMIAWWaA"/>
-      <ownedOperation xmi:id="_PW_FcNP9EeW4nJ2D0KrVNA" name="get_color">
-        <ownedParameter xmi:id="_aRIe0NP9EeW4nJ2D0KrVNA" name="ret" direction="return" effect="create">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_aRIe0dP9EeW4nJ2D0KrVNA" name="color"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:id="_gky1QNP9EeW4nJ2D0KrVNA" name="get_reflect_intensity" visibility="public">
-        <ownedParameter xmi:id="_oG3fkNP9EeW4nJ2D0KrVNA" name="ret" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:id="_ToC9oETdEeaXRrf6q9xGfw" name="get_ambient_intensity" isAbstract="true">
-        <ownedParameter xmi:id="_ToC9oUTdEeaXRrf6q9xGfw" name="ret" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ToC9okTdEeaXRrf6q9xGfw" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ToC9o0TdEeaXRrf6q9xGfw" value="1"/>
-        </ownedParameter>
-      </ownedOperation>
     </packagedElement>
     <profileApplication xmi:id="_NBptEL7FEeWoXOFMIAWWaA">
       <eAnnotations xmi:id="_NBqUIL7FEeWoXOFMIAWWaA" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -995,35 +995,35 @@
       <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_F6sHoReVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vqw6NrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ptr xmi:id="_F6vK8BeVEee8yL29uJTLIg" base_parameter="_Vqw6WLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_F6xAJheVEee8yL29uJTLIg" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;#include &lt;stdio.h>" base_package="_F6xAIheVEee8yL29uJTLIg"/>
-  <C_Cpp:Typedef xmi:id="_F6xnMheVEee8yL29uJTLIg" definition="std::string" base_primitivetype="_yDQfoMkaEeWYC4KNqzxWOw"/>
-  <C_Cpp:Typedef xmi:id="_F6yOQBeVEee8yL29uJTLIg" definition="ev3dev::lcd::TextSize" base_primitivetype="_-vo0MDIsEealTsQJVHeUlg"/>
-  <C_Cpp:Include xmi:id="_F_uYoxeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vqt24LufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_F_uYpxeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vq2ZyrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_F_uYqheVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_VqvsELufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_u_sReVEee8yL29uJTLIg" base_parameter="_VqvsGLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_u_sxeVEee8yL29uJTLIg" base_parameter="_VqvsGbufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Typedef xmi:id="_F_u_theVEee8yL29uJTLIg" definition="std::map&lt;std::string, std::set&lt;std::string>>" base_primitivetype="_zC_zcMQ6EeWMDdeM9STG6A"/>
-  <C_Cpp:Ref xmi:id="_F_u_txeVEee8yL29uJTLIg" base_parameter="_VqvsGrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_wN0heVEee8yL29uJTLIg" base_parameter="_VqvsIbufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_wN1heVEee8yL29uJTLIg" base_parameter="_VqvsJLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_w04ReVEee8yL29uJTLIg" base_parameter="_VqvsKLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_w05ReVEee8yL29uJTLIg" base_parameter="_VqvsK7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_w05xeVEee8yL29uJTLIg" base_parameter="_VqvsLLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_xb8BeVEee8yL29uJTLIg" base_parameter="_VqvsL7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Typedef xmi:id="_F_xb9BeVEee8yL29uJTLIg" definition="ev3dev::mode_set" base_primitivetype="_s4reEL-LEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_xb9heVEee8yL29uJTLIg" base_parameter="_VqvsMrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ptr xmi:id="_F_xb-ReVEee8yL29uJTLIg" base_parameter="_VqvsM7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_F_yDAheVEee8yL29uJTLIg" base_parameter="_VqvsN7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Typedef xmi:id="_F_zRJBeVEee8yL29uJTLIg" definition="std::vector&lt;char>" base_primitivetype="_aRzBsMvwEeWAr_trtbj9nQ"/>
-  <C_Cpp:Include xmi:id="_GAKdhReVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vqw6MLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_GAKdiBeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_VqzWdrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_GEXoFBeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vq3n4LufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_GOLEVBeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_VqxhQLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_GPO0RBeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_VqsowLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_GQ3L8ReVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vq4O8LufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_GQ3zBxeVEee8yL29uJTLIg" base_parameter="_Vq4PArufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_GbdSZBeVEee8yL29uJTLIg" header="#include &lt;stdint.h>" base_Classifier="_Vq42CLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_9Tdo8BfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vqt24LufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_9TeQARfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vq2ZyrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_9Te3EhfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_VqvsELufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_9TgFMBfdEee41uykRtKsBA" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;#include &lt;stdio.h>" base_package="_9TfeIRfdEee41uykRtKsBA"/>
+  <C_Cpp:Typedef xmi:id="_9Th6YBfdEee41uykRtKsBA" definition="std::string" base_primitivetype="_yDQfoMkaEeWYC4KNqzxWOw"/>
+  <C_Cpp:Ref xmi:id="_9Th6YRfdEee41uykRtKsBA" base_parameter="_VqvsGLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9Th6YxfdEee41uykRtKsBA" base_parameter="_VqvsGbufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_9TjIgBfdEee41uykRtKsBA" definition="std::map&lt;std::string, std::set&lt;std::string>>" base_primitivetype="_zC_zcMQ6EeWMDdeM9STG6A"/>
+  <C_Cpp:Ref xmi:id="_9TjvkBfdEee41uykRtKsBA" base_parameter="_VqvsGrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9ToBAhfdEee41uykRtKsBA" base_parameter="_VqvsIbufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9TpPIRfdEee41uykRtKsBA" base_parameter="_VqvsJLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9TqdQRfdEee41uykRtKsBA" base_parameter="_VqvsKLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9TrrYBfdEee41uykRtKsBA" base_parameter="_VqvsK7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9TrrYhfdEee41uykRtKsBA" base_parameter="_VqvsLLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9Ts5gRfdEee41uykRtKsBA" base_parameter="_VqvsL7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_9TuusBfdEee41uykRtKsBA" definition="ev3dev::mode_set" base_primitivetype="_s4reEL-LEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9TvVwBfdEee41uykRtKsBA" base_parameter="_VqvsMrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ptr xmi:id="_9Tv80BfdEee41uykRtKsBA" base_parameter="_VqvsM7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_9TxK8BfdEee41uykRtKsBA" base_parameter="_VqvsN7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_9T34oBfdEee41uykRtKsBA" definition="std::vector&lt;char>" base_primitivetype="_aRzBsMvwEeWAr_trtbj9nQ"/>
+  <C_Cpp:Include xmi:id="_9ViFgBfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vqw6MLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_9ViskBfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_VqzWdrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_9nD6YBfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vq3n4LufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_-sHd8BfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_VqxhQLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_-s0okhfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_VqsowLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_-tbFgBfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vqw6NrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ptr xmi:id="_-tc6sBfdEee41uykRtKsBA" base_parameter="_Vqw6WLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_-teI0xfdEee41uykRtKsBA" definition="ev3dev::lcd::TextSize" base_primitivetype="_-vo0MDIsEealTsQJVHeUlg"/>
+  <C_Cpp:Include xmi:id="_-uI3MBfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vq4O8LufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_-uKFUhfdEee41uykRtKsBA" base_parameter="_Vq4PArufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_-u0MoBfdEee41uykRtKsBA" header="#include &lt;stdint.h>" base_Classifier="_Vq42CLufEeWoXOFMIAWWaA"/>
 </xmi:XMI>

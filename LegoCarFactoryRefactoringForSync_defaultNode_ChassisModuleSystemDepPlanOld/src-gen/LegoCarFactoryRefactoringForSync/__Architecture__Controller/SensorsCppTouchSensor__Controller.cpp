@@ -38,6 +38,15 @@ SensorsCppTouchSensor__Controller::SensorsCppTouchSensor__Controller(
 	return p_origin->touchSensorPort.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+SensorsCppTouchSensor__Controller::SensorsCppTouchSensor__Controller(
+		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Sensors::CppTouchSensor* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

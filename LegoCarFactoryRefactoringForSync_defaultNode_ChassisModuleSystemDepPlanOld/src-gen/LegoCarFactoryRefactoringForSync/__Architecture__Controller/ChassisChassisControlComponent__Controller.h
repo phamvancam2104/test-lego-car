@@ -353,6 +353,10 @@ public:
 	void stopBehavior();
 	/**
 	 * 
+	 */
+	void processTE_50_ms_();
+	/**
+	 * 
 	 * @param sig 
 	 */
 	void processStopProcess(
@@ -374,10 +378,6 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
-	/**
-	 * 
-	 */
-	void processTE_50_ms_();
 	/**
 	 * 
 	 * @param sig 

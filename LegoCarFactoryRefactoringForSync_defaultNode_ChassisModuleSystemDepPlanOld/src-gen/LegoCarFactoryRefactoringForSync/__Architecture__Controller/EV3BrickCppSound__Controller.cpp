@@ -38,6 +38,15 @@ EV3BrickCppSound__Controller::EV3BrickCppSound__Controller(
 	return p_origin->soundDevicePort.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+EV3BrickCppSound__Controller::EV3BrickCppSound__Controller(
+		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppSound* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

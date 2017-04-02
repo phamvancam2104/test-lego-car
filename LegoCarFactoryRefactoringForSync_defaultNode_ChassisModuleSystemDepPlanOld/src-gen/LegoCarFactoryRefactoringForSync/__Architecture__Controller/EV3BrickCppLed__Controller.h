@@ -48,8 +48,18 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::ILed* get_ledPort();
+	/**
+	 * 
+	 * @param origin 
+	 */
+	EV3BrickCppLed__Controller(
+			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppLed* /*in*/origin);
 
 private:
+	/**
+	 * 
+	 */
+	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppLed* p_origin;
 	/**
 	 * 
 	 */

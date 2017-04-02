@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_GjYfUBeVEee8yL29uJTLIg" name="MindsensorsPapyrusLibrary">
-  <packagedElement xmi:type="uml:Model" xmi:id="_GjYfUReVEee8yL29uJTLIg" name="Interfaces">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_-q6kEhfdEee41uykRtKsBA" name="MindsensorsPapyrusLibrary">
+  <packagedElement xmi:type="uml:Model" xmi:id="_-q6kExfdEee41uykRtKsBA" name="Interfaces">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_3Q1JwA4QEeajkIciALfKfA" name="INumericPad">
+      <generalization xmi:id="_B_KCwA4TEeajkIciALfKfA">
+        <general xmi:type="uml:Interface" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/EV3PapyrusLibrary.uml#_VqvsELufEeWoXOFMIAWWaA"/>
+      </generalization>
+      <ownedOperation xmi:id="_r7MDAA4XEeaTWuSw7hNEoQ" name="read_current_touched_key">
+        <ownedParameter xmi:id="_v964oA4XEeaTWuSw7hNEoQ" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_0RXq0A4XEeaTWuSw7hNEoQ" name="read_next_touched_key">
+        <ownedParameter xmi:id="_0RXq0Q4XEeaTWuSw7hNEoQ" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_rUo1YOeAEeWTib7cxhVOqQ" name="ISensorMux">
       <generalization xmi:id="_OY7zsOn0EeWXT7Vzvspy2A">
         <general xmi:type="uml:Interface" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/EV3PapyrusLibrary.uml#_VqvsELufEeWoXOFMIAWWaA"/>
@@ -43,21 +58,6 @@
       <ownedOperation xmi:id="_kppskOrMEeWBnOltY_xs2A" name="port_name" visibility="public">
         <ownedParameter xmi:id="_kppskerMEeWBnOltY_xs2A" name="ret" direction="return">
           <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
-        </ownedParameter>
-      </ownedOperation>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_3Q1JwA4QEeajkIciALfKfA" name="INumericPad">
-      <generalization xmi:id="_B_KCwA4TEeajkIciALfKfA">
-        <general xmi:type="uml:Interface" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/EV3PapyrusLibrary.uml#_VqvsELufEeWoXOFMIAWWaA"/>
-      </generalization>
-      <ownedOperation xmi:id="_r7MDAA4XEeaTWuSw7hNEoQ" name="read_current_touched_key">
-        <ownedParameter xmi:id="_v964oA4XEeaTWuSw7hNEoQ" name="ret" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:id="_0RXq0A4XEeaTWuSw7hNEoQ" name="read_next_touched_key">
-        <ownedParameter xmi:id="_0RXq0Q4XEeaTWuSw7hNEoQ" name="ret" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>

@@ -44,6 +44,9 @@ void ChassisChassisControlComponent__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISCONTROLCOMPONENT__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case TE_50_MS__ID:
+				processTE_50_ms_();
+				break;
 			case STOPPROCESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
 				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
@@ -55,9 +58,6 @@ void ChassisChassisControlComponent__Controller::dispatchEvent() {
 				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::ErrorDetection));
 				processErrorDetection(sig_ERRORDETECTION_ID);
-				break;
-			case TE_50_MS__ID:
-				processTE_50_ms_();
 				break;
 			case ENDOFMODULE_ID:
 				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
@@ -235,6 +235,13 @@ void ChassisChassisControlComponent__Controller::stopBehavior() {
 
 /**
  * 
+ */
+void ChassisChassisControlComponent__Controller::processTE_50_ms_() {
+	systemState = statemachine::EVENT_PROCESSING;
+}
+
+/**
+ * 
  * @param sig 
  */
 void ChassisChassisControlComponent__Controller::processStopProcess(
@@ -309,13 +316,6 @@ void ChassisChassisControlComponent__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, ERRORDETECTION_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::ErrorDetection));
-}
-
-/**
- * 
- */
-void ChassisChassisControlComponent__Controller::processTE_50_ms_() {
-	systemState = statemachine::EVENT_PROCESSING;
 }
 
 /**

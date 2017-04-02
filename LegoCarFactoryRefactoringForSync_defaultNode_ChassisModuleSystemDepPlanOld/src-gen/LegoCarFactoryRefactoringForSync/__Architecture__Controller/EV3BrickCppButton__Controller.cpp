@@ -38,6 +38,15 @@ EV3BrickCppButton__Controller::EV3BrickCppButton__Controller(
 	return p_origin->buttonPort.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+EV3BrickCppButton__Controller::EV3BrickCppButton__Controller(
+		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppButton* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

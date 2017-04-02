@@ -38,6 +38,15 @@ ConcreteClassesCppSensorMux__Controller::ConcreteClassesCppSensorMux__Controller
 	return p_origin->sensorMuxPort_host.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+ConcreteClassesCppSensorMux__Controller::ConcreteClassesCppSensorMux__Controller(
+		::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

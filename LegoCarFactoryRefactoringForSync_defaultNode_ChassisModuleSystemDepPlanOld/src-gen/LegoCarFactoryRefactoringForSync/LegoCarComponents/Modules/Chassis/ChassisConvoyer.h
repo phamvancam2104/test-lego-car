@@ -189,12 +189,12 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice0toGo_wait_positionGuard();
+	bool fromChoice1toReplaceGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice1toReplaceGuard();
+	bool fromChoice0toGo_wait_positionGuard();
 	/**
 	 * 
 	 * @return ret 

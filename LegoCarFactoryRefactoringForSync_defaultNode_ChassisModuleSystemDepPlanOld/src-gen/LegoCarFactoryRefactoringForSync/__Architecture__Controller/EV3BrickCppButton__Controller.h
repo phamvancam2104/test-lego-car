@@ -48,8 +48,18 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::IButton* get_buttonPort();
+	/**
+	 * 
+	 * @param origin 
+	 */
+	EV3BrickCppButton__Controller(
+			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppButton* /*in*/origin);
 
 private:
+	/**
+	 * 
+	 */
+	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppButton* p_origin;
 	/**
 	 * 
 	 */
