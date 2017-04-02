@@ -51,10 +51,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ConcreteClassesCppSensorMux__Controller cppsensormuxController;
 	/**
-	 * 
-	 */
-	ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::ISensorMux> sensorMuxPort_host;
-	/**
 	 * generated comment
 	 * @return ret 
 	 */

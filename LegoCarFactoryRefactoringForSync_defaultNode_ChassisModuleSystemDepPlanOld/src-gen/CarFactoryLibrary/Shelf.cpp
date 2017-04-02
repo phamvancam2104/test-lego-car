@@ -12,6 +12,7 @@
 #include "CarFactoryLibrary/Shelf.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/CheckRack.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"

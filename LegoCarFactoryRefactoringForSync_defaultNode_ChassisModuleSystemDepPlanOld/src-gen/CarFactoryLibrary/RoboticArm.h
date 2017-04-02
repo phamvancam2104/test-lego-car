@@ -31,6 +31,9 @@ class ILcd;
 }
 }
 }
+namespace CarFactoryLibrary {
+class IModule;
+}
 
 // End of Include stereotype (header)
 
@@ -95,7 +98,23 @@ public:
 	/**
 	 * 
 	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> frontBackMotor;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> rightLeftMotor;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> plierMotor;
+	/**
+	 * 
+	 */
 	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * move the robotic arm to the absolute position x, y and alpha
 	 * @param x distance relative to the rotation center of the two motors (in cm)

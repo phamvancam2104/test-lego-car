@@ -48,16 +48,6 @@ namespace events {
 class DeliveredCarConveyor;
 }
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace CarFactoryLibrary {
-class IModule;
-}
 
 // End of Include stereotype (header)
 
@@ -132,31 +122,7 @@ public:
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> upDownMotor;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> frontBackMotor;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> rightLeftMotor;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> plierMotor;
-	/**
-	 * 
-	 */
 	OutFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
-	/**
-	 * 
-	 */
-	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * 
 	 * @return ret 

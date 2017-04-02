@@ -49,16 +49,6 @@ namespace events {
 class RoboticArmPickPiece;
 }
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace CarFactoryLibrary {
-class IModule;
-}
 
 // End of Include stereotype (header)
 
@@ -143,31 +133,11 @@ public:
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor1;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor2;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor3;
-	/**
-	 * 
-	 */
 	OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
 	/**
 	 * 
 	 */
 	OutFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
-	/**
-	 * 
-	 */
-	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * 
 	 * @return ret 

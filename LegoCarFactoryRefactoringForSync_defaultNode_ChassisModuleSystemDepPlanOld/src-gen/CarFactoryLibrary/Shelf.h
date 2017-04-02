@@ -26,6 +26,9 @@ class ILcd;
 }
 }
 }
+namespace CarFactoryLibrary {
+class IModule;
+}
 
 // End of Include stereotype (header)
 
@@ -71,7 +74,19 @@ public:
 	/**
 	 * 
 	 */
+	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor2;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor3;
+	/**
+	 * 
+	 */
 	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * check if the rack number rack_number is empty
 	 * @param rack_number rack number to check

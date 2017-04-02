@@ -52,10 +52,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsCppLargeMotor__Controller cpplargemotorController;
 	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> largeMotorPort;
-	/**
 	 * generated comment
 	 * @param v 
 	 */

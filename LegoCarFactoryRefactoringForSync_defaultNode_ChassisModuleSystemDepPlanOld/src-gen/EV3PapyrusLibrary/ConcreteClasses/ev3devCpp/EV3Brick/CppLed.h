@@ -54,10 +54,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppLed__Controller cppledController;
 	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> ledPort;
-	/**
 	 * generated comment
 	 * @return ret 
 	 */

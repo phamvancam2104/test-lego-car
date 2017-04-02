@@ -182,14 +182,6 @@ public:
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	ProvidedPort<CarFactoryLibrary::IModule> pModule;
-	/**
-	 * 
-	 */
 	OutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pOutStopProcess_Shelf;
 	/**
 	 * 

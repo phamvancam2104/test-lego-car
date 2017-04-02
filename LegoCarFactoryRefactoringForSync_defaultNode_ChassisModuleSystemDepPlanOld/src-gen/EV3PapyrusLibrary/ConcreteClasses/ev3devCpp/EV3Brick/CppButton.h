@@ -50,10 +50,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppButton__Controller cppbuttonController;
 	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> buttonPort;
-	/**
 	 * generated comment
 	 * @return ret 
 	 */

@@ -22,10 +22,20 @@ class IColorSensor;
 }
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
+namespace Actuators {
+class ILargeMotor;
+}
+}
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
 namespace EV3Brick {
 class ILcd;
 }
 }
+}
+namespace CarFactoryLibrary {
+class IModule;
 }
 
 // End of Include stereotype (header)
@@ -74,7 +84,15 @@ public:
 	/**
 	 * 
 	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pMotor;
+	/**
+	 * 
+	 */
 	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * go to the position to wait the piece of the car
 	 */

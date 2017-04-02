@@ -45,10 +45,6 @@ public:
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3PapyrusLibraryCppColorSensor__Controller cppcolorsensorController;
 	/**
 	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> colorSensorPort;
-	/**
-	 * 
 	 * @return ret 
 	 */
 	::EV3PapyrusLibrary::Types::LocalString bin_data_format();

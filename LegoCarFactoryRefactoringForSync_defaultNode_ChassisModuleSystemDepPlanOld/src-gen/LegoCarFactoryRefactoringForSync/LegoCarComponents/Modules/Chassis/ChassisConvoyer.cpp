@@ -12,14 +12,10 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisConvoyer.h"
 
 // Derived includes directives
-#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/CheckRack.h"
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/ErrorDetection.h"
-#include "EV3PapyrusLibrary/IColorSensor.h"
-#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
-#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
@@ -115,7 +111,7 @@ void ChassisConvoyer::effectFromChoicetoRestart() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice1toReplaceGuard() {
+bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
 	return true;	//get_current_module() == MASTER_MODULE
 }
 
@@ -123,7 +119,7 @@ bool ChassisConvoyer::fromChoice1toReplaceGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
+bool ChassisConvoyer::fromChoice1toReplaceGuard() {
 	return true;	//get_current_module() == MASTER_MODULE
 }
 

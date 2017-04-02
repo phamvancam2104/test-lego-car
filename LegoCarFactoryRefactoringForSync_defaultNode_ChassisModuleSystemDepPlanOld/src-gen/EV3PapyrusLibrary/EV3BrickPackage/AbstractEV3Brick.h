@@ -34,6 +34,27 @@ class ILed;
 }
 }
 }
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class IButton;
+}
+}
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ILcd;
+}
+}
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace EV3Brick {
+class ISound;
+}
+}
+}
 
 // End of Include stereotype (header)
 
@@ -110,6 +131,50 @@ public:
 	 * 
 	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> LeftGreenLedPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> LeftRedLedPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> RightGreenLedPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILed> RightRedLedPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> BackButtonPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> OkButtonPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> DownButtonPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> UpButtonPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> LeftButtonPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IButton> RightButtonPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> screenPort;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ISound> soundPort;
 	/**
 	 * 
 	 */

@@ -62,16 +62,6 @@ namespace events {
 class EndOfModule;
 }
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace CarFactoryLibrary {
-class IModule;
-}
 
 // End of Include stereotype (header)
 
@@ -169,14 +159,6 @@ public:
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pMotor;
-	/**
-	 * 
-	 */
 	OutFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
 	/**
 	 * 
@@ -196,14 +178,6 @@ public:
 	OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Robotic;
 	/**
 	 * 
-	 */
-	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
-	/**
-	 * 
-	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
-	/**
-	 * 
 	 * @return ret 
 	 */
 	bool fromChoicetoMisplaceGuard();
@@ -215,12 +189,12 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice1toReplaceGuard();
+	bool fromChoice0toGo_wait_positionGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice0toGo_wait_positionGuard();
+	bool fromChoice1toReplaceGuard();
 	/**
 	 * 
 	 * @return ret 

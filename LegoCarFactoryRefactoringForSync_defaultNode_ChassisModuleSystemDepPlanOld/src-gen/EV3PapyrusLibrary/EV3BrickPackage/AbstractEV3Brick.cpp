@@ -13,7 +13,10 @@
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/EV3BrickPackage/IEV3Brick.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {

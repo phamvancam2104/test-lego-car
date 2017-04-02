@@ -17,6 +17,7 @@
 #include "CarFactoryLibrary/RoboticArm.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/RoboticArmPickPiece.h"
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"

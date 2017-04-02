@@ -52,10 +52,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppSound__Controller cppsoundController;
 	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ISound> soundDevicePort;
-	/**
 	 * generated comment
 	 * @return ret 
 	 */

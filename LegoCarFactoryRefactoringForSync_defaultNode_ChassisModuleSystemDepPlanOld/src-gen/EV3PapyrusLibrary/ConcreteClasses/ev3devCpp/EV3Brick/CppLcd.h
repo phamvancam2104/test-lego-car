@@ -52,10 +52,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppLcd__Controller cpplcdController;
 	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> lcdScreenPort;
-	/**
 	 * generated comment
 	 * @return ret 
 	 */

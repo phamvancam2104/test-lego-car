@@ -52,10 +52,6 @@ public:
 	 */
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SensorsCppTouchSensor__Controller cpptouchsensorController;
 	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Sensors::ITouchSensor> touchSensorPort;
-	/**
 	 * generated comment
 	 * @return ret 
 	 * @param index 

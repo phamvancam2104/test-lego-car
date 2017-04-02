@@ -29,6 +29,9 @@ class ILcd;
 }
 }
 }
+namespace CarFactoryLibrary {
+class IModule;
+}
 
 // End of Include stereotype (header)
 
@@ -108,6 +111,10 @@ public:
 	 * 
 	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	/**
+	 * 
+	 */
+	ProvidedPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * constructor of the Module
 	 * @param sensor_muxPort host port name of the multiplexer of sensor

@@ -126,8 +126,8 @@ namespace __Architecture__Controller {
  */
 class ChassisChassisRoboticArm__Controller: public IPush<
 		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
 		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
 		public IPush<CarFactoryLibrary::events::EndOfModule> {
 public:
 	/**
@@ -208,11 +208,11 @@ public:
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
+		ROBOTICARMPICKPIECE_ID,
 		/**
 		 * 
 		 */
-		ROBOTICARMPICKPIECE_ID,
+		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
@@ -343,6 +343,17 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRoboticArmPickPiece(
+			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -351,17 +362,6 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processRoboticArmPickPiece(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 

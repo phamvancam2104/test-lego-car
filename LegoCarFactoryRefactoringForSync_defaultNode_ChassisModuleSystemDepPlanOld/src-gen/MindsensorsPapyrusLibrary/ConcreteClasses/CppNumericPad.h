@@ -51,10 +51,6 @@ public:
 	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ConcreteClassesCppNumericPad__Controller cppnumericpadController;
 	/**
 	 * 
-	 */
-	ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::INumericPad> numericPadPort;
-	/**
-	 * 
 	 * @return ret 
 	 */
 	::PrimitiveTypes::Integer read_current_touched_key();

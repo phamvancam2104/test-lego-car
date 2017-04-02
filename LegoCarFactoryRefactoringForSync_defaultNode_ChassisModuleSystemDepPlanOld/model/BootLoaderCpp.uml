@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_ome84BbHEeebYbj4dxYOtQ" name="BootLoaderCpp">
+  <uml:Model xmi:id="_GlTK4BeVEee8yL29uJTLIg" name="BootLoaderCpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
       <ownedAttribute xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
@@ -10,10 +10,10 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_omiAMBbHEeebYbj4dxYOtQ" name="mainInstance" aggregation="composite">
+      <ownedAttribute xmi:id="_GlhNUBeVEee8yL29uJTLIg" name="mainInstance" aggregation="composite">
         <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/LegoCarFactoryRefactoringForSync.uml#_bYJagDLiEd2RVeNawwNNzg"/>
       </ownedAttribute>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_omot4BbHEeebYbj4dxYOtQ" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Gl95QBeVEee8yL29uJTLIg" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
         <language>C/C++</language>
         <body>mainInstance.chassismodulesystemController.createConnections();&#xD;
 
@@ -22,7 +22,7 @@ mainInstance.convoyer.chassisconvoyerController.startBehavior();
 mainInstance.robotic_arm.chassisroboticarmController.startBehavior();
 mainInstance.shelf.chassisshelfController.startBehavior();</body>
       </ownedBehavior>
-      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_omot4BbHEeebYbj4dxYOtQ"/>
+      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_Gl95QBeVEee8yL29uJTLIg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_CS_KsHjwEeasG4qn4umteA" name="NodeInfo">
       <ownedAttribute xmi:id="_IHT5wHjwEeasG4qn4umteA" name="nodeIndex" isStatic="true">
@@ -41,7 +41,7 @@ mainInstance.shelf.chassisshelfController.startBehavior();</body>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_ome85RbHEeebYbj4dxYOtQ" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
-  <C_Cpp:Ptr xmi:id="_omgLAxbHEeebYbj4dxYOtQ" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
-  <C_Cpp:Include xmi:id="_p81EwBbHEeebYbj4dxYOtQ" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_ome84BbHEeebYbj4dxYOtQ"/>
+  <C_Cpp:Include xmi:id="_GlTx8ReVEee8yL29uJTLIg" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Ptr xmi:id="_GlYqcReVEee8yL29uJTLIg" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
+  <C_Cpp:Include xmi:id="_IPy90BeVEee8yL29uJTLIg" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_GlTK4BeVEee8yL29uJTLIg"/>
 </xmi:XMI>

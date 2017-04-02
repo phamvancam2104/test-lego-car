@@ -16,7 +16,9 @@
 #include "CarFactoryLibrary/Conveyor.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/IModule.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
 namespace CarFactoryLibrary {
