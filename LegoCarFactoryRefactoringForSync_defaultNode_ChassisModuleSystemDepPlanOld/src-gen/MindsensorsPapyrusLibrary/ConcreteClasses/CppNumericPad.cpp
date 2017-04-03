@@ -23,16 +23,16 @@ namespace ConcreteClasses {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppNumericPad::read_current_touched_key() {
-	return referencedNumeric_pad.read_current_touched_key();
+::PrimitiveTypes::Integer CppNumericPad::read_next_touched_key() {
+	return referencedNumeric_pad.read_next_touched_key();
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppNumericPad::read_next_touched_key() {
-	return referencedNumeric_pad.read_next_touched_key();
+::PrimitiveTypes::Integer CppNumericPad::read_current_touched_key() {
+	return referencedNumeric_pad.read_current_touched_key();
 }
 
 /**

@@ -132,8 +132,8 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisShelf__Controller: public IPush<
-		CarFactoryLibrary::events::CheckRack>, public IPush<
 		CarFactoryLibrary::events::EndOfModule>, public IPush<
+		CarFactoryLibrary::events::CheckRack>, public IPush<
 		LegoCarFactoryRefactoringForSync::signals::StopProcess>, public IPush<
 		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
 public:
@@ -215,11 +215,11 @@ public:
 		/**
 		 * 
 		 */
-		CHECKRACK_ID,
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
-		ENDOFMODULE_ID,
+		CHECKRACK_ID,
 		/**
 		 * 
 		 */
@@ -342,16 +342,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processEndOfModule(
 			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
@@ -359,6 +349,16 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 

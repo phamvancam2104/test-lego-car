@@ -53,12 +53,12 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer read_current_touched_key();
+	::PrimitiveTypes::Integer read_next_touched_key();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer read_next_touched_key();
+	::PrimitiveTypes::Integer read_current_touched_key();
 	/**
 	 * generated comment
 	 * @return ret 

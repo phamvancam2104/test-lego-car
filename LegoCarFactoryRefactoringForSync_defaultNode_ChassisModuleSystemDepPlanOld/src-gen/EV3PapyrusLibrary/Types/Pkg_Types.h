@@ -45,12 +45,12 @@ typedef ev3dev::mode_set ModeSet;
 /**
  * 
  */
-typedef ev3dev::lcd::TextSize TextSize;
+typedef std::vector<char> CustomVectorChar;
 
 /**
  * 
  */
-typedef std::vector<char> CustomVectorChar;
+typedef ev3dev::lcd::TextSize TextSize;
 
 /**
  * 

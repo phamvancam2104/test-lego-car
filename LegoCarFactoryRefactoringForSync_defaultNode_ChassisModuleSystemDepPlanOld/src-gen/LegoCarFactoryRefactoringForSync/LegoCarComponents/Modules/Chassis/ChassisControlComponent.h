@@ -155,12 +155,12 @@ public:
 			ExT(fromPlaceOrdertoPrepareConveyor , PlaceOrder , PrepareConveyor , NULL , NULL , NULL );
 			ExT(fromSendStopMessagetoFinalState , SendStopMessage , FinalState2 , NULL , NULL , NULL );
 			ExT(fromChooseBackFrontOrdertoPlaceOrder , ChooseBackFrontOrder , PlaceOrder , NULL , NULL , NULL );
-			ExT(fromChoice0toSendRestartEvent , choice0 , SendRestartEvent , fromChoice0toSendRestartEventGuard , NULL , NULL );
+			ExT(fromChoice0toSendRestartEvent , choice0 , SendRestartEvent , fromChoice0toSendRestartEventGuard , NULL , choice0toSendRestartEventEffect );
 			ExT(fromChoice0toChoice , choice0 , choice , NULL , NULL , NULL );
 			ExT(fromChoice1toCheckState , choice1 , CheckState , NULL , TE_50_ms_ , NULL );
 			ExT(fromChoice1toStopMotors , choice1 , StopMotors , fromChoice1toStopMotorsGuard , NULL , NULL );
-			ExT(fromChoice2toSendStopMessage , choice2 , SendStopMessage , NULL , NULL , NULL );
-			ExT(fromChoice2toPrepareConveyor , choice2 , PrepareConveyor , fromChoice2toPrepareConveyorGuard , NULL , NULL );
+			ExT(fromChoice2toSendStopMessage , choice2 , SendStopMessage , NULL , NULL , rewind_last_module );
+			ExT(fromChoice2toPrepareConveyor , choice2 , PrepareConveyor , fromChoice2toPrepareConveyorGuard , NULL , fromChoice2toPrepareConvoyerEffect );
 			ExT(fromChoice13toChooseBackFrontOrder , choice13 , ChooseBackFrontOrder , fromChoice13toChooseBackFrontOrderGuard , NULL , NULL );
 			ExT(fromChoice13toFinalState1 , choice13 , FinalState1 , NULL , NULL , NULL );
 			ExT(fromChoice5toChoice4 , choice5 , choice4 , NULL , NULL , NULL );
@@ -221,10 +221,48 @@ public:
 	ChassisControlComponent();
 	/**
 	 * 
+	 * @return ret 
+	 */
+	int wait_key_pad_release();
+	/**
+	 * 
+	 */
+	void show_car_configuration();
+	/**
+	 * 
+	 */
+	void choose_colors();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	bool init_bluetooth_communication();
+	/**
+	 * 
+	 */
+	void send_stop_to_slave();
+	/**
+	 * 
+	 */
+	void choose_back_front_order();
+	/**
+	 * 
 	 * @param sig 
 	 */
 	void effectFromEmergencyStopStatetoMisplace(
 			::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
+	/**
+	 * 
+	 */
+	void choice0toSendRestartEventEffect();
+	/**
+	 * 
+	 */
+	void rewind_last_module();
+	/**
+	 * 
+	 */
+	void fromChoice2toPrepareConvoyerEffect();
 	/**
 	 * 
 	 * @return ret 
