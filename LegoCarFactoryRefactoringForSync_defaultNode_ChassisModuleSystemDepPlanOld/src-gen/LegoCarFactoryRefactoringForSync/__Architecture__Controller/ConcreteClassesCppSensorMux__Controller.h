@@ -42,18 +42,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::MindsensorsPapyrusLibrary::Interfaces::ISensorMux* get_sensorMuxPort_host();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	ConcreteClassesCppSensorMux__Controller(
-			::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux* p_origin;
 	/**
 	 * 
 	 */

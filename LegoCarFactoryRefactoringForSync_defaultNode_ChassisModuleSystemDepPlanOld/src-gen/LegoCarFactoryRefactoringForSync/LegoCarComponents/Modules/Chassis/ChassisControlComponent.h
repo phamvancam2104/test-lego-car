@@ -104,7 +104,7 @@ public:
 	/**
 	 * 
 	 */
-	int zadded;
+	int z;
 	/**
 	 * 
 	 */

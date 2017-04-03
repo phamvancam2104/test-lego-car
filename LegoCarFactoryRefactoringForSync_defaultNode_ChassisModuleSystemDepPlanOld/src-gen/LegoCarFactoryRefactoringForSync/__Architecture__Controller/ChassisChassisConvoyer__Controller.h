@@ -139,10 +139,11 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisConvoyer__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		CarFactoryLibrary::events::DeliveredCarConveyor>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<CarFactoryLibrary::events::DeliveredCarConveyor>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> {
+		public IPush<
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
 public:
 	/**
 	 * 
@@ -238,7 +239,11 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
+		DELIVEREDCARCONVEYOR_ID,
+		/**
+		 * 
+		 */
+		PREPARECONVEYOR_ID,
 		/**
 		 * 
 		 */
@@ -246,11 +251,7 @@ public:
 		/**
 		 * 
 		 */
-		DELIVEREDCARCONVEYOR_ID,
-		/**
-		 * 
-		 */
-		PREPARECONVEYOR_ID,
+		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -365,30 +366,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processStopProcess(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processDeliveredCarConveyor(
 			::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig);
 	/**
@@ -408,6 +385,30 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processStopProcess(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 */

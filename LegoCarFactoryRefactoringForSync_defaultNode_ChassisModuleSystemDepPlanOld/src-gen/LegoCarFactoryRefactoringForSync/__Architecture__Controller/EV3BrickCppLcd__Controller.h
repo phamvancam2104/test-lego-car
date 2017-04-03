@@ -48,18 +48,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd* get_lcdScreenPort();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	EV3BrickCppLcd__Controller(
-			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppLcd* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppLcd* p_origin;
 	/**
 	 * 
 	 */

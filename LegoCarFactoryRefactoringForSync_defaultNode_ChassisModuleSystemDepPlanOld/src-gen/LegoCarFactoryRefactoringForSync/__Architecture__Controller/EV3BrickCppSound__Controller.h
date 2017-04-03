@@ -48,18 +48,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::ISound* get_soundDevicePort();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	EV3BrickCppSound__Controller(
-			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppSound* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppSound* p_origin;
 	/**
 	 * 
 	 */

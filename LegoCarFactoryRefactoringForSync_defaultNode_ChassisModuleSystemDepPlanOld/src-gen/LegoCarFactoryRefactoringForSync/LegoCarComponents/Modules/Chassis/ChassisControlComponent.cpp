@@ -8,10 +8,6 @@
  ChassisControlComponent class body
  ************************************************************/
 
-// Include from Include stereotype (pre-body)
-#include "unistd.h"
-// End of Include stereotype (pre-body)
-
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisControlComponent.h"
 

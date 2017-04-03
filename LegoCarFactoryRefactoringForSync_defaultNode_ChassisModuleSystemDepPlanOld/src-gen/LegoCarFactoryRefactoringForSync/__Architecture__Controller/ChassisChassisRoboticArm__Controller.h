@@ -125,10 +125,10 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisRoboticArm__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece>,
-		public IPush<CarFactoryLibrary::events::EndOfModule> {
+		CarFactoryLibrary::events::EndOfModule>, public IPush<
+		CarFactoryLibrary::events::RoboticArmPickPiece>, public IPush<
+		LegoCarFactoryRefactoringForSync::signals::StopProcess>, public IPush<
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
 public:
 	/**
 	 * 
@@ -204,11 +204,7 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
-		/**
-		 * 
-		 */
-		STOPPROCESS_ID,
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
@@ -216,7 +212,11 @@ public:
 		/**
 		 * 
 		 */
-		ENDOFMODULE_ID,
+		STOPPROCESS_ID,
+		/**
+		 * 
+		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -331,14 +331,24 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	void processEndOfModule(
+			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processRoboticArmPickPiece(
+			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -355,24 +365,14 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRoboticArmPickPiece(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
-	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processEndOfModule(
-			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 */

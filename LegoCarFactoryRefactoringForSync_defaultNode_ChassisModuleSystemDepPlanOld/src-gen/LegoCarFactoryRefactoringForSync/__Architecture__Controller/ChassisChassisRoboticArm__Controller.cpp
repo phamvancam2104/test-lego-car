@@ -45,18 +45,11 @@ void ChassisChassisRoboticArm__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISROBOTICARM__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case RESTARTAFTEREMERGENCYSTOP_ID:
-				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
-				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-				processRestartAfterEmergencyStop(
-						sig_RESTARTAFTEREMERGENCYSTOP_ID);
-				break;
-			case STOPPROCESS_ID:
-				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
-				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-				processStopProcess(sig_STOPPROCESS_ID);
+			case ENDOFMODULE_ID:
+				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
+				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::EndOfModule));
+				processEndOfModule(sig_ENDOFMODULE_ID);
 				break;
 			case ROBOTICARMPICKPIECE_ID:
 				::CarFactoryLibrary::events::RoboticArmPickPiece sig_ROBOTICARMPICKPIECE_ID;
@@ -64,11 +57,18 @@ void ChassisChassisRoboticArm__Controller::dispatchEvent() {
 						sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
 				processRoboticArmPickPiece(sig_ROBOTICARMPICKPIECE_ID);
 				break;
-			case ENDOFMODULE_ID:
-				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
-				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::EndOfModule));
-				processEndOfModule(sig_ENDOFMODULE_ID);
+			case STOPPROCESS_ID:
+				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
+				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+				processStopProcess(sig_STOPPROCESS_ID);
+				break;
+			case RESTARTAFTEREMERGENCYSTOP_ID:
+				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
+				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+				processRestartAfterEmergencyStop(
+						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -215,23 +215,15 @@ void ChassisChassisRoboticArm__Controller::stopBehavior() {
  * 
  * @param sig 
  */
-void ChassisChassisRoboticArm__Controller::processRestartAfterEmergencyStop(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+void ChassisChassisRoboticArm__Controller::processEndOfModule(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case RESTART_ID:
-			//from Restart to PrincipalState
-			if (true) {
-				activeStateID = PRINCIPALSTATE_ID;
-				//starting the counters for time events
-				PrincipalState_Region1_Enter (CHASSISROBOTICARM_PRINCIPALSTATE_REGION1_DEFAULT);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
+	if (states[PRINCIPALSTATE_ID].actives[0] == FINALIZATION_ID) {
+		//from Finalization to Initialization
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
+			//starting the counters for time events
+			systemState = statemachine::EVENT_CONSUMED;
 		}
 	}
 }
@@ -241,46 +233,10 @@ void ChassisChassisRoboticArm__Controller::processRestartAfterEmergencyStop(
  * @param sig 
  */
 void ChassisChassisRoboticArm__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig,
-			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisRoboticArm__Controller::processStopProcess(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case PRINCIPALSTATE_ID:
-			//from PrincipalState to Restart
-			if (true) {
-				PrincipalState_Region1_Exit();
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisRoboticArm__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
 			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+			sizeof(::CarFactoryLibrary::events::EndOfModule));
 }
 
 /**
@@ -326,15 +282,23 @@ void ChassisChassisRoboticArm__Controller::push(
  * 
  * @param sig 
  */
-void ChassisChassisRoboticArm__Controller::processEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+void ChassisChassisRoboticArm__Controller::processStopProcess(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == FINALIZATION_ID) {
-		//from Finalization to Initialization
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case PRINCIPALSTATE_ID:
+			//from PrincipalState to Restart
+			if (true) {
+				PrincipalState_Region1_Exit();
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
 		}
 	}
 }
@@ -344,10 +308,46 @@ void ChassisChassisRoboticArm__Controller::processEndOfModule(
  * @param sig 
  */
 void ChassisChassisRoboticArm__Controller::push(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
 			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::EndOfModule));
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisRoboticArm__Controller::processRestartAfterEmergencyStop(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case RESTART_ID:
+			//from Restart to PrincipalState
+			if (true) {
+				activeStateID = PRINCIPALSTATE_ID;
+				//starting the counters for time events
+				PrincipalState_Region1_Enter (CHASSISROBOTICARM_PRINCIPALSTATE_REGION1_DEFAULT);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisRoboticArm__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig,
+			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 }
 
 /**

@@ -46,18 +46,17 @@ void ChassisChassisShelf__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISSHELF__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case RESTARTAFTEREMERGENCYSTOP_ID:
-				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
-				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-				processRestartAfterEmergencyStop(
-						sig_RESTARTAFTEREMERGENCYSTOP_ID);
-				break;
 			case CHECKRACK_ID:
 				::CarFactoryLibrary::events::CheckRack sig_CHECKRACK_ID;
 				memcpy(&sig_CHECKRACK_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::CheckRack));
 				processCheckRack(sig_CHECKRACK_ID);
+				break;
+			case ENDOFMODULE_ID:
+				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
+				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::EndOfModule));
+				processEndOfModule(sig_ENDOFMODULE_ID);
 				break;
 			case STOPPROCESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
@@ -65,11 +64,12 @@ void ChassisChassisShelf__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 				processStopProcess(sig_STOPPROCESS_ID);
 				break;
-			case ENDOFMODULE_ID:
-				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
-				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::EndOfModule));
-				processEndOfModule(sig_ENDOFMODULE_ID);
+			case RESTARTAFTEREMERGENCYSTOP_ID:
+				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
+				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+				processRestartAfterEmergencyStop(
+						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -255,42 +255,6 @@ void ChassisChassisShelf__Controller::stopBehavior() {
  * 
  * @param sig 
  */
-void ChassisChassisShelf__Controller::processRestartAfterEmergencyStop(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case RESTART_ID:
-			//from Restart to PrincipalState
-			if (true) {
-				activeStateID = PRINCIPALSTATE_ID;
-				//starting the counters for time events
-				PrincipalState_Region1_Enter (CHASSISSHELF_PRINCIPALSTATE_REGION1_DEFAULT);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisShelf__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig,
-			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-}
-
-/**
- * 
- * @param sig 
- */
 void ChassisChassisShelf__Controller::processCheckRack(
 		::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -315,6 +279,34 @@ void ChassisChassisShelf__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, CHECKRACK_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::CheckRack));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisShelf__Controller::processEndOfModule(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == WAIT_END_ID) {
+		//from Wait_end to Initialization
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
+			//starting the counters for time events
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisShelf__Controller::push(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::EndOfModule));
 }
 
 /**
@@ -357,15 +349,23 @@ void ChassisChassisShelf__Controller::push(
  * 
  * @param sig 
  */
-void ChassisChassisShelf__Controller::processEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+void ChassisChassisShelf__Controller::processRestartAfterEmergencyStop(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == WAIT_END_ID) {
-		//from Wait_end to Initialization
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case RESTART_ID:
+			//from Restart to PrincipalState
+			if (true) {
+				activeStateID = PRINCIPALSTATE_ID;
+				//starting the counters for time events
+				PrincipalState_Region1_Enter (CHASSISSHELF_PRINCIPALSTATE_REGION1_DEFAULT);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
 		}
 	}
 }
@@ -375,10 +375,10 @@ void ChassisChassisShelf__Controller::processEndOfModule(
  * @param sig 
  */
 void ChassisChassisShelf__Controller::push(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::EndOfModule));
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig,
+			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 }
 
 /**
