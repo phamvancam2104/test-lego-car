@@ -126,10 +126,11 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisShelf__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>, public IPush<
-		CarFactoryLibrary::events::CheckRack>, public IPush<
-		LegoCarFactoryRefactoringForSync::signals::StopProcess>, public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
+		CarFactoryLibrary::events::EndOfModule>,
+		public IPush<
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		public IPush<CarFactoryLibrary::events::CheckRack> {
 public:
 	/**
 	 * 
@@ -213,7 +214,7 @@ public:
 		/**
 		 * 
 		 */
-		CHECKRACK_ID,
+		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -221,7 +222,7 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
+		CHECKRACK_ID,
 		/**
 		 * 
 		 */
@@ -347,12 +348,14 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
-	void push(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -369,14 +372,12 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	void processCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	void push(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
 	/**
 	 * 
 	 */

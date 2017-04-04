@@ -103,6 +103,16 @@ ChassisConvoyer::ChassisConvoyer() :
 
 /**
  * 
+ * @param status 
+ */
+void ChassisConvoyer::set_status(
+		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
+	static_cast<CarFactoryLibrary::Convoyer*>(this)->pModule.requiredIntf->setStatus(
+			status);
+}
+
+/**
+ * 
  * @param sig 
  */
 void ChassisConvoyer::reset_first_time(
@@ -133,7 +143,7 @@ void ChassisConvoyer::save_color(
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
+bool ChassisConvoyer::fromChoice1toReplaceGuard() {
 
 	return get_current_module() == CarFactoryLibrary::MASTER_MODULE;
 }
@@ -142,7 +152,7 @@ bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice1toReplaceGuard() {
+bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
 
 	return get_current_module() == CarFactoryLibrary::MASTER_MODULE;
 }
@@ -172,48 +182,6 @@ bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
 bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
 
 	return get_status() == CarFactoryLibrary::RESULT_READY;
-}
-
-/**
- * 
- * @param status 
- */
-void ChassisConvoyer::set_status(BluetoothSlaveEnum /*in*/status) {
-}
-
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisConvoyer::get_status() {
-	return CarFactoryLibrary::NO_SLAVE_MSG;
-}
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisConvoyer::set_status() {
-	//get_module()->status = status;
-}
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisConvoyer::get_status() {
-
-	return CarFactoryLibrary::NO_SLAVE_MSG;
-}
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisConvoyer::get_status() {
-
-	return CarFactoryLibrary::NO_SLAVE_MSG;
 }
 
 } // of namespace Chassis

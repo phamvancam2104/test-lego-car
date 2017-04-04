@@ -169,44 +169,17 @@ public:
 	 */
 	bool fromChoicetoWait_endGuard();
 
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	get_status();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	set_status();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	get_status();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	get_status();
-
 private:
 	/**
 	 * get the current module
 	 * @return ret 
 	 */
 	int get_current_module();
+	/**
+	 * 
+	 * @param status 
+	 */
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
 	/**
 	 * send the RoboticArmPickPeice event
 	 */
@@ -220,11 +193,6 @@ private:
 	 * @return ret 
 	 */
 	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
-	/**
-	 * 
-	 * @param status 
-	 */
-	void set_status(BluetoothSlaveEnum /*in*/status);
 };
 /************************************************************/
 /* External declarations (package visibility)               */

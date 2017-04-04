@@ -45,6 +45,16 @@ int ChassisShelf::get_current_module() {
 }
 
 /**
+ * 
+ * @param status 
+ */
+void ChassisShelf::set_status(
+		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
+	static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->setStatus(
+			status);
+}
+
+/**
  * send the RoboticArmPickPeice event
  */
 void ChassisShelf::send_robotic_arm_pick_piece_event() {
@@ -114,48 +124,6 @@ bool ChassisShelf::fromWhich_racktoSecond_rackGuard() {
 bool ChassisShelf::fromChoicetoWait_endGuard() {
 
 	return get_status() == CarFactoryLibrary::RESULT_READY;
-}
-
-/**
- * 
- * @param status 
- */
-void ChassisShelf::set_status(BluetoothSlaveEnum /*in*/status) {
-}
-
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisShelf::get_status() {
-	return get_module()->status;
-}
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisShelf::set_status() {
-	get_module()->status = status;
-}
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisShelf::get_status() {
-
-	return static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->getStatus();
-}
-// opaque behavior without specification (typically from state machine)
-/**
- * 
- * 
- */
-void ChassisShelf::get_status() {
-
-	return static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->getStatus();
 }
 
 } // of namespace Chassis

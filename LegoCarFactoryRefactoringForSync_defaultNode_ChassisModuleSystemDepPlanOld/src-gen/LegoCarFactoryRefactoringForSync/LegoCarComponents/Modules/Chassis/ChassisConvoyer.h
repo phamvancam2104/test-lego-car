@@ -216,12 +216,12 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice0toGo_wait_positionGuard();
+	bool fromChoice1toReplaceGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice1toReplaceGuard();
+	bool fromChoice0toGo_wait_positionGuard();
 	/**
 	 * 
 	 * @return ret 
@@ -237,38 +237,6 @@ public:
 	 * @return ret 
 	 */
 	bool fromChoicetoSendEndOfModuleEventGuard();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	get_status();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	set_status();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	get_status();
-
-	// opaque behavior without specification (typically from state machine)
-	/**
-	 * 
-	 * 
-	 */
-	void
-	get_status();
 
 private:
 	/**
@@ -294,7 +262,7 @@ private:
 	 * 
 	 * @param status 
 	 */
-	void set_status(BluetoothSlaveEnum /*in*/status);
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
 };
 /************************************************************/
 /* External declarations (package visibility)               */
