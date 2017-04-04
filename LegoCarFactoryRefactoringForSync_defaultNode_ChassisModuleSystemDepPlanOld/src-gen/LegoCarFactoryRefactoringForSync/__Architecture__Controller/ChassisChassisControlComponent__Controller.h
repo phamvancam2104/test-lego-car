@@ -436,6 +436,11 @@ public:
 	 * 
 	 * @return ret 
 	 */
+	virtual IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>* get_pOutStopProcess_Shelf();
+	/**
+	 * 
+	 * @return ret 
+	 */
 	virtual IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>* get_pStopProcess_Convoyer();
 	/**
 	 * 

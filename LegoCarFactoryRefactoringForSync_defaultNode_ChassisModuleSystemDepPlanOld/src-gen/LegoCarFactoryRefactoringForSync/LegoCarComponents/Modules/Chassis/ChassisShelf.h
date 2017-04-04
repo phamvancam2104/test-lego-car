@@ -12,6 +12,7 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/Pkg_Chassis.h"
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
+#include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 #include "CarFactoryLibrary/Shelf.h"
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ChassisChassisShelf__Controller.h"
 
@@ -70,24 +71,24 @@ public:
 
 	StateMachine ChassisShelfStateMachine {
 		InitialState PrincipalState {
-			PseudoChoice Which_rack;
 			PseudoChoice test;
 			State Not_Master_Module;
 			State WaitSlaveIsNotBusy;
+			PseudoChoice Which_rack;
+			State Display;
 			PseudoChoice choice;
 			State Wait_end;
-			State Empty_rack;
-			State Display;
 			InitialState Initialization;
+			State Empty_rack;
 			State First_rack;
 			State Second_rack;
 		};
 		State Restart;
 		FinalState FinalState1;
-		SignalEvent<CarFactoryLibrary::events::CheckRack> CheckRack;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
 		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
 		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
+		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
+		SignalEvent<CarFactoryLibrary::events::CheckRack> CheckRack;
 		TransitionTable {
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
@@ -96,27 +97,27 @@ public:
 			ExT(fromPrincipalStatetoFinalState1 , PrincipalState , FinalState1 , NULL , NULL , NULL );
 			ExT(fromNot_Master_ModuletoWaitSlaveIsNotBusy , Not_Master_Module , WaitSlaveIsNotBusy , NULL , NULL , NULL );
 			ExT(fromWaitSlaveIsNotBusytoChoice , WaitSlaveIsNotBusy , choice , NULL , NULL , NULL );
-			ExT(fromWait_endtoInitialization , Wait_end , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromEmpty_racktoWait_end , Empty_rack , Wait_end , NULL , NULL , NULL );
 			ExT(fromDisplaytoTest , Display , test , NULL , NULL , NULL );
+			ExT(fromWait_endtoInitialization , Wait_end , Initialization , NULL , EndOfModule , NULL );
 			ExT(fromInitializationtoDisplay , Initialization , Display , NULL , CheckRack , NULL );
+			ExT(fromEmpty_racktoWait_end , Empty_rack , Wait_end , NULL , NULL , NULL );
 			ExT(fromFirst_racktoWait_end , First_rack , Wait_end , NULL , NULL , NULL );
 			ExT(fromSecond_racktoWait_end , Second_rack , Wait_end , NULL , NULL , NULL );
 			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
+			ExT(fromTesttoNot_Master_Module , test , Not_Master_Module , fromTesttoNot_Master_ModuleGuard , NULL , NULL );
+			ExT(fromTesttoWhich_rack , test , Which_rack , NULL , NULL , NULL );
 			ExT(fromWhich_racktoFirst_rack , Which_rack , First_rack , fromWhich_racktoFirst_rackGuard , NULL , NULL );
 			ExT(fromWhich_racktoEmpty_rack , Which_rack , Empty_rack , NULL , NULL , NULL );
 			ExT(fromWhich_racktoSecond_rack , Which_rack , Second_rack , fromWhich_racktoSecond_rackGuard , NULL , NULL );
-			ExT(fromTesttoNot_Master_Module , test , Not_Master_Module , fromTesttoNot_Master_ModuleGuard , NULL , NULL );
-			ExT(fromTesttoWhich_rack , test , Which_rack , NULL , NULL , NULL );
 			ExT(fromChoicetoWait_end , choice , Wait_end , fromChoicetoWait_endGuard , NULL , NULL );
-			ExT(fromChoicetoRestart , choice , Restart , NULL , NULL , NULL );
 			ExT(fromChoicetoEmpty_rack , choice , Empty_rack , fromChoicetoEmpty_rackGuard , NULL , NULL );
+			ExT(fromChoicetoRestart , choice , Restart , NULL , NULL , NULL );
 		}
 	};
 	/**
 	 * 
 	 */
-	InFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
+	InOutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
 	/**
 	 * 
 	 */
@@ -142,17 +143,11 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromWhich_racktoSecond_rackGuard();
-	/**
-	 * 
-	 * @return ret 
-	 */
-	bool fromChoicetoWait_endGuard();
-	/**
-	 * 
-	 * @return ret 
-	 */
 	bool fromChoicetoEmpty_rackGuard();
+	/**
+	 * 
+	 */
+	ChassisShelf();
 	/**
 	 * 
 	 * @return ret 
@@ -165,9 +160,71 @@ public:
 	bool fromWhich_racktoFirst_rackGuard();
 	/**
 	 * 
+	 * @return ret 
 	 */
-	ChassisShelf();
+	bool fromWhich_racktoSecond_rackGuard();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	bool fromChoicetoWait_endGuard();
 
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	get_status();
+
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	set_status();
+
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	get_status();
+
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	get_status();
+
+private:
+	/**
+	 * get the current module
+	 * @return ret 
+	 */
+	int get_current_module();
+	/**
+	 * send the RoboticArmPickPeice event
+	 */
+	void send_robotic_arm_pick_piece_event();
+	/**
+	 * send the StopProcess event
+	 */
+	void send_stop_process_event();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
+	/**
+	 * 
+	 * @param status 
+	 */
+	void set_status(BluetoothSlaveEnum /*in*/status);
 };
 /************************************************************/
 /* External declarations (package visibility)               */

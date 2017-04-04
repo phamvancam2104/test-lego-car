@@ -98,11 +98,6 @@ void ChassisChassisShelf__Controller::ChassisShelfStateMachine_Region1_Enter(
 		PrincipalState_Region1_Enter (CHASSISSHELF_PRINCIPALSTATE_REGION1_DEFAULT);
 		//TODO: set systemState to EVENT_CONSUMED
 		break;
-	case CHASSISSHELF_CHASSISSHELFSTATEMACHINE_REGION1_RESTART:
-		activeStateID = RESTART_ID;
-		//starting the counters for time events
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
 	}
 }
 
@@ -118,42 +113,9 @@ void ChassisChassisShelf__Controller::PrincipalState_Region1_Enter(
 
 		//TODO: set systemState to EVENT_CONSUMED
 		break;
-	case CHASSISSHELF_PRINCIPALSTATE_REGION1_WAIT_END:
-		states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
-		//starting the counters for time events
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
-	case CHASSISSHELF_PRINCIPALSTATE_REGION1_EMPTY_RACK:
-		states[PRINCIPALSTATE_ID].actives[0] = EMPTY_RACK_ID;
-		//starting the counters for time events
-		//start activity of Empty_rack by calling setFlag
-		setFlag(EMPTY_RACK_ID, statemachine::TF_DO_ACTIVITY, true);
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
-	case CHASSISSHELF_PRINCIPALSTATE_REGION1_DISPLAY:
-		states[PRINCIPALSTATE_ID].actives[0] = DISPLAY_ID;
-		//starting the counters for time events
-		//start activity of Display by calling setFlag
-		setFlag(DISPLAY_ID, statemachine::TF_DO_ACTIVITY, true);
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
 	case CHASSISSHELF_PRINCIPALSTATE_REGION1_INITIALIZATION:
 		states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
 		//starting the counters for time events
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
-	case CHASSISSHELF_PRINCIPALSTATE_REGION1_FIRST_RACK:
-		states[PRINCIPALSTATE_ID].actives[0] = FIRST_RACK_ID;
-		//starting the counters for time events
-		//start activity of First_rack by calling setFlag
-		setFlag(FIRST_RACK_ID, statemachine::TF_DO_ACTIVITY, true);
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
-	case CHASSISSHELF_PRINCIPALSTATE_REGION1_SECOND_RACK:
-		states[PRINCIPALSTATE_ID].actives[0] = SECOND_RACK_ID;
-		//starting the counters for time events
-		//start activity of Second_rack by calling setFlag
-		setFlag(SECOND_RACK_ID, statemachine::TF_DO_ACTIVITY, true);
 		//TODO: set systemState to EVENT_CONSUMED
 		break;
 	}
@@ -171,10 +133,10 @@ void ChassisChassisShelf__Controller::PrincipalState_Region1_Exit() {
 		if (NOT_MASTER_MODULE_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (WAITSLAVEISNOTBUSY_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
-		} else if (WAIT_END_ID == states[PRINCIPALSTATE_ID].actives[0]) {
-		} else if (EMPTY_RACK_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (DISPLAY_ID == states[PRINCIPALSTATE_ID].actives[0]) {
+		} else if (WAIT_END_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (INITIALIZATION_ID == states[PRINCIPALSTATE_ID].actives[0]) {
+		} else if (EMPTY_RACK_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (FIRST_RACK_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (SECOND_RACK_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		}
@@ -386,31 +348,7 @@ void ChassisChassisShelf__Controller::push(
  */
 void ChassisChassisShelf__Controller::processCompletionEvent() {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == EMPTY_RACK_ID
-			&& (currentEvent->associatedState == EMPTY_RACK_ID)) {
-		//from Empty_rack to Wait_end
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0] == SECOND_RACK_ID
-			&& (currentEvent->associatedState == SECOND_RACK_ID)) {
-		//from Second_rack to Wait_end
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0] == FIRST_RACK_ID
-			&& (currentEvent->associatedState == FIRST_RACK_ID)) {
-		//from First_rack to Wait_end
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0] == NOT_MASTER_MODULE_ID
+	if (states[PRINCIPALSTATE_ID].actives[0] == NOT_MASTER_MODULE_ID
 			&& (currentEvent->associatedState == NOT_MASTER_MODULE_ID)) {
 		//from Not_Master_Module to WaitSlaveIsNotBusy
 		if (true) {
@@ -418,25 +356,6 @@ void ChassisChassisShelf__Controller::processCompletionEvent() {
 			//starting the counters for time events
 			//start activity of WaitSlaveIsNotBusy by calling setFlag
 			setFlag(WAITSLAVEISNOTBUSY_ID, statemachine::TF_DO_ACTIVITY, true);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0] == WAITSLAVEISNOTBUSY_ID
-			&& (currentEvent->associatedState == WAITSLAVEISNOTBUSY_ID)) {
-		//from WaitSlaveIsNotBusy to choice
-		if (true) {
-			if (p_origin->fromChoicetoWait_endGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
-				//starting the counters for time events
-			} else if (p_origin->fromChoicetoEmpty_rackGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] = EMPTY_RACK_ID;
-				//starting the counters for time events
-				//start activity of Empty_rack by calling setFlag
-				setFlag(EMPTY_RACK_ID, statemachine::TF_DO_ACTIVITY, true);
-			} else {
-				PrincipalState_Region1_Exit();
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-			}
 			systemState = statemachine::EVENT_CONSUMED;
 		}
 	} else if (states[PRINCIPALSTATE_ID].actives[0] == DISPLAY_ID
@@ -467,6 +386,49 @@ void ChassisChassisShelf__Controller::processCompletionEvent() {
 					setFlag(EMPTY_RACK_ID, statemachine::TF_DO_ACTIVITY, true);
 				}
 			}
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0] == WAITSLAVEISNOTBUSY_ID
+			&& (currentEvent->associatedState == WAITSLAVEISNOTBUSY_ID)) {
+		//from WaitSlaveIsNotBusy to choice
+		if (true) {
+			if (p_origin->fromChoicetoWait_endGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
+				//starting the counters for time events
+			} else if (p_origin->fromChoicetoEmpty_rackGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] = EMPTY_RACK_ID;
+				//starting the counters for time events
+				//start activity of Empty_rack by calling setFlag
+				setFlag(EMPTY_RACK_ID, statemachine::TF_DO_ACTIVITY, true);
+			} else {
+				PrincipalState_Region1_Exit();
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+			}
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0] == EMPTY_RACK_ID
+			&& (currentEvent->associatedState == EMPTY_RACK_ID)) {
+		//from Empty_rack to Wait_end
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
+			//starting the counters for time events
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0] == FIRST_RACK_ID
+			&& (currentEvent->associatedState == FIRST_RACK_ID)) {
+		//from First_rack to Wait_end
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
+			//starting the counters for time events
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0] == SECOND_RACK_ID
+			&& (currentEvent->associatedState == SECOND_RACK_ID)) {
+		//from Second_rack to Wait_end
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = WAIT_END_ID;
+			//starting the counters for time events
 			systemState = statemachine::EVENT_CONSUMED;
 		}
 	}
@@ -549,7 +511,7 @@ void ChassisChassisShelf__Controller::doCallActivity(int /*in*/id) {
 		pthread_mutex_unlock(&mutexes[id]);
 		if (commitEvent && systemState != statemachine::STOPPED) {
 			if (id == NOT_MASTER_MODULE_ID || id == WAITSLAVEISNOTBUSY_ID
-					|| id == EMPTY_RACK_ID || id == DISPLAY_ID
+					|| id == DISPLAY_ID || id == EMPTY_RACK_ID
 					|| id == FIRST_RACK_ID || id == SECOND_RACK_ID) {
 				//processCompletionEvent();
 				eventQueue.push(statemachine::PRIORITY_1, NULL,
@@ -573,7 +535,7 @@ void ChassisChassisShelf__Controller::setFlag(int /*in*/id,
 		//push completion event
 		if (value) {
 			if (id == NOT_MASTER_MODULE_ID || id == WAITSLAVEISNOTBUSY_ID
-					|| id == EMPTY_RACK_ID || id == DISPLAY_ID
+					|| id == DISPLAY_ID || id == EMPTY_RACK_ID
 					|| id == FIRST_RACK_ID || id == SECOND_RACK_ID) {
 				eventQueue.push(statemachine::PRIORITY_1, NULL,
 						COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
@@ -644,6 +606,15 @@ IPush<CarFactoryLibrary::events::EndOfModule>* ChassisChassisShelf__Controller::
 ::EV3PapyrusLibrary::IColorSensor* ChassisChassisShelf__Controller::get_sensor3() {
 	p_origin->sensor3.providedIntf = &(p_origin->rack_1.color_sensor);
 	return p_origin->sensor3.providedIntf;
+}
+
+/**
+ * 
+ * @param ref 
+ */
+void ChassisChassisShelf__Controller::connect_pInStopProcess(
+		IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>* /*in*/ref) {
+	p_origin->pInStopProcess.outIntf = ref;
 }
 
 /**

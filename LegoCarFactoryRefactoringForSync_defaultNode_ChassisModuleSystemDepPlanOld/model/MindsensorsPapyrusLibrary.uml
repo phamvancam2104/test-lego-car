@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_oDWfERiSEee00c33-LSW7Q" name="MindsensorsPapyrusLibrary">
-  <packagedElement xmi:type="uml:Model" xmi:id="_oDWfEhiSEee00c33-LSW7Q" name="Interfaces">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_91vR4BjVEeeuPbwaNz3hgg" name="MindsensorsPapyrusLibrary">
+  <packagedElement xmi:type="uml:Model" xmi:id="_91vR4RjVEeeuPbwaNz3hgg" name="Interfaces">
     <packagedElement xmi:type="uml:Interface" xmi:id="_3Q1JwA4QEeajkIciALfKfA" name="INumericPad">
       <generalization xmi:id="_B_KCwA4TEeajkIciALfKfA">
         <general xmi:type="uml:Interface" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/EV3PapyrusLibrary.uml#_VqvsELufEeWoXOFMIAWWaA"/>

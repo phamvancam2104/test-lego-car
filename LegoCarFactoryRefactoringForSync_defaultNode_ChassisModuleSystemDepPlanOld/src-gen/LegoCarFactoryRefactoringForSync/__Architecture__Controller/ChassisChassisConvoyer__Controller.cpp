@@ -48,6 +48,12 @@ void ChassisChassisConvoyer__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISCONVOYER__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case PREPARECONVEYOR_ID:
+				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
+				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
+				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
+				break;
 			case DELIVEREDCARCONVEYOR_ID:
 				::CarFactoryLibrary::events::DeliveredCarConveyor sig_DELIVEREDCARCONVEYOR_ID;
 				memcpy(&sig_DELIVEREDCARCONVEYOR_ID, currentEvent->data,
@@ -66,12 +72,6 @@ void ChassisChassisConvoyer__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
-				break;
-			case PREPARECONVEYOR_ID:
-				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
-				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
-				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -100,11 +100,6 @@ void ChassisChassisConvoyer__Controller::ChassisConveyorStateMachine_Region1_Ent
 		PrincipalState_Region1_Enter (CHASSISCONVOYER_PRINCIPALSTATE_REGION1_DEFAULT);
 		//TODO: set systemState to EVENT_CONSUMED
 		break;
-	case CHASSISCONVOYER_CHASSISCONVEYORSTATEMACHINE_REGION1_RESTART:
-		activeStateID = RESTART_ID;
-		//starting the counters for time events
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
 	}
 }
 
@@ -120,11 +115,6 @@ void ChassisChassisConvoyer__Controller::PrincipalState_Region1_Enter(
 
 		//TODO: set systemState to EVENT_CONSUMED
 		break;
-	case CHASSISCONVOYER_PRINCIPALSTATE_REGION1_GO_STOP_POSITION:
-		states[PRINCIPALSTATE_ID].actives[0] = GO_STOP_POSITION_ID;
-		//starting the counters for time events
-		//TODO: set systemState to EVENT_CONSUMED
-		break;
 	}
 }
 
@@ -138,24 +128,24 @@ void ChassisChassisConvoyer__Controller::PrincipalState_Region1_Exit() {
 		setFlag(states[PRINCIPALSTATE_ID].actives[0],
 				statemachine::TF_DO_ACTIVITY, false);
 		if (GO_STOP_POSITION_ID == states[PRINCIPALSTATE_ID].actives[0]) {
-		} else if (REWIND_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (REPLACE_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (GO_CHECK_PRESENCE_POSITION_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
-		} else if (MISPLACE_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (DELIVER_CAR_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (SENDENDOFMODULEEVENT_ID
-				== states[PRINCIPALSTATE_ID].actives[0]) {
-		} else if (GO_WAIT_POSITION_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (SENDLOADCARCOMMAND_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (WAITSLAVEISNOTBUSY_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
+		} else if (GO_WAIT_POSITION_ID
+				== states[PRINCIPALSTATE_ID].actives[0]) {
+		} else if (REWIND_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (SENDDELIVERCOMMAND_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
 		} else if (WAITSLAVEISNOTBUSY2_ID
 				== states[PRINCIPALSTATE_ID].actives[0]) {
+		} else if (MISPLACE_ID == states[PRINCIPALSTATE_ID].actives[0]) {
 		}
 		//exit action of sub-state of PrincipalState
 		StateExit(states[PRINCIPALSTATE_ID].actives[0]);
@@ -234,6 +224,46 @@ void ChassisChassisConvoyer__Controller::stopBehavior() {
  * 
  * @param sig 
  */
+void ChassisChassisConvoyer__Controller::processPrepareConveyor(
+		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == GO_STOP_POSITION_ID) {
+		//from go_stop_position to choice0
+		if (true) {
+			p_origin->save_color(sig);
+			if (p_origin->fromChoice0toGo_wait_positionGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] = GO_WAIT_POSITION_ID;
+				//starting the counters for time events
+				//start activity of go_wait_position by calling setFlag
+				setFlag(GO_WAIT_POSITION_ID, statemachine::TF_DO_ACTIVITY,
+						true);
+			} else {
+				states[PRINCIPALSTATE_ID].actives[0] = SENDLOADCARCOMMAND_ID;
+				//starting the counters for time events
+				//start activity of SendLoadCarCommand by calling setFlag
+				setFlag(SENDLOADCARCOMMAND_ID, statemachine::TF_DO_ACTIVITY,
+						true);
+			}
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisConvoyer__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void ChassisChassisConvoyer__Controller::processDeliveredCarConveyor(
 		::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -281,6 +311,7 @@ void ChassisChassisConvoyer__Controller::processStopProcess(
 			//from PrincipalState to Restart
 			if (true) {
 				PrincipalState_Region1_Exit();
+				p_origin->reset_first_time(sig);
 				activeStateID = RESTART_ID;
 				//starting the counters for time events
 				systemState = statemachine::EVENT_CONSUMED;
@@ -342,45 +373,6 @@ void ChassisChassisConvoyer__Controller::push(
 
 /**
  * 
- * @param sig 
- */
-void ChassisChassisConvoyer__Controller::processPrepareConveyor(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == GO_STOP_POSITION_ID) {
-		//from go_stop_position to choice0
-		if (true) {
-			if (p_origin->fromChoice0toGo_wait_positionGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] = GO_WAIT_POSITION_ID;
-				//starting the counters for time events
-				//start activity of go_wait_position by calling setFlag
-				setFlag(GO_WAIT_POSITION_ID, statemachine::TF_DO_ACTIVITY,
-						true);
-			} else {
-				states[PRINCIPALSTATE_ID].actives[0] = SENDLOADCARCOMMAND_ID;
-				//starting the counters for time events
-				//start activity of SendLoadCarCommand by calling setFlag
-				setFlag(SENDLOADCARCOMMAND_ID, statemachine::TF_DO_ACTIVITY,
-						true);
-			}
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisConvoyer__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
-}
-
-/**
- * 
  */
 void ChassisChassisConvoyer__Controller::processCompletionEvent() {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -390,14 +382,6 @@ void ChassisChassisConvoyer__Controller::processCompletionEvent() {
 		if (true) {
 			PrincipalState_Region1_Exit();
 			activeStateID = RESTART_ID;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0] == SENDENDOFMODULEEVENT_ID
-			&& (currentEvent->associatedState == SENDENDOFMODULEEVENT_ID)) {
-		//from SendEndOfModuleEvent to go_stop_position
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = GO_STOP_POSITION_ID;
 			//starting the counters for time events
 			systemState = statemachine::EVENT_CONSUMED;
 		}
@@ -411,24 +395,6 @@ void ChassisChassisConvoyer__Controller::processCompletionEvent() {
 			//start activity of go_check_presence_position by calling setFlag
 			setFlag(GO_CHECK_PRESENCE_POSITION_ID, statemachine::TF_DO_ACTIVITY,
 					true);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0]
-			== GO_CHECK_PRESENCE_POSITION_ID
-			&& (currentEvent->associatedState == GO_CHECK_PRESENCE_POSITION_ID)) {
-		//from go_check_presence_position to choice2
-		if (true) {
-			if (p_origin->fromChoice2toMisplaceGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] = MISPLACE_ID;
-				//starting the counters for time events
-				//start activity of Misplace by calling setFlag
-				setFlag(MISPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
-			} else {
-				states[PRINCIPALSTATE_ID].actives[0] = DELIVER_CAR_ID;
-				//starting the counters for time events
-				//start activity of Deliver_car by calling setFlag
-				setFlag(DELIVER_CAR_ID, statemachine::TF_DO_ACTIVITY, true);
-			}
 			systemState = statemachine::EVENT_CONSUMED;
 		}
 	} else if (states[PRINCIPALSTATE_ID].actives[0] == DELIVER_CAR_ID
@@ -452,23 +418,6 @@ void ChassisChassisConvoyer__Controller::processCompletionEvent() {
 			setFlag(WAITSLAVEISNOTBUSY_ID, statemachine::TF_DO_ACTIVITY, true);
 			systemState = statemachine::EVENT_CONSUMED;
 		}
-	} else if (states[PRINCIPALSTATE_ID].actives[0] == WAITSLAVEISNOTBUSY_ID
-			&& (currentEvent->associatedState == WAITSLAVEISNOTBUSY_ID)) {
-		//from WaitSlaveIsNotBusy to choice3
-		if (true) {
-			if (p_origin->fromChoice3toGo_wait_positionGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] = GO_WAIT_POSITION_ID;
-				//starting the counters for time events
-				//start activity of go_wait_position by calling setFlag
-				setFlag(GO_WAIT_POSITION_ID, statemachine::TF_DO_ACTIVITY,
-						true);
-			} else {
-				PrincipalState_Region1_Exit();
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-			}
-			systemState = statemachine::EVENT_CONSUMED;
-		}
 	} else if (states[PRINCIPALSTATE_ID].actives[0] == GO_WAIT_POSITION_ID
 			&& (currentEvent->associatedState == GO_WAIT_POSITION_ID)) {
 		//from go_wait_position to Rewind
@@ -485,6 +434,49 @@ void ChassisChassisConvoyer__Controller::processCompletionEvent() {
 			//starting the counters for time events
 			//start activity of WaitSlaveIsNotBusy2 by calling setFlag
 			setFlag(WAITSLAVEISNOTBUSY2_ID, statemachine::TF_DO_ACTIVITY, true);
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0]
+			== GO_CHECK_PRESENCE_POSITION_ID
+			&& (currentEvent->associatedState == GO_CHECK_PRESENCE_POSITION_ID)) {
+		//from go_check_presence_position to choice2
+		if (true) {
+			if (p_origin->fromChoice2toMisplaceGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] = MISPLACE_ID;
+				//starting the counters for time events
+				//start activity of Misplace by calling setFlag
+				setFlag(MISPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
+			} else {
+				states[PRINCIPALSTATE_ID].actives[0] = DELIVER_CAR_ID;
+				//starting the counters for time events
+				//start activity of Deliver_car by calling setFlag
+				setFlag(DELIVER_CAR_ID, statemachine::TF_DO_ACTIVITY, true);
+			}
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0] == SENDENDOFMODULEEVENT_ID
+			&& (currentEvent->associatedState == SENDENDOFMODULEEVENT_ID)) {
+		//from SendEndOfModuleEvent to go_stop_position
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = GO_STOP_POSITION_ID;
+			//starting the counters for time events
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	} else if (states[PRINCIPALSTATE_ID].actives[0] == WAITSLAVEISNOTBUSY_ID
+			&& (currentEvent->associatedState == WAITSLAVEISNOTBUSY_ID)) {
+		//from WaitSlaveIsNotBusy to choice3
+		if (true) {
+			if (p_origin->fromChoice3toGo_wait_positionGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] = GO_WAIT_POSITION_ID;
+				//starting the counters for time events
+				//start activity of go_wait_position by calling setFlag
+				setFlag(GO_WAIT_POSITION_ID, statemachine::TF_DO_ACTIVITY,
+						true);
+			} else {
+				PrincipalState_Region1_Exit();
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+			}
 			systemState = statemachine::EVENT_CONSUMED;
 		}
 	} else if (states[PRINCIPALSTATE_ID].actives[0] == WAITSLAVEISNOTBUSY2_ID
@@ -592,12 +584,11 @@ void ChassisChassisConvoyer__Controller::doCallActivity(int /*in*/id) {
 		pthread_mutex_unlock(&mutexes[id]);
 		if (commitEvent && systemState != statemachine::STOPPED) {
 			if (id == REPLACE_ID || id == GO_CHECK_PRESENCE_POSITION_ID
-					|| id == MISPLACE_ID || id == DELIVER_CAR_ID
-					|| id == SENDENDOFMODULEEVENT_ID
-					|| id == GO_WAIT_POSITION_ID || id == SENDLOADCARCOMMAND_ID
-					|| id == WAITSLAVEISNOTBUSY_ID
+					|| id == DELIVER_CAR_ID || id == SENDENDOFMODULEEVENT_ID
+					|| id == SENDLOADCARCOMMAND_ID
+					|| id == WAITSLAVEISNOTBUSY_ID || id == GO_WAIT_POSITION_ID
 					|| id == SENDDELIVERCOMMAND_ID
-					|| id == WAITSLAVEISNOTBUSY2_ID) {
+					|| id == WAITSLAVEISNOTBUSY2_ID || id == MISPLACE_ID) {
 				//processCompletionEvent();
 				eventQueue.push(statemachine::PRIORITY_1, NULL,
 						COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
@@ -620,12 +611,11 @@ void ChassisChassisConvoyer__Controller::setFlag(int /*in*/id,
 		//push completion event
 		if (value) {
 			if (id == REPLACE_ID || id == GO_CHECK_PRESENCE_POSITION_ID
-					|| id == MISPLACE_ID || id == DELIVER_CAR_ID
-					|| id == SENDENDOFMODULEEVENT_ID
-					|| id == GO_WAIT_POSITION_ID || id == SENDLOADCARCOMMAND_ID
-					|| id == WAITSLAVEISNOTBUSY_ID
+					|| id == DELIVER_CAR_ID || id == SENDENDOFMODULEEVENT_ID
+					|| id == SENDLOADCARCOMMAND_ID
+					|| id == WAITSLAVEISNOTBUSY_ID || id == GO_WAIT_POSITION_ID
 					|| id == SENDDELIVERCOMMAND_ID
-					|| id == WAITSLAVEISNOTBUSY2_ID) {
+					|| id == WAITSLAVEISNOTBUSY2_ID || id == MISPLACE_ID) {
 				eventQueue.push(statemachine::PRIORITY_1, NULL,
 						COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
 			}

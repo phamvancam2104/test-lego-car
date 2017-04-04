@@ -736,6 +736,15 @@ void ChassisChassisControlComponent__Controller::listenTimeEvent(int /*in*/id,
  * 
  * @return ret 
  */
+IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>* ChassisChassisControlComponent__Controller::get_pOutStopProcess_Shelf() {
+	p_origin->pOutStopProcess_Shelf.inIntf = this;
+	return this;
+}
+
+/**
+ * 
+ * @return ret 
+ */
 IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>* ChassisChassisControlComponent__Controller::get_pStopProcess_Convoyer() {
 	p_origin->pStopProcess_Convoyer.inIntf = this;
 	return this;

@@ -13,6 +13,12 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 
+// Include from Include stereotype (header)
+
+#include "LegoCarFactoryRefactoringForSync/signals/Pkg_signals.h"
+#include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
+// End of Include stereotype (header)
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
 

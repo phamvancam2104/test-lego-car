@@ -16,8 +16,10 @@
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ChassisChassisControlComponent__Controller.h"
 #include "MindsensorsPapyrusLibrary/ConcreteClasses/CppNumericPad.h"
-#include <unistd.h>
+
 // Include from Include stereotype (header)
+
+#include "unistd.h"
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
 class StopProcess;
@@ -174,6 +176,10 @@ public:
 	/**
 	 * 
 	 */
+	InOutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pOutStopProcess_Shelf;
+	/**
+	 * 
+	 */
 	InFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pStopProcess_Convoyer;
 	/**
 	 * 
@@ -183,10 +189,6 @@ public:
 	 * 
 	 */
 	InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
-	/**
-	 * 
-	 */
-	OutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pOutStopProcess_Shelf;
 	/**
 	 * 
 	 */

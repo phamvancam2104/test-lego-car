@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_nLKS0RiSEee00c33-LSW7Q" name="CarFactoryLibrary">
-    <packagedElement xmi:type="uml:Package" xmi:id="_nLKS0hiSEee00c33-LSW7Q" name="events">
+  <uml:Model xmi:id="_9JP_URjVEeeuPbwaNz3hgg" name="CarFactoryLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_9JP_UhjVEeeuPbwaNz3hgg" name="events">
       <packagedElement xmi:type="uml:Signal" xmi:id="_oBWygEgyEea_D9P_OCVydQ" name="ErrorDetection">
         <ownedAttribute xmi:id="__UpVAF46EeaAl-FQbj41vw" name="is_misplace">
           <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
@@ -133,5 +133,5 @@
       <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Ref xmi:id="_nQDZ4hiSEee00c33-LSW7Q" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
+  <C_Cpp:Ref xmi:id="_9LpzEhjVEeeuPbwaNz3hgg" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
 </xmi:XMI>

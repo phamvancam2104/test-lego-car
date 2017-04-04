@@ -12,6 +12,7 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisRoboticArm.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/Pliers.h"
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/RoboticArmPickPiece.h"
@@ -30,7 +31,114 @@ namespace Chassis {
  * @return ret 
  */
 bool ChassisRoboticArm::fromChoicetoSendDeliveredCarConveyorEventGuard() {
-	return true; //get_current_module() != MASTER_MODULE
+	return get_current_module() != CarFactoryLibrary::MASTER_MODULE;
+}
+
+/**
+ * tip up the basket to drop the chassis
+ * @param rack_number 
+ */
+void ChassisRoboticArm::tip_up_chassis(int /*in*/rack_number) {
+
+	if (rack_number == 1) {
+		//go to REST
+		go_rest_position_rack();
+
+		//go to BEFORE TIP UP
+		move(6, -1.3, 100);
+		usleep(500 * 1000);
+
+		//go to TIP UP
+		move(6, -1.3, 78);
+		sleep(1);
+
+		//go to AFTER TIP UP
+		move(6, -1.3, 100);
+		usleep(500 * 1000);
+	} else if (rack_number == 2) {
+		//go to REST
+		go_rest_position_rack();
+
+		//go to BEFORE TIP UP
+		move(12, -1.3, 100);
+		usleep(600 * 1000);
+
+		//go to TIP UP
+		move(12, -1.3, 80);
+		sleep(1);
+
+		//go to AFTER TIP UP
+		move(12, -1.3, 100);
+		usleep(500 * 1000);
+	}
+}
+
+/**
+ * pick the chassis on the basket
+ * @param rack_number 
+ */
+void ChassisRoboticArm::pick_chassis(int /*in*/rack_number) {
+
+	if (rack_number == 1) {
+		motor_pliers.open();
+
+		//go to PICK
+		move(5.2, -3.5, 95, false);
+		usleep(500 * 1000);
+
+		//go to PICK
+		move(5.2, -4, 95, false);
+		usleep(500 * 1000);
+
+		motor_pliers.close();
+
+		//go to REST
+		go_rest_position_rack();
+	} else if (rack_number == 2) {
+		motor_pliers.open();
+
+		//go to PICK
+		move(12.1, -4.4, 95, false);
+		usleep(500 * 1000);
+
+		//go to PICK
+		move(12.1, -4.6, 95, false);
+		usleep(500 * 1000);
+
+		motor_pliers.close();
+
+		//go to REST
+		go_rest_position_rack();
+	}
+}
+
+/**
+ * delivered the chassis on the conveyor
+ */
+void ChassisRoboticArm::deliver_chassis() {
+
+	//ROTATE
+	go_rest_position_conveyor();
+
+	//go to DELIVER CHASSIS
+	move(7.4, 8 - 11.8, 2, false);
+	usleep(700 * 1000);
+
+	motor_pliers.open();
+
+	go_rest_position_conveyor();
+
+	//go to REST
+	go_rest_position_rack();
+}
+
+/**
+ * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
+ * @return ret 
+ */
+int ChassisRoboticArm::get_current_module() {
+
+	return ((CarFactoryLibrary::RoboticArm*) this)->pModule.requiredIntf->getCurrentModule();
 }
 
 /**
@@ -40,6 +148,15 @@ ChassisRoboticArm::ChassisRoboticArm() :
 		::CarFactoryLibrary::RoboticArm("in3:i2c88:sv3", "in3:i2c88:sv2",
 				"in3:i2c88:sv1", "in3:i2c88:sv4"), chassisroboticarmController(
 				this) {
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisRoboticArm::save_rack_number(
+		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
+	rack_number = sig.rack_number;
 }
 
 } // of namespace Chassis

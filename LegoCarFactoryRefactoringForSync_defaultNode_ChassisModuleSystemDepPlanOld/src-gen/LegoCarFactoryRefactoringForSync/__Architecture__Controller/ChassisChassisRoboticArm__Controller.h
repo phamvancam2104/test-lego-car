@@ -25,7 +25,6 @@
 #define CHASSISCHASSISROBOTICARM__CONTROLLER_CHE_INDEX(id) (id - CHASSISCHASSISROBOTICARM__CONTROLLER_CHANGE_EVENT_LOWER_BOUND)
 #define CHASSISROBOTICARM_CHASSISROBOTICARMSTATEMACHINE_REGION1_DEFAULT (0)
 #define CHASSISROBOTICARM_PRINCIPALSTATE_REGION1_DEFAULT (0)
-#define CHASSISROBOTICARM_PRINCIPALSTATE_REGION1_INITIALIZATION (1)
 #define CHASSISROBOTICARM_CHASSISROBOTICARMSTATEMACHINE_REGION1 (0)
 #define CHASSISROBOTICARM_PRINCIPALSTATE_REGION1 (1)
 #include "time.h"
@@ -126,8 +125,8 @@ namespace __Architecture__Controller {
  */
 class ChassisChassisRoboticArm__Controller: public IPush<
 		CarFactoryLibrary::events::EndOfModule>, public IPush<
-		CarFactoryLibrary::events::RoboticArmPickPiece>, public IPush<
 		LegoCarFactoryRefactoringForSync::signals::StopProcess>, public IPush<
+		CarFactoryLibrary::events::RoboticArmPickPiece>, public IPush<
 		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
 public:
 	/**
@@ -163,10 +162,6 @@ public:
 		/**
 		 * 
 		 */
-		INITIALIZATION_ID,
-		/**
-		 * 
-		 */
 		START_MOTORS_ID,
 		/**
 		 * 
@@ -184,6 +179,10 @@ public:
 		 * 
 		 */
 		SENDDELIVEREDCARCONVEYOREVENT_ID,
+		/**
+		 * 
+		 */
+		INITIALIZATION_ID,
 		/**
 		 * 
 		 */
@@ -208,11 +207,11 @@ public:
 		/**
 		 * 
 		 */
-		ROBOTICARMPICKPIECE_ID,
+		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
+		ROBOTICARMPICKPIECE_ID,
 		/**
 		 * 
 		 */
@@ -342,17 +341,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRoboticArmPickPiece(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -361,6 +349,17 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processRoboticArmPickPiece(
+			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 

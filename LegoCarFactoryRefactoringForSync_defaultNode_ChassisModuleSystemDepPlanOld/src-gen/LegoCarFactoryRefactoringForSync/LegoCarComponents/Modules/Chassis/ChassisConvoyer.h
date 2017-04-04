@@ -66,6 +66,17 @@ class EndOfModule;
 // End of Include stereotype (header)
 
 namespace LegoCarFactoryRefactoringForSync {
+namespace signals {
+class PrepareConveyor;
+}
+}
+namespace LegoCarFactoryRefactoringForSync {
+namespace signals {
+class StopProcess;
+}
+}
+
+namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
 namespace Chassis {
@@ -84,22 +95,22 @@ public:
 	StateMachine ChassisConveyorStateMachine {
 		InitialState PrincipalState {
 			InitialState go_stop_position;
-			PseudoChoice choice0;
-			State Rewind;
-			PseudoChoice choice1;
 			State replace;
 			State go_check_presence_position;
-			PseudoChoice choice2;
-			State Misplace;
 			State Deliver_car;
 			State SendEndOfModuleEvent;
-			State go_wait_position;
 			State SendLoadCarCommand;
 			State WaitSlaveIsNotBusy;
-			PseudoChoice choice3;
+			State go_wait_position;
+			State Rewind;
 			State SendDeliverCommand;
 			State WaitSlaveIsNotBusy2;
+			PseudoChoice choice0;
+			PseudoChoice choice1;
+			PseudoChoice choice2;
+			PseudoChoice choice3;
 			PseudoChoice choice;
+			State Misplace;
 		};
 		State Restart;
 		FinalState FinalState1;
@@ -111,20 +122,20 @@ public:
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
+			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , reset_first_time );
 			ExT(fromPrincipalStatetoFinalState1 , PrincipalState , FinalState1 , NULL , NULL , NULL );
-			ExT(fromGo_stop_positiontoChoice0 , go_stop_position , choice0 , NULL , PrepareConveyor , NULL );
-			ExT(fromRewindtoChoice1 , Rewind , choice1 , NULL , DeliveredCarConveyor , NULL );
+			ExT(fromGo_stop_positiontoChoice0 , go_stop_position , choice0 , NULL , PrepareConveyor , save_color );
 			ExT(fromReplacetoGo_check_presence_position , replace , go_check_presence_position , NULL , NULL , NULL );
 			ExT(fromGo_check_presence_positiontoChoice2 , go_check_presence_position , choice2 , NULL , NULL , NULL );
-			ExT(fromMisplacetoRestart , Misplace , Restart , NULL , NULL , NULL );
 			ExT(fromDeliver_cartoSendEndOfModuleEvent , Deliver_car , SendEndOfModuleEvent , NULL , NULL , NULL );
 			ExT(fromSendEndOfModuleEventtoGo_stop_position , SendEndOfModuleEvent , go_stop_position , NULL , NULL , NULL );
-			ExT(fromGo_wait_positiontoRewind , go_wait_position , Rewind , NULL , NULL , NULL );
 			ExT(fromSendLoadCarCommandtoWaitSlaveIsNotBusy , SendLoadCarCommand , WaitSlaveIsNotBusy , NULL , NULL , NULL );
 			ExT(fromWaitSlaveIsNotBusytoChoice3 , WaitSlaveIsNotBusy , choice3 , NULL , NULL , NULL );
+			ExT(fromGo_wait_positiontoRewind , go_wait_position , Rewind , NULL , NULL , NULL );
+			ExT(fromRewindtoChoice1 , Rewind , choice1 , NULL , DeliveredCarConveyor , NULL );
 			ExT(fromSendDeliverCommandtoWaitSlaveIsNotBusy2 , SendDeliverCommand , WaitSlaveIsNotBusy2 , NULL , NULL , NULL );
 			ExT(fromWaitSlaveIsNotBusy2toChoice , WaitSlaveIsNotBusy2 , choice , NULL , NULL , NULL );
+			ExT(fromMisplacetoRestart , Misplace , Restart , NULL , NULL , NULL );
 			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
 			ExT(fromChoice0toGo_wait_position , choice0 , go_wait_position , fromChoice0toGo_wait_positionGuard , NULL , NULL );
 			ExT(fromChoice0toSendLoadCarCommand , choice0 , SendLoadCarCommand , NULL , NULL , NULL );
@@ -184,17 +195,33 @@ public:
 	/**
 	 * 
 	 */
+	ChassisConvoyer();
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void reset_first_time(
+			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	/**
+	 * 
+	 */
 	void effectFromChoicetoRestart();
 	/**
 	 * 
-	 * @return ret 
+	 * @param sig 
 	 */
-	bool fromChoice1toReplaceGuard();
+	void save_color(
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 * @return ret 
 	 */
 	bool fromChoice0toGo_wait_positionGuard();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	bool fromChoice1toReplaceGuard();
 	/**
 	 * 
 	 * @return ret 
@@ -210,36 +237,64 @@ public:
 	 * @return ret 
 	 */
 	bool fromChoicetoSendEndOfModuleEventGuard();
+
+	// opaque behavior without specification (typically from state machine)
 	/**
 	 * 
+	 * 
 	 */
-	ChassisConvoyer();
+	void
+	get_status();
+
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	set_status();
+
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	get_status();
+
+	// opaque behavior without specification (typically from state machine)
+	/**
+	 * 
+	 * 
+	 */
+	void
+	get_status();
 
 private:
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
-	 * @return ret true if the chassis is present and false otherwise
+	 * @return ret 
 	 */
 	bool check_presence();
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
-	 * @return ret true if the chassis is present and false otherwise
+	 * @return ret 
 	 */
 	int get_current_module();
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
-	 * @return ret true if the chassis is present and false otherwise
+	 */
+	void send_stop_process_event();
+	/**
+	 * 
+	 * @return ret 
 	 */
 	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
 	/**
-	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
-	 * @param status true if the chassis is present and false otherwise
+	 * 
+	 * @param status 
 	 */
-	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
-	/**
-	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
-	 */
-	void send_stop_process_event();
+	void set_status(BluetoothSlaveEnum /*in*/status);
 };
 /************************************************************/
 /* External declarations (package visibility)               */

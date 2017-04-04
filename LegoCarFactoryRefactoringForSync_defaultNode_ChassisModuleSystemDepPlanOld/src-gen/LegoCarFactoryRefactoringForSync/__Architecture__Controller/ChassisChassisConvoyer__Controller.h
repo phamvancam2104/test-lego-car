@@ -24,9 +24,7 @@
 #define CHASSISCHASSISCONVOYER__CONTROLLER_TE_INDEX(id) (id - CHASSISCHASSISCONVOYER__CONTROLLER_TIME_EVENT_LOWER_BOUND)
 #define CHASSISCHASSISCONVOYER__CONTROLLER_CHE_INDEX(id) (id - CHASSISCHASSISCONVOYER__CONTROLLER_CHANGE_EVENT_LOWER_BOUND)
 #define CHASSISCONVOYER_CHASSISCONVEYORSTATEMACHINE_REGION1_DEFAULT (0)
-#define CHASSISCONVOYER_CHASSISCONVEYORSTATEMACHINE_REGION1_RESTART (1)
 #define CHASSISCONVOYER_PRINCIPALSTATE_REGION1_DEFAULT (0)
-#define CHASSISCONVOYER_PRINCIPALSTATE_REGION1_GO_STOP_POSITION (1)
 #define CHASSISCONVOYER_CHASSISCONVEYORSTATEMACHINE_REGION1 (0)
 #define CHASSISCONVOYER_PRINCIPALSTATE_REGION1 (1)
 #include "time.h"
@@ -139,11 +137,11 @@ namespace __Architecture__Controller {
  * 
  */
 class ChassisChassisConvoyer__Controller: public IPush<
-		CarFactoryLibrary::events::DeliveredCarConveyor>,
+		LegoCarFactoryRefactoringForSync::signals::PrepareConveyor>,
+		public IPush<CarFactoryLibrary::events::DeliveredCarConveyor>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
 		public IPush<
-				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> {
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
 public:
 	/**
 	 * 
@@ -182,19 +180,11 @@ public:
 		/**
 		 * 
 		 */
-		REWIND_ID,
-		/**
-		 * 
-		 */
 		REPLACE_ID,
 		/**
 		 * 
 		 */
 		GO_CHECK_PRESENCE_POSITION_ID,
-		/**
-		 * 
-		 */
-		MISPLACE_ID,
 		/**
 		 * 
 		 */
@@ -206,10 +196,6 @@ public:
 		/**
 		 * 
 		 */
-		GO_WAIT_POSITION_ID,
-		/**
-		 * 
-		 */
 		SENDLOADCARCOMMAND_ID,
 		/**
 		 * 
@@ -218,11 +204,23 @@ public:
 		/**
 		 * 
 		 */
+		GO_WAIT_POSITION_ID,
+		/**
+		 * 
+		 */
+		REWIND_ID,
+		/**
+		 * 
+		 */
 		SENDDELIVERCOMMAND_ID,
 		/**
 		 * 
 		 */
 		WAITSLAVEISNOTBUSY2_ID,
+		/**
+		 * 
+		 */
+		MISPLACE_ID,
 		/**
 		 * 
 		 */
@@ -239,6 +237,10 @@ public:
 		/**
 		 * 
 		 */
+		PREPARECONVEYOR_ID,
+		/**
+		 * 
+		 */
 		DELIVEREDCARCONVEYOR_ID,
 		/**
 		 * 
@@ -248,10 +250,6 @@ public:
 		 * 
 		 */
 		RESTARTAFTEREMERGENCYSTOP_ID,
-		/**
-		 * 
-		 */
-		PREPARECONVEYOR_ID,
 		/**
 		 * 
 		 */
@@ -366,6 +364,18 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processPrepareConveyor(
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processDeliveredCarConveyor(
 			::CarFactoryLibrary::events::DeliveredCarConveyor& /*in*/sig);
 	/**
@@ -397,18 +407,6 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processPrepareConveyor(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 */

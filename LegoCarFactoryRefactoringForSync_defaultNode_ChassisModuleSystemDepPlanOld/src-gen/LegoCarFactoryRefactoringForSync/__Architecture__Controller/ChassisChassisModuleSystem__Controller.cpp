@@ -35,6 +35,8 @@ void ChassisChassisModuleSystem__Controller::createConnections() {
 	// realization of connector <Connector_Chassis_to_Shelf>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutStopProcess_Shelf(
 			p_origin->shelf.chassisshelfController.get_pInStopProcess());
+	p_origin->shelf.chassisshelfController.connect_pInStopProcess(
+			p_origin->chassisController.chassiscontrolcomponentController.get_pOutStopProcess_Shelf());
 
 	// realization of connector <Connector_control_to_robotic_arm>
 	p_origin->chassisController.chassiscontrolcomponentController.connect_pOutStopProcess_RoboticArm(
