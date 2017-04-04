@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wrq7IhkTEeeNAJWYN1O9MQ" name="MindsensorsPapyrusLibrary">
+  <packagedElement xmi:type="uml:Model" xmi:id="_wrq7IxkTEeeNAJWYN1O9MQ" name="Interfaces">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_rUo1YOeAEeWTib7cxhVOqQ" name="ISensorMux">
+      <generalization xmi:id="_OY7zsOn0EeWXT7Vzvspy2A">
+        <general xmi:type="uml:Interface" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_VqvsELufEeWoXOFMIAWWaA"/>
+      </generalization>
+      <ownedOperation xmi:id="_kpk0EOrMEeWBnOltY_xs2A" name="type_name" visibility="public">
+        <ownedParameter xmi:id="_kpk0EerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kpmpQOrMEeWBnOltY_xs2A" name="bin_data_format" visibility="public">
+        <ownedParameter xmi:id="_kpmpQerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kpnQUOrMEeWBnOltY_xs2A" name="bin_data" visibility="public">
+        <ownedParameter xmi:id="_kpnQUerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_aRzBsMvwEeWAr_trtbj9nQ"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kpn3YOrMEeWBnOltY_xs2A" name="driver_name" visibility="public">
+        <ownedParameter xmi:id="_kpn3YerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kpoecOrMEeWBnOltY_xs2A" name="mode" visibility="public">
+        <ownedParameter xmi:id="_kpoecerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kpoecurMEeWBnOltY_xs2A" name="set_mode" visibility="public">
+        <ownedParameter xmi:id="_kpoec-rMEeWBnOltY_xs2A" name="v">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kppFgOrMEeWBnOltY_xs2A" name="modes" visibility="public">
+        <ownedParameter xmi:id="_kppFgerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_s4reEL-LEeWoXOFMIAWWaA"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_kppskOrMEeWBnOltY_xs2A" name="port_name" visibility="public">
+        <ownedParameter xmi:id="_kppskerMEeWBnOltY_xs2A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:id="_rK8WkOngEeW_Waqe35nJug">
+      <eAnnotations xmi:id="_rLE5cOngEeW_Waqe35nJug" source="PapyrusVersion">
+        <details xmi:id="_rLE5cengEeW_Waqe35nJug" key="Version" value="0.0.1"/>
+        <details xmi:id="_rLE5cungEeW_Waqe35nJug" key="Comment" value=""/>
+        <details xmi:id="_rLE5c-ngEeW_Waqe35nJug" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_rLE5dOngEeW_Waqe35nJug" key="Date" value="2012-12-07"/>
+        <details xmi:id="_rLE5dengEeW_Waqe35nJug" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_rLDrUOngEeW_Waqe35nJug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eijPgUBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_rLLnIOngEeW_Waqe35nJug">
+      <eAnnotations xmi:id="_rLMOMengEeW_Waqe35nJug" source="PapyrusVersion">
+        <details xmi:id="_rLMOMungEeW_Waqe35nJug" key="Version" value="0.0.1"/>
+        <details xmi:id="_rLMOM-ngEeW_Waqe35nJug" key="Comment" value=""/>
+        <details xmi:id="_rLMONOngEeW_Waqe35nJug" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_rLMONengEeW_Waqe35nJug" key="Date" value="2012-12-07"/>
+        <details xmi:id="_rLMONungEeW_Waqe35nJug" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_rLMOMOngEeW_Waqe35nJug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
+    </profileApplication>
+  </packagedElement>
+  <profileApplication xmi:id="_EgT-MOeCEeWTib7cxhVOqQ">
+    <eAnnotations xmi:id="_EgVzYOeCEeWTib7cxhVOqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+  </profileApplication>
+  <profileApplication xmi:id="_EgXokOeCEeWTib7cxhVOqQ">
+    <eAnnotations xmi:id="_EgYPoOeCEeWTib7cxhVOqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+  </profileApplication>
+  <profileApplication xmi:id="_EgZdwOeCEeWTib7cxhVOqQ">
+    <eAnnotations xmi:id="_Egar4OeCEeWTib7cxhVOqQ" source="PapyrusVersion">
+      <details xmi:id="_Egar4eeCEeWTib7cxhVOqQ" key="Version" value="0.0.1"/>
+      <details xmi:id="_Egar4ueCEeWTib7cxhVOqQ" key="Comment" value=""/>
+      <details xmi:id="_Egar4-eCEeWTib7cxhVOqQ" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+      <details xmi:id="_Egar5OeCEeWTib7cxhVOqQ" key="Date" value="2012-12-07"/>
+      <details xmi:id="_Egar5eeCEeWTib7cxhVOqQ" key="Author" value=""/>
+    </eAnnotations>
+    <eAnnotations xmi:id="_EgZdweeCEeWTib7cxhVOqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eijPgUBcEeKj6r7ThQagKA"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
+  </profileApplication>
+  <profileApplication xmi:id="_Egar5ueCEeWTib7cxhVOqQ">
+    <eAnnotations xmi:id="_Egb6AOeCEeWTib7cxhVOqQ" source="PapyrusVersion">
+      <details xmi:id="_Egb6AeeCEeWTib7cxhVOqQ" key="Version" value="0.0.1"/>
+      <details xmi:id="_Egb6AueCEeWTib7cxhVOqQ" key="Comment" value=""/>
+      <details xmi:id="_Egb6A-eCEeWTib7cxhVOqQ" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+      <details xmi:id="_Egb6BOeCEeWTib7cxhVOqQ" key="Date" value="2012-12-07"/>
+      <details xmi:id="_Egb6BeeCEeWTib7cxhVOqQ" key="Author" value=""/>
+    </eAnnotations>
+    <eAnnotations xmi:id="_Egar5-eCEeWTib7cxhVOqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
+  </profileApplication>
+  <profileApplication xmi:id="_EgchEOeCEeWTib7cxhVOqQ">
+    <eAnnotations xmi:id="_EgchEeeCEeWTib7cxhVOqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://Papyrus/RobotML/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
+  </profileApplication>
+  <profileApplication xmi:id="_EgdvMOeCEeWTib7cxhVOqQ">
+    <eAnnotations xmi:id="_EgeWQOeCEeWTib7cxhVOqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+  </profileApplication>
+</uml:Model>

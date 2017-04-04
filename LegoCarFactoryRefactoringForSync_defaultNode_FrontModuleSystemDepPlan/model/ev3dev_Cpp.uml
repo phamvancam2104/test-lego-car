@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_vv-u8BkTEeeNAJWYN1O9MQ" name="ev3dev_Cpp">
+    <packagedElement xmi:type="uml:Class" xmi:id="_f3Solrh-EeWbZ5V_nFbu7g" name="device">
+      <ownedAttribute xmi:id="_f_6ZErh-EeWbZ5V_nFbu7g" name="_path" visibility="protected" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_f_6ZE7h-EeWbZ5V_nFbu7g" name="_device_index" visibility="protected">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_f_6ZFLh-EeWbZ5V_nFbu7g" name="defaultValue">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          <language>C++</language>
+          <body>-1</body>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_f_UjPLh-EeWbZ5V_nFbu7g" name="connected" specification="_f_UjOLh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return !_path.empty();</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gj4o0Lh-EeWbZ5V_nFbu7g" name="device_index" specification="_f_UjPbh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C/C++</language>
+        <body>sing namespace std;
+
+f (_path.empty())
+throw system_error(make_error_code(errc::function_not_supported), &quot;no device connected&quot;);
+
+f (_device_index &lt; 0)
+
+unsigned f = 1;
+_device_index = 0;
+for (auto it=_path.rbegin(); it!=_path.rend(); ++it)
+{
+  if ((*it &lt; '0') || (*it > '9'))
+    break;
+
+  _device_index += (*it -'0') * f;
+  f *= 10;
+}
+
+
+eturn _device_index;</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_f_UjOLh-EeWbZ5V_nFbu7g" name="connected" visibility="public" method="_f_UjPLh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_f_UjOrh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_UjPbh-EeWbZ5V_nFbu7g" name="device_index" visibility="public" method="_gj4o0Lh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_f_UjPrh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_KyMLh-EeWbZ5V_nFbu7g" name="connect" visibility="public">
+        <ownedParameter xmi:id="_f_KyMbh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_f_KyNLh-EeWbZ5V_nFbu7g" name="dir" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+        <ownedParameter xmi:id="_f_UjMLh-EeWbZ5V_nFbu7g" name="pattern" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+        <ownedParameter xmi:id="_f_UjNbh-EeWbZ5V_nFbu7g" name="match" type="_f_UjM7h-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_dtIbh-EeWbZ5V_nFbu7g" name="get_attr_int" visibility="public">
+        <ownedParameter xmi:id="_f_dtIrh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_f_dtJLh-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_dtJ7h-EeWbZ5V_nFbu7g" name="set_attr_int" visibility="public">
+        <ownedParameter xmi:id="_f_dtKLh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_f_dtKbh-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+        <ownedParameter xmi:id="_f_neILh-EeWbZ5V_nFbu7g" name="value">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_neIbh-EeWbZ5V_nFbu7g" name="get_attr_string" visibility="public">
+        <ownedParameter xmi:id="_f_neIrh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_f_neJLh-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_neJ7h-EeWbZ5V_nFbu7g" name="set_attr_string" visibility="public">
+        <ownedParameter xmi:id="_f_neKLh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_f_neKbh-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+        <ownedParameter xmi:id="_f_neLLh-EeWbZ5V_nFbu7g" name="value" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_woEbh-EeWbZ5V_nFbu7g" name="get_attr_line" visibility="public">
+        <ownedParameter xmi:id="_f_woErh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_f_woFLh-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_woF7h-EeWbZ5V_nFbu7g" name="get_attr_set" visibility="public">
+        <ownedParameter xmi:id="_f_woGLh-EeWbZ5V_nFbu7g" name="ret" type="_f3Sokrh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_f_woGrh-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+        <ownedParameter xmi:id="_f_woHbh-EeWbZ5V_nFbu7g" name="pCur" type="_f_KyMrh-EeWbZ5V_nFbu7g">
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_f_woH7h-EeWbZ5V_nFbu7g" name="default" type="_f_KyMrh-EeWbZ5V_nFbu7g">
+            <language>C++</language>
+            <body>nullptr</body>
+          </defaultValue>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f_woILh-EeWbZ5V_nFbu7g" name="get_attr_from_set" visibility="public">
+        <ownedParameter xmi:id="_f_woIbh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_f_woI7h-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vv-u9xkTEeeNAJWYN1O9MQ" name="external">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_f_KyMrh-EeWbZ5V_nFbu7g" name="string"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_f_UjM7h-EeWbZ5V_nFbu7g" name="Map_String__Set_String">
+        <ownedComment xmi:id="_H1YWsMQOEeW0VLtHtqlTkw" annotatedElement="_f_UjM7h-EeWbZ5V_nFbu7g"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_gAXFA7h-EeWbZ5V_nFbu7g" name="vector&lt;char>"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_OFWLgOeSEeW5Q61Wstt_xQ" name="Vector_LocalString">
+        <ownedComment xmi:id="_OFWLgeeSEeW5Q61Wstt_xQ" annotatedElement="_OFWLgOeSEeW5Q61Wstt_xQ">
+          <body>replace string>> by std::vector&lt;EV3PapyrusLibrary::Types::LocalString></body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_gAXFCbh-EeWbZ5V_nFbu7g" name="auto"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_gANUArh-EeWbZ5V_nFbu7g" name="unsigned"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_gAEKIbh-EeWbZ5V_nFbu7g" name="set &lt; sensor_type >"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f3Sokrh-EeWbZ5V_nFbu7g" name="mode_set"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_N4CnAObcEeWJFIMNgBB27A" name="sensor_mux">
+      <generalization xmi:id="_yE_x4OdfEeWdfoS8UWneBw" general="_f3Solrh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_sQIa0OdgEeWdfoS8UWneBw" name="_sensor_types" visibility="protected" type="_gAXFA7h-EeWbZ5V_nFbu7g"/>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ya76wOdhEeWdfoS8UWneBw" name="sensor_mux" specification="_ya8h0OdhEeWdfoS8UWneBw" isReentrant="false">
+        <language>C/C++</language>
+        <body></body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-MPygOrLEeWaiccf-oyb9Q" name="bin_data_format" specification="_-MqCMOrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;bin_data_format&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-Mj7kOrLEeWaiccf-oyb9Q" name="driver_name" specification="_-MtskOrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;driver_name&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-MkioOrLEeWaiccf-oyb9Q" name="mode" specification="_-MwI0OrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;mode&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-MlJsOrLEeWaiccf-oyb9Q" name="set_mode" specification="_-MylEOrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C++</language>
+        <body>set_attr_string(&quot;mode&quot;, v);
+return *this;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-MlwwOrLEeWaiccf-oyb9Q" name="modes" specification="_-M0aQOrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_set(&quot;modes&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-MlwwerLEeWaiccf-oyb9Q" name="port_name" specification="_-M22gOrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;port_name&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-MmX0OrLEeWaiccf-oyb9Q" name="type_name" specification="_-Mnl8OrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C/C++</language>
+        <body>uto type = driver_name();
+f (type.empty())
+
+static const std::string s(&quot;&lt;none>&quot;);
+return s;
+
+
+tatic const std::map&lt;sensor_type, const std::string> lookup_table {
+{ ev3_touch,       &quot;EV3 touch&quot; },
+{ ev3_color,       &quot;EV3 color&quot; },
+{ ev3_ultrasonic,  &quot;EV3 ultrasonic&quot; },
+{ ev3_gyro,        &quot;EV3 gyro&quot; },
+{ ev3_infrared,    &quot;EV3 infrared&quot; },
+{ nxt_touch,       &quot;NXT touch&quot; },
+{ nxt_light,       &quot;NXT light&quot; },
+{ nxt_sound,       &quot;NXT sound&quot; },
+{ nxt_ultrasonic,  &quot;NXT ultrasonic&quot; },
+{ nxt_i2c_sensor,  &quot;I2C sensor&quot; },
+;
+
+uto s = lookup_table.find(type);
+f (s != lookup_table.end())
+return s->second;
+
+eturn type;</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-Mm-4OrLEeWaiccf-oyb9Q" name="bin_data" specification="_-MrQUOrLEeWaiccf-oyb9Q" isReentrant="false">
+        <language>C/C++</language>
+        <body>sing namespace std;
+
+f (_path.empty())
+throw system_error(make_error_code(errc::function_not_supported), &quot;no device connected&quot;);
+
+f (_bin_data.empty()) {
+static const map&lt;string, int> lookup_table {
+  {&quot;u8&quot;,     1},
+  {&quot;s8&quot;,     1},
+  {&quot;u16&quot;,    2},
+  {&quot;s16&quot;,    2},
+  {&quot;s16_be&quot;, 2},
+  {&quot;s32&quot;,    4},
+  {&quot;float&quot;,  4}
+};
+
+int value_size = 1;
+
+auto s = lookup_table.find(bin_data_format());
+if (s != lookup_table.end())
+  value_size = s->second;
+
+_bin_data.resize(num_values() * value_size);
+
+
+onst string fname = _path + &quot;bin_data&quot;;
+fstream &amp;is = ifstream_open(fname);
+f (is.is_open())
+
+is.read(_bin_data.data(), _bin_data.size());
+return _bin_data;
+
+
+hrow system_error(make_error_code(errc::no_such_device), fname);</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_ya8h0OdhEeWdfoS8UWneBw" name="sensor_mux" visibility="public" method="_ya76wOdhEeWdfoS8UWneBw">
+        <ownedParameter xmi:id="_ya8h0edhEeWdfoS8UWneBw" name="port_" type="_f3I3n7h-EeWbZ5V_nFbu7g">
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_ya8h0udhEeWdfoS8UWneBw" name="default" type="_f3I3n7h-EeWbZ5V_nFbu7g">
+            <language>C++</language>
+            <body>INPUT_AUTO</body>
+          </defaultValue>
+        </ownedParameter>
+        <ownedParameter xmi:id="_5BLO8OdhEeWdfoS8UWneBw" name="sensorTypes" type="_OFWLgOeSEeW5Q61Wstt_xQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-MqCMOrLEeWaiccf-oyb9Q" name="bin_data_format" visibility="public" method="_-MPygOrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-MqCMerLEeWaiccf-oyb9Q" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-MtskOrLEeWaiccf-oyb9Q" name="driver_name" visibility="public" method="_-Mj7kOrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-MtskerLEeWaiccf-oyb9Q" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-MwI0OrLEeWaiccf-oyb9Q" name="mode" visibility="public" method="_-MkioOrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-MwI0erLEeWaiccf-oyb9Q" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-MylEOrLEeWaiccf-oyb9Q" name="set_mode" visibility="public" method="_-MlJsOrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-MylEerLEeWaiccf-oyb9Q" name="ret" type="_gAXFCbh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_-MylEurLEeWaiccf-oyb9Q" name="v" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-M0aQOrLEeWaiccf-oyb9Q" name="modes" visibility="public" method="_-MlwwOrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-M0aQerLEeWaiccf-oyb9Q" name="ret" type="_f3Sokrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-M22gOrLEeWaiccf-oyb9Q" name="port_name" visibility="public" method="_-MlwwerLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-M22gerLEeWaiccf-oyb9Q" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-Mnl8OrLEeWaiccf-oyb9Q" name="type_name" visibility="public" method="_-MmX0OrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-Mnl8erLEeWaiccf-oyb9Q" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-MrQUOrLEeWaiccf-oyb9Q" name="bin_data" visibility="public" method="_-Mm-4OrLEeWaiccf-oyb9Q">
+        <ownedParameter xmi:id="_-MrQUerLEeWaiccf-oyb9Q" name="ret" type="_gAXFA7h-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_4o_Z4ObcEeWJFIMNgBB27A" name="connect" visibility="public">
+        <ownedParameter xmi:id="_4o_Z4ebcEeWJFIMNgBB27A" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_A35VAObdEeWJFIMNgBB27A" name="num_port">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_4o_Z4ubcEeWJFIMNgBB27A" name="" type="_f_UjM7h-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f3I3n7h-EeWbZ5V_nFbu7g" name="port_type"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_f_6ZFrh-EeWbZ5V_nFbu7g" name="sensor">
+      <generalization xmi:id="_gAzJ5bh-EeWbZ5V_nFbu7g" general="_f3Solrh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_f_6ZF7h-EeWbZ5V_nFbu7g" name="ev3_touch" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_f_6ZG7h-EeWbZ5V_nFbu7g" name="ev3_color" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_f_6ZHbh-EeWbZ5V_nFbu7g" name="ev3_ultrasonic" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_f_6ZH7h-EeWbZ5V_nFbu7g" name="ev3_gyro" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_f_6ZIbh-EeWbZ5V_nFbu7g" name="ev3_infrared" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAEKEbh-EeWbZ5V_nFbu7g" name="nxt_touch" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAEKE7h-EeWbZ5V_nFbu7g" name="nxt_light" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAEKFbh-EeWbZ5V_nFbu7g" name="nxt_sound" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAEKF7h-EeWbZ5V_nFbu7g" name="nxt_ultrasonic" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAEKGbh-EeWbZ5V_nFbu7g" name="nxt_i2c_sensor" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAEKG7h-EeWbZ5V_nFbu7g" name="nxt_analog" visibility="public" isStatic="true" type="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+      <ownedAttribute xmi:id="_gAzJ5Lh-EeWbZ5V_nFbu7g" name="_bin_data" visibility="protected" type="_gAXFA7h-EeWbZ5V_nFbu7g"/>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAXFAbh-EeWbZ5V_nFbu7g" name="bin_data_format" specification="_gANUDrh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;bin_data_format&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAXFDbh-EeWbZ5V_nFbu7g" name="set_command" specification="_gAXFCLh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>set_attr_string(&quot;command&quot;, v);
+return *this;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAXFEbh-EeWbZ5V_nFbu7g" name="commands" specification="_gAXFDrh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_set(&quot;commands&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAgO8rh-EeWbZ5V_nFbu7g" name="decimals" specification="_gAXFErh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_int(&quot;decimals&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAgO9rh-EeWbZ5V_nFbu7g" name="driver_name" specification="_gAgO87h-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;driver_name&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAgO-rh-EeWbZ5V_nFbu7g" name="mode" specification="_gAgO97h-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;mode&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAgO_rh-EeWbZ5V_nFbu7g" name="set_mode" specification="_gAgO-7h-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>set_attr_string(&quot;mode&quot;, v);
+return *this;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAp_8Lh-EeWbZ5V_nFbu7g" name="modes" specification="_gAgO_7h-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_set(&quot;modes&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAp_9Lh-EeWbZ5V_nFbu7g" name="num_values" specification="_gAp_8bh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_int(&quot;num_values&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAp_-Lh-EeWbZ5V_nFbu7g" name="port_name" specification="_gAp_9bh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;port_name&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAp__Lh-EeWbZ5V_nFbu7g" name="units" specification="_gAp_-bh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body>return get_attr_string(&quot;units&quot;);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gAp__rh-EeWbZ5V_nFbu7g" name="sensor" specification="_gAp__bh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C++</language>
+        <body></body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gwObsLh-EeWbZ5V_nFbu7g" name="sensor" specification="_gAEKHbh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C/C++</language>
+        <body>std::cout &lt;&lt; &quot;port_name&quot;;
+onnect({{ &quot;port_name&quot;, { port }}});
+std::cout &lt;&lt; &quot;port_name end&quot;;</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gwObsbh-EeWbZ5V_nFbu7g" name="type_name" specification="_gANUC7h-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C/C++</language>
+        <body>uto type = driver_name();
+f (type.empty())
+
+static const std::string s(&quot;&lt;none>&quot;);
+return s;
+
+
+tatic const std::map&lt;sensor_type, const std::string> lookup_table {
+{ ev3_touch,       &quot;EV3 touch&quot; },
+{ ev3_color,       &quot;EV3 color&quot; },
+{ ev3_ultrasonic,  &quot;EV3 ultrasonic&quot; },
+{ ev3_gyro,        &quot;EV3 gyro&quot; },
+{ ev3_infrared,    &quot;EV3 infrared&quot; },
+{ nxt_touch,       &quot;NXT touch&quot; },
+{ nxt_light,       &quot;NXT light&quot; },
+{ nxt_sound,       &quot;NXT sound&quot; },
+{ nxt_ultrasonic,  &quot;NXT ultrasonic&quot; },
+{ nxt_i2c_sensor,  &quot;I2C sensor&quot; },
+;
+
+uto s = lookup_table.find(type);
+f (s != lookup_table.end())
+return s->second;
+
+eturn type;</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gwObsrh-EeWbZ5V_nFbu7g" name="value" specification="_gAEKJrh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C/C++</language>
+        <body>f (static_cast&lt;int>(index) >= num_values())
+throw std::invalid_argument(&quot;index&quot;);
+
+har svalue[7] = &quot;value0&quot;;
+value[5] += index;
+
+eturn get_attr_int(svalue);</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gwObs7h-EeWbZ5V_nFbu7g" name="float_value" specification="_gANUBrh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C/C++</language>
+        <body>eturn value(index) * powf(10, -decimals());</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gwObtLh-EeWbZ5V_nFbu7g" name="bin_data" specification="_gAXFArh-EeWbZ5V_nFbu7g" isReentrant="false">
+        <language>C/C++</language>
+        <body>sing namespace std;
+
+f (_path.empty())
+throw system_error(make_error_code(errc::function_not_supported), &quot;no device connected&quot;);
+
+f (_bin_data.empty()) {
+static const map&lt;string, int> lookup_table {
+  {&quot;u8&quot;,     1},
+  {&quot;s8&quot;,     1},
+  {&quot;u16&quot;,    2},
+  {&quot;s16&quot;,    2},
+  {&quot;s16_be&quot;, 2},
+  {&quot;s32&quot;,    4},
+  {&quot;float&quot;,  4}
+};
+
+int value_size = 1;
+
+auto s = lookup_table.find(bin_data_format());
+if (s != lookup_table.end())
+  value_size = s->second;
+
+_bin_data.resize(num_values() * value_size);
+
+
+onst string fname = _path + &quot;bin_data&quot;;
+fstream &amp;is = ifstream_open(fname);
+f (is.is_open())
+
+is.read(_bin_data.data(), _bin_data.size());
+return _bin_data;
+
+
+hrow system_error(make_error_code(errc::no_such_device), fname);</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_gANUC7h-EeWbZ5V_nFbu7g" name="type_name" visibility="public" method="_gwObsbh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gANUDLh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gANUDrh-EeWbZ5V_nFbu7g" name="bin_data_format" visibility="public" method="_gAXFAbh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gANUD7h-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAXFCLh-EeWbZ5V_nFbu7g" name="set_command" visibility="public" method="_gAXFDbh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAXFC7h-EeWbZ5V_nFbu7g" name="ret" type="_gAXFCbh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_gAXFDLh-EeWbZ5V_nFbu7g" name="v" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAXFDrh-EeWbZ5V_nFbu7g" name="commands" visibility="public" method="_gAXFEbh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAXFD7h-EeWbZ5V_nFbu7g" name="ret" type="_f3Sokrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAXFErh-EeWbZ5V_nFbu7g" name="decimals" visibility="public" method="_gAgO8rh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAgO8Lh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAgO87h-EeWbZ5V_nFbu7g" name="driver_name" visibility="public" method="_gAgO9rh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAgO9Lh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAgO97h-EeWbZ5V_nFbu7g" name="mode" visibility="public" method="_gAgO-rh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAgO-Lh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAgO-7h-EeWbZ5V_nFbu7g" name="set_mode" visibility="public" method="_gAgO_rh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAgO_Lh-EeWbZ5V_nFbu7g" name="ret" type="_gAXFCbh-EeWbZ5V_nFbu7g" direction="return"/>
+        <ownedParameter xmi:id="_gAgO_bh-EeWbZ5V_nFbu7g" name="v" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAgO_7h-EeWbZ5V_nFbu7g" name="modes" visibility="public" method="_gAp_8Lh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAgPALh-EeWbZ5V_nFbu7g" name="ret" type="_f3Sokrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAp_8bh-EeWbZ5V_nFbu7g" name="num_values" visibility="public" method="_gAp_9Lh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAp_8rh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAp_9bh-EeWbZ5V_nFbu7g" name="port_name" visibility="public" method="_gAp_-Lh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAp_9rh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAp_-bh-EeWbZ5V_nFbu7g" name="units" visibility="public" method="_gAp__Lh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAp_-rh-EeWbZ5V_nFbu7g" name="ret" type="_f_KyMrh-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAp__bh-EeWbZ5V_nFbu7g" name="sensor" visibility="protected" method="_gAp__rh-EeWbZ5V_nFbu7g"/>
+      <ownedOperation xmi:id="_gAEKHbh-EeWbZ5V_nFbu7g" name="sensor" visibility="public" method="_gwObsLh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAEKHrh-EeWbZ5V_nFbu7g" name="" type="_f3I3n7h-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAEKJrh-EeWbZ5V_nFbu7g" name="value" visibility="public" method="_gwObsrh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gANUALh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_gANUBLh-EeWbZ5V_nFbu7g" name="index" type="_gANUArh-EeWbZ5V_nFbu7g">
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_gANUBbh-EeWbZ5V_nFbu7g" name="default" type="_gANUArh-EeWbZ5V_nFbu7g">
+            <language>C++</language>
+            <body>0</body>
+          </defaultValue>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gANUBrh-EeWbZ5V_nFbu7g" name="float_value" visibility="public" method="_gwObs7h-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gANUB7h-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_gANUCbh-EeWbZ5V_nFbu7g" name="index" type="_gANUArh-EeWbZ5V_nFbu7g">
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_gANUCrh-EeWbZ5V_nFbu7g" name="default" type="_gANUArh-EeWbZ5V_nFbu7g">
+            <language>C++</language>
+            <body>0</body>
+          </defaultValue>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAXFArh-EeWbZ5V_nFbu7g" name="bin_data" visibility="public" method="_gwObtLh-EeWbZ5V_nFbu7g">
+        <ownedParameter xmi:id="_gAXFBbh-EeWbZ5V_nFbu7g" name="ret" type="_gAXFA7h-EeWbZ5V_nFbu7g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAEKH7h-EeWbZ5V_nFbu7g" name="sensor" visibility="public">
+        <ownedParameter xmi:id="_gAEKILh-EeWbZ5V_nFbu7g" name="" type="_f3I3n7h-EeWbZ5V_nFbu7g"/>
+        <ownedParameter xmi:id="_gAEKI7h-EeWbZ5V_nFbu7g" name="" type="_gAEKIbh-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_gAp__7h-EeWbZ5V_nFbu7g" name="connect" visibility="protected">
+        <ownedParameter xmi:id="_gAzJ4Lh-EeWbZ5V_nFbu7g" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_gAzJ4bh-EeWbZ5V_nFbu7g" name="" type="_f_UjM7h-EeWbZ5V_nFbu7g"/>
+      </ownedOperation>
+      <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_f_6ZGLh-EeWbZ5V_nFbu7g" name="sensor_type"/>
+    </packagedElement>
+    <profileApplication xmi:id="_fk20wbh-EeWbZ5V_nFbu7g">
+      <eAnnotations xmi:id="_fk20wrh-EeWbZ5V_nFbu7g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Include xmi:id="_vv-u9RkTEeeNAJWYN1O9MQ" base_class="_f3Solrh-EeWbZ5V_nFbu7g" base_Classifier="_f3Solrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vv-u9hkTEeeNAJWYN1O9MQ" base_Classifier="_f3Solrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:NoCodeGen xmi:id="_vv_WABkTEeeNAJWYN1O9MQ" base_element="_vv-u9xkTEeeNAJWYN1O9MQ"/>
+  <C_Cpp:External xmi:id="_vv_WARkTEeeNAJWYN1O9MQ" base_Classifier="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Inline xmi:id="_vv_9EhkTEeeNAJWYN1O9MQ" base_operation="_f_UjOLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vv_9ExkTEeeNAJWYN1O9MQ" base_parameter="_f_UjOrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwAkIxkTEeeNAJWYN1O9MQ" base_parameter="_f_UjPrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwBLMhkTEeeNAJWYN1O9MQ" base_parameter="_f_KyNLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwBLMxkTEeeNAJWYN1O9MQ" base_parameter="_f_KyNLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwBLNRkTEeeNAJWYN1O9MQ" base_parameter="_f_UjMLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwBLNhkTEeeNAJWYN1O9MQ" base_parameter="_f_UjMLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwByQRkTEeeNAJWYN1O9MQ" name="map&lt;string,set&lt;string>>" base_Classifier="_f_UjM7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwByQhkTEeeNAJWYN1O9MQ" base_parameter="_f_UjNbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwByQxkTEeeNAJWYN1O9MQ" base_parameter="_f_UjNbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwByRhkTEeeNAJWYN1O9MQ" base_parameter="_f_dtIrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwCZUBkTEeeNAJWYN1O9MQ" base_parameter="_f_dtJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwCZURkTEeeNAJWYN1O9MQ" base_parameter="_f_dtJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwCZVRkTEeeNAJWYN1O9MQ" base_parameter="_f_dtKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwCZVhkTEeeNAJWYN1O9MQ" base_parameter="_f_dtKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwDAYRkTEeeNAJWYN1O9MQ" base_parameter="_f_neIrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwDAYxkTEeeNAJWYN1O9MQ" base_parameter="_f_neJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwDAZBkTEeeNAJWYN1O9MQ" base_parameter="_f_neJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwDAaBkTEeeNAJWYN1O9MQ" base_parameter="_f_neKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwDAaRkTEeeNAJWYN1O9MQ" base_parameter="_f_neKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwDncBkTEeeNAJWYN1O9MQ" base_parameter="_f_neLLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwDncRkTEeeNAJWYN1O9MQ" base_parameter="_f_neLLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwDndBkTEeeNAJWYN1O9MQ" base_parameter="_f_woErh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwDndhkTEeeNAJWYN1O9MQ" base_parameter="_f_woFLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwDndxkTEeeNAJWYN1O9MQ" base_parameter="_f_woFLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_vwEOgRkTEeeNAJWYN1O9MQ" definition="std::set&lt;mode_type>" base_primitivetype="_f3Sokrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwEOghkTEeeNAJWYN1O9MQ" base_Classifier="_f3Sokrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwEOgxkTEeeNAJWYN1O9MQ" base_parameter="_f_woGLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwEOhRkTEeeNAJWYN1O9MQ" base_parameter="_f_woGrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwEOhhkTEeeNAJWYN1O9MQ" base_parameter="_f_woGrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ptr xmi:id="_vwEOiRkTEeeNAJWYN1O9MQ" base_parameter="_f_woHbh-EeWbZ5V_nFbu7g" declaration="*"/>
+  <C_Cpp:Const xmi:id="_vwE1khkTEeeNAJWYN1O9MQ" base_parameter="_f_woIbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwE1lBkTEeeNAJWYN1O9MQ" base_parameter="_f_woI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwE1lRkTEeeNAJWYN1O9MQ" base_parameter="_f_woI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_vwMKUhkTEeeNAJWYN1O9MQ" base_class="_N4CnAObcEeWJFIMNgBB27A" base_Classifier="_N4CnAObcEeWJFIMNgBB27A"/>
+  <C_Cpp:External xmi:id="_vwMKUxkTEeeNAJWYN1O9MQ" base_Classifier="_N4CnAObcEeWJFIMNgBB27A"/>
+  <C_Cpp:External xmi:id="_vwMxYBkTEeeNAJWYN1O9MQ" base_Classifier="_gAXFA7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_vwNYcBkTEeeNAJWYN1O9MQ" definition="std::string" base_primitivetype="_f3I3n7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwNYcRkTEeeNAJWYN1O9MQ" base_Classifier="_f3I3n7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwNYdhkTEeeNAJWYN1O9MQ" name="std::vector&lt;EV3PapyrusLibrary::Types::LocalString>" base_Classifier="_OFWLgOeSEeW5Q61Wstt_xQ"/>
+  <C_Cpp:Const xmi:id="_vwN_gxkTEeeNAJWYN1O9MQ" base_parameter="_-MqCMerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_vwOmkhkTEeeNAJWYN1O9MQ" base_parameter="_-MtskerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_vwPNoRkTEeeNAJWYN1O9MQ" base_parameter="_-MwI0erLEeWaiccf-oyb9Q"/>
+  <C_Cpp:External xmi:id="_vwP0sBkTEeeNAJWYN1O9MQ" base_Classifier="_gAXFCbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwQbwBkTEeeNAJWYN1O9MQ" base_parameter="_-M0aQerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_vwQbxBkTEeeNAJWYN1O9MQ" base_parameter="_-M22gerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_vwRC0hkTEeeNAJWYN1O9MQ" base_parameter="_-Mnl8erLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_vwRp4RkTEeeNAJWYN1O9MQ" base_parameter="_-MrQUerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Ref xmi:id="_vwRp4hkTEeeNAJWYN1O9MQ" base_parameter="_-MrQUerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_vwRp5xkTEeeNAJWYN1O9MQ" base_parameter="_4o_Z4ubcEeWJFIMNgBB27A"/>
+  <C_Cpp:Ref xmi:id="_vwRp6BkTEeeNAJWYN1O9MQ" base_parameter="_4o_Z4ubcEeWJFIMNgBB27A"/>
+  <C_Cpp:Include xmi:id="_gAzJ5rh-EeWbZ5V_nFbu7g" base_class="_f_6ZFrh-EeWbZ5V_nFbu7g" base_Classifier="_f_6ZFrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwS4BBkTEeeNAJWYN1O9MQ" base_Classifier="_f_6ZFrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_vwTfEBkTEeeNAJWYN1O9MQ" definition="device_type" base_primitivetype="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwTfERkTEeeNAJWYN1O9MQ" base_property="_f_6ZF7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwTfExkTEeeNAJWYN1O9MQ" base_property="_f_6ZG7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwUGIBkTEeeNAJWYN1O9MQ" base_property="_f_6ZHbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwUGIhkTEeeNAJWYN1O9MQ" base_property="_f_6ZH7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwUGJBkTEeeNAJWYN1O9MQ" base_property="_f_6ZIbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwUtMBkTEeeNAJWYN1O9MQ" base_property="_gAEKEbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwUtMhkTEeeNAJWYN1O9MQ" base_property="_gAEKE7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwUtNBkTEeeNAJWYN1O9MQ" base_property="_gAEKFbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwVUQBkTEeeNAJWYN1O9MQ" base_property="_gAEKF7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwVUQhkTEeeNAJWYN1O9MQ" base_property="_gAEKGbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwVURBkTEeeNAJWYN1O9MQ" base_property="_gAEKG7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwV7UxkTEeeNAJWYN1O9MQ" base_parameter="_gANUD7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwXJcRkTEeeNAJWYN1O9MQ" base_parameter="_gAXFD7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwXwgRkTEeeNAJWYN1O9MQ" base_parameter="_gAgO8Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwXwhRkTEeeNAJWYN1O9MQ" base_parameter="_gAgO9Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwYXkhkTEeeNAJWYN1O9MQ" base_parameter="_gAgO-Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwY-pRkTEeeNAJWYN1O9MQ" base_parameter="_gAgPALh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwZlshkTEeeNAJWYN1O9MQ" base_parameter="_gAp_8rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwaMwRkTEeeNAJWYN1O9MQ" base_parameter="_gAp_9rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwaMxRkTEeeNAJWYN1O9MQ" base_parameter="_gAp_-rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwcB8RkTEeeNAJWYN1O9MQ" base_parameter="_gANUALh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwcB9BkTEeeNAJWYN1O9MQ" base_Classifier="_gANUArh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwcpAhkTEeeNAJWYN1O9MQ" base_parameter="_gANUB7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwdQERkTEeeNAJWYN1O9MQ" base_parameter="_gAXFBbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwdQEhkTEeeNAJWYN1O9MQ" base_parameter="_gAXFBbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_vwd3IBkTEeeNAJWYN1O9MQ" base_Classifier="_gAEKIbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwd3IRkTEeeNAJWYN1O9MQ" base_parameter="_gAEKI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwd3IhkTEeeNAJWYN1O9MQ" base_parameter="_gAEKI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwd3JhkTEeeNAJWYN1O9MQ" base_parameter="_gAzJ4bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_vwd3JxkTEeeNAJWYN1O9MQ" base_parameter="_gAzJ4bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_vwd3KRkTEeeNAJWYN1O9MQ" base_parameter="_gANUDLh-EeWbZ5V_nFbu7g"/>
+</xmi:XMI>

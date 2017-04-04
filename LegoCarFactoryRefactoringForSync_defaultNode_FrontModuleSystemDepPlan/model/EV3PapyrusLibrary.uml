@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_wrriRxkTEeeNAJWYN1O9MQ" name="EV3PapyrusLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_wrriSBkTEeeNAJWYN1O9MQ" name="Interfaces">
+      <packagedElement xmi:type="uml:Package" xmi:id="_wrsJVBkTEeeNAJWYN1O9MQ" name="EV3Brick">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_VqvsELufEeWoXOFMIAWWaA" name="IDevice">
+          <ownedOperation xmi:id="_VqvsFrufEeWoXOFMIAWWaA" name="connect" visibility="public">
+            <ownedParameter xmi:id="_VqvsF7ufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_VqvsGLufEeWoXOFMIAWWaA" name="dir" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_VqvsGbufEeWoXOFMIAWWaA" name="pattern" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_VqvsGrufEeWoXOFMIAWWaA" name="match" type="_zC_zcMQ6EeWMDdeM9STG6A"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsG7ufEeWoXOFMIAWWaA" name="connected" visibility="public">
+            <ownedParameter xmi:id="_VqvsHLufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsHbufEeWoXOFMIAWWaA" name="device_index" visibility="public">
+            <ownedParameter xmi:id="_VqvsHrufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsH7ufEeWoXOFMIAWWaA" name="get_attr_int" visibility="public">
+            <ownedParameter xmi:id="_VqvsILufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_VqvsIbufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsIrufEeWoXOFMIAWWaA" name="set_attr_int" visibility="public">
+            <ownedParameter xmi:id="_VqvsI7ufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_VqvsJLufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_VqvsJbufEeWoXOFMIAWWaA" name="value">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsJrufEeWoXOFMIAWWaA" name="get_attr_string" visibility="public">
+            <ownedParameter xmi:id="_VqvsJ7ufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+            <ownedParameter xmi:id="_VqvsKLufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsKbufEeWoXOFMIAWWaA" name="set_attr_string" visibility="public">
+            <ownedParameter xmi:id="_VqvsKrufEeWoXOFMIAWWaA" name="ret" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_VqvsK7ufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_VqvsLLufEeWoXOFMIAWWaA" name="value" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsLbufEeWoXOFMIAWWaA" name="get_attr_line" visibility="public" isAbstract="true">
+            <ownedParameter xmi:id="_VqvsLrufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+            <ownedParameter xmi:id="_VqvsL7ufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsMLufEeWoXOFMIAWWaA" name="get_attr_set" visibility="public">
+            <ownedParameter xmi:id="_VqvsMbufEeWoXOFMIAWWaA" name="ret" type="_s4reEL-LEeWoXOFMIAWWaA" direction="return"/>
+            <ownedParameter xmi:id="_VqvsMrufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+            <ownedParameter xmi:id="_VqvsM7ufEeWoXOFMIAWWaA" name="pCur" type="_yDQfoMkaEeWYC4KNqzxWOw">
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_VqvsNLufEeWoXOFMIAWWaA" name="default" type="_yDQfoMkaEeWYC4KNqzxWOw">
+                <language>C++</language>
+                <body>nullptr</body>
+              </defaultValue>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_VqvsNbufEeWoXOFMIAWWaA" name="get_attr_from_set" visibility="public">
+            <ownedParameter xmi:id="_VqvsNrufEeWoXOFMIAWWaA" name="ret" type="_yDQfoMkaEeWYC4KNqzxWOw" direction="return"/>
+            <ownedParameter xmi:id="_VqvsN7ufEeWoXOFMIAWWaA" name="name" type="_yDQfoMkaEeWYC4KNqzxWOw"/>
+          </ownedOperation>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wrswUxkTEeeNAJWYN1O9MQ" name="Types">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_yDQfoMkaEeWYC4KNqzxWOw" name="LocalString"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_zC_zcMQ6EeWMDdeM9STG6A" name="MapStringSetString"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_s4reEL-LEeWoXOFMIAWWaA" name="ModeSet"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_aRzBsMvwEeWAr_trtbj9nQ" name="CustomVectorChar"/>
+      <profileApplication xmi:id="_hOKesMQgEeWLEf5dvszSMg">
+        <eAnnotations xmi:id="_hOLFwMQgEeWLEf5dvszSMg" source="PapyrusVersion">
+          <details xmi:id="_hOLFwcQgEeWLEf5dvszSMg" key="Version" value="1.1.0"/>
+          <details xmi:id="_hOLFwsQgEeWLEf5dvszSMg" key="Comment" value=""/>
+          <details xmi:id="_hOLFw8QgEeWLEf5dvszSMg" key="Copyright" value=""/>
+          <details xmi:id="_hOLFxMQgEeWLEf5dvszSMg" key="Date" value="2008-12-11"/>
+          <details xmi:id="_hOLFxcQgEeWLEf5dvszSMg" key="Author" value="Yann Tanguy (CEA LIST)"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_hOKescQgEeWLEf5dvszSMg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="pathmap://PapyrusCpp_PROFILES/PapyrusC.profile.uml#_7bRFQcdtEd29as0ocaFXLw"/>
+        </eAnnotations>
+        <appliedProfile href="pathmap://PapyrusCpp_PROFILES/PapyrusC.profile.uml#_GPY_cBU6EdyGtuGaCXC25Q"/>
+      </profileApplication>
+      <profileApplication xmi:id="_n7ZLsMQgEeWLEf5dvszSMg">
+        <eAnnotations xmi:id="_n7ZywMQgEeWLEf5dvszSMg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+        </eAnnotations>
+        <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+      </profileApplication>
+    </packagedElement>
+    <profileApplication xmi:id="_NBptEL7FEeWoXOFMIAWWaA">
+      <eAnnotations xmi:id="_NBqUIL7FEeWoXOFMIAWWaA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_aXNuAL-LEeWoXOFMIAWWaA">
+      <eAnnotations xmi:id="_aXO8IL-LEeWoXOFMIAWWaA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_VYMqgMUWEeWcf8lGjyyLwg">
+      <eAnnotations xmi:id="_VYNRkMUWEeWcf8lGjyyLwg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://Papyrus/RobotML/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
+    </profileApplication>
+    <profileApplication xmi:id="_V8rZkMmVEeWkWKxvYW4SLA">
+      <eAnnotations xmi:id="_V8t10MmVEeWkWKxvYW4SLA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_9hb-ANPtEeW4nJ2D0KrVNA">
+      <eAnnotations xmi:id="_9heaQNPtEeW4nJ2D0KrVNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+    <profileApplication xmi:id="_2sfcsOIVEeWy7KIb3wYfIw">
+      <eAnnotations xmi:id="_2ts9oOIVEeWy7KIb3wYfIw" source="PapyrusVersion">
+        <details xmi:id="_2ts9oeIVEeWy7KIb3wYfIw" key="Version" value="0.0.1"/>
+        <details xmi:id="_2ts9ouIVEeWy7KIb3wYfIw" key="Comment" value=""/>
+        <details xmi:id="_2ts9o-IVEeWy7KIb3wYfIw" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_2ts9pOIVEeWy7KIb3wYfIw" key="Date" value="2012-12-07"/>
+        <details xmi:id="_2ts9peIVEeWy7KIb3wYfIw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_2smxcOIVEeWy7KIb3wYfIw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eijPgUBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_2tuLwOIVEeWy7KIb3wYfIw">
+      <eAnnotations xmi:id="_2ujSMOIVEeWy7KIb3wYfIw" source="PapyrusVersion">
+        <details xmi:id="_2ujSMeIVEeWy7KIb3wYfIw" key="Version" value="0.0.1"/>
+        <details xmi:id="_2ujSMuIVEeWy7KIb3wYfIw" key="Comment" value=""/>
+        <details xmi:id="_2ujSM-IVEeWy7KIb3wYfIw" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_2ujSNOIVEeWy7KIb3wYfIw" key="Date" value="2012-12-07"/>
+        <details xmi:id="_2ujSNeIVEeWy7KIb3wYfIw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_2tuy0OIVEeWy7KIb3wYfIw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Include xmi:id="_wrswUBkTEeeNAJWYN1O9MQ" header="#include &lt;stdint.h>" base_Classifier="_VqvsELufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_wrswVxkTEeeNAJWYN1O9MQ" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;#include &lt;stdio.h>" base_package="_wrswUxkTEeeNAJWYN1O9MQ"/>
+  <C_Cpp:Typedef xmi:id="_wrtXYhkTEeeNAJWYN1O9MQ" definition="std::string" base_primitivetype="_yDQfoMkaEeWYC4KNqzxWOw"/>
+  <C_Cpp:Ref xmi:id="_wrtXYxkTEeeNAJWYN1O9MQ" base_parameter="_VqvsGLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrtXZRkTEeeNAJWYN1O9MQ" base_parameter="_VqvsGbufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_wrt-cBkTEeeNAJWYN1O9MQ" definition="std::map&lt;std::string, std::set&lt;std::string>>" base_primitivetype="_zC_zcMQ6EeWMDdeM9STG6A"/>
+  <C_Cpp:Ref xmi:id="_wrt-cRkTEeeNAJWYN1O9MQ" base_parameter="_VqvsGrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrvMkRkTEeeNAJWYN1O9MQ" base_parameter="_VqvsIbufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrvzoRkTEeeNAJWYN1O9MQ" base_parameter="_VqvsJLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrvzphkTEeeNAJWYN1O9MQ" base_parameter="_VqvsKLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrwashkTEeeNAJWYN1O9MQ" base_parameter="_VqvsK7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrwatBkTEeeNAJWYN1O9MQ" base_parameter="_VqvsLLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrxBwBkTEeeNAJWYN1O9MQ" base_parameter="_VqvsL7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_wrxBxBkTEeeNAJWYN1O9MQ" definition="ev3dev::mode_set" base_primitivetype="_s4reEL-LEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrxBxhkTEeeNAJWYN1O9MQ" base_parameter="_VqvsMrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ptr xmi:id="_wrxo0hkTEeeNAJWYN1O9MQ" base_parameter="_VqvsM7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_wrxo1hkTEeeNAJWYN1O9MQ" base_parameter="_VqvsN7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_wryP5hkTEeeNAJWYN1O9MQ" definition="std::vector&lt;char>" base_primitivetype="_aRzBsMvwEeWAr_trtbj9nQ"/>
+</xmi:XMI>

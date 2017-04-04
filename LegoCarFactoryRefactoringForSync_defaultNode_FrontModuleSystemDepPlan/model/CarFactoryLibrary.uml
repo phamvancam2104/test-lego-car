@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_v8fg8RkTEeeNAJWYN1O9MQ" name="CarFactoryLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_v8fg8hkTEeeNAJWYN1O9MQ" name="events">
+      <packagedElement xmi:type="uml:Signal" xmi:id="_oBWygEgyEea_D9P_OCVydQ" name="ErrorDetection">
+        <ownedAttribute xmi:id="__UpVAF46EeaAl-FQbj41vw" name="is_misplace">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_oBWygkgyEea_D9P_OCVydQ" name="EndOfModule"/>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_oBXZkUgyEea_D9P_OCVydQ" name="CheckRack">
+        <ownedAttribute xmi:id="_IemcYE9DEea9H9uQpUJpyQ" name="color" type="_GQVYkE9EEea9H9uQpUJpyQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_oBXZk0gyEea_D9P_OCVydQ" name="DeliveredCarConveyor">
+        <ownedAttribute xmi:id="_6vpzoF05EeaqiMEruwEDIg" name="color" type="_GQVYkE9EEea9H9uQpUJpyQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_oBWLcEgyEea_D9P_OCVydQ" name="RoboticArmPickPiece">
+        <ownedAttribute xmi:id="_nB1c8Eg3Eea_D9P_OCVydQ" name="rack_number">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_qP_cYFI6EeaTTsZehdeukg" name="PressAssemble"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_ARV9gAjDEeeXzOVx8HTrSQ" name="IModule">
+      <ownedOperation xmi:id="_FnxPoAjDEeeXzOVx8HTrSQ" name="getStatus">
+        <ownedParameter xmi:id="_MlM70AjDEeeXzOVx8HTrSQ" name="ret" type="_CKZAIFMkEea9utI3WuMZSQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_R6OfwAjDEeeXzOVx8HTrSQ" name="setStatus">
+        <ownedParameter xmi:id="_en9WoAjDEeeXzOVx8HTrSQ" name="status" type="_CKZAIFMkEea9utI3WuMZSQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_f1SFYAjDEeeXzOVx8HTrSQ" name="getCurrentModule">
+        <ownedParameter xmi:id="_kGmwoAjDEeeXzOVx8HTrSQ" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_SG6bcAjEEeeXzOVx8HTrSQ" name="getBluetoothName">
+        <ownedParameter xmi:id="_XcMeEAjEEeeXzOVx8HTrSQ" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/EV3PapyrusLibrary.uml#_yDQfoMkaEeWYC4KNqzxWOw"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_CKZAIFMkEea9utI3WuMZSQ" name="BluetoothSlaveEnum">
+      <ownedLiteral xmi:id="_9GUEUFS6EeaUJ7ZugcmEnw" name="NO_SLAVE_MSG">
+        <ownedComment xmi:id="_9GUEUVS6EeaUJ7ZugcmEnw" annotatedElement="_9GUEUFS6EeaUJ7ZugcmEnw">
+          <body>there is no message receive</body>
+        </ownedComment>
+        <specification xmi:type="uml:LiteralInteger" xmi:id="_9GUEUlS6EeaUJ7ZugcmEnw" value="-1"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_CKZAJVMkEea9utI3WuMZSQ" name="RESULT_OK">
+        <ownedComment xmi:id="_CKZAJlMkEea9utI3WuMZSQ" annotatedElement="_CKZAJVMkEea9utI3WuMZSQ">
+          <body>acknoledge when command is received</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_CKZAJ1MkEea9utI3WuMZSQ" name="RESULT_READY">
+        <ownedComment xmi:id="_CKZAKFMkEea9utI3WuMZSQ" annotatedElement="_CKZAJ1MkEea9utI3WuMZSQ">
+          <body>status when module is ready to execute commands</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_CKZAKVMkEea9utI3WuMZSQ" name="RESULT_BUSY">
+        <ownedComment xmi:id="_CKZAKlMkEea9utI3WuMZSQ" annotatedElement="_CKZAKVMkEea9utI3WuMZSQ">
+          <body>status when module is busy</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_CKZAK1MkEea9utI3WuMZSQ" name="RESULT_STOP">
+        <ownedComment xmi:id="_CKZALFMkEea9utI3WuMZSQ" annotatedElement="_CKZAK1MkEea9utI3WuMZSQ">
+          <body>status when module is stopped</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_CKZALVMkEea9utI3WuMZSQ" name="RESULT_ERROR">
+        <ownedComment xmi:id="_CKZALlMkEea9utI3WuMZSQ" annotatedElement="_CKZALVMkEea9utI3WuMZSQ">
+          <body>status if part was misplaced</body>
+        </ownedComment>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="_CKZAL1MkEea9utI3WuMZSQ" name="RESULT_EMPTY">
+        <ownedComment xmi:id="_CKZAMFMkEea9utI3WuMZSQ" annotatedElement="_CKZAL1MkEea9utI3WuMZSQ">
+          <body>status if selected color rack is empty</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_GQVYkE9EEea9H9uQpUJpyQ" name="Colors">
+      <ownedLiteral xmi:id="_NiGWAE9EEea9H9uQpUJpyQ" name="NONE"/>
+      <ownedLiteral xmi:id="_K3vBgE9EEea9H9uQpUJpyQ" name="BLUE"/>
+      <ownedLiteral xmi:id="_K1aGQE9EEea9H9uQpUJpyQ" name="WHITE"/>
+      <ownedLiteral xmi:id="_JAsnYE9EEea9H9uQpUJpyQ" name="RED"/>
+    </packagedElement>
+    <profileApplication xmi:id="_15twYDeSEeaJvKBnVCQAjA">
+      <eAnnotations xmi:id="_15xawDeSEeaJvKBnVCQAjA" source="PapyrusVersion">
+        <details xmi:id="_15xawTeSEeaJvKBnVCQAjA" key="Version" value="0.0.1"/>
+        <details xmi:id="_15xawjeSEeaJvKBnVCQAjA" key="Comment" value=""/>
+        <details xmi:id="_15xawzeSEeaJvKBnVCQAjA" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_15xaxDeSEeaJvKBnVCQAjA" key="Date" value="2012-12-07"/>
+        <details xmi:id="_15xaxTeSEeaJvKBnVCQAjA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_15wMoDeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eijPgUBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_15zP8DeSEeaJvKBnVCQAjA">
+      <eAnnotations xmi:id="_151sMDeSEeaJvKBnVCQAjA" source="PapyrusVersion">
+        <details xmi:id="_151sMTeSEeaJvKBnVCQAjA" key="Version" value="0.0.1"/>
+        <details xmi:id="_151sMjeSEeaJvKBnVCQAjA" key="Comment" value=""/>
+        <details xmi:id="_151sMzeSEeaJvKBnVCQAjA" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_151sNDeSEeaJvKBnVCQAjA" key="Date" value="2012-12-07"/>
+        <details xmi:id="_151sNTeSEeaJvKBnVCQAjA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_15z3ADeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_8BQWYDeSEeaJvKBnVCQAjA">
+      <eAnnotations xmi:id="_8BRkgDeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_9riG4DeSEeaJvKBnVCQAjA">
+      <eAnnotations xmi:id="_9rit8DeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:id="__Od5QDeSEeaJvKBnVCQAjA">
+      <eAnnotations xmi:id="__OegUDeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_lpe7YEOAEea20Z_0tbY9ZQ">
+      <eAnnotations xmi:id="_lplCAEOAEea20Z_0tbY9ZQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://Papyrus/RobotML/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Ref xmi:id="_v-MKGBkTEeeNAJWYN1O9MQ" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
+</xmi:XMI>
