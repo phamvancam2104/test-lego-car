@@ -123,9 +123,10 @@ namespace __Architecture__Controller {
  * 
  */
 class SlavesSlavePress__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<CarFactoryLibrary::events::PressAssemble>,
+		CarFactoryLibrary::events::PressAssemble>,
 		public IPush<CarFactoryLibrary::events::EndOfModule>,
+		public IPush<
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess> {
 public:
 	/**
@@ -194,15 +195,15 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
-		/**
-		 * 
-		 */
 		PRESSASSEMBLE_ID,
 		/**
 		 * 
 		 */
 		ENDOFMODULE_ID,
+		/**
+		 * 
+		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -321,18 +322,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processPressAssemble(
 			::CarFactoryLibrary::events::PressAssemble& /*in*/sig);
 	/**
@@ -351,6 +340,18 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 

@@ -38,15 +38,6 @@ ActuatorsCppLargeMotor__Controller::ActuatorsCppLargeMotor__Controller(
 	return p_origin->largeMotorPort.providedIntf;
 }
 
-/**
- * 
- * @param origin 
- */
-ActuatorsCppLargeMotor__Controller::ActuatorsCppLargeMotor__Controller(
-		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppLargeMotor* /*in*/origin) :
-		p_origin(origin) {
-}
-
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

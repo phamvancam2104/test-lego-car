@@ -44,7 +44,7 @@
 #include "sys/time.h"
 //the termination of doActivity is implemented in terms of check points that the developers write
 //fine-grained code to explicitly use check points to exit doActivity
-#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING || systemState == statemachine::STOPPED) {return;}
+//#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING || systemState == statemachine::STOPPED) {return;}
 #define FrontFrontControlComponent__Controller_THREAD_CREATE(thThread, str) pthread_create(&thThread, NULL, &FrontFrontControlComponent__Controller::thread_func_wrapper, &str);
 #define FRONTFRONTCONTROLCOMPONENT__CONTROLLER_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \
 		while (!dispatchFlag) {} \
@@ -142,8 +142,8 @@ namespace __Architecture__Controller {
  * 
  */
 class FrontFrontControlComponent__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>, public IPush<
-		CarFactoryLibrary::events::ErrorDetection> {
+		CarFactoryLibrary::events::ErrorDetection>, public IPush<
+		CarFactoryLibrary::events::EndOfModule> {
 public:
 	/**
 	 * 
@@ -262,11 +262,11 @@ public:
 		/**
 		 * 
 		 */
-		ENDOFMODULE_ID,
+		ERRORDETECTION_ID,
 		/**
 		 * 
 		 */
-		ERRORDETECTION_ID,
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
@@ -424,6 +424,17 @@ public:
 	void stopBehavior();
 	/**
 	 * 
+	 * @param sig 
+	 */
+	void processErrorDetection(
+			::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
+	/**
+	 * 
 	 */
 	void processTE_50_ms_();
 	/**
@@ -437,17 +448,6 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processErrorDetection(
-			::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
 	/**
 	 * 
 	 */

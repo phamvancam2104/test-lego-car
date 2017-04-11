@@ -62,6 +62,11 @@ namespace events {
 class DeliveredCarConveyor;
 }
 }
+namespace LegoCarFactoryRefactoringForSync {
+namespace signals {
+class GoToPress;
+}
+}
 namespace CarFactoryLibrary {
 namespace events {
 class CheckRack;
@@ -148,11 +153,12 @@ namespace __Architecture__Controller {
  * 
  */
 class FrontFrontConvoyer__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		LegoCarFactoryRefactoringForSync::signals::PrepareConveyor>,
 		public IPush<CarFactoryLibrary::events::DeliveredCarConveyor>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::GoToPress>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> {
+		public IPush<
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess> {
 public:
 	/**
 	 * 
@@ -232,7 +238,7 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
+		PREPARECONVEYOR_ID,
 		/**
 		 * 
 		 */
@@ -244,11 +250,11 @@ public:
 		/**
 		 * 
 		 */
-		STOPPROCESS_ID,
+		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
-		PREPARECONVEYOR_ID,
+		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
@@ -363,14 +369,14 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	void processPrepareConveyor(
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
 	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -398,6 +404,18 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -406,18 +424,6 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processPrepareConveyor(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 */
@@ -481,6 +487,11 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* get_pILargeMotor();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	virtual IPush<LegoCarFactoryRefactoringForSync::signals::GoToPress>* get_pGotoProcess();
 	/**
 	 * 
 	 * @return ret 

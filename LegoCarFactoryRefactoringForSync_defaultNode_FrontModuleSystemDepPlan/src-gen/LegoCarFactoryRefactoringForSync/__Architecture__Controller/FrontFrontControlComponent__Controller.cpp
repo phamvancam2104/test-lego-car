@@ -48,6 +48,12 @@ void FrontFrontControlComponent__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			FRONTFRONTCONTROLCOMPONENT__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case ERRORDETECTION_ID:
+				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
+				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::ErrorDetection));
+				processErrorDetection(sig_ERRORDETECTION_ID);
+				break;
 			case TE_50_MS__ID:
 				processTE_50_ms_();
 				break;
@@ -56,12 +62,6 @@ void FrontFrontControlComponent__Controller::dispatchEvent() {
 				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::EndOfModule));
 				processEndOfModule(sig_ENDOFMODULE_ID);
-				break;
-			case ERRORDETECTION_ID:
-				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
-				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::ErrorDetection));
-				processErrorDetection(sig_ERRORDETECTION_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -368,6 +368,40 @@ void FrontFrontControlComponent__Controller::stopBehavior() {
 
 /**
  * 
+ * @param sig 
+ */
+void FrontFrontControlComponent__Controller::processErrorDetection(
+		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == EMNERGENCYSTOPSTATE_ID) {
+		//from EmnergencyStopState to Misplace
+		if (true) {
+			EmnergencyStopState_Region1_Exit();
+			p_origin->effectFromEmnergencyStopStatetoMisplace(sig);
+			states[PRINCIPALSTATE_ID].actives[0] = MISPLACE_ID;
+			(this->StateEntry)(MISPLACE_ID);
+			;
+			//starting the counters for time events
+			//start activity of Misplace by calling setFlag
+			setFlag(MISPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void FrontFrontControlComponent__Controller::push(
+		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ERRORDETECTION_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::ErrorDetection));
+}
+
+/**
+ * 
  */
 void FrontFrontControlComponent__Controller::processTE_50_ms_() {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -401,40 +435,6 @@ void FrontFrontControlComponent__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::EndOfModule));
-}
-
-/**
- * 
- * @param sig 
- */
-void FrontFrontControlComponent__Controller::processErrorDetection(
-		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == EMNERGENCYSTOPSTATE_ID) {
-		//from EmnergencyStopState to Misplace
-		if (true) {
-			EmnergencyStopState_Region1_Exit();
-			p_origin->effectFromEmnergencyStopStatetoMisplace(sig);
-			states[PRINCIPALSTATE_ID].actives[0] = MISPLACE_ID;
-			(this->StateEntry)(MISPLACE_ID);
-			;
-			//starting the counters for time events
-			//start activity of Misplace by calling setFlag
-			setFlag(MISPLACE_ID, statemachine::TF_DO_ACTIVITY, true);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void FrontFrontControlComponent__Controller::push(
-		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ERRORDETECTION_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::ErrorDetection));
 }
 
 /**

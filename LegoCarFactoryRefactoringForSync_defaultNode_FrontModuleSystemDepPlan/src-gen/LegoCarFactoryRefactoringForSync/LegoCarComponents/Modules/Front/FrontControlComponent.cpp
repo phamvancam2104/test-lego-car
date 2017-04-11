@@ -329,7 +329,7 @@ void FrontControlComponent::send_check_racks_event() {
 void FrontControlComponent::rewind() {
 	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK); //acknowledgement
 	manageGreenLights();
-	//TOSDO:refactor conveyor.rewind();
+	//TODO:refactor conveyor.rewind();
 }
 
 /**

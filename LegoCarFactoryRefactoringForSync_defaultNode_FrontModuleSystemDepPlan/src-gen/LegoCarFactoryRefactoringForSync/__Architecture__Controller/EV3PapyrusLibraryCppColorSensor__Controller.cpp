@@ -38,15 +38,6 @@ EV3PapyrusLibraryCppColorSensor__Controller::EV3PapyrusLibraryCppColorSensor__Co
 	return p_origin->colorSensorPort.providedIntf;
 }
 
-/**
- * 
- * @param origin 
- */
-EV3PapyrusLibraryCppColorSensor__Controller::EV3PapyrusLibraryCppColorSensor__Controller(
-		::EV3PapyrusLibrary::CppColorSensor* /*in*/origin) :
-		p_origin(origin) {
-}
-
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

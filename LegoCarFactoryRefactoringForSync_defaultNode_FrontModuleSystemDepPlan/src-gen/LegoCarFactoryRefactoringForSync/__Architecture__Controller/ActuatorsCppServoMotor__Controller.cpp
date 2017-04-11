@@ -38,15 +38,6 @@ ActuatorsCppServoMotor__Controller::ActuatorsCppServoMotor__Controller(
 	return p_origin->servoMotorPort.providedIntf;
 }
 
-/**
- * 
- * @param origin 
- */
-ActuatorsCppServoMotor__Controller::ActuatorsCppServoMotor__Controller(
-		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor* /*in*/origin) :
-		p_origin(origin) {
-}
-
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

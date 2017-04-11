@@ -48,18 +48,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor* get_servoMotorPort();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	ActuatorsCppServoMotor__Controller(
-			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor* p_origin;
 	/**
 	 * 
 	 */

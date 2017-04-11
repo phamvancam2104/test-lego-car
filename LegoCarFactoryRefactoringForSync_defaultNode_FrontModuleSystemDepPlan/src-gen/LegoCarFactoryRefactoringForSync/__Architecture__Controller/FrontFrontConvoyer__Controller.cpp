@@ -50,12 +50,11 @@ void FrontFrontConvoyer__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			FRONTFRONTCONVOYER__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case RESTARTAFTEREMERGENCYSTOP_ID:
-				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
-				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-				processRestartAfterEmergencyStop(
-						sig_RESTARTAFTEREMERGENCYSTOP_ID);
+			case PREPARECONVEYOR_ID:
+				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
+				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
+				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
 				break;
 			case DELIVEREDCARCONVEYOR_ID:
 				::CarFactoryLibrary::events::DeliveredCarConveyor sig_DELIVEREDCARCONVEYOR_ID;
@@ -69,17 +68,18 @@ void FrontFrontConvoyer__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::GoToPress));
 				processGoToPress(sig_GOTOPRESS_ID);
 				break;
+			case RESTARTAFTEREMERGENCYSTOP_ID:
+				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
+				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+				processRestartAfterEmergencyStop(
+						sig_RESTARTAFTEREMERGENCYSTOP_ID);
+				break;
 			case STOPPROCESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
 				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 				processStopProcess(sig_STOPPROCESS_ID);
-				break;
-			case PREPARECONVEYOR_ID:
-				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
-				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
-				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -234,23 +234,22 @@ void FrontFrontConvoyer__Controller::stopBehavior() {
  * 
  * @param sig 
  */
-void FrontFrontConvoyer__Controller::processRestartAfterEmergencyStop(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+void FrontFrontConvoyer__Controller::processPrepareConveyor(
+		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case RESTART_ID:
-			//from Restart to PrincipalState
-			if (true) {
-				activeStateID = PRINCIPALSTATE_ID;
-				//starting the counters for time events
-				PrincipalState_Region1_Enter (FRONTCONVOYER_PRINCIPALSTATE_REGION1_DEFAULT);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
+	if (states[PRINCIPALSTATE_ID].actives[0] == GOINITIALPOSITION_ID) {
+		//from GoInitialPosition to GoWaitPosition
+		if (true) {
+			//signal to exit the doActivity of GoInitialPosition
+			setFlag(GOINITIALPOSITION_ID, statemachine::TF_DO_ACTIVITY, false);
+			p_origin->save_color(sig);
+			states[PRINCIPALSTATE_ID].actives[0] = GOWAITPOSITION_ID;
+			(this->StateEntry)(GOWAITPOSITION_ID);
+			;
+			//starting the counters for time events
+			//start activity of GoWaitPosition by calling setFlag
+			setFlag(GOWAITPOSITION_ID, statemachine::TF_DO_ACTIVITY, true);
+			systemState = statemachine::EVENT_CONSUMED;
 		}
 	}
 }
@@ -260,10 +259,10 @@ void FrontFrontConvoyer__Controller::processRestartAfterEmergencyStop(
  * @param sig 
  */
 void FrontFrontConvoyer__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig,
-			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
 }
 
 /**
@@ -336,6 +335,42 @@ void FrontFrontConvoyer__Controller::push(
  * 
  * @param sig 
  */
+void FrontFrontConvoyer__Controller::processRestartAfterEmergencyStop(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case RESTART_ID:
+			//from Restart to PrincipalState
+			if (true) {
+				activeStateID = PRINCIPALSTATE_ID;
+				//starting the counters for time events
+				PrincipalState_Region1_Enter (FRONTCONVOYER_PRINCIPALSTATE_REGION1_DEFAULT);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void FrontFrontConvoyer__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig,
+			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void FrontFrontConvoyer__Controller::processStopProcess(
 		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -367,41 +402,6 @@ void FrontFrontConvoyer__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-}
-
-/**
- * 
- * @param sig 
- */
-void FrontFrontConvoyer__Controller::processPrepareConveyor(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == GOINITIALPOSITION_ID) {
-		//from GoInitialPosition to GoWaitPosition
-		if (true) {
-			//signal to exit the doActivity of GoInitialPosition
-			setFlag(GOINITIALPOSITION_ID, statemachine::TF_DO_ACTIVITY, false);
-			p_origin->save_color(sig);
-			states[PRINCIPALSTATE_ID].actives[0] = GOWAITPOSITION_ID;
-			(this->StateEntry)(GOWAITPOSITION_ID);
-			;
-			//starting the counters for time events
-			//start activity of GoWaitPosition by calling setFlag
-			setFlag(GOWAITPOSITION_ID, statemachine::TF_DO_ACTIVITY, true);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void FrontFrontConvoyer__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
 }
 
 /**
@@ -673,6 +673,15 @@ IPush<CarFactoryLibrary::events::DeliveredCarConveyor>* FrontFrontConvoyer__Cont
 ::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* FrontFrontConvoyer__Controller::get_pILargeMotor() {
 	p_origin->pILargeMotor.providedIntf = &(p_origin->motor);
 	return p_origin->pILargeMotor.providedIntf;
+}
+
+/**
+ * 
+ * @return ret 
+ */
+IPush<LegoCarFactoryRefactoringForSync::signals::GoToPress>* FrontFrontConvoyer__Controller::get_pGotoProcess() {
+	p_origin->pGotoProcess.inIntf = this;
+	return this;
 }
 
 /**

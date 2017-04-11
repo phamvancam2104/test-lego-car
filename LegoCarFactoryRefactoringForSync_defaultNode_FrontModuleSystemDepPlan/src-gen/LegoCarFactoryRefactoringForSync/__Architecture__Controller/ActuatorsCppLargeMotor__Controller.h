@@ -48,18 +48,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* get_largeMotorPort();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	ActuatorsCppLargeMotor__Controller(
-			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppLargeMotor* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppLargeMotor* p_origin;
 	/**
 	 * 
 	 */

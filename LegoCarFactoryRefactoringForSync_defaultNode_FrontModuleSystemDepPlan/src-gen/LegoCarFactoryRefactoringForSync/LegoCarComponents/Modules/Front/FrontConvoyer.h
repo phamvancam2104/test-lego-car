@@ -45,6 +45,11 @@ class ILargeMotor;
 }
 }
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
+namespace LegoCarFactoryRefactoringForSync {
+namespace signals {
+class GoToPress;
+}
+}
 namespace EV3PapyrusLibrary {
 class IColorSensor;
 }
@@ -188,6 +193,10 @@ public:
 	 * 
 	 */
 	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pILargeMotor;
+	/**
+	 * 
+	 */
+	InFlowPort<LegoCarFactoryRefactoringForSync::signals::GoToPress> pGotoProcess;
 	/**
 	 * 
 	 */

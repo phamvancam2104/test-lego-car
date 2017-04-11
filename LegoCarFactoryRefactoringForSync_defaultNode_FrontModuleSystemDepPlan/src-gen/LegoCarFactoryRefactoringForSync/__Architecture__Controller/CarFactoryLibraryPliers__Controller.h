@@ -42,18 +42,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor* get_plierMotor();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	CarFactoryLibraryPliers__Controller(
-			::CarFactoryLibrary::Pliers* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::CarFactoryLibrary::Pliers* p_origin;
 	/**
 	 * 
 	 */

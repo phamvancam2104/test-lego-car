@@ -16,6 +16,7 @@
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/RoboticArmPickPiece.h"
+#include "LegoCarFactoryRefactoringForSync/signals/GoToPress.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
 
@@ -201,7 +202,7 @@ void FrontRoboticArm::replace_front_part() {
 void FrontRoboticArm::sendGoToPressEvent() {
 	LegoCarFactoryRefactoringForSync::signals::GoToPress s;
 	s.color = static_cast<CarFactoryLibrary::Colors>(rack_number);
-	//TODO::static_cast<FrontConveyor*>(get_conveyor())->sendGoToPress(s);
+	pGotoProcess.outIntf->push(s);//static_cast<FrontConveyor*>(get_conveyor())->sendGoToPress(s);
 }
 
 /**

@@ -38,18 +38,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::IColorSensor* get_colorSensorPort();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	EV3PapyrusLibraryCppColorSensor__Controller(
-			::EV3PapyrusLibrary::CppColorSensor* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::EV3PapyrusLibrary::CppColorSensor* p_origin;
 	/**
 	 * 
 	 */

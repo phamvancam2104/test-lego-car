@@ -53,18 +53,8 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth* get_BluetoothPortClient();
-	/**
-	 * 
-	 * @param origin 
-	 */
-	EV3BrickCppBlutooth__Controller(
-			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppBlutooth* /*in*/origin);
 
 private:
-	/**
-	 * 
-	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppBlutooth* p_origin;
 	/**
 	 * 
 	 */

@@ -54,6 +54,11 @@ namespace events {
 class DeliveredCarConveyor;
 }
 }
+namespace LegoCarFactoryRefactoringForSync {
+namespace signals {
+class GoToPress;
+}
+}
 
 // End of Include stereotype (header)
 
@@ -146,6 +151,10 @@ public:
 	 * 
 	 */
 	OutFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
+	/**
+	 * 
+	 */
+	OutFlowPort<LegoCarFactoryRefactoringForSync::signals::GoToPress> pGotoProcess;
 	/**
 	 * 
 	 */
