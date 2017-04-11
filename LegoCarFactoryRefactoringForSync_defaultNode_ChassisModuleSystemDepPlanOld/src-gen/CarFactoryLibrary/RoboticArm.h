@@ -15,7 +15,6 @@
 #include "CarFactoryLibrary/Pliers.h"
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppServoMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "CarFactoryLibrary/IModule.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -25,16 +24,9 @@ class IServoMotor;
 }
 }
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace CarFactoryLibrary {
-class IModule;
-}
+#include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
+#include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 
@@ -120,7 +112,7 @@ public:
 	 * move the robotic arm to the absolute position x, y and alpha
 	 * @param x distance relative to the rotation center of the two motors (in cm)
 	 * @param y height relative to the rotation center of the two motors (in cm)
-	 * @param alpha angle of the base (in degree), eg: 0ï¿½, the arm is oriented towards the conveyor
+	 * @param alpha angle of the base (in degree), eg: 0°, the arm is oriented towards the conveyor
 	 * @param front_back_before_up_down if true the command for the front-back motor is send before the command for the up-down motor, otherwise it is the opposite
 	 *    even if the motors are moved in the same time, the command is send one by one.For some little movement it can be important.
 	 * @param rate it is a value which define the speed but the speed is hight when the value is low (time is millisecond the servo  travels from 0 to 100.0% (half of the full range of the servo))
@@ -131,7 +123,7 @@ public:
 	 * calculate the command that must be send to motors to move the arm to the absolute position x, y and alpha
 	 * @param x distance relative to the rotation center of the two motors (in cm)
 	 * @param y height relative to the rotation center of the two motors (in cm)
-	 * @param alpha angle of the base (in degree), eg: 0ï¿½, the arm is oriented towards the conveyor
+	 * @param alpha angle of the base (in degree), eg: 0°, the arm is oriented towards the conveyor
 	 * @param ret the result: a pointer on a array of 3 integer, 
 	 *    ret = the command for up_down_motor
 	 *    ret + 1 = the command for front_back_motor

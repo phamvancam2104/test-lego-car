@@ -44,6 +44,13 @@ void SlavesSlavePress__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			SLAVESSLAVEPRESS__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case RESTARTAFTEREMERGENCYSTOP_ID:
+				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
+				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+				processRestartAfterEmergencyStop(
+						sig_RESTARTAFTEREMERGENCYSTOP_ID);
+				break;
 			case PRESSASSEMBLE_ID:
 				::CarFactoryLibrary::events::PressAssemble sig_PRESSASSEMBLE_ID;
 				memcpy(&sig_PRESSASSEMBLE_ID, currentEvent->data,
@@ -61,13 +68,6 @@ void SlavesSlavePress__Controller::dispatchEvent() {
 				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 				processStopProcess(sig_STOPPROCESS_ID);
-				break;
-			case RESTARTAFTEREMERGENCYSTOP_ID:
-				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
-				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-				processRestartAfterEmergencyStop(
-						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -242,6 +242,42 @@ void SlavesSlavePress__Controller::stopBehavior() {
  * 
  * @param sig 
  */
+void SlavesSlavePress__Controller::processRestartAfterEmergencyStop(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case RESTART_ID:
+			//from Restart to PrincipalState
+			if (true) {
+				activeStateID = PRINCIPALSTATE_ID;
+				//starting the counters for time events
+				PrincipalState_Region1_Enter (SLAVEPRESS_PRINCIPALSTATE_REGION1_DEFAULT);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void SlavesSlavePress__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig,
+			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void SlavesSlavePress__Controller::processPressAssemble(
 		::CarFactoryLibrary::events::PressAssemble& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -332,42 +368,6 @@ void SlavesSlavePress__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-}
-
-/**
- * 
- * @param sig 
- */
-void SlavesSlavePress__Controller::processRestartAfterEmergencyStop(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case RESTART_ID:
-			//from Restart to PrincipalState
-			if (true) {
-				activeStateID = PRINCIPALSTATE_ID;
-				//starting the counters for time events
-				PrincipalState_Region1_Enter (SLAVEPRESS_PRINCIPALSTATE_REGION1_DEFAULT);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void SlavesSlavePress__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig,
-			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 }
 
 /**
@@ -601,6 +601,15 @@ IPush<CarFactoryLibrary::events::PressAssemble>* SlavesSlavePress__Controller::g
 IPush<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>* SlavesSlavePress__Controller::get_pInRestart() {
 	p_origin->pInRestart.inIntf = this;
 	return this;
+}
+
+/**
+ * 
+ * @return ret 
+ */
+::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* SlavesSlavePress__Controller::get_pILargeMotor() {
+	p_origin->pILargeMotor.providedIntf = &(p_origin->motor);
+	return p_origin->pILargeMotor.providedIntf;
 }
 
 /**

@@ -39,6 +39,15 @@ CarFactoryLibraryPliers__Controller::CarFactoryLibraryPliers__Controller(
 	return p_origin->plierMotor.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+CarFactoryLibraryPliers__Controller::CarFactoryLibraryPliers__Controller(
+		::CarFactoryLibrary::Pliers* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

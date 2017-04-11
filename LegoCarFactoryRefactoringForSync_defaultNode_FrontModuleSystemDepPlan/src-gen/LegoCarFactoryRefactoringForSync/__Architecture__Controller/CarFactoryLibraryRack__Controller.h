@@ -37,8 +37,17 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::IColorSensor* get_sensor();
+	/**
+	 * 
+	 * @param origin 
+	 */
+	CarFactoryLibraryRack__Controller(::CarFactoryLibrary::Rack* /*in*/origin);
 
 private:
+	/**
+	 * 
+	 */
+	::CarFactoryLibrary::Rack* p_origin;
 	/**
 	 * 
 	 */

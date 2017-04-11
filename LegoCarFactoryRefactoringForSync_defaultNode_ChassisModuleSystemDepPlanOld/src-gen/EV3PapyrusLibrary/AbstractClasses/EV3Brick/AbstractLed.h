@@ -25,6 +25,7 @@ class ILed;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
 
 // End of Include stereotype (header)
 

@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_v8fg8RkTEeeNAJWYN1O9MQ" name="CarFactoryLibrary">
-    <packagedElement xmi:type="uml:Package" xmi:id="_v8fg8hkTEeeNAJWYN1O9MQ" name="events">
-      <packagedElement xmi:type="uml:Signal" xmi:id="_oBWygEgyEea_D9P_OCVydQ" name="ErrorDetection">
-        <ownedAttribute xmi:id="__UpVAF46EeaAl-FQbj41vw" name="is_misplace">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-        </ownedAttribute>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Signal" xmi:id="_oBWygkgyEea_D9P_OCVydQ" name="EndOfModule"/>
-      <packagedElement xmi:type="uml:Signal" xmi:id="_oBXZkUgyEea_D9P_OCVydQ" name="CheckRack">
-        <ownedAttribute xmi:id="_IemcYE9DEea9H9uQpUJpyQ" name="color" type="_GQVYkE9EEea9H9uQpUJpyQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Signal" xmi:id="_oBXZk0gyEea_D9P_OCVydQ" name="DeliveredCarConveyor">
-        <ownedAttribute xmi:id="_6vpzoF05EeaqiMEruwEDIg" name="color" type="_GQVYkE9EEea9H9uQpUJpyQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Signal" xmi:id="_oBWLcEgyEea_D9P_OCVydQ" name="RoboticArmPickPiece">
-        <ownedAttribute xmi:id="_nB1c8Eg3Eea_D9P_OCVydQ" name="rack_number">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-        </ownedAttribute>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Signal" xmi:id="_qP_cYFI6EeaTTsZehdeukg" name="PressAssemble"/>
+  <uml:Model xmi:id="_CZdQ0x7NEeeSG-gXq4SEHg" name="CarFactoryLibrary">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_GQVYkE9EEea9H9uQpUJpyQ" name="Colors">
+      <ownedLiteral xmi:id="_NiGWAE9EEea9H9uQpUJpyQ" name="NONE"/>
+      <ownedLiteral xmi:id="_K3vBgE9EEea9H9uQpUJpyQ" name="BLUE"/>
+      <ownedLiteral xmi:id="_K1aGQE9EEea9H9uQpUJpyQ" name="WHITE"/>
+      <ownedLiteral xmi:id="_JAsnYE9EEea9H9uQpUJpyQ" name="RED"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_ARV9gAjDEeeXzOVx8HTrSQ" name="IModule">
       <ownedOperation xmi:id="_FnxPoAjDEeeXzOVx8HTrSQ" name="getStatus">
@@ -77,12 +63,6 @@
         </ownedComment>
       </ownedLiteral>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_GQVYkE9EEea9H9uQpUJpyQ" name="Colors">
-      <ownedLiteral xmi:id="_NiGWAE9EEea9H9uQpUJpyQ" name="NONE"/>
-      <ownedLiteral xmi:id="_K3vBgE9EEea9H9uQpUJpyQ" name="BLUE"/>
-      <ownedLiteral xmi:id="_K1aGQE9EEea9H9uQpUJpyQ" name="WHITE"/>
-      <ownedLiteral xmi:id="_JAsnYE9EEea9H9uQpUJpyQ" name="RED"/>
-    </packagedElement>
     <profileApplication xmi:id="_15twYDeSEeaJvKBnVCQAjA">
       <eAnnotations xmi:id="_15xawDeSEeaJvKBnVCQAjA" source="PapyrusVersion">
         <details xmi:id="_15xawTeSEeaJvKBnVCQAjA" key="Version" value="0.0.1"/>
@@ -134,5 +114,5 @@
       <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Ref xmi:id="_v-MKGBkTEeeNAJWYN1O9MQ" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
+  <C_Cpp:Ref xmi:id="_EhvL8h7NEeeSG-gXq4SEHg" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
 </xmi:XMI>

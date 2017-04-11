@@ -39,6 +39,15 @@ CarFactoryLibraryRack__Controller::CarFactoryLibraryRack__Controller(
 	return p_origin->sensor.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+CarFactoryLibraryRack__Controller::CarFactoryLibraryRack__Controller(
+		::CarFactoryLibrary::Rack* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

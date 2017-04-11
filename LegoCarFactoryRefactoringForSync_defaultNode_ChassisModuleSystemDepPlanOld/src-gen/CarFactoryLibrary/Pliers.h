@@ -24,6 +24,7 @@ class IServoMotor;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
 
 // End of Include stereotype (header)
 

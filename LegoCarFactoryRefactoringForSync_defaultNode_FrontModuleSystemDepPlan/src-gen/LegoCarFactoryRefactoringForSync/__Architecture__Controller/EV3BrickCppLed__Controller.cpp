@@ -38,6 +38,15 @@ EV3BrickCppLed__Controller::EV3BrickCppLed__Controller(
 	return p_origin->ledPort.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+EV3BrickCppLed__Controller::EV3BrickCppLed__Controller(
+		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppLed* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

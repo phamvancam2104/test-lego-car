@@ -48,8 +48,18 @@ public:
 	 * @return ret 
 	 */
 	virtual ::EV3PapyrusLibrary::Interfaces::Sensors::ITouchSensor* get_touchSensorPort();
+	/**
+	 * 
+	 * @param origin 
+	 */
+	SensorsCppTouchSensor__Controller(
+			::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Sensors::CppTouchSensor* /*in*/origin);
 
 private:
+	/**
+	 * 
+	 */
+	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Sensors::CppTouchSensor* p_origin;
 	/**
 	 * 
 	 */

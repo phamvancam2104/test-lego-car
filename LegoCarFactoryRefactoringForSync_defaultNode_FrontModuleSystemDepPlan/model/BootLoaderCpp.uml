@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_wsA5YBkTEeeNAJWYN1O9MQ" name="BootLoaderCpp">
+  <uml:Model xmi:id="_EqCzYB7NEeeSG-gXq4SEHg" name="BootLoaderCpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
       <ownedAttribute xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
@@ -10,10 +10,10 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_wsEjwBkTEeeNAJWYN1O9MQ" name="mainInstance" aggregation="composite">
+      <ownedAttribute xmi:id="_EqIS8B7NEeeSG-gXq4SEHg" name="mainInstance" aggregation="composite">
         <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_FrontModuleSystemDepPlan/model/LegoCarFactoryRefactoringForSync.uml#_uYNFoAsbEeeXB4PYyUFeww"/>
       </ownedAttribute>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wsO70BkTEeeNAJWYN1O9MQ" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_EqYKkB7NEeeSG-gXq4SEHg" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
         <language>C/C++</language>
         <body>mainInstance.frontmodulesystemController.createConnections();&#xD;
 
@@ -23,7 +23,7 @@ mainInstance.convoyer.frontconvoyerController.startBehavior();
 mainInstance.shelf.slaveshelfController.startBehavior();
 mainInstance.press.slavepressController.startBehavior();</body>
       </ownedBehavior>
-      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_wsO70BkTEeeNAJWYN1O9MQ"/>
+      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_EqYKkB7NEeeSG-gXq4SEHg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_CS_KsHjwEeasG4qn4umteA" name="NodeInfo">
       <ownedAttribute xmi:id="_IHT5wHjwEeasG4qn4umteA" name="nodeIndex" isStatic="true">
@@ -42,7 +42,7 @@ mainInstance.press.slavepressController.startBehavior();</body>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_wsBgcBkTEeeNAJWYN1O9MQ" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
-  <C_Cpp:Ptr xmi:id="_wsCukxkTEeeNAJWYN1O9MQ" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
-  <C_Cpp:Include xmi:id="_x7EtgBkTEeeNAJWYN1O9MQ" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_wsA5YBkTEeeNAJWYN1O9MQ"/>
+  <C_Cpp:Include xmi:id="_EqDadB7NEeeSG-gXq4SEHg" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Ptr xmi:id="_EqGdwR7NEeeSG-gXq4SEHg" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
+  <C_Cpp:Include xmi:id="_GDf5oB7NEeeSG-gXq4SEHg" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_EqCzYB7NEeeSG-gXq4SEHg"/>
 </xmi:XMI>

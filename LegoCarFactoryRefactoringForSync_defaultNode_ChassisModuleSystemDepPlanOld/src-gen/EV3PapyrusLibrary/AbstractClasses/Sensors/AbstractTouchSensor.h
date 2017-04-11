@@ -25,6 +25,7 @@ class ITouchSensor;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/Sensors/ITouchSensor.h"
 
 // End of Include stereotype (header)
 

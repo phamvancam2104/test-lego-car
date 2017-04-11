@@ -12,6 +12,7 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontRoboticArm.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/RoboticArmPickPiece.h"
@@ -30,6 +31,118 @@ namespace Front {
  */
 void FrontRoboticArm::stop_motors() {
 	float_motors();
+}
+
+/**
+ * pick the front part on the rack numer "rack_number"
+ * @param rack_number 
+ */
+void FrontRoboticArm::pick_front_part(int /*in*/rack_number) {
+	if (rack_number == CarFactoryLibrary::RED) {
+		//go to REST
+		go_rest_position_rack();
+
+		//go to BEFORE PICK PART
+		move(7.6, -1, 95);
+		usleep(500 * 1000);
+
+		//go DOWN
+		move(7.6, -2.8, 95, false);
+		usleep(500 * 1000);
+
+		//CLOSE PLIERS
+		motor_pliers.close();
+
+		//go to REST
+		go_rest_position_rack();
+	} else if (rack_number == CarFactoryLibrary::WHITE) {
+		//go to REST
+		go_rest_position_rack();
+
+		//go to BEFORE PICK PART
+		move(12.2, -1, 93);
+		usleep(500 * 1000);
+
+		//go to DOWN
+		move(12.2, -2.8, 93);
+		usleep(500 * 1000);
+
+		//CLOSE PLIERS
+		motor_pliers.close();
+
+		//go to REST
+		go_rest_position_rack();
+	} else if (rack_number == CarFactoryLibrary::BLUE) {
+		//go to REST
+		go_rest_position_rack();
+
+		//go to BEFORE PICK PART
+		move(16.4, -1, 93);
+		usleep(500 * 1000);
+
+		//go DOWN
+		move(16.5, -2.8, 93, false);
+		usleep(500 * 1000);
+
+		//CLOSE PLIERS
+		motor_pliers.close();
+
+		//go UP
+		move(16.5, 5, 93, false);
+		usleep(500 * 1000);
+
+		//go to REST
+		go_rest_position_rack();
+	}
+}
+
+/**
+ * put the front part on the chassis
+ */
+void FrontRoboticArm::deliver_front_part() {
+	//go to REST
+	go_rest_position_conveyor();
+
+	//go to DELiVER FRONT PART
+	move(11, -1.5, 5);
+	usleep(500 * 1000);
+
+	//go DOWN
+	move(10.5, -2.5, 5);
+	usleep(500 * 1000);
+
+	motor_pliers.open();
+
+	//go UP
+	move(10.5, 0, 5);
+	usleep(500 * 1000);
+}
+
+/**
+ * replace the front part on the chassis
+ */
+void FrontRoboticArm::replace_front_part() {
+	//TURN
+	move(9, 0, 20);
+	usleep(500 * 1000);
+
+	//go DOWN
+	move(8, -2.3, 20);
+	usleep(500 * 1000);
+
+	//TURN
+	move(8, -2.3, 10);
+	usleep(500 * 1000);
+
+	//TURN
+	move(8, -2.3, 20);
+	usleep(500 * 1000);
+
+	//go to REST
+	go_rest_position_conveyor();
+
+	//go to REST
+	go_rest_position_rack();
 }
 
 /**
@@ -55,9 +168,8 @@ void FrontRoboticArm::init() {
  * 
  */
 void FrontRoboticArm::start_motors() {
-	get_module()->ev3Brick.lcdScreen.clear();
-	get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Pick place...",
-			lcd::TextSize::LARGE);
+	pLCD.requiredIntf->clear();///get_module()->ev3Brick.lcdScreen.clear();
+	pLCD.requiredIntf->write_text(0, 20, "Pick place...", ev3dev::lcd::TextSize::LARGE);
 
 	run_motors();
 }
@@ -87,16 +199,18 @@ void FrontRoboticArm::replace_front_part() {
  * 
  */
 void FrontRoboticArm::sendGoToPressEvent() {
-	Events::GoToPress s;
+	LegoCarFactoryRefactoringForSync::signals::GoToPress s;
 	s.color = static_cast<CarFactoryLibrary::Colors>(rack_number);
-	static_cast<FrontConveyor*>(get_conveyor())->sendGoToPress(s);
+	//TODO::static_cast<FrontConveyor*>(get_conveyor())->sendGoToPress(s);
 }
 
 /**
  * 
  */
 FrontRoboticArm::FrontRoboticArm() :
-		frontroboticarmController(this) {
+		CarFactoryLibrary::RoboticArm("outA", "outA",
+				"outA", "outA", 10, 6, 60, -60, 15), frontroboticarmController(
+				this) {
 }
 
 } // of namespace Front

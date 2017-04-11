@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_KJUKERjbEeeuAf5Jq23FsQ" name="pthread">
+  <uml:Model xmi:id="_ejl2QBklEeeSaotqwVljHg" name="pthread">
     <packagedElement xmi:type="uml:Class" xmi:id="__niwsCa0EeazPcQ6-9hBeQ" name="pthread_mutex_t"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_-vYZoCa0EeazPcQ6-9hBeQ" name="pthread_cond_t"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_ea234NYGEd-CgJIavLpOxQ" name="pthread_t"/>
@@ -10,17 +10,17 @@
       </eAnnotations>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
-    <profileApplication xmi:id="_OntA8BjbEeeuAf5Jq23FsQ">
-      <eAnnotations xmi:id="_OntA8RjbEeeuAf5Jq23FsQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="_h3FnUBklEeeSaotqwVljHg">
+      <eAnnotations xmi:id="_h3FnURklEeeSaotqwVljHg" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:ExternLibrary xmi:id="_KJUKFBjbEeeuAf5Jq23FsQ" base_package="_KJUKERjbEeeuAf5Jq23FsQ">
+  <C_Cpp:ExternLibrary xmi:id="_ejmdUBklEeeSaotqwVljHg" base_package="_ejl2QBklEeeSaotqwVljHg">
     <libs>pthread</libs>
     <libs>rt</libs>
     <includes>pthread.h</includes>
   </C_Cpp:ExternLibrary>
-  <C_Cpp:Include xmi:id="_OnvdMBjbEeeuAf5Jq23FsQ" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_KJUKERjbEeeuAf5Jq23FsQ"/>
+  <C_Cpp:Include xmi:id="_h4G7ABklEeeSaotqwVljHg" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_ejl2QBklEeeSaotqwVljHg"/>
 </xmi:XMI>

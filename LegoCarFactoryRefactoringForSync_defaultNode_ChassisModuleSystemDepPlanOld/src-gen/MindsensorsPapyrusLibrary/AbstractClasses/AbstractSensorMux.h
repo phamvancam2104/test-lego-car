@@ -22,6 +22,7 @@ namespace Interfaces {
 class ISensorMux;
 }
 }
+#include "MindsensorsPapyrusLibrary/Interfaces/ISensorMux.h"
 
 // End of Include stereotype (header)
 

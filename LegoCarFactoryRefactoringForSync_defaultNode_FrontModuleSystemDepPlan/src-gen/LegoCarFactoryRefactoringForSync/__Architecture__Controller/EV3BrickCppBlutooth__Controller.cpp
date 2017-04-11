@@ -47,6 +47,15 @@ EV3BrickCppBlutooth__Controller::EV3BrickCppBlutooth__Controller(
 	return p_origin->BluetoothPortClient.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+EV3BrickCppBlutooth__Controller::EV3BrickCppBlutooth__Controller(
+		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppBlutooth* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

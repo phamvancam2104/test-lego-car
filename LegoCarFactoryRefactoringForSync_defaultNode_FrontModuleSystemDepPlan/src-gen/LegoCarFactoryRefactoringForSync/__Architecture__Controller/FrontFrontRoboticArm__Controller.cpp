@@ -12,6 +12,7 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/FrontFrontRoboticArm__Controller.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
 #include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
@@ -45,6 +46,13 @@ void FrontFrontRoboticArm__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			FRONTFRONTROBOTICARM__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case RESTARTAFTEREMERGENCYSTOP_ID:
+				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
+				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+				processRestartAfterEmergencyStop(
+						sig_RESTARTAFTEREMERGENCYSTOP_ID);
+				break;
 			case ENDOFMODULE_ID:
 				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
 				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
@@ -62,13 +70,6 @@ void FrontFrontRoboticArm__Controller::dispatchEvent() {
 				memcpy(&sig_ROBOTICARMPICKPIECE_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
 				processRoboticArmPickPiece(sig_ROBOTICARMPICKPIECE_ID);
-				break;
-			case RESTARTAFTEREMERGENCYSTOP_ID:
-				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
-				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-				processRestartAfterEmergencyStop(
-						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -222,6 +223,42 @@ void FrontFrontRoboticArm__Controller::stopBehavior() {
  * 
  * @param sig 
  */
+void FrontFrontRoboticArm__Controller::processRestartAfterEmergencyStop(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case RESTART_ID:
+			//from Restart to PrincipalState
+			if (true) {
+				activeStateID = PRINCIPALSTATE_ID;
+				//starting the counters for time events
+				PrincipalState_Region1_Enter (FRONTROBOTICARM_PRINCIPALSTATE_REGION1_DEFAULT);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void FrontFrontRoboticArm__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig,
+			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void FrontFrontRoboticArm__Controller::processEndOfModule(
 		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -315,42 +352,6 @@ void FrontFrontRoboticArm__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, ROBOTICARMPICKPIECE_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
-}
-
-/**
- * 
- * @param sig 
- */
-void FrontFrontRoboticArm__Controller::processRestartAfterEmergencyStop(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case RESTART_ID:
-			//from Restart to PrincipalState
-			if (true) {
-				activeStateID = PRINCIPALSTATE_ID;
-				//starting the counters for time events
-				PrincipalState_Region1_Enter (FRONTROBOTICARM_PRINCIPALSTATE_REGION1_DEFAULT);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void FrontFrontRoboticArm__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig,
-			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 }
 
 /**
@@ -593,6 +594,15 @@ IPush<CarFactoryLibrary::events::EndOfModule>* FrontFrontRoboticArm__Controller:
 IPush<CarFactoryLibrary::events::RoboticArmPickPiece>* FrontFrontRoboticArm__Controller::get_pPickPiece() {
 	p_origin->pPickPiece.inIntf = this;
 	return this;
+}
+
+/**
+ * 
+ * @return ret 
+ */
+::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor* FrontFrontRoboticArm__Controller::get_pIFloatMotor() {
+	p_origin->pIFloatMotor.providedIntf = this->p_origin;
+	return p_origin->pIFloatMotor.providedIntf;
 }
 
 /**

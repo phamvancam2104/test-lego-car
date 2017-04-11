@@ -141,6 +141,16 @@ public:
 	void sendRoboticArmPickPieceEvent();
 	/**
 	 * 
+	 * @return ret 
+	 */
+	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
+	/**
+	 * 
+	 * @param status 
+	 */
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
+	/**
+	 * 
 	 * @param sig 
 	 */
 	void save_which_rack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);

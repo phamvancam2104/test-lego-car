@@ -30,6 +30,8 @@
 
 #include <string>
 #include <sstream>
+#include <unistd.h>
+#include "iostream"
 using namespace std;
 // End of Include stereotype (header)
 namespace LegoCarFactoryRefactoringForSync {

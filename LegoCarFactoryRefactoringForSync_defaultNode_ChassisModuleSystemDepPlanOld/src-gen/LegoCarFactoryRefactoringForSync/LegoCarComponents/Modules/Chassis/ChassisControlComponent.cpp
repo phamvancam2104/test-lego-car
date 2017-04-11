@@ -322,7 +322,7 @@ void ChassisControlComponent::choice0toSendRestartEventEffect() {
 	if (current_module != CarFactoryLibrary::BACK_MODULE)
 		writeWaitReply(CarFactoryLibrary::BACK_MODULE,
 				CarFactoryLibrary::CMD_RESET);
-	if (current_module != CarFactoryLibrary::ROOF_MODULE)
+	if (current_module != ROOF_MODULE)
 		writeWaitReply(CarFactoryLibrary::ROOF_MODULE,
 				CarFactoryLibrary::CMD_RESET);
 

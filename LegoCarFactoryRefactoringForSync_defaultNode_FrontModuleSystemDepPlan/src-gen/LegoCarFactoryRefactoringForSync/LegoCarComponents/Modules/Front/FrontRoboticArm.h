@@ -36,6 +36,12 @@ namespace events {
 class RoboticArmPickPiece;
 }
 }
+namespace CarFactoryLibrary {
+namespace CommunicationInterfaces {
+class IRoboticArmFloatMotor;
+}
+}
+#include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
@@ -134,11 +140,29 @@ public:
 	/**
 	 * 
 	 */
+	ProvidedPort<
+			CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor> pIFloatMotor;
+	/**
+	 * 
+	 */
 	OutFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
 	/**
 	 * 
 	 */
 	void stop_motors();
+	/**
+	 * pick the front part on the rack numer "rack_number"
+	 * @param rack_number 
+	 */
+	void pick_front_part(int /*in*/rack_number);
+	/**
+	 * put the front part on the chassis
+	 */
+	void deliver_front_part();
+	/**
+	 * replace the front part on the chassis
+	 */
+	void replace_front_part();
 	/**
 	 * 
 	 * @param sig 

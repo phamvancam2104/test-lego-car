@@ -45,6 +45,18 @@ void ChassisChassisRoboticArm__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISROBOTICARM__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case ROBOTICARMPICKPIECE_ID:
+				::CarFactoryLibrary::events::RoboticArmPickPiece sig_ROBOTICARMPICKPIECE_ID;
+				memcpy(&sig_ROBOTICARMPICKPIECE_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
+				processRoboticArmPickPiece(sig_ROBOTICARMPICKPIECE_ID);
+				break;
+			case STOPPROCESS_ID:
+				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
+				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+				processStopProcess(sig_STOPPROCESS_ID);
+				break;
 			case ENDOFMODULE_ID:
 				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
 				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
@@ -57,18 +69,6 @@ void ChassisChassisRoboticArm__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
-				break;
-			case STOPPROCESS_ID:
-				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
-				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-				processStopProcess(sig_STOPPROCESS_ID);
-				break;
-			case ROBOTICARMPICKPIECE_ID:
-				::CarFactoryLibrary::events::RoboticArmPickPiece sig_ROBOTICARMPICKPIECE_ID;
-				memcpy(&sig_ROBOTICARMPICKPIECE_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
-				processRoboticArmPickPiece(sig_ROBOTICARMPICKPIECE_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -210,6 +210,82 @@ void ChassisChassisRoboticArm__Controller::stopBehavior() {
  * 
  * @param sig 
  */
+void ChassisChassisRoboticArm__Controller::processRoboticArmPickPiece(
+		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == INITIALIZATION_ID) {
+		//from Initialization to choice
+		if (true) {
+			p_origin->save_rack_number(sig);
+			if (p_origin->fromChoicetoSendDeliveredCarConveyorEventGuard()) {
+				states[PRINCIPALSTATE_ID].actives[0] =
+						SENDDELIVEREDCARCONVEYOREVENT_ID;
+				//starting the counters for time events
+				//start activity of SendDeliveredCarConveyorEvent by calling setFlag
+				setFlag(SENDDELIVEREDCARCONVEYOREVENT_ID,
+						statemachine::TF_DO_ACTIVITY, true);
+			} else {
+				states[PRINCIPALSTATE_ID].actives[0] = START_MOTORS_ID;
+				//starting the counters for time events
+				//start activity of start_motors by calling setFlag
+				setFlag(START_MOTORS_ID, statemachine::TF_DO_ACTIVITY, true);
+			}
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisRoboticArm__Controller::push(
+		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ROBOTICARMPICKPIECE_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisRoboticArm__Controller::processStopProcess(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case PRINCIPALSTATE_ID:
+			//from PrincipalState to Restart
+			if (true) {
+				PrincipalState_Region1_Exit();
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisRoboticArm__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void ChassisChassisRoboticArm__Controller::processEndOfModule(
 		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -268,82 +344,6 @@ void ChassisChassisRoboticArm__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig,
 			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
 			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisRoboticArm__Controller::processStopProcess(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case PRINCIPALSTATE_ID:
-			//from PrincipalState to Restart
-			if (true) {
-				PrincipalState_Region1_Exit();
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisRoboticArm__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisRoboticArm__Controller::processRoboticArmPickPiece(
-		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == INITIALIZATION_ID) {
-		//from Initialization to choice
-		if (true) {
-			p_origin->save_rack_number(sig);
-			if (p_origin->fromChoicetoSendDeliveredCarConveyorEventGuard()) {
-				states[PRINCIPALSTATE_ID].actives[0] =
-						SENDDELIVEREDCARCONVEYOREVENT_ID;
-				//starting the counters for time events
-				//start activity of SendDeliveredCarConveyorEvent by calling setFlag
-				setFlag(SENDDELIVEREDCARCONVEYOREVENT_ID,
-						statemachine::TF_DO_ACTIVITY, true);
-			} else {
-				states[PRINCIPALSTATE_ID].actives[0] = START_MOTORS_ID;
-				//starting the counters for time events
-				//start activity of start_motors by calling setFlag
-				setFlag(START_MOTORS_ID, statemachine::TF_DO_ACTIVITY, true);
-			}
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisRoboticArm__Controller::push(
-		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ROBOTICARMPICKPIECE_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::RoboticArmPickPiece));
 }
 
 /**

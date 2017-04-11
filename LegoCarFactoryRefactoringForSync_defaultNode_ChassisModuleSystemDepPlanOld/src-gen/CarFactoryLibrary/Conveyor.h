@@ -15,12 +15,12 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppLargeMotor.h"
 #include "EV3PapyrusLibrary/CppColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "CarFactoryLibrary/IModule.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
 class IColorSensor;
 }
+#include "EV3PapyrusLibrary/IColorSensor.h"
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
@@ -28,16 +28,9 @@ class ILargeMotor;
 }
 }
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace CarFactoryLibrary {
-class IModule;
-}
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
+#include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 

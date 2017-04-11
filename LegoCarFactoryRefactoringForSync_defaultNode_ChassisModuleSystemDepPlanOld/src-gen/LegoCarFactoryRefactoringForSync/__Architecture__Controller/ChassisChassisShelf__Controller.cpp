@@ -46,6 +46,18 @@ void ChassisChassisShelf__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISSHELF__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case CHECKRACK_ID:
+				::CarFactoryLibrary::events::CheckRack sig_CHECKRACK_ID;
+				memcpy(&sig_CHECKRACK_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::CheckRack));
+				processCheckRack(sig_CHECKRACK_ID);
+				break;
+			case STOPPROCESS_ID:
+				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
+				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+				processStopProcess(sig_STOPPROCESS_ID);
+				break;
 			case ENDOFMODULE_ID:
 				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
 				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
@@ -58,18 +70,6 @@ void ChassisChassisShelf__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
-				break;
-			case STOPPROCESS_ID:
-				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
-				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-				processStopProcess(sig_STOPPROCESS_ID);
-				break;
-			case CHECKRACK_ID:
-				::CarFactoryLibrary::events::CheckRack sig_CHECKRACK_ID;
-				memcpy(&sig_CHECKRACK_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::CheckRack));
-				processCheckRack(sig_CHECKRACK_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -217,6 +217,72 @@ void ChassisChassisShelf__Controller::stopBehavior() {
  * 
  * @param sig 
  */
+void ChassisChassisShelf__Controller::processCheckRack(
+		::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == INITIALIZATION_ID) {
+		//from Initialization to Display
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = DISPLAY_ID;
+			//starting the counters for time events
+			//start activity of Display by calling setFlag
+			setFlag(DISPLAY_ID, statemachine::TF_DO_ACTIVITY, true);
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisShelf__Controller::push(
+		::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, CHECKRACK_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::CheckRack));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisShelf__Controller::processStopProcess(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case PRINCIPALSTATE_ID:
+			//from PrincipalState to Restart
+			if (true) {
+				PrincipalState_Region1_Exit();
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void ChassisChassisShelf__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void ChassisChassisShelf__Controller::processEndOfModule(
 		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -275,72 +341,6 @@ void ChassisChassisShelf__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig,
 			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
 			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisShelf__Controller::processStopProcess(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case PRINCIPALSTATE_ID:
-			//from PrincipalState to Restart
-			if (true) {
-				PrincipalState_Region1_Exit();
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisShelf__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisShelf__Controller::processCheckRack(
-		::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == INITIALIZATION_ID) {
-		//from Initialization to Display
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = DISPLAY_ID;
-			//starting the counters for time events
-			//start activity of Display by calling setFlag
-			setFlag(DISPLAY_ID, statemachine::TF_DO_ACTIVITY, true);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void ChassisChassisShelf__Controller::push(
-		::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, CHECKRACK_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::CheckRack));
 }
 
 /**

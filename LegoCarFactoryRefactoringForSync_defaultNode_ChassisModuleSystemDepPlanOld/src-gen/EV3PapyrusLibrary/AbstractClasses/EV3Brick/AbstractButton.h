@@ -22,6 +22,7 @@ class IButton;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
 
 // End of Include stereotype (header)
 

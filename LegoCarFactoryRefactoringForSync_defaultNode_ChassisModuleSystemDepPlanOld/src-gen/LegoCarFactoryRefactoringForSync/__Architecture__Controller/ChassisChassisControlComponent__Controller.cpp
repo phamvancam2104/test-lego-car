@@ -44,17 +44,8 @@ void ChassisChassisControlComponent__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			CHASSISCHASSISCONTROLCOMPONENT__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case ENDOFMODULE_ID:
-				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
-				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::EndOfModule));
-				processEndOfModule(sig_ENDOFMODULE_ID);
-				break;
-			case ERRORDETECTION_ID:
-				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
-				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::ErrorDetection));
-				processErrorDetection(sig_ERRORDETECTION_ID);
+			case TE_50_MS__ID:
+				processTE_50_ms_();
 				break;
 			case STOPPROCESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
@@ -62,8 +53,17 @@ void ChassisChassisControlComponent__Controller::dispatchEvent() {
 						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 				processStopProcess(sig_STOPPROCESS_ID);
 				break;
-			case TE_50_MS__ID:
-				processTE_50_ms_();
+			case ERRORDETECTION_ID:
+				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
+				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::ErrorDetection));
+				processErrorDetection(sig_ERRORDETECTION_ID);
+				break;
+			case ENDOFMODULE_ID:
+				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
+				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::EndOfModule));
+				processEndOfModule(sig_ENDOFMODULE_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -235,32 +235,29 @@ void ChassisChassisControlComponent__Controller::stopBehavior() {
 
 /**
  * 
+ */
+void ChassisChassisControlComponent__Controller::processTE_50_ms_() {
+	systemState = statemachine::EVENT_PROCESSING;
+}
+
+/**
+ * 
  * @param sig 
  */
-void ChassisChassisControlComponent__Controller::processEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+void ChassisChassisControlComponent__Controller::processStopProcess(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
 	if (systemState == statemachine::EVENT_PROCESSING) {
 		switch (activeStateID) {
 		case EMERGENCYSTOPSTATE_ID:
-			//from EmergencyStopState to choice2
+			//from EmergencyStopState to EmergencyButtonPressState
 			if (true) {
 				EmergencyStopState_Region1_Exit();
-				if (p_origin->fromChoice2toPrepareConveyorGuard()) {
-					p_origin->fromChoice2toPrepareConvoyerEffect();
-					activeStateID = PREPARECONVEYOR_ID;
-					//starting the counters for time events
-					//start activity of PrepareConveyor by calling setFlag
-					setFlag(PREPARECONVEYOR_ID, statemachine::TF_DO_ACTIVITY,
-							true);
-				} else {
-					p_origin->rewind_last_module();
-					activeStateID = SENDSTOPMESSAGE_ID;
-					//starting the counters for time events
-					//start activity of SendStopMessage by calling setFlag
-					setFlag(SENDSTOPMESSAGE_ID, statemachine::TF_DO_ACTIVITY,
-							true);
-				}
+				activeStateID = EMERGENCYBUTTONPRESSSTATE_ID;
+				//starting the counters for time events
+				//start activity of EmergencyButtonPressState by calling setFlag
+				setFlag(EMERGENCYBUTTONPRESSSTATE_ID,
+						statemachine::TF_DO_ACTIVITY, true);
 				systemState = statemachine::EVENT_CONSUMED;
 			}
 			break;
@@ -276,10 +273,10 @@ void ChassisChassisControlComponent__Controller::processEndOfModule(
  * @param sig 
  */
 void ChassisChassisControlComponent__Controller::push(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
 			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::EndOfModule));
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
 }
 
 /**
@@ -325,20 +322,30 @@ void ChassisChassisControlComponent__Controller::push(
  * 
  * @param sig 
  */
-void ChassisChassisControlComponent__Controller::processStopProcess(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+void ChassisChassisControlComponent__Controller::processEndOfModule(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
 	if (systemState == statemachine::EVENT_PROCESSING) {
 		switch (activeStateID) {
 		case EMERGENCYSTOPSTATE_ID:
-			//from EmergencyStopState to EmergencyButtonPressState
+			//from EmergencyStopState to choice2
 			if (true) {
 				EmergencyStopState_Region1_Exit();
-				activeStateID = EMERGENCYBUTTONPRESSSTATE_ID;
-				//starting the counters for time events
-				//start activity of EmergencyButtonPressState by calling setFlag
-				setFlag(EMERGENCYBUTTONPRESSSTATE_ID,
-						statemachine::TF_DO_ACTIVITY, true);
+				if (p_origin->fromChoice2toPrepareConveyorGuard()) {
+					p_origin->fromChoice2toPrepareConvoyerEffect();
+					activeStateID = PREPARECONVEYOR_ID;
+					//starting the counters for time events
+					//start activity of PrepareConveyor by calling setFlag
+					setFlag(PREPARECONVEYOR_ID, statemachine::TF_DO_ACTIVITY,
+							true);
+				} else {
+					p_origin->rewind_last_module();
+					activeStateID = SENDSTOPMESSAGE_ID;
+					//starting the counters for time events
+					//start activity of SendStopMessage by calling setFlag
+					setFlag(SENDSTOPMESSAGE_ID, statemachine::TF_DO_ACTIVITY,
+							true);
+				}
 				systemState = statemachine::EVENT_CONSUMED;
 			}
 			break;
@@ -354,17 +361,10 @@ void ChassisChassisControlComponent__Controller::processStopProcess(
  * @param sig 
  */
 void ChassisChassisControlComponent__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
 			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-}
-
-/**
- * 
- */
-void ChassisChassisControlComponent__Controller::processTE_50_ms_() {
-	systemState = statemachine::EVENT_PROCESSING;
+			sizeof(::CarFactoryLibrary::events::EndOfModule));
 }
 
 /**

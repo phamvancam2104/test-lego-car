@@ -21,6 +21,7 @@
 namespace EV3PapyrusLibrary {
 class IColorSensor;
 }
+#include "EV3PapyrusLibrary/IColorSensor.h"
 
 // End of Include stereotype (header)
 

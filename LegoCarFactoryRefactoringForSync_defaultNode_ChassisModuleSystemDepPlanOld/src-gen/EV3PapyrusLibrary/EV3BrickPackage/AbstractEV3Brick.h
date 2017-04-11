@@ -34,6 +34,7 @@ class ILed;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace EV3Brick {
@@ -41,6 +42,7 @@ class IButton;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace EV3Brick {
@@ -48,6 +50,7 @@ class ILcd;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace EV3Brick {
@@ -55,6 +58,7 @@ class ISound;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 
 // End of Include stereotype (header)
 

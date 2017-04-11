@@ -148,12 +148,11 @@ namespace __Architecture__Controller {
  * 
  */
 class FrontFrontConvoyer__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::PrepareConveyor>,
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
 		public IPush<CarFactoryLibrary::events::DeliveredCarConveyor>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::GoToPress>,
 		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<
-				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
+		public IPush<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> {
 public:
 	/**
 	 * 
@@ -233,7 +232,7 @@ public:
 		/**
 		 * 
 		 */
-		PREPARECONVEYOR_ID,
+		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -249,7 +248,7 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
+		PREPARECONVEYOR_ID,
 		/**
 		 * 
 		 */
@@ -364,14 +363,14 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processPrepareConveyor(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
 	void push(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
@@ -411,14 +410,14 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	void processPrepareConveyor(
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 * @param sig 
 	 */
 	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
 	/**
 	 * 
 	 */
@@ -477,6 +476,11 @@ public:
 	 * @return ret 
 	 */
 	virtual IPush<CarFactoryLibrary::events::DeliveredCarConveyor>* get_pDelivered();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	virtual ::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* get_pILargeMotor();
 	/**
 	 * 
 	 * @return ret 

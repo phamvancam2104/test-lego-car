@@ -61,6 +61,9 @@ void FrontModuleSystem::connectorConfiguration() {
 	bindPorts(controller.pModule, convoyer.pModule);
 	bindPorts(controller.pModule, shelf.pModule);
 	bindPorts(controller.pModule, press.pModule);
+	bindPorts(controller.pIFloatMotor, roboticArm.pIFloatMotor);
+	bindPorts(controller.pILargeMotor, convoyer.pILargeMotor);
+	bindPorts(controller.pPressILargeMotor, press.pILargeMotor);
 }
 
 } // of namespace Front

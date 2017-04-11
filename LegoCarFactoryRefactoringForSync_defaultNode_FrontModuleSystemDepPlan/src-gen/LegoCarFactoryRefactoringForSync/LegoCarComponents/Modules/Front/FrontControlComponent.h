@@ -65,6 +65,8 @@ namespace events {
 class DeliveredCarConveyor;
 }
 }
+#include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 
 // End of Include stereotype (header)
 
@@ -257,6 +259,19 @@ public:
 	/**
 	 * 
 	 */
+	RequiredPort<
+			CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor> pIFloatMotor;
+	/**
+	 * 
+	 */
+	RequiredPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pILargeMotor;
+	/**
+	 * 
+	 */
+	RequiredPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pPressILargeMotor;
+	/**
+	 * 
+	 */
 	void reset();
 	/**
 	 * Initialize all bluetooth connection and ping bricks to check
@@ -389,10 +404,6 @@ public:
 	 * 
 	 */
 	void deliver();
-	/**
-	 * 
-	 */
-	void FrontControlComponent() const;
 	/**
 	 * 
 	 */

@@ -38,6 +38,15 @@ EV3BrickCppLcd__Controller::EV3BrickCppLcd__Controller(
 	return p_origin->lcdScreenPort.providedIntf;
 }
 
+/**
+ * 
+ * @param origin 
+ */
+EV3BrickCppLcd__Controller::EV3BrickCppLcd__Controller(
+		::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppLcd* /*in*/origin) :
+		p_origin(origin) {
+}
+
 } // of namespace __Architecture__Controller
 } // of namespace LegoCarFactoryRefactoringForSync
 

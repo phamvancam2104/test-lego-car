@@ -14,6 +14,7 @@
 // Derived includes directives
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/PressAssemble.h"
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
 
@@ -51,7 +52,7 @@ bool SlavePress::fromChoicetoGoTopPressGuard() {
  * 
  */
 void SlavePress::SetStatusIsReady() {
-	set_status (RESULT_READY);
+	set_status (CarFactoryLibrary::RESULT_READY);
 }
 
 /**
@@ -79,7 +80,7 @@ void SlavePress::assemble() {
  * 
  */
 SlavePress::SlavePress() :
-		slavepressController(this) {
+		CarFactoryLibrary::Press("outD"), slavepressController(this) {
 }
 
 } // of namespace Slaves

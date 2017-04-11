@@ -25,6 +25,7 @@ class ILargeMotor;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 
 // End of Include stereotype (header)
 

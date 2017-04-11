@@ -24,6 +24,7 @@ class ILcd;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
 // End of Include stereotype (header)
 

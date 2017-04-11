@@ -43,6 +43,7 @@ class ILargeMotor;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 
 // End of Include stereotype (header)
 
@@ -122,6 +123,10 @@ public:
 	 */
 	InFlowPort<
 			LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
+	/**
+	 * 
+	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pILargeMotor;
 	/**
 	 * 
 	 */

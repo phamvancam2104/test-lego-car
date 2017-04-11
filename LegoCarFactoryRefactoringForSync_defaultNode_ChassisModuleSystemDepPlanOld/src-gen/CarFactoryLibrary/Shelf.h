@@ -14,22 +14,14 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Rack.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "CarFactoryLibrary/IModule.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
 class IColorSensor;
 }
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace CarFactoryLibrary {
-class IModule;
-}
+#include "EV3PapyrusLibrary/IColorSensor.h"
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
+#include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 

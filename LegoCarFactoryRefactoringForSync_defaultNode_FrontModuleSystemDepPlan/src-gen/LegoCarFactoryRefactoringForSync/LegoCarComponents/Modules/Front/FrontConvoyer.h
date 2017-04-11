@@ -38,14 +38,15 @@ class DeliveredCarConveyor;
 }
 }
 namespace EV3PapyrusLibrary {
-class IColorSensor;
-}
-namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
 class ILargeMotor;
 }
 }
+}
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
+namespace EV3PapyrusLibrary {
+class IColorSensor;
 }
 namespace CarFactoryLibrary {
 namespace events {
@@ -186,6 +187,10 @@ public:
 	/**
 	 * 
 	 */
+	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> pILargeMotor;
+	/**
+	 * 
+	 */
 	OutFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
 	/**
 	 * 
@@ -215,6 +220,20 @@ public:
 	 * 
 	 */
 	void sendEndOfModuleEvent();
+	/**
+	 * go the position to wait the car from the previous module
+	 */
+	void go_wait_car();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
+	/**
+	 * 
+	 * @param status 
+	 */
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
 	/**
 	 * 
 	 * @param sig 
@@ -271,6 +290,12 @@ public:
 	 */
 	FrontConvoyer();
 
+private:
+	/**
+	 * check the presence of the front part on the car (check the color)
+	 * @return ret true if the chassis is present and false otherwise
+	 */
+	bool check_presence();
 };
 /************************************************************/
 /* External declarations (package visibility)               */

@@ -74,6 +74,11 @@ namespace CarFactoryLibrary {
 class IModule;
 }
 namespace CarFactoryLibrary {
+namespace CommunicationInterfaces {
+class IRoboticArmFloatMotor;
+}
+}
+namespace CarFactoryLibrary {
 namespace events {
 class EndOfModule;
 }
@@ -125,10 +130,10 @@ namespace __Architecture__Controller {
  * 
  */
 class FrontFrontRoboticArm__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>, public IPush<
-		LegoCarFactoryRefactoringForSync::signals::StopProcess>, public IPush<
-		CarFactoryLibrary::events::RoboticArmPickPiece>, public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<CarFactoryLibrary::events::EndOfModule>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece> {
 public:
 	/**
 	 * 
@@ -200,6 +205,10 @@ public:
 		/**
 		 * 
 		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
+		/**
+		 * 
+		 */
 		ENDOFMODULE_ID,
 		/**
 		 * 
@@ -209,10 +218,6 @@ public:
 		 * 
 		 */
 		ROBOTICARMPICKPIECE_ID,
-		/**
-		 * 
-		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -327,6 +332,18 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processEndOfModule(
 			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
@@ -357,18 +374,6 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 */
@@ -427,6 +432,11 @@ public:
 	 * @return ret 
 	 */
 	virtual IPush<CarFactoryLibrary::events::RoboticArmPickPiece>* get_pPickPiece();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	virtual ::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor* get_pIFloatMotor();
 	/**
 	 * 
 	 * @return ret 

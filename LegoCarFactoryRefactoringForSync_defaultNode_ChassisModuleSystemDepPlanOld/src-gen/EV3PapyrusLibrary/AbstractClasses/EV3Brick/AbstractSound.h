@@ -24,6 +24,7 @@ class ISound;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 
 // End of Include stereotype (header)
 

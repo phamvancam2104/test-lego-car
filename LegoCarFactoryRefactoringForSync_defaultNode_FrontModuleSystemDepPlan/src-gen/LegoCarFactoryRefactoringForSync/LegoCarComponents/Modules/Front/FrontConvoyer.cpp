@@ -17,6 +17,7 @@
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/ErrorDetection.h"
 #include "CarFactoryLibrary/events/PressAssemble.h"
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/GoToPress.h"
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
@@ -47,10 +48,83 @@ int FrontConvoyer::take_car_offset = -200;
 void FrontConvoyer::sendEndOfModuleEvent() {
 	set_status (RESULT_READY);
 	CarFactoryLibrary::events::EndOfModule s;
-	get_module()->sendEndOfModule(s);
-	get_shelf()->sendEndOfModule(s);
-	get_robotic_arm()->sendEndOfModule(s);
-	get_press()->sendEndOfModule(s);
+	pEndOfMo_Control.outIntf->push(s);//get_module()->sendEndOfModule(s);
+	pEndOfMo_Shelf.outIntf->push(s);//get_shelf()->sendEndOfModule(s);
+	pEndOfMo_Robotic.outIntf->push(s);//get_robotic_arm()->sendEndOfModule(s);
+	pEndOfMo_Press.outIntf->push(s);//get_press()->sendEndOfModule(s);
+}
+
+/**
+ * check the presence of the front part on the car (check the color)
+ * @return ret true if the chassis is present and false otherwise
+ */
+bool FrontConvoyer::check_presence() {
+	color_sensor.set_mode("COL-COLOR");
+	bool ret = false;
+	//wait for the and of the movement
+	while (motor.speed() == 0)
+		;
+	while (motor.speed() != 0)
+		;
+
+	//check color
+	int obtain_color = color_sensor.value(0);
+
+	switch (color) {
+	case CarFactoryLibrary::RED:
+		if (obtain_color == 5) { //blue=2; red = 5 and white=6
+			ret = true;
+		}
+		break;
+	case CarFactoryLibrary::WHITE:
+		if (obtain_color == 6) { //blue=2; red = 5 and white=6
+			ret = true;
+		}
+		break;
+	case CarFactoryLibrary::BLUE:
+		if (obtain_color == 2) { //blue=2; red = 5 and white=6
+			ret = true;
+		}
+		break;
+	case CarFactoryLibrary::NONE:
+		ret = true;
+		break;
+	}
+
+	return ret;
+}
+
+/**
+ * go the position to wait the car from the previous module
+ */
+void FrontConvoyer::go_wait_car() {
+	motor.set_duty_cycle_sp(30);
+	motor.set_stop_command("brake");
+	motor.set_position_sp(wait_car_offset);
+	motor.run_to_rel_pos();
+
+	//Wait conveyor is in the well position
+	while (motor.speed() == 0) {
+	}
+	while (motor.speed() != 0) {
+	}
+}
+
+/**
+ * 
+ * @return ret 
+ */
+::CarFactoryLibrary::BluetoothSlaveEnum FrontConvoyer::get_status() {
+	return pModule.requiredIntf->getStatus();
+}
+
+/**
+ * 
+ * @param status 
+ */
+void FrontConvoyer::set_status(
+		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
+	 pModule.requiredIntf->setStatus(status);
 }
 
 /**
@@ -103,9 +177,8 @@ void FrontConvoyer::go_initial_position() {
  * 
  */
 void FrontConvoyer::go_wait_position() {
-	get_module()->ev3Brick.lcdScreen.clear();
-	get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Load car ...",
-			lcd::TextSize::LARGE);
+	pLCD.requiredIntf->clear();	//get_module()->ev3Brick.lcdScreen.clear();
+	pLCD.requiredIntf->write_text(0, 20, "Load car ...",ev3dev::lcd::TextSize::LARGE);//get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Load car ...",lcd::TextSize::LARGE);
 
 	go_wait_position();
 }
@@ -135,7 +208,7 @@ void FrontConvoyer::goCheckPresencePosition() {
  */
 void FrontConvoyer::sendErrorDetectionEvent() {
 	CarFactoryLibrary::events::ErrorDetection s;
-	get_module()->sendErrorDetection(s);
+	pErrDetect.outIntf->push(s);//get_module()->sendErrorDetection(s);
 	s.is_misplace = true;
 	set_status(CarFactoryLibrary::RESULT_ERROR);
 }
@@ -145,16 +218,15 @@ void FrontConvoyer::sendErrorDetectionEvent() {
  */
 void FrontConvoyer::sendPressAssembleEvent() {
 	CarFactoryLibrary::events::PressAssemble s;
-	get_press()->sendPressAssemble(s);
+	pOutAssemble.outIntf->push(s);//get_press()->sendPressAssemble(s);
 }
 
 /**
  * 
  */
 void FrontConvoyer::deliver() {
-	get_module()->ev3Brick.lcdScreen.clear();
-	get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Deliver car ...",
-			lcd::TextSize::LARGE);
+	pLCD.requiredIntf->clear();//get_module()->ev3Brick.lcdScreen.clear();
+	pLCD.requiredIntf->write_text(0, 20, "Deliver car ...", ev3dev::lcd::TextSize::LARGE);//get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Deliver car ...", lcd::TextSize::LARGE);
 
 	delivered_car();
 }
@@ -163,7 +235,8 @@ void FrontConvoyer::deliver() {
  * 
  */
 FrontConvoyer::FrontConvoyer() :
-		frontconvoyerController(this) {
+		CarFactoryLibrary::Conveyor("outA", "in1", -500, -530, -250), frontconvoyerController(
+				this) {
 }
 
 } // of namespace Front

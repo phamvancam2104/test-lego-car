@@ -152,6 +152,18 @@ void FrontFrontModuleSystem__Controller::createConnections() {
 	p_origin->press.slavepressController.connect_pModule(
 			p_origin->controller.frontcontrolcomponentController.get_pModule());
 
+	// realization of connector <Connector31>
+	p_origin->controller.frontcontrolcomponentController.connect_pIFloatMotor(
+			p_origin->roboticArm.frontroboticarmController.get_pIFloatMotor());
+
+	// realization of connector <Connector32>
+	p_origin->controller.frontcontrolcomponentController.connect_pILargeMotor(
+			p_origin->convoyer.frontconvoyerController.get_pILargeMotor());
+
+	// realization of connector <Connector33>
+	p_origin->controller.frontcontrolcomponentController.connect_pPressILargeMotor(
+			p_origin->press.slavepressController.get_pILargeMotor());
+
 }
 
 } // of namespace __Architecture__Controller

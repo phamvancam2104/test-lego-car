@@ -123,10 +123,10 @@ namespace __Architecture__Controller {
  * 
  */
 class SlavesSlavePress__Controller: public IPush<
-		CarFactoryLibrary::events::PressAssemble>, public IPush<
-		CarFactoryLibrary::events::EndOfModule>, public IPush<
-		LegoCarFactoryRefactoringForSync::signals::StopProcess>, public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> {
+		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<CarFactoryLibrary::events::PressAssemble>,
+		public IPush<CarFactoryLibrary::events::EndOfModule>,
+		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess> {
 public:
 	/**
 	 * 
@@ -194,6 +194,10 @@ public:
 		/**
 		 * 
 		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
+		/**
+		 * 
+		 */
 		PRESSASSEMBLE_ID,
 		/**
 		 * 
@@ -203,10 +207,6 @@ public:
 		 * 
 		 */
 		STOPPROCESS_ID,
-		/**
-		 * 
-		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
 		/**
 		 * 
 		 */
@@ -321,6 +321,18 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processPressAssemble(
 			::CarFactoryLibrary::events::PressAssemble& /*in*/sig);
 	/**
@@ -351,18 +363,6 @@ public:
 	 */
 	void push(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
 	/**
 	 * 
 	 */
@@ -421,6 +421,11 @@ public:
 	 */
 	virtual IPush<
 			LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>* get_pInRestart();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	virtual ::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* get_pILargeMotor();
 	/**
 	 * 
 	 * @return ret 

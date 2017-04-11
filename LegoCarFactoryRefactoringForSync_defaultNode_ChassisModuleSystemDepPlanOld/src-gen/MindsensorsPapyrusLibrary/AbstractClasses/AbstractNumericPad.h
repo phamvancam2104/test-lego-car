@@ -22,6 +22,7 @@ namespace Interfaces {
 class INumericPad;
 }
 }
+#include "MindsensorsPapyrusLibrary/Interfaces/INumericPad.h"
 
 // End of Include stereotype (header)
 

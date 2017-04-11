@@ -27,6 +27,7 @@ class IBlutooth;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/IBlutooth.h"
 
 // End of Include stereotype (header)
 

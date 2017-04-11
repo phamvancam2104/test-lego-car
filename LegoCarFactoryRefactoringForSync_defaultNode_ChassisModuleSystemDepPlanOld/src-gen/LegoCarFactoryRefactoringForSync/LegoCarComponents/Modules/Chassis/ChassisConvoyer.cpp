@@ -19,7 +19,7 @@
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
-#include "CarFactoryLibrary/Conveyor.h"
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
@@ -71,7 +71,7 @@ bool ChassisConvoyer::check_presence() {
  */
 int ChassisConvoyer::get_current_module() {
 
-	return this->pModule.requiredIntf->getCurrentModule();
+	return ((CarFactoryLibrary::Conveyor*) this)->pModule.requiredIntf->getCurrentModule();
 }
 
 /**
@@ -107,7 +107,8 @@ ChassisConvoyer::ChassisConvoyer() :
  */
 void ChassisConvoyer::set_status(
 		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
-	CarFactoryLibrary::Conveyor::pModule.requiredIntf->setStatus(status);
+	static_cast<CarFactoryLibrary::Convoyer*>(this)->pModule.requiredIntf->setStatus(
+			status);
 }
 
 /**
@@ -142,7 +143,7 @@ void ChassisConvoyer::save_color(
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice1toReplaceGuard() {
+bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
 
 	return get_current_module() == CarFactoryLibrary::MASTER_MODULE;
 }
@@ -151,7 +152,7 @@ bool ChassisConvoyer::fromChoice1toReplaceGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
+bool ChassisConvoyer::fromChoice1toReplaceGuard() {
 
 	return get_current_module() == CarFactoryLibrary::MASTER_MODULE;
 }

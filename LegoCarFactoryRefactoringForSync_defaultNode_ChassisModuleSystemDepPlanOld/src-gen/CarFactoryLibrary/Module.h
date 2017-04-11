@@ -29,9 +29,11 @@ class ILcd;
 }
 }
 }
+#include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 namespace CarFactoryLibrary {
 class IModule;
 }
+#include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 

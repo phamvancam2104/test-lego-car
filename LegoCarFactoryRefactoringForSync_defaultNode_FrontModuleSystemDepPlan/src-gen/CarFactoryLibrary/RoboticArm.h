@@ -12,6 +12,7 @@
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
+#include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
 #include "CarFactoryLibrary/Pliers.h"
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppServoMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
@@ -47,7 +48,7 @@ namespace CarFactoryLibrary {
 /**
  * the generic robotic arm of the factory 
  */
-class RoboticArm {
+class RoboticArm: public ::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor {
 public:
 	/**
 	 * the servo motor which allow to go up and down

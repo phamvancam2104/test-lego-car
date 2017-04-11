@@ -12,11 +12,13 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/FrontFrontControlComponent__Controller.h"
 
 // Derived includes directives
+#include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
 #include "CarFactoryLibrary/IModule.h"
 #include "CarFactoryLibrary/events/CheckRack.h"
 #include "CarFactoryLibrary/events/DeliveredCarConveyor.h"
 #include "CarFactoryLibrary/events/EndOfModule.h"
 #include "CarFactoryLibrary/events/ErrorDetection.h"
+#include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontControlComponent.h"
 #include "LegoCarFactoryRefactoringForSync/signals/PrepareConveyor.h"
@@ -1147,6 +1149,33 @@ void FrontFrontControlComponent__Controller::connect_pCheckRack(
 void FrontFrontControlComponent__Controller::connect_pDelivered(
 		IPush<CarFactoryLibrary::events::DeliveredCarConveyor>* /*in*/ref) {
 	p_origin->pDelivered.outIntf = ref;
+}
+
+/**
+ * 
+ * @param ref 
+ */
+void FrontFrontControlComponent__Controller::connect_pIFloatMotor(
+		::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor* /*in*/ref) {
+	p_origin->pIFloatMotor.requiredIntf = ref;
+}
+
+/**
+ * 
+ * @param ref 
+ */
+void FrontFrontControlComponent__Controller::connect_pILargeMotor(
+		::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* /*in*/ref) {
+	p_origin->pILargeMotor.requiredIntf = ref;
+}
+
+/**
+ * 
+ * @param ref 
+ */
+void FrontFrontControlComponent__Controller::connect_pPressILargeMotor(
+		::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* /*in*/ref) {
+	p_origin->pPressILargeMotor.requiredIntf = ref;
 }
 
 } // of namespace __Architecture__Controller

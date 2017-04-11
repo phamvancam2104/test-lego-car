@@ -44,7 +44,7 @@
 #include "sys/time.h"
 //the termination of doActivity is implemented in terms of check points that the developers write
 //fine-grained code to explicitly use check points to exit doActivity
-//#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING || systemState == statemachine::STOPPED) {return;}
+#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING || systemState == statemachine::STOPPED) {return;}
 #define FrontFrontControlComponent__Controller_THREAD_CREATE(thThread, str) pthread_create(&thThread, NULL, &FrontFrontControlComponent__Controller::thread_func_wrapper, &str);
 #define FRONTFRONTCONTROLCOMPONENT__CONTROLLER_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \
 		while (!dispatchFlag) {} \
@@ -96,6 +96,11 @@ namespace CarFactoryLibrary {
 class IModule;
 }
 namespace CarFactoryLibrary {
+namespace CommunicationInterfaces {
+class IRoboticArmFloatMotor;
+}
+}
+namespace CarFactoryLibrary {
 namespace events {
 class EndOfModule;
 }
@@ -103,6 +108,13 @@ class EndOfModule;
 namespace CarFactoryLibrary {
 namespace events {
 class ErrorDetection;
+}
+}
+namespace EV3PapyrusLibrary {
+namespace Interfaces {
+namespace Actuators {
+class ILargeMotor;
+}
 }
 }
 namespace EV3PapyrusLibrary {
@@ -580,6 +592,24 @@ public:
 	 */
 	virtual void connect_pDelivered(
 			IPush<CarFactoryLibrary::events::DeliveredCarConveyor>* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pIFloatMotor(
+			::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pILargeMotor(
+			::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* /*in*/ref);
+	/**
+	 * 
+	 * @param ref 
+	 */
+	void connect_pPressILargeMotor(
+			::EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor* /*in*/ref);
 
 private:
 	/**
