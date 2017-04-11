@@ -383,14 +383,6 @@ public:
 	/**
 	 * 
 	 */
-	void ping_response();
-	/**
-	 * 
-	 */
-	void get_status_response();
-	/**
-	 * 
-	 */
 	void sendPrepareConveyorEvent();
 	/**
 	 * 

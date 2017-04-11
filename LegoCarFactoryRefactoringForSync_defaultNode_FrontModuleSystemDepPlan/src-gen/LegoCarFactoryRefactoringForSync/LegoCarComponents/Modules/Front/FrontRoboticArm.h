@@ -193,14 +193,6 @@ public:
 	/**
 	 * 
 	 */
-	void deliver_front_part();
-	/**
-	 * 
-	 */
-	void replace_front_part();
-	/**
-	 * 
-	 */
 	void sendGoToPressEvent();
 	/**
 	 * 

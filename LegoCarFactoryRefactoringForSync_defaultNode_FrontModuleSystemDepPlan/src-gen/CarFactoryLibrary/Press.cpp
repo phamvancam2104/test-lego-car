@@ -74,7 +74,7 @@ void Press::lift_up() {
  * @return ret true if the chassis is present and false otherwise
  */
 BluetoothSlaveEnum Press::get_status() {
-	return get_module()->status;
+	return pModule.requiredIntf->getStatus();//get_module()->status;
 }
 
 /**
@@ -82,7 +82,7 @@ BluetoothSlaveEnum Press::get_status() {
  * @param status true if the chassis is present and false otherwise
  */
 void Press::set_status(BluetoothSlaveEnum /*in*/status) {
-	get_module()->status = status;
+	pModule.requiredIntf->setStatus(status);
 }
 
 /**

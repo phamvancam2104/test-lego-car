@@ -182,19 +182,6 @@ void FrontRoboticArm::pick_front_part() {
 	pick_front_part (rack_number);
 }
 
-/**
- * 
- */
-void FrontRoboticArm::deliver_front_part() {
-	deliver_front_part();
-}
-
-/**
- * 
- */
-void FrontRoboticArm::replace_front_part() {
-	replace_front_part();
-}
 
 /**
  * 

@@ -287,19 +287,7 @@ void FrontControlComponent::read() {
 	}
 }
 
-/**
- * 
- */
-void FrontControlComponent::ping_response() {
-	ping_response();
-}
 
-/**
- * 
- */
-void FrontControlComponent::get_status_response() {
-	get_status_response();
-}
 
 /**
  * 

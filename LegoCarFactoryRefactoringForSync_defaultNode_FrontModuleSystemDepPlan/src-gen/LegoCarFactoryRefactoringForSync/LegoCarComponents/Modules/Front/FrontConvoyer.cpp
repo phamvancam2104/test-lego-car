@@ -46,7 +46,7 @@ int FrontConvoyer::take_car_offset = -200;
  * 
  */
 void FrontConvoyer::sendEndOfModuleEvent() {
-	set_status (RESULT_READY);
+	set_status (CarFactoryLibrary::RESULT_READY);
 	CarFactoryLibrary::events::EndOfModule s;
 	pEndOfMo_Control.outIntf->push(s);//get_module()->sendEndOfModule(s);
 	pEndOfMo_Shelf.outIntf->push(s);//get_shelf()->sendEndOfModule(s);
@@ -193,7 +193,7 @@ void FrontConvoyer::replace() {
 	}
 
 	first_time = false;
-	set_status (RESULT_READY);
+	set_status (CarFactoryLibrary::RESULT_READY);
 }
 
 /**
