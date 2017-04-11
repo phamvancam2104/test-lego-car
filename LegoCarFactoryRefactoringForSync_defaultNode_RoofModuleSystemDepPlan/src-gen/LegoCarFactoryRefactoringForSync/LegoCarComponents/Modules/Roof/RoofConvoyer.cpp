@@ -53,6 +53,42 @@ void RoofConvoyer::sendErrorDetectionEvent() {
 	pModule.requiredIntf->setStatus(CarFactoryLibrary::RESULT_ERROR);
 }
 
+bool RoofConvoyer::check_presence() {
+	color_sensor.set_mode("COL-COLOR");
+	bool ret = false;
+	//wait for the and of the movement
+	while (motor.speed() == 0)
+		;
+	while (motor.speed() != 0)
+		;
+
+	//check color
+	int obtain_color = color_sensor.value(0);
+
+	switch (color) {
+	case CarFactoryLibrary::RED:
+		if (obtain_color == 5) { //blue=2; red = 5 and white=6
+			ret = true;
+		}
+		break;
+	case CarFactoryLibrary::WHITE:
+		if (obtain_color == 6) { //blue=2; red = 5 and white=6
+			ret = true;
+		}
+		break;
+	case CarFactoryLibrary::BLUE:
+		if (obtain_color == 2) { //blue=2; red = 5 and white=6
+			ret = true;
+		}
+		break;
+	case CarFactoryLibrary::NONE:
+		ret = true;
+		break;
+	}
+
+	return ret;
+}
+
 /**
  * 
  */

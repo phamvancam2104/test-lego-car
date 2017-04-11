@@ -43,7 +43,7 @@ void RoofModuleSystem::connectorConfiguration() {
 	bindPorts(control.pEndOfMo, convoyer.pEndOfMo_Control);
 	bindPorts(convoyer.pEndOfMo_Shelf, shelf.pEndOfMo);
 	bindPorts(robotic_arm.pEndOfMo, convoyer.pEndOfMo_Robotic);
-	bindPorts(control.pEndOfMo, shelf.pErrDetect);
+	bindPorts(control.pErrDetect, shelf.pErrDetect);
 	bindPorts(shelf.pPickPiece, robotic_arm.pPickPiece);
 	bindPorts(control.pFloatMotor, robotic_arm.pFloatMotor);
 	bindPorts(control.pLargeMotor_Convoyer, convoyer.pLargeMotor);
