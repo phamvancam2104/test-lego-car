@@ -77,7 +77,7 @@ bool SlaveShelf::fromWhich_racktoNoEmptyRackGuard() {
 void SlaveShelf::sendErrorDetectionEvent() {
 	CarFactoryLibrary::events::ErrorDetection s;
 	s.is_misplace = false;
-	get_module()->sendErrorDetection(s);
+	pErrDetect.outIntf->push(s);//get_module()->sendErrorDetection(s);
 	set_status(CarFactoryLibrary::RESULT_ERROR);
 }
 
