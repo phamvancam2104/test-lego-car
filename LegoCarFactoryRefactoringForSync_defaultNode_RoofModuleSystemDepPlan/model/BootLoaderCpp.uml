@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_yDbS0CEXEeeV9NaL2veYKg" name="BootLoaderCpp">
+    <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
+      <ownedAttribute xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ET2FoHjkEeakrcXZeNIVKw" name="argv" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/PrimitiveTypes.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_yDfkQCEXEeeV9NaL2veYKg" name="mainInstance" aggregation="composite">
+        <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/LegoCarFactoryRefactoringForSync.uml#_xgByMAsbEeeXB4PYyUFeww"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yDsYkCEXEeeV9NaL2veYKg" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
+        <language>C/C++</language>
+        <body>mainInstance.roofmodulesystemController.createConnections();&#xD;
+
+mainInstance.control.roofcontrolcomponentController.startBehavior();
+mainInstance.convoyer.roofconvoyerController.startBehavior();
+mainInstance.robotic_arm.roofroboticarmController.startBehavior();
+mainInstance.shelf.slaveshelfController.startBehavior();
+mainInstance.press.slavepressController.startBehavior();</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_yDsYkCEXEeeV9NaL2veYKg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CS_KsHjwEeasG4qn4umteA" name="NodeInfo">
+      <ownedAttribute xmi:id="_IHT5wHjwEeasG4qn4umteA" name="nodeIndex" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_evLegHjwEeasG4qn4umteA" name="def"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_OEuTYHjwEeasG4qn4umteA" name="numberOfNodes" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/PrimitiveTypes.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_cY15QHjwEeasG4qn4umteA" name="def"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:id="_BDsTUHlvEeavUcYMQ2Z1Aw">
+      <eAnnotations xmi:id="_BDwkwHlvEeavUcYMQ2Z1Aw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Include xmi:id="_yDbS1SEXEeeV9NaL2veYKg" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Ptr xmi:id="_yDdIAyEXEeeV9NaL2veYKg" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
+  <C_Cpp:Include xmi:id="_zGggcCEXEeeV9NaL2veYKg" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_yDbS0CEXEeeV9NaL2veYKg"/>
+</xmi:XMI>

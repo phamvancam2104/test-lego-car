@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wmVpwCEXEeeV9NaL2veYKg" name="CarFactoryLibrary">
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_GQVYkE9EEea9H9uQpUJpyQ" name="Colors">
+    <ownedLiteral xmi:id="_NiGWAE9EEea9H9uQpUJpyQ" name="NONE"/>
+    <ownedLiteral xmi:id="_K3vBgE9EEea9H9uQpUJpyQ" name="BLUE"/>
+    <ownedLiteral xmi:id="_K1aGQE9EEea9H9uQpUJpyQ" name="WHITE"/>
+    <ownedLiteral xmi:id="_JAsnYE9EEea9H9uQpUJpyQ" name="RED"/>
+  </packagedElement>
+  <profileApplication xmi:id="_15twYDeSEeaJvKBnVCQAjA">
+    <eAnnotations xmi:id="_15xawDeSEeaJvKBnVCQAjA" source="PapyrusVersion">
+      <details xmi:id="_15xawTeSEeaJvKBnVCQAjA" key="Version" value="0.0.1"/>
+      <details xmi:id="_15xawjeSEeaJvKBnVCQAjA" key="Comment" value=""/>
+      <details xmi:id="_15xawzeSEeaJvKBnVCQAjA" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+      <details xmi:id="_15xaxDeSEeaJvKBnVCQAjA" key="Date" value="2012-12-07"/>
+      <details xmi:id="_15xaxTeSEeaJvKBnVCQAjA" key="Author" value=""/>
+    </eAnnotations>
+    <eAnnotations xmi:id="_15wMoDeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eijPgUBcEeKj6r7ThQagKA"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
+  </profileApplication>
+  <profileApplication xmi:id="_15zP8DeSEeaJvKBnVCQAjA">
+    <eAnnotations xmi:id="_151sMDeSEeaJvKBnVCQAjA" source="PapyrusVersion">
+      <details xmi:id="_151sMTeSEeaJvKBnVCQAjA" key="Version" value="0.0.1"/>
+      <details xmi:id="_151sMjeSEeaJvKBnVCQAjA" key="Comment" value=""/>
+      <details xmi:id="_151sMzeSEeaJvKBnVCQAjA" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+      <details xmi:id="_151sNDeSEeaJvKBnVCQAjA" key="Date" value="2012-12-07"/>
+      <details xmi:id="_151sNTeSEeaJvKBnVCQAjA" key="Author" value=""/>
+    </eAnnotations>
+    <eAnnotations xmi:id="_15z3ADeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
+  </profileApplication>
+  <profileApplication xmi:id="_8BQWYDeSEeaJvKBnVCQAjA">
+    <eAnnotations xmi:id="_8BRkgDeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+  </profileApplication>
+  <profileApplication xmi:id="_9riG4DeSEeaJvKBnVCQAjA">
+    <eAnnotations xmi:id="_9rit8DeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+  </profileApplication>
+  <profileApplication xmi:id="__Od5QDeSEeaJvKBnVCQAjA">
+    <eAnnotations xmi:id="__OegUDeSEeaJvKBnVCQAjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+  </profileApplication>
+  <profileApplication xmi:id="_lpe7YEOAEea20Z_0tbY9ZQ">
+    <eAnnotations xmi:id="_lplCAEOAEea20Z_0tbY9ZQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://Papyrus/RobotML/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
+  </profileApplication>
+</uml:Model>

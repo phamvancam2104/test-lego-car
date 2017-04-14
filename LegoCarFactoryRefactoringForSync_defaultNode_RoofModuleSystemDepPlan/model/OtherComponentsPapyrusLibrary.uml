@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Symbols="http://PapyrusInternal/schemas/Symbols/_eij2kEBcEeKj6r7ThQagKA/2" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://PapyrusInternal/schemas/Symbols/_eij2kEBcEeKj6r7ThQagKA/2 pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA">
+  <uml:Model xmi:id="_wSXk4SEXEeeV9NaL2veYKg" name="OtherComponentsPapyrusLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_wSXk4iEXEeeV9NaL2veYKg" name="ConcreteClasses">
+      <packagedElement xmi:type="uml:Class" xmi:id="_skOwcAb6EeauAOm7sMdbCA" name="CppLedStatus">
+        <generalization xmi:id="_zLRV4Ab6EeauAOm7sMdbCA" general="_gF3LQAb6EeauAOm7sMdbCA"/>
+        <ownedAttribute xmi:id="__S5PAAb6EeauAOm7sMdbCA" name="referencedLed_status" aggregation="composite">
+          <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/other_components_Cpp.uml#_DcplYAbJEeaF1M78KmUHVQ"/>
+        </ownedAttribute>
+        <interfaceRealization xmi:id="_9t7l4AcGEeaVxtNRIZ_ijw" name="derived realization of interface_led_status" client="_skOwcAb6EeauAOm7sMdbCA" supplier="_klvzkAbREeaeQ9YEkGQrug" contract="_klvzkAbREeaeQ9YEkGQrug"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7tqNsAb6EeauAOm7sMdbCA" name="all_led_on" specification="_6YoUcAb6EeauAOm7sMdbCA">
+          <language>C++</language>
+          <body>referencedLed_status.all_led_on();</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LcT34Ab7EeauAOm7sMdbCA" name="all_led_off" specification="_6YqJoAb6EeauAOm7sMdbCA">
+          <language>C++</language>
+          <body>referencedLed_status.all_led_off();</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_P1EA0Ab7EeauAOm7sMdbCA" name="red_led" specification="_6YrXwAb6EeauAOm7sMdbCA">
+          <language>C++</language>
+          <body>referencedLed_status.red_led();</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_WbEEcAb7EeauAOm7sMdbCA" name="orange_led" specification="_6Ysl4Ab6EeauAOm7sMdbCA">
+          <language>C++</language>
+          <body>referencedLed_status.orange_led();</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Wgc6wAb7EeauAOm7sMdbCA" name="green_led" specification="_6YubEAb6EeauAOm7sMdbCA">
+          <language>C++</language>
+          <body>referencedLed_status.green_led();</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_6YoUcAb6EeauAOm7sMdbCA" name="all_led_on" method="_7tqNsAb6EeauAOm7sMdbCA"/>
+        <ownedOperation xmi:id="_6YqJoAb6EeauAOm7sMdbCA" name="all_led_off" method="_LcT34Ab7EeauAOm7sMdbCA"/>
+        <ownedOperation xmi:id="_6YrXwAb6EeauAOm7sMdbCA" name="red_led" method="_P1EA0Ab7EeauAOm7sMdbCA"/>
+        <ownedOperation xmi:id="_6Ysl4Ab6EeauAOm7sMdbCA" name="orange_led" method="_WbEEcAb7EeauAOm7sMdbCA"/>
+        <ownedOperation xmi:id="_6YubEAb6EeauAOm7sMdbCA" name="green_led" method="_Wgc6wAb7EeauAOm7sMdbCA"/>
+        <ownedOperation xmi:id="_BeqJsAcAEeaaJZ-sElDK0w" name="CppLedStatus">
+          <ownedParameter xmi:id="_GBuFMAcAEeaaJZ-sElDK0w" name="red_port" type="_f6LYIAbYEeaz_pWDQeuMMg"/>
+          <ownedParameter xmi:id="_N9r2MAcAEeaaJZ-sElDK0w" name="orange_port" type="_f6LYIAbYEeaz_pWDQeuMMg"/>
+          <ownedParameter xmi:id="_ODI98AcAEeaaJZ-sElDK0w" name="green_port" type="_f6LYIAbYEeaz_pWDQeuMMg"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_eWOskEjYEeasuPJrwEAWTQ" name="CppLedStatus"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wSb2UiEXEeeV9NaL2veYKg" name="Interfaces">
+      <packagedElement xmi:type="uml:Interface" xmi:id="_klvzkAbREeaeQ9YEkGQrug" name="ILedStatus">
+        <ownedOperation xmi:id="_tgdr0AbREeaeQ9YEkGQrug" name="all_led_on"/>
+        <ownedOperation xmi:id="_wcKA4AbREeaeQ9YEkGQrug" name="all_led_off"/>
+        <ownedOperation xmi:id="_y1czgAbREeaeQ9YEkGQrug" name="red_led"/>
+        <ownedOperation xmi:id="_0Ue9UAbREeaeQ9YEkGQrug" name="orange_led"/>
+        <ownedOperation xmi:id="_2m2okAbREeaeQ9YEkGQrug" name="green_led"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wSdEcyEXEeeV9NaL2veYKg" name="AbstractClasses">
+      <packagedElement xmi:type="uml:Class" xmi:id="_gF3LQAb6EeauAOm7sMdbCA" name="AbstractLedStatus">
+        <ownedOperation xmi:id="_3fbSsAb6EeauAOm7sMdbCA" name="all_led_on"/>
+        <ownedOperation xmi:id="_3fdu8Ab6EeauAOm7sMdbCA" name="all_led_off"/>
+        <ownedOperation xmi:id="_3fe9EAb6EeauAOm7sMdbCA" name="red_led"/>
+        <ownedOperation xmi:id="_3ffkIAb6EeauAOm7sMdbCA" name="orange_led"/>
+        <ownedOperation xmi:id="_3fhZUAb6EeauAOm7sMdbCA" name="green_led"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wSuxQCEXEeeV9NaL2veYKg" name="Types">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f6LYIAbYEeaz_pWDQeuMMg" name="LocalString"/>
+    </packagedElement>
+    <profileApplication xmi:id="_ZjeY8AbREeaeQ9YEkGQrug">
+      <eAnnotations xmi:id="_Zjg1MAbREeaeQ9YEkGQrug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_ZjkfkAbREeaeQ9YEkGQrug">
+      <eAnnotations xmi:id="_ZjkfkQbREeaeQ9YEkGQrug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_ZjmUwAbREeaeQ9YEkGQrug">
+      <eAnnotations xmi:id="_Zjm70AbREeaeQ9YEkGQrug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://Papyrus/RobotML/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
+    </profileApplication>
+    <profileApplication xmi:id="_e5hQkAbREeaeQ9YEkGQrug">
+      <eAnnotations xmi:id="_e5h3oAbREeaeQ9YEkGQrug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_e5iesAbREeaeQ9YEkGQrug">
+      <eAnnotations xmi:id="_e5js0AbREeaeQ9YEkGQrug" source="PapyrusVersion">
+        <details xmi:id="_e5js0QbREeaeQ9YEkGQrug" key="Version" value="0.0.1"/>
+        <details xmi:id="_e5js0gbREeaeQ9YEkGQrug" key="Comment" value=""/>
+        <details xmi:id="_e5js0wbREeaeQ9YEkGQrug" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_e5js1AbREeaeQ9YEkGQrug" key="Date" value="2012-12-07"/>
+        <details xmi:id="_e5js1QbREeaeQ9YEkGQrug" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_e5jFwAbREeaeQ9YEkGQrug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eijPgUBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_e5kT4AbREeaeQ9YEkGQrug">
+      <eAnnotations xmi:id="_e5liAAbREeaeQ9YEkGQrug" source="PapyrusVersion">
+        <details xmi:id="_e5liAQbREeaeQ9YEkGQrug" key="Version" value="0.0.1"/>
+        <details xmi:id="_e5liAgbREeaeQ9YEkGQrug" key="Comment" value=""/>
+        <details xmi:id="_e5liAwbREeaeQ9YEkGQrug" key="Copyright" value="CEA LIST - Initial API and Implementation&#xD;&#xA;"/>
+        <details xmi:id="_e5liBAbREeaeQ9YEkGQrug" key="Date" value="2012-12-07"/>
+        <details xmi:id="_e5liBQbREeaeQ9YEkGQrug" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_e5k68AbREeaeQ9YEkGQrug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_eikdoEBcEeKj6r7ThQagKA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_zA8D8CEXEeeV9NaL2veYKg">
+      <eAnnotations xmi:id="_zA8D8SEXEeeV9NaL2veYKg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Include xmi:id="_wSYL8SEXEeeV9NaL2veYKg" header="#include &quot;iostream&quot;&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_wSXk4SEXEeeV9NaL2veYKg"/>
+  <C_Cpp:Include xmi:id="_wSb2UCEXEeeV9NaL2veYKg" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;using namespace ev3dev;" base_class="_skOwcAb6EeauAOm7sMdbCA" base_Classifier="_skOwcAb6EeauAOm7sMdbCA"/>
+  <Symbols:TypeSymbolDefinition xmi:id="_wSb2USEXEeeV9NaL2veYKg" base_Type="_skOwcAb6EeauAOm7sMdbCA" symbolPath="platform:/plugin/org.eclipse.papyrus.lego.library.other_components.model/images/led_status.png"/>
+  <C_Cpp:Include xmi:id="_wSeSkCEXEeeV9NaL2veYKg" header="#include &lt;stdint.h>" base_class="_gF3LQAb6EeauAOm7sMdbCA" base_Classifier="_gF3LQAb6EeauAOm7sMdbCA"/>
+  <standard:Create xmi:id="_wSuKMCEXEeeV9NaL2veYKg" base_BehavioralFeature="_BeqJsAcAEeaaJZ-sElDK0w"/>
+  <C_Cpp:ConstInit xmi:id="_wSuKMSEXEeeV9NaL2veYKg" initialisation="referencedLed_status(red_port, orange_port, green_port)" base_operation="_BeqJsAcAEeaaJZ-sElDK0w"/>
+  <C_Cpp:Include xmi:id="_wSvYUCEXEeeV9NaL2veYKg" header="#include &lt;stdio.h>" base_package="_wSuxQCEXEeeV9NaL2veYKg"/>
+  <C_Cpp:Typedef xmi:id="_wSvYUSEXEeeV9NaL2veYKg" definition="std::string" base_primitivetype="_f6LYIAbYEeaz_pWDQeuMMg"/>
+  <standard:Create xmi:id="_wSzpwCEXEeeV9NaL2veYKg" base_BehavioralFeature="_eWOskEjYEeasuPJrwEAWTQ"/>
+</xmi:XMI>
