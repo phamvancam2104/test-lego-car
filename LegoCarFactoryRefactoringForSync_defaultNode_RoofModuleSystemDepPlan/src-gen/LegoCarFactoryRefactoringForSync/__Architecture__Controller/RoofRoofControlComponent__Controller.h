@@ -138,8 +138,8 @@ namespace __Architecture__Controller {
  * 
  */
 class RoofRoofControlComponent__Controller: public IPush<
-		CarFactoryLibrary::events::EndOfModule>, public IPush<
-		CarFactoryLibrary::events::ErrorDetection> {
+		CarFactoryLibrary::events::ErrorDetection>, public IPush<
+		CarFactoryLibrary::events::EndOfModule> {
 public:
 	/**
 	 * 
@@ -258,11 +258,11 @@ public:
 		/**
 		 * 
 		 */
-		ENDOFMODULE_ID,
+		ERRORDETECTION_ID,
 		/**
 		 * 
 		 */
-		ERRORDETECTION_ID,
+		ENDOFMODULE_ID,
 		/**
 		 * 
 		 */
@@ -426,17 +426,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processEndOfModule(
-			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processErrorDetection(
 			::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
 	/**
@@ -444,6 +433,17 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processEndOfModule(
+			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
 	 * 
 	 */

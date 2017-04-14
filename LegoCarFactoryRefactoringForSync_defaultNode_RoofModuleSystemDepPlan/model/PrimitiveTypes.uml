@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
-  <uml:Model xmi:id="_yDbS1iEXEeeV9NaL2veYKg" name="PrimitiveTypes" URI="http://www.omg.org/spec/PrimitiveTypes/20131001">
+  <uml:Model xmi:id="_BsoisSEgEee1_5RsPbVhsw" name="PrimitiveTypes" URI="http://www.omg.org/spec/PrimitiveTypes/20131001">
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="Integer" name="Integer">
       <ownedComment xmi:id="Integer-_ownedComment.0" annotatedElement="Integer">
         <body>Integer is a primitive type representing integer values.</body>
@@ -24,8 +24,8 @@
       <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_yDb54CEXEeeV9NaL2veYKg" base_Package="_yDbS1iEXEeeV9NaL2veYKg" packageName="types" nsPrefix="types" nsURI="http://www.eclipse.org/uml2/5.0.0/Types" basePackage="org.eclipse.uml2" prefix="Types"/>
-  <standard:ModelLibrary xmi:id="_yDb54SEXEeeV9NaL2veYKg" base_Package="_yDbS1iEXEeeV9NaL2veYKg"/>
-  <Ecore:EDataType xmi:id="_yDcg8SEXEeeV9NaL2veYKg" instanceClassName="int" base_PrimitiveType="Integer"/>
-  <Ecore:EDataType xmi:id="_yDdIASEXEeeV9NaL2veYKg" instanceClassName="java.lang.String" base_PrimitiveType="String"/>
+  <Ecore:EPackage xmi:id="_BspJwCEgEee1_5RsPbVhsw" base_Package="_BsoisSEgEee1_5RsPbVhsw" packageName="types" nsPrefix="types" nsURI="http://www.eclipse.org/uml2/5.0.0/Types" basePackage="org.eclipse.uml2" prefix="Types"/>
+  <standard:ModelLibrary xmi:id="_BspJwSEgEee1_5RsPbVhsw" base_Package="_BsoisSEgEee1_5RsPbVhsw"/>
+  <Ecore:EDataType xmi:id="_Bsq-8CEgEee1_5RsPbVhsw" instanceClassName="int" base_PrimitiveType="Integer"/>
+  <Ecore:EDataType xmi:id="_BssNECEgEee1_5RsPbVhsw" instanceClassName="java.lang.String" base_PrimitiveType="String"/>
 </xmi:XMI>

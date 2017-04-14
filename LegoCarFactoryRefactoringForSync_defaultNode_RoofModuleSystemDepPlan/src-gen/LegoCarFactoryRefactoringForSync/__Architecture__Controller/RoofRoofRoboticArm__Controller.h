@@ -134,10 +134,11 @@ namespace __Architecture__Controller {
  * 
  */
 class RoofRoofRoboticArm__Controller: public IPush<
-		LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
-		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece>,
-		public IPush<LegoCarFactoryRefactoringForSync::signals::StopProcess>,
-		public IPush<CarFactoryLibrary::events::EndOfModule> {
+		LegoCarFactoryRefactoringForSync::signals::StopProcess>,
+		public IPush<
+				LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop>,
+		public IPush<CarFactoryLibrary::events::EndOfModule>,
+		public IPush<CarFactoryLibrary::events::RoboticArmPickPiece> {
 public:
 	/**
 	 * 
@@ -205,19 +206,19 @@ public:
 		/**
 		 * 
 		 */
-		RESTARTAFTEREMERGENCYSTOP_ID,
-		/**
-		 * 
-		 */
-		ROBOTICARMPICKPIECE_ID,
-		/**
-		 * 
-		 */
 		STOPPROCESS_ID,
 		/**
 		 * 
 		 */
+		RESTARTAFTEREMERGENCYSTOP_ID,
+		/**
+		 * 
+		 */
 		ENDOFMODULE_ID,
+		/**
+		 * 
+		 */
+		ROBOTICARMPICKPIECE_ID,
 		/**
 		 * 
 		 */
@@ -332,29 +333,6 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void processRestartAfterEmergencyStop(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(
-			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void processRoboticArmPickPiece(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
-	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
-	/**
-	 * 
-	 * @param sig 
-	 */
 	void processStopProcess(
 			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
 	/**
@@ -367,6 +345,18 @@ public:
 	 * 
 	 * @param sig 
 	 */
+	void processRestartAfterEmergencyStop(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(
+			::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
 	void processEndOfModule(
 			::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
 	/**
@@ -374,6 +364,17 @@ public:
 	 * @param sig 
 	 */
 	void push(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void processRoboticArmPickPiece(
+			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	/**
+	 * 
+	 * @param sig 
+	 */
+	void push(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
 	/**
 	 * 
 	 */

@@ -50,6 +50,12 @@ void RoofRoofConvoyer__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			ROOFROOFCONVOYER__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case STOPPROCESS_ID:
+				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
+				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+				processStopProcess(sig_STOPPROCESS_ID);
+				break;
 			case RESTARTAFTEREMERGENCYSTOP_ID:
 				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
 				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
@@ -57,23 +63,17 @@ void RoofRoofConvoyer__Controller::dispatchEvent() {
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
-			case STOPPROCESS_ID:
-				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
-				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-				processStopProcess(sig_STOPPROCESS_ID);
+			case PREPARECONVEYOR_ID:
+				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
+				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
+				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
 				break;
 			case DELIVEREDCARCONVEYOR_ID:
 				::CarFactoryLibrary::events::DeliveredCarConveyor sig_DELIVEREDCARCONVEYOR_ID;
 				memcpy(&sig_DELIVEREDCARCONVEYOR_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::DeliveredCarConveyor));
 				processDeliveredCarConveyor(sig_DELIVEREDCARCONVEYOR_ID);
-				break;
-			case PREPARECONVEYOR_ID:
-				::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor sig_PREPARECONVEYOR_ID;
-				memcpy(&sig_PREPARECONVEYOR_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
-				processPrepareConveyor(sig_PREPARECONVEYOR_ID);
 				break;
 			case GOTOPRESS_ID:
 				::LegoCarFactoryRefactoringForSync::signals::GoToPress sig_GOTOPRESS_ID;
@@ -229,6 +229,43 @@ void RoofRoofConvoyer__Controller::stopBehavior() {
  * 
  * @param sig 
  */
+void RoofRoofConvoyer__Controller::processStopProcess(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case PRINCIPALSTATE_ID:
+			//from PrincipalState to Restart
+			if (true) {
+				PrincipalState_Region1_Exit();
+				p_origin->effectFromPrincipalStatetoRestart(sig);
+				activeStateID = RESTART_ID;
+				//starting the counters for time events
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void RoofRoofConvoyer__Controller::push(
+		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+}
+
+/**
+ * 
+ * @param sig 
+ */
 void RoofRoofConvoyer__Controller::processRestartAfterEmergencyStop(
 		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -265,24 +302,22 @@ void RoofRoofConvoyer__Controller::push(
  * 
  * @param sig 
  */
-void RoofRoofConvoyer__Controller::processStopProcess(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
+void RoofRoofConvoyer__Controller::processPrepareConveyor(
+		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case PRINCIPALSTATE_ID:
-			//from PrincipalState to Restart
-			if (true) {
-				PrincipalState_Region1_Exit();
-				p_origin->effectFromPrincipalStatetoRestart(sig);
-				activeStateID = RESTART_ID;
-				//starting the counters for time events
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
+	if (states[PRINCIPALSTATE_ID].actives[0] == GOINITIALPOSITION_ID) {
+		//from GoInitialPosition to MoveForward
+		if (true) {
+			//signal to exit the doActivity of GoInitialPosition
+			setFlag(GOINITIALPOSITION_ID, statemachine::TF_DO_ACTIVITY, false);
+			p_origin->save_color(sig);
+			states[PRINCIPALSTATE_ID].actives[0] = MOVEFORWARD_ID;
+			(this->StateEntry)(MOVEFORWARD_ID);
+			;
+			//starting the counters for time events
+			//start activity of MoveForward by calling setFlag
+			setFlag(MOVEFORWARD_ID, statemachine::TF_DO_ACTIVITY, true);
+			systemState = statemachine::EVENT_CONSUMED;
 		}
 	}
 }
@@ -292,10 +327,10 @@ void RoofRoofConvoyer__Controller::processStopProcess(
  * @param sig 
  */
 void RoofRoofConvoyer__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, STOPPROCESS_ID,
+		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
 			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
 }
 
 /**
@@ -339,41 +374,6 @@ void RoofRoofConvoyer__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, DELIVEREDCARCONVEYOR_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::DeliveredCarConveyor));
-}
-
-/**
- * 
- * @param sig 
- */
-void RoofRoofConvoyer__Controller::processPrepareConveyor(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == GOINITIALPOSITION_ID) {
-		//from GoInitialPosition to MoveForward
-		if (true) {
-			//signal to exit the doActivity of GoInitialPosition
-			setFlag(GOINITIALPOSITION_ID, statemachine::TF_DO_ACTIVITY, false);
-			p_origin->save_color(sig);
-			states[PRINCIPALSTATE_ID].actives[0] = MOVEFORWARD_ID;
-			(this->StateEntry)(MOVEFORWARD_ID);
-			;
-			//starting the counters for time events
-			//start activity of MoveForward by calling setFlag
-			setFlag(MOVEFORWARD_ID, statemachine::TF_DO_ACTIVITY, true);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void RoofRoofConvoyer__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, PREPARECONVEYOR_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor));
 }
 
 /**

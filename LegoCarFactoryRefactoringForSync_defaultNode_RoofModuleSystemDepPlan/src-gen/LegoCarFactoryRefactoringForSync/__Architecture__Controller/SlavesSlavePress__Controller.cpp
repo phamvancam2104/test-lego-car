@@ -44,6 +44,12 @@ void SlavesSlavePress__Controller::dispatchEvent() {
 		if (currentEvent != NULL) {
 			SLAVESSLAVEPRESS__CONTROLLER_GET_CONTROL
 			switch (currentEvent->eventID) {
+			case STOPPROCESS_ID:
+				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
+				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
+						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
+				processStopProcess(sig_STOPPROCESS_ID);
+				break;
 			case RESTARTAFTEREMERGENCYSTOP_ID:
 				::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop sig_RESTARTAFTEREMERGENCYSTOP_ID;
 				memcpy(&sig_RESTARTAFTEREMERGENCYSTOP_ID, currentEvent->data,
@@ -51,23 +57,17 @@ void SlavesSlavePress__Controller::dispatchEvent() {
 				processRestartAfterEmergencyStop(
 						sig_RESTARTAFTEREMERGENCYSTOP_ID);
 				break;
-			case STOPPROCESS_ID:
-				::LegoCarFactoryRefactoringForSync::signals::StopProcess sig_STOPPROCESS_ID;
-				memcpy(&sig_STOPPROCESS_ID, currentEvent->data,
-						sizeof(::LegoCarFactoryRefactoringForSync::signals::StopProcess));
-				processStopProcess(sig_STOPPROCESS_ID);
+			case PRESSASSEMBLE_ID:
+				::CarFactoryLibrary::events::PressAssemble sig_PRESSASSEMBLE_ID;
+				memcpy(&sig_PRESSASSEMBLE_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::PressAssemble));
+				processPressAssemble(sig_PRESSASSEMBLE_ID);
 				break;
 			case ENDOFMODULE_ID:
 				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
 				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::EndOfModule));
 				processEndOfModule(sig_ENDOFMODULE_ID);
-				break;
-			case PRESSASSEMBLE_ID:
-				::CarFactoryLibrary::events::PressAssemble sig_PRESSASSEMBLE_ID;
-				memcpy(&sig_PRESSASSEMBLE_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::PressAssemble));
-				processPressAssemble(sig_PRESSASSEMBLE_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -242,42 +242,6 @@ void SlavesSlavePress__Controller::stopBehavior() {
  * 
  * @param sig 
  */
-void SlavesSlavePress__Controller::processRestartAfterEmergencyStop(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case RESTART_ID:
-			//from Restart to PrincipalState
-			if (true) {
-				activeStateID = PRINCIPALSTATE_ID;
-				//starting the counters for time events
-				PrincipalState_Region1_Enter (SLAVEPRESS_PRINCIPALSTATE_REGION1_DEFAULT);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void SlavesSlavePress__Controller::push(
-		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig,
-			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
-			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
-}
-
-/**
- * 
- * @param sig 
- */
 void SlavesSlavePress__Controller::processStopProcess(
 		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -314,17 +278,23 @@ void SlavesSlavePress__Controller::push(
  * 
  * @param sig 
  */
-void SlavesSlavePress__Controller::processEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+void SlavesSlavePress__Controller::processRestartAfterEmergencyStop(
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == SETSTATUSISREADY_ID) {
-		//from SetStatusIsReady to Initialization
-		if (true) {
-			states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
-			(this->StateEntry)(INITIALIZATION_ID);
-			;
-			//starting the counters for time events
-			systemState = statemachine::EVENT_CONSUMED;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case RESTART_ID:
+			//from Restart to PrincipalState
+			if (true) {
+				activeStateID = PRINCIPALSTATE_ID;
+				//starting the counters for time events
+				PrincipalState_Region1_Enter (SLAVEPRESS_PRINCIPALSTATE_REGION1_DEFAULT);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
 		}
 	}
 }
@@ -334,10 +304,10 @@ void SlavesSlavePress__Controller::processEndOfModule(
  * @param sig 
  */
 void SlavesSlavePress__Controller::push(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::EndOfModule));
+		::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig,
+			RESTARTAFTEREMERGENCYSTOP_ID, statemachine::SIGNAL_EVENT, 0,
+			sizeof(::LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop));
 }
 
 /**
@@ -368,6 +338,36 @@ void SlavesSlavePress__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, PRESSASSEMBLE_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::PressAssemble));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void SlavesSlavePress__Controller::processEndOfModule(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == SETSTATUSISREADY_ID) {
+		//from SetStatusIsReady to Initialization
+		if (true) {
+			states[PRINCIPALSTATE_ID].actives[0] = INITIALIZATION_ID;
+			(this->StateEntry)(INITIALIZATION_ID);
+			;
+			//starting the counters for time events
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void SlavesSlavePress__Controller::push(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::EndOfModule));
 }
 
 /**

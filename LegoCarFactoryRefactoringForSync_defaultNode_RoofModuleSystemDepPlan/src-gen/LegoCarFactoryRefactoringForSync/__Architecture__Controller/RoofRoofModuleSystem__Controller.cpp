@@ -65,7 +65,7 @@ void RoofRoofModuleSystem__Controller::createConnections() {
 			p_origin->shelf.slaveshelfController.get_pCheckRack());
 
 	// realization of connector <connector_pErrDetect_to_pErrDetect_ErrorDetection>
-	p_origin->convoyer.roofconvoyerController.connect_pErrDetect(
+	p_origin->shelf.slaveshelfController.connect_pErrDetect(
 			p_origin->control.roofcontrolcomponentController.get_pErrDetect());
 
 	// realization of connector <connector_pEndOfMo_to_pEndOfMo_Control_EndOfModule>
@@ -79,10 +79,6 @@ void RoofRoofModuleSystem__Controller::createConnections() {
 	// realization of connector <connector_pEndOfMo_to_pEndOfMo_Robotic_EndOfModule>
 	p_origin->convoyer.roofconvoyerController.connect_pEndOfMo_Robotic(
 			p_origin->robotic_arm.roofroboticarmController.get_pEndOfMo());
-
-	// realization of connector <connector_pEndOfMo_to_pErrDetect_EndOfModule>
-	p_origin->shelf.slaveshelfController.connect_pErrDetect(
-			p_origin->control.roofcontrolcomponentController.get_pEndOfMo());
 
 	// realization of connector <connector_pPickPiece_to_pPickPiece_RoboticArmPickPiece>
 	p_origin->shelf.slaveshelfController.connect_pPickPiece(

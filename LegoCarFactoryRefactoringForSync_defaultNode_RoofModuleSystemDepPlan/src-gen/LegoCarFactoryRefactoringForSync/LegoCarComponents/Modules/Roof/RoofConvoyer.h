@@ -313,8 +313,6 @@ public:
 	 * 
 	 */
 	void send_ready();
-private:
-	bool check_presence();
 
 };
 /************************************************************/

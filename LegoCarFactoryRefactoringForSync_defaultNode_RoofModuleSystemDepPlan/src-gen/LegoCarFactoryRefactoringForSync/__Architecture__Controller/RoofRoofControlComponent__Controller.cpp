@@ -51,17 +51,17 @@ void RoofRoofControlComponent__Controller::dispatchEvent() {
 			case TE_50_MS__ID:
 				processTE_50_ms_();
 				break;
-			case ENDOFMODULE_ID:
-				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
-				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
-						sizeof(::CarFactoryLibrary::events::EndOfModule));
-				processEndOfModule(sig_ENDOFMODULE_ID);
-				break;
 			case ERRORDETECTION_ID:
 				::CarFactoryLibrary::events::ErrorDetection sig_ERRORDETECTION_ID;
 				memcpy(&sig_ERRORDETECTION_ID, currentEvent->data,
 						sizeof(::CarFactoryLibrary::events::ErrorDetection));
 				processErrorDetection(sig_ERRORDETECTION_ID);
+				break;
+			case ENDOFMODULE_ID:
+				::CarFactoryLibrary::events::EndOfModule sig_ENDOFMODULE_ID;
+				memcpy(&sig_ENDOFMODULE_ID, currentEvent->data,
+						sizeof(::CarFactoryLibrary::events::EndOfModule));
+				processEndOfModule(sig_ENDOFMODULE_ID);
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -344,36 +344,6 @@ void RoofRoofControlComponent__Controller::processTE_50_ms_() {
  * 
  * @param sig 
  */
-void RoofRoofControlComponent__Controller::processEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (states[PRINCIPALSTATE_ID].actives[0] == EMNERGENCYSTOPSTATE_ID) {
-		//from EmnergencyStopState to EmnergencyStopState
-		if (true) {
-			EmnergencyStopState_Region1_Exit();
-			states[PRINCIPALSTATE_ID].actives[0] = EMNERGENCYSTOPSTATE_ID;
-			//starting the counters for time events
-			EmnergencyStopState_Region1_Enter (ROOFCONTROLCOMPONENT_EMNERGENCYSTOPSTATE_REGION1_DEFAULT);
-			systemState = statemachine::EVENT_CONSUMED;
-		}
-	}
-}
-
-/**
- * 
- * @param sig 
- */
-void RoofRoofControlComponent__Controller::push(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
-	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
-			statemachine::SIGNAL_EVENT, 0,
-			sizeof(::CarFactoryLibrary::events::EndOfModule));
-}
-
-/**
- * 
- * @param sig 
- */
 void RoofRoofControlComponent__Controller::processErrorDetection(
 		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
 	systemState = statemachine::EVENT_PROCESSING;
@@ -402,6 +372,36 @@ void RoofRoofControlComponent__Controller::push(
 	eventQueue.push(statemachine::PRIORITY_2, &sig, ERRORDETECTION_ID,
 			statemachine::SIGNAL_EVENT, 0,
 			sizeof(::CarFactoryLibrary::events::ErrorDetection));
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void RoofRoofControlComponent__Controller::processEndOfModule(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	systemState = statemachine::EVENT_PROCESSING;
+	if (states[PRINCIPALSTATE_ID].actives[0] == EMNERGENCYSTOPSTATE_ID) {
+		//from EmnergencyStopState to EmnergencyStopState
+		if (true) {
+			EmnergencyStopState_Region1_Exit();
+			states[PRINCIPALSTATE_ID].actives[0] = EMNERGENCYSTOPSTATE_ID;
+			//starting the counters for time events
+			EmnergencyStopState_Region1_Enter (ROOFCONTROLCOMPONENT_EMNERGENCYSTOPSTATE_REGION1_DEFAULT);
+			systemState = statemachine::EVENT_CONSUMED;
+		}
+	}
+}
+
+/**
+ * 
+ * @param sig 
+ */
+void RoofRoofControlComponent__Controller::push(
+		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+	eventQueue.push(statemachine::PRIORITY_2, &sig, ENDOFMODULE_ID,
+			statemachine::SIGNAL_EVENT, 0,
+			sizeof(::CarFactoryLibrary::events::EndOfModule));
 }
 
 /**
