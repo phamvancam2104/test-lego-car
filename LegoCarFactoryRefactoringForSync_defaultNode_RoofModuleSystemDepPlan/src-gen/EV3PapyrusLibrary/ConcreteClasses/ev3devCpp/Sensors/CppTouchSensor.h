@@ -15,7 +15,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/Sensors/AbstractTouchSensor.h"
 #include "EV3PapyrusLibrary/Interfaces/Sensors/ITouchSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/SensorsCppTouchSensor__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Sensors/CppTouchSensor__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -47,10 +47,7 @@ public:
 	 * 
 	 */
 	touch_sensor referencedTouch_sensor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SensorsCppTouchSensor__Controller cpptouchsensorController;
+	DECLARE_DELEGATEE_COMPONENT (CppTouchSensor)
 	/**
 	 * generated comment
 	 * @return ret 

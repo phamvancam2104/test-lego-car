@@ -23,8 +23,7 @@ namespace Roof {
 /**
  * 
  */
-RoofModuleSystem::RoofModuleSystem() :
-		roofmodulesystemController(this) {
+RoofModuleSystem::RoofModuleSystem() {
 }
 
 /**

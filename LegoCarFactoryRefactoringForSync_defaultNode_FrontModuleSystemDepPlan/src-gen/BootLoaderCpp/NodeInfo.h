@@ -6,12 +6,14 @@
 #define BOOTLOADERCPP_NODEINFO_H
 
 /************************************************************
- NodeInfo class header
+              NodeInfo class header
  ************************************************************/
 
 #include "BootLoaderCpp/Pkg_BootLoaderCpp.h"
 
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
+
+
 
 namespace BootLoaderCpp {
 
@@ -20,7 +22,7 @@ namespace BootLoaderCpp {
  * 
  */
 class NodeInfo {
-public:
+	public:
 	/**
 	 * 
 	 */
@@ -30,17 +32,20 @@ public:
 	 */
 	static ::PrimitiveTypes::Integer numberOfNodes;
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace BootLoaderCpp
 
 /************************************************************
- End of NodeInfo class header
+              End of NodeInfo class header
  ************************************************************/
 
 #endif

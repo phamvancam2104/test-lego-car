@@ -6,14 +6,14 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_BACK_BACKROBOTICARM_H
 
 /************************************************************
- BackRoboticArm class header
+              BackRoboticArm class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Back/Pkg_Back.h"
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/RoboticArm.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/BackBackRoboticArm__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Back/BackRoboticArm__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
@@ -23,56 +23,18 @@ using namespace CarFactoryLibrary;
 #include "CarFactoryLibrary/RoboticArm.h"
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/BackBackRoboticArm__Controller.h"
 #include "CarFactoryLibrary/CommunicationInterfaces/IRoboticArmFloatMotor.h"
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class RestartAfterEmergencyStop;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class RoboticArmPickPiece;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class StopProcess;
-}
-}
-namespace CarFactoryLibrary {
-namespace CommunicationInterfaces {
-class IRoboticArmFloatMotor;
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace Actuators {
-class IServoMotor;
-}
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class DeliveredCarConveyor;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class GoToPress;
-}
-}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class RestartAfterEmergencyStop;}}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
+namespace CarFactoryLibrary {namespace events {class RoboticArmPickPiece;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class StopProcess;}}
+namespace CarFactoryLibrary {namespace CommunicationInterfaces {class IRoboticArmFloatMotor;}}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace Actuators {class IServoMotor;}}}
+namespace CarFactoryLibrary {namespace events {class DeliveredCarConveyor;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class GoToPress;}}
 
 // End of Include stereotype (header)
 
-namespace CarFactoryLibrary {
-namespace events {
-class RoboticArmPickPiece;
-}
-}
+namespace CarFactoryLibrary {namespace events {class RoboticArmPickPiece;}}
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -83,84 +45,83 @@ namespace Back {
 /**
  * 
  */
-class BackRoboticArm: public ::CarFactoryLibrary::RoboticArm {
-public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::BackBackRoboticArm__Controller backroboticarmController;
-
+class BackRoboticArm : 
+public ::CarFactoryLibrary::RoboticArm	
+ {
+	public:
+	DECLARE_DELEGATEE_COMPONENT (BackRoboticArm)
+	
 	StateMachine BackRoboticArmStateMachine {
 		InitialState PrincipalState {
 			InitialState Initialization {
-				StateEntry init;
+				StateEntry init();
 			};
 			State StartMotors {
-				StateEntry start_motors;
+				StateEntry start_motors();
 			};
 			State PickBackPart {
-				StateEntry pick_back_part;
+				StateEntry pick_back_part();
 			};
 			State RetakeBackPart {
-				StateEntry retake_back_part;
+				StateEntry retake_back_part();
 			};
 			State DeliverBackPart {
-				StateEntry deliver_back_part;
-				StateDoActivity sendGoToPressEvent;
+				StateEntry deliver_back_part();
+				StateDoActivity sendGoToPressEvent ();
 			};
 			State Finalization {
-				StateEntry stop_motors;
+				StateEntry stop_motors();
 			};
 		};
-		State Restart;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
-		SignalEvent<CarFactoryLibrary::events::RoboticArmPickPiece> RoboticArmPickPiece;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
+		State Restart {
+		};
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
+		SignalEvent(CarFactoryLibrary::events::RoboticArmPickPiece) RoboticArmPickPiece;
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
-			ExT(fromInitializationtoStartMotors , Initialization , StartMotors , NULL , RoboticArmPickPiece , save_rack_number );
-			ExT(fromStartMotorstoPickBackPart , StartMotors , PickBackPart , NULL , NULL , NULL );
-			ExT(fromPickBackParttoRetakeBackPart , PickBackPart , RetakeBackPart , NULL , NULL , NULL );
-			ExT(fromRetakeBackParttoDeliverBackPart , RetakeBackPart , DeliverBackPart , NULL , NULL , NULL );
-			ExT(fromDeliverBackParttoFinalization , DeliverBackPart , Finalization , NULL , NULL , NULL );
-			ExT(fromFinalizationtoInitialization , Finalization , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, NULL);
+			ExT(fromInitializationtoStartMotors, Initialization, StartMotors, NULL, RoboticArmPickPiece, save_rack_number);
+			ExT(fromStartMotorstoPickBackPart, StartMotors, PickBackPart, NULL, void, NULL);
+			ExT(fromPickBackParttoRetakeBackPart, PickBackPart, RetakeBackPart, NULL, void, NULL);
+			ExT(fromRetakeBackParttoDeliverBackPart, RetakeBackPart, DeliverBackPart, NULL, void, NULL);
+			ExT(fromDeliverBackParttoFinalization, DeliverBackPart, Finalization, NULL, void, NULL);
+			ExT(fromFinalizationtoInitialization, Finalization, Initialization, NULL, EndOfModule, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+		};
 	};
 	/**
 	 * 
 	 */
-	InFlowPort<
-			LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
+	 InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
+	 InFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
 	/**
 	 * 
 	 */
-	InFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
 	/**
 	 * 
 	 */
-	ProvidedPort<
-			CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor> pFloatMotor;
+	 ProvidedPort<CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor> pFloatMotor;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
+	 OutFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
 	/**
 	 * 
 	 */
-	OutFlowPort<LegoCarFactoryRefactoringForSync::signals::GoToPress> pOutGotoProcess;
+	 OutFlowPort<LegoCarFactoryRefactoringForSync::signals::GoToPress> pOutGotoProcess;
 	/**
 	 * 
 	 */
@@ -169,7 +130,7 @@ public:
 	 * 
 	 * @param rack_number 
 	 */
-	void pick_back_part(int /*in*/rack_number);
+	void pick_back_part(int /*in*/ rack_number);
 	/**
 	 * 
 	 */
@@ -178,8 +139,7 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void save_rack_number(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	void save_rack_number(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/ sig);
 	/**
 	 * 
 	 */
@@ -205,12 +165,15 @@ public:
 	 */
 	void sendGoToPressEvent();
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Back
 } // of namespace Modules
@@ -218,7 +181,7 @@ public:
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of BackRoboticArm class header
+              End of BackRoboticArm class header
  ************************************************************/
 
 #endif

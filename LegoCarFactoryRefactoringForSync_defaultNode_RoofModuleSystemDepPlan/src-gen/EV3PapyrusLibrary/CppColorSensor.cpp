@@ -290,7 +290,7 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  */
 CppColorSensor::CppColorSensor(
 		::EV3PapyrusLibrary::Types::LocalString /*in*/portAdress) :
-		referencedColor_sensor(portAdress), cppcolorsensorController(this) {
+		referencedColor_sensor(portAdress) {
 }
 
 } // of namespace EV3PapyrusLibrary

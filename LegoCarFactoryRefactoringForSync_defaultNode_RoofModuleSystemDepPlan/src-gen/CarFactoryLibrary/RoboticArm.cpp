@@ -220,10 +220,10 @@ void RoboticArm::sendEndOfModule(
  * 
  */
 void RoboticArm::connectorConfiguration() {
-	bindPorts(frontBackMotor, motor_front_back.servoMotorPort);
-	bindPorts(rightLeftMotor, motor_right_left.servoMotorPort);
-	bindPorts(upDownMotor, motor_up_down.servoMotorPort);
-	bindPorts(plierMotor, motor_pliers.plierMotor);
+	bindPorts(this->frontBackMotor, motor_front_back.servoMotorPort);
+	bindPorts(this->rightLeftMotor, motor_right_left.servoMotorPort);
+	bindPorts(this->upDownMotor, motor_up_down.servoMotorPort);
+	bindPorts(this->plierMotor, motor_pliers.plierMotor);
 }
 
 } // of namespace CarFactoryLibrary

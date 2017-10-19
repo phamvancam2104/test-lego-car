@@ -47,14 +47,14 @@ void Pliers::close() {
 Pliers::Pliers(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort,
 		int /*in*/open_motor_position, int /*in*/close_motor_position) :
 		motor(motorPort), open_position(open_motor_position), close_position(
-				close_motor_position), pliersController(this) {
+				close_motor_position) {
 }
 
 /**
  * 
  */
 void Pliers::connectorConfiguration() {
-	bindPorts(plierMotor, motor.servoMotorPort);
+	bindPorts(this->plierMotor, motor.servoMotorPort);
 }
 
 } // of namespace CarFactoryLibrary

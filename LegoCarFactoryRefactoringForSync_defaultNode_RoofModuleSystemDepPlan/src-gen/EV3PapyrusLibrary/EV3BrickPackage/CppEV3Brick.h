@@ -12,7 +12,7 @@
 #include "EV3PapyrusLibrary/EV3BrickPackage/Pkg_EV3BrickPackage.h"
 
 #include "EV3PapyrusLibrary/EV3BrickPackage/AbstractEV3Brick.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickPackageCppEV3Brick__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3BrickPackage/CppEV3Brick__Delegatee.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -55,10 +55,7 @@ namespace EV3BrickPackage {
  */
 class CppEV3Brick: public AbstractEV3Brick {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickPackageCppEV3Brick__Controller cppev3brickController;
+	DECLARE_DELEGATEE_COMPONENT (CppEV3Brick)
 	/**
 	 * 
 	 */

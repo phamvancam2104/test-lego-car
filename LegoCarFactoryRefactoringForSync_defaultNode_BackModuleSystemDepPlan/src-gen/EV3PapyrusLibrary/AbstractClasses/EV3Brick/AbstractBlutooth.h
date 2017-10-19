@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_ABSTRACTCLASSES_EV3BRICK_ABSTRACTBLUTOOTH_H
 
 /************************************************************
- AbstractBlutooth class header
+              AbstractBlutooth class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/Pkg_EV3Brick.h"
@@ -18,6 +18,7 @@
 #include <stdint.h>
 // End of Include stereotype (header)
 
+
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
 namespace EV3Brick {
@@ -27,53 +28,50 @@ namespace EV3Brick {
  * 
  */
 class AbstractBlutooth {
-public:
+	public:
 	/**
 	 * 
 	 * @param name 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @param name 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean accept_connection(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::PrimitiveTypes::Boolean accept_connection(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @param name 
 	 * @param result 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean read(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString* /*in*/result);
+	 ::PrimitiveTypes::Boolean read(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ result);
 	/**
 	 * 
 	 * @param name 
 	 * @param msg 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean write(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/msg);
+	 ::PrimitiveTypes::Boolean write(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ msg);
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractBlutooth class header
+              End of AbstractBlutooth class header
  ************************************************************/
 
 #endif

@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_CONCRETECLASSES_EV3DEVCPP_EV3BRICK_CPPBLUTOOTH_H
 
 /************************************************************
- CppBlutooth class header
+              CppBlutooth class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/Pkg_EV3Brick.h"
@@ -14,22 +14,17 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractBlutooth.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IBlutooth.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppBlutooth__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppBlutooth__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class IBlutooth;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class IBlutooth;}}}
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IBlutooth.h"
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -40,69 +35,65 @@ namespace EV3Brick {
 /**
  * 
  */
-class CppBlutooth: public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth,
-		public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractBlutooth {
-public:
+class CppBlutooth : 
+public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth, 
+public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractBlutooth	
+ {
+	public:
 	/**
 	 * 
 	 */
-	bluetooth referencedBluetooth;
+	 bluetooth referencedBluetooth;
+	DECLARE_DELEGATEE_COMPONENT (CppBlutooth)
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppBlutooth__Controller cppblutoothController;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth> BluetoothPortServer;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth> BluetoothPortServer;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth> BluetoothPortClient;
-	/**
-	 * 
-	 * @param name 
-	 * @return ret 
-	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::IBlutooth> BluetoothPortClient;
 	/**
 	 * 
 	 * @param name 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean accept_connection(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
+	/**
+	 * 
+	 * @param name 
+	 * @return ret 
+	 */
+	 ::PrimitiveTypes::Boolean accept_connection(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @param name 
 	 * @param result 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean read(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString* /*in*/result);
+	 ::PrimitiveTypes::Boolean read(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ result);
 	/**
 	 * 
 	 * @param name 
 	 * @param msg 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean write(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/msg);
+	 ::PrimitiveTypes::Boolean write(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ msg);
 	/**
 	 * 
 	 * @param uselessString 
 	 */
-	CppBlutooth(::EV3PapyrusLibrary::Types::LocalString /*in*/uselessString);
+	CppBlutooth(::EV3PapyrusLibrary::Types::LocalString /*in*/ uselessString);
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -110,7 +101,7 @@ public:
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppBlutooth class header
+              End of CppBlutooth class header
  ************************************************************/
 
 #endif

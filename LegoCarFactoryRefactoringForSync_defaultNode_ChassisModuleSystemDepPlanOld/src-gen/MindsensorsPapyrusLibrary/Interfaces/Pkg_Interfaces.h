@@ -2,7 +2,7 @@
 #define PKG_MINDSENSORSPAPYRUSLIBRARY_INTERFACES
 
 /************************************************************
- Pkg_Interfaces package header
+              Pkg_Interfaces package header
  ************************************************************/
 
 #include "MindsensorsPapyrusLibrary/Pkg_MindsensorsPapyrusLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace MindsensorsPapyrusLibrary {
 namespace Interfaces {
 
 // Types defined within the package
-}// of namespace Interfaces
+} // of namespace Interfaces
 } // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of Pkg_Interfaces package header
+              End of Pkg_Interfaces package header
  ************************************************************/
 
 #endif

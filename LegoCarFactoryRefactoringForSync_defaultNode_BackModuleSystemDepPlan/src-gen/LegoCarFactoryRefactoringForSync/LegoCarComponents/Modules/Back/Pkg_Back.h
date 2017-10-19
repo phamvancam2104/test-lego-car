@@ -2,7 +2,7 @@
 #define PKG_LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_BACK
 
 /************************************************************
- Pkg_Back package header
+              Pkg_Back package header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Pkg_Modules.h"
@@ -17,6 +17,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace LegoCarFactoryRefactoringForSync {
@@ -25,13 +26,13 @@ namespace Modules {
 namespace Back {
 
 // Types defined within the package
-}// of namespace Back
+} // of namespace Back
 } // of namespace Modules
 } // of namespace LegoCarComponents
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of Pkg_Back package header
+              End of Pkg_Back package header
  ************************************************************/
 
 #endif

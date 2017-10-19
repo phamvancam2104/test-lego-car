@@ -2,8 +2,9 @@
 #define PKG_PRIMITIVETYPES
 
 /************************************************************
- Pkg_PrimitiveTypes package header
+              Pkg_PrimitiveTypes package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,9 +16,11 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace PrimitiveTypes {
@@ -27,21 +30,21 @@ namespace PrimitiveTypes {
  * Boolean is used for logical expressions, consisting of the predefined values true and false.
  */
 typedef bool Boolean;
-
+ 
 /**
  * Integer is a primitive type representing integer values.
  */
 typedef int Integer;
-
+ 
 /**
  * String is a sequence of characters in some suitable character set used to display information about the model. Character sets may include non-Roman alphabets and characters.
  */
 typedef const char * String;
-
+ 
 } // of namespace PrimitiveTypes
 
 /************************************************************
- End of Pkg_PrimitiveTypes package header
+              End of Pkg_PrimitiveTypes package header
  ************************************************************/
 
 #endif

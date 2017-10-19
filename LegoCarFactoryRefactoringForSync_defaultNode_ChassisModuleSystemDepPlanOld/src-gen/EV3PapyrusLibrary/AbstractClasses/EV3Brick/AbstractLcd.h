@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_ABSTRACTCLASSES_EV3BRICK_ABSTRACTLCD_H
 
 /************************************************************
- AbstractLcd class header
+              AbstractLcd class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/Pkg_EV3Brick.h"
@@ -17,16 +17,11 @@
 
 // Include from Include stereotype (header)
 #include <stdint.h>
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ILcd;}}}
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -37,7 +32,7 @@ namespace EV3Brick {
  * 
  */
 class AbstractLcd {
-public:
+	public:
 	/**
 	 * 
 	 */
@@ -81,58 +76,58 @@ public:
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> lcdScreenPort;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> lcdScreenPort;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean available();
+	 ::PrimitiveTypes::Boolean available();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	uint32_t resolution_x();
+	 uint32_t resolution_x();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	uint32_t resolution_y();
+	 uint32_t resolution_y();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	uint32_t bits_per_pixel();
+	 uint32_t bits_per_pixel();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	uint32_t frame_buffer_size();
+	 uint32_t frame_buffer_size();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	uint32_t line_length();
+	 uint32_t line_length();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	unsigned char* frame_buffer();
+	 unsigned char* frame_buffer();
 	/**
 	 * 
 	 * @return ret 
 	 * @param pixel 
 	 */
-	void fill(unsigned char /*in*/pixel);
+	 void fill(unsigned char /*in*/ pixel);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	void init();
+	 void init();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	void deinit();
+	 void deinit();
 	/**
 	 * 
 	 * @param x 
@@ -140,9 +135,7 @@ public:
 	 * @param text 
 	 * @param size 
 	 */
-	void write_text(int /*in*/x, int /*in*/y,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/text,
-			::EV3PapyrusLibrary::Types::TextSize /*in*/size);
+	void write_text(int /*in*/ x, int /*in*/ y, ::EV3PapyrusLibrary::Types::LocalString /*in*/ text, ::EV3PapyrusLibrary::Types::TextSize /*in*/ size);
 	/**
 	 * 
 	 * @param x0 
@@ -151,8 +144,7 @@ public:
 	 * @param y1 
 	 * @param isBlack 
 	 */
-	void draw_line(int /*in*/x0, int /*in*/y0, int /*in*/x1, int /*in*/y1,
-			bool /*in*/isBlack);
+	void draw_line(int /*in*/ x0, int /*in*/ y0, int /*in*/ x1, int /*in*/ y1, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -161,8 +153,7 @@ public:
 	 * @param height 
 	 * @param isBlack 
 	 */
-	void draw_full_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-			int /*in*/height, bool /*in*/isBlack);
+	void draw_full_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -171,8 +162,7 @@ public:
 	 * @param height 
 	 * @param isBlack 
 	 */
-	void draw_empty_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-			int /*in*/height, bool /*in*/isBlack);
+	void draw_empty_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -180,8 +170,7 @@ public:
 	 * @param radius 
 	 * @param isBlack 
 	 */
-	void draw_full_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-			bool /*in*/isBlack);
+	void draw_full_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -189,8 +178,7 @@ public:
 	 * @param radius 
 	 * @param isBlack 
 	 */
-	void draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-			bool /*in*/isBlack);
+	void draw_empty_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -199,8 +187,7 @@ public:
 	 * @param radiusy 
 	 * @param isBlack 
 	 */
-	void draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-			int /*in*/radiusy, bool /*in*/isBlack);
+	void draw_full_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -209,8 +196,7 @@ public:
 	 * @param radiusy 
 	 * @param isBlack 
 	 */
-	void draw_empty_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-			int /*in*/radiusy, bool /*in*/isBlack);
+	void draw_empty_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param filename 
@@ -218,22 +204,24 @@ public:
 	 * @param y 
 	 * @param invertColor 
 	 */
-	void draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/filename,
-			int /*in*/x, int /*in*/y, bool /*in*/invertColor);
+	void draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/ filename, int /*in*/ x, int /*in*/ y, bool /*in*/ invertColor);
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractLcd class header
+              End of AbstractLcd class header
  ************************************************************/
 
 #endif

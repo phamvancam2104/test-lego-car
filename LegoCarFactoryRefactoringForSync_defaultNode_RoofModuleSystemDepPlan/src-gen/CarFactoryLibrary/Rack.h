@@ -14,7 +14,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/CppColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryRack__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/CarFactoryLibrary/Rack__Delegatee.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -36,10 +36,7 @@ public:
 	 * the color sensor of the rack
 	 */
 	::EV3PapyrusLibrary::CppColorSensor color_sensor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryRack__Controller rackController;
+	DECLARE_DELEGATEE_COMPONENT (Rack)
 	/**
 	 * 
 	 */

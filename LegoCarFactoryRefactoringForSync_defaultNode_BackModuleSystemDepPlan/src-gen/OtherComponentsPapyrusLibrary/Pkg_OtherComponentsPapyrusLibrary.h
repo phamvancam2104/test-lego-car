@@ -2,8 +2,9 @@
 #define PKG_OTHERCOMPONENTSPAPYRUSLIBRARY
 
 /************************************************************
- Pkg_OtherComponentsPapyrusLibrary package header
+              Pkg_OtherComponentsPapyrusLibrary package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,6 +16,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
@@ -24,10 +26,10 @@
 namespace OtherComponentsPapyrusLibrary {
 
 // Types defined within the package
-}// of namespace OtherComponentsPapyrusLibrary
+} // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of Pkg_OtherComponentsPapyrusLibrary package header
+              End of Pkg_OtherComponentsPapyrusLibrary package header
  ************************************************************/
 
 #endif

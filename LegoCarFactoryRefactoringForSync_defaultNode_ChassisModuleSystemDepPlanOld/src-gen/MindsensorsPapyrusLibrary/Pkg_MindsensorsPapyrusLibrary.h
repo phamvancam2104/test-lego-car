@@ -2,8 +2,9 @@
 #define PKG_MINDSENSORSPAPYRUSLIBRARY
 
 /************************************************************
- Pkg_MindsensorsPapyrusLibrary package header
+              Pkg_MindsensorsPapyrusLibrary package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,18 +16,20 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace MindsensorsPapyrusLibrary {
 
 // Types defined within the package
-}// of namespace MindsensorsPapyrusLibrary
+} // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of Pkg_MindsensorsPapyrusLibrary package header
+              End of Pkg_MindsensorsPapyrusLibrary package header
  ************************************************************/
 
 #endif

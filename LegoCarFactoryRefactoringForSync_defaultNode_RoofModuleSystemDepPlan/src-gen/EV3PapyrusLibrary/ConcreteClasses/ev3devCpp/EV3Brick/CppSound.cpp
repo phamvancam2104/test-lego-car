@@ -117,8 +117,7 @@ void CppSound::toneDummyForCompilation(unsigned int /*in*/frequency,
 /**
  * 
  */
-CppSound::CppSound() :
-		cppsoundController(this) {
+CppSound::CppSound() {
 }
 
 } // of namespace EV3Brick

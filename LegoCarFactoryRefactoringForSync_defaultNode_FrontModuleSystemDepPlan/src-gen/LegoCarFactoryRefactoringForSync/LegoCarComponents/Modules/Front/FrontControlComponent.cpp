@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Front_FrontControlComponent_BODY
 
 /************************************************************
- FrontControlComponent class body
+              FrontControlComponent class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontControlComponent.h"
@@ -38,61 +39,60 @@ namespace Front {
  * 
  */
 void FrontControlComponent::reset() {
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK); //acknowledgement
-	pIFloatMotor.requiredIntf->float_motors();//robotic_arm.float_motors();
-	pILargeMotor.requiredIntf->stop();//conveyor.motor.stop(false);
-	pPressILargeMotor.requiredIntf->stop(); //.motor.stop(false);
-	LegoCarFactoryRefactoringForSync::signals::StopProcess s;
+	write(MASTER_MODULE, RESULT_OK); //acknowledgement
+	robotic_arm.float_motors();
+	conveyor.motor.stop(false);
+	press.motor.stop(false);
+	Events::StopProcess s;
 	s.is_emergency_stop = true;
-	pOutStopProcess_Shelf.outIntf->push(s); // shelf.sendStopProcess(s);
-	pOutStopProcess_RoboticArm.outIntf->push(s);//robotic_arm.sendStopProcess(s);
-	pStopProcess_Convoyer.outIntf->push(s);//conveyor.sendStopProcess(s);
-	pOutStopProcess_Press.outIntf->push(s);
-
-	LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop s1;
-	pOutRestart_Shelf.outIntf->push(s1);//shelf.sendRestartAfterEmergencyStop(s1);
-	pOutRestart_Robotic.outIntf->push(s1);//robotic_arm.sendRestartAfterEmergencyStop(s1);
-	pOutRestart_Convoyer.outIntf->push(s1);//conveyor.sendRestartAfterEmergencyStop(s1);
-	pOutRestart_Press.outIntf->push(s1);//press.sendRestartAfterEmergencyStop(s1);
-
-	status = CarFactoryLibrary::RESULT_READY;
+	shelf.sendStopProcess(s);
+	robotic_arm.sendStopProcess(s);
+	conveyor.sendStopProcess(s);
+	press.sendStopProcess(s);
+	
+	Events::RestartAfterEmergencyStop s1;
+	shelf.sendRestartAfterEmergencyStop(s1);
+	robotic_arm.sendRestartAfterEmergencyStop(s1);
+	conveyor.sendRestartAfterEmergencyStop(s1);
+	press.sendRestartAfterEmergencyStop(s1);
+	
+	status = RESULT_READY;
 }
 
 /**
  * Initialize all bluetooth connection and ping bricks to check
  * @return ret 
  */
-bool FrontControlComponent::init_bluetooth_communication() {
-	std::cout << "init " << std::endl;
-	if (!ev3Brick.bluetoothDevice.accept_connection(bluetooth_name[CarFactoryLibrary::MASTER_MODULE])) {
-		perror("not connected");
-		return false;
-	}
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK);
-	std::cout << "return true " << std::endl;
-	return true;
+ bool FrontControlComponent::init_bluetooth_communication() {
+	cout << "init " << endl;
+		if (!ev3Brick.bluetoothDevice.accept_connection(bluetooth_name[MASTER_MODULE])) {
+			perror("not connected");
+			return false;
+		}
+		write(MASTER_MODULE, RESULT_OK);	
+		cout << "return true " << endl;
+		return true;
 }
 
 /**
  * answer to a ping command
  */
 void FrontControlComponent::ping_response() {
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK);
+	write(MASTER_MODULE, BluetoothSlaveEnum::RESULT_OK);
 }
 
 /**
  * answer to CMD_GET_STATUS
  */
 void FrontControlComponent::get_status_response() {
-	write(CarFactoryLibrary::MASTER_MODULE, status);
+	write(MASTER_MODULE, status);
 }
 
 /**
  * 
  * @param sig 
  */
-void FrontControlComponent::effectFromEmnergencyStopStatetoMisplace(
-		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
+void FrontControlComponent::effectFromEmnergencyStopStatetoMisplace(::CarFactoryLibrary::events::ErrorDetection& /*in*/ sig) {
 	error_detection_is_misplace = sig.is_misplace;
 }
 
@@ -100,96 +100,8 @@ void FrontControlComponent::effectFromEmnergencyStopStatetoMisplace(
  * 
  * @return ret 
  */
-bool FrontControlComponent::fromWaittoEmergencyButtonPressGuard() {
+ bool FrontControlComponent::() {
 	return emergency_button.value(0);
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoice1toRestartGuard() {
-	return ev3Brick.topButton.pressed();
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoice2toRestartGuard() {
-	return ev3Brick.topButton.pressed();
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoPingGuard() {
-	return msg == CarFactoryLibrary::CMD_PING;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoGetStatusGuard() {
-	return msg == CarFactoryLibrary::CMD_GET_STATUS;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoLoadCarGuard() {
-	return msg == CarFactoryLibrary::CMD_LOAD_CAR;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoDeliverGuard() {
-	return msg == CarFactoryLibrary::CMD_DELIVER;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoRewindGuard() {
-	return msg == CarFactoryLibrary::CMD_REWIND;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoAssembleGuard() {
-	return msg == CarFactoryLibrary::CMD_ASSEMBLE;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoFinalState1Guard() {
-	return msg == CarFactoryLibrary::CMD_STOP;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromChoicetoResetGuard() {
-	return msg == CarFactoryLibrary::CMD_RESET;
-}
-
-/**
- * 
- * @return ret 
- */
-bool FrontControlComponent::fromInitializationtoPrincipalStateGuard() {
-	return init_bluetooth_communication();
 }
 
 /**
@@ -206,7 +118,7 @@ void FrontControlComponent::init() {
  * 
  */
 void FrontControlComponent::doActivityCheck() {
-	//CHECKPOINT
+	CHECKPOINT
 }
 
 /**
@@ -214,32 +126,32 @@ void FrontControlComponent::doActivityCheck() {
  */
 void FrontControlComponent::sendStopProcessEvent() {
 	ev3Brick.soundDevice.tone(100, 100);
-	pIFloatMotor.requiredIntf->float_motors();//robotic_arm.float_motors();
-	pILargeMotor.requiredIntf->stop();//conveyor.motor.stop(false);
-	pPressILargeMotor.requiredIntf->stop();//press.motor.stop(false);
-	LegoCarFactoryRefactoringForSync::signals::StopProcess s;
+	robotic_arm.float_motors();
+	conveyor.motor.stop(false);
+	press.motor.stop(false);
+	Events::StopProcess s;
 	s.is_emergency_stop = true;
-	pOutStopProcess_Shelf.outIntf->push(s);//shelf.sendStopProcess(s);
-	pOutStopProcess_RoboticArm.outIntf->push(s);//robotic_arm.sendStopProcess(s);
-	pStopProcess_Convoyer.outIntf->push(s);//conveyor.sendStopProcess(s);
-	pOutStopProcess_Press.outIntf->push(s);//press.sendStopProcess(s);
-	status = CarFactoryLibrary::RESULT_STOP;
+	shelf.sendStopProcess(s);
+	robotic_arm.sendStopProcess(s);
+	conveyor.sendStopProcess(s);
+	press.sendStopProcess(s);
+	status = RESULT_STOP;
 }
 
 /**
  * 
  */
 void FrontControlComponent::sendStopProcess() {
-	if (error_detection_is_misplace) {
+	if(error_detection_is_misplace){
 		showMisplacePartGUI();
-	} else {
-		showEmptyRackGUI (color);
+	} else{
+		showEmptyRackGUI(color);
 	}
-	LegoCarFactoryRefactoringForSync::signals::StopProcess s;
+	Events::StopProcess s;
 	s.is_emergency_stop = false;
-	pOutStopProcess_Shelf.outIntf->push(s);//shelf.sendStopProcess(s);
-	pOutStopProcess_RoboticArm.outIntf->push(s);//robotic_arm.sendStopProcess(s);
-	pStopProcess_Convoyer.outIntf->push(s);//conveyor.sendStopProcess(s);
+	shelf.sendStopProcess(s);
+	robotic_arm.sendStopProcess(s);
+	conveyor.sendStopProcess(s);
 }
 
 /**
@@ -253,12 +165,12 @@ void FrontControlComponent::show_stop_GUI() {
  * 
  */
 void FrontControlComponent::send_restart_event() {
-	LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop s;
-	pOutRestart_Shelf.outIntf->push(s);//shelf.sendRestartAfterEmergencyStop(s);
-	pOutRestart_Robotic.outIntf->push(s);//robotic_arm.sendRestartAfterEmergencyStop(s);
-	pOutRestart_Convoyer.outIntf->push(s);//conveyor.sendRestartAfterEmergencyStop(s);
-	pOutRestart_Press.outIntf->push(s);//press.sendRestartAfterEmergencyStop(s);
-	status = CarFactoryLibrary::RESULT_READY;
+	Events::RestartAfterEmergencyStop s;
+	shelf.sendRestartAfterEmergencyStop(s);
+	robotic_arm.sendRestartAfterEmergencyStop(s);
+	conveyor.sendRestartAfterEmergencyStop(s);
+	press.sendRestartAfterEmergencyStop(s);
+	status = RESULT_READY;
 }
 
 /**
@@ -266,79 +178,89 @@ void FrontControlComponent::send_restart_event() {
  */
 void FrontControlComponent::read() {
 	bool stop = false;
-	while (!stop) {
-		std::string tmp_string = readFromMaster();
-
-		//split receive message
-		int split_index = tmp_string.find("-");
-		if (split_index != std::string::npos) {
-			extra_msg = tmp_string.substr(split_index + 1);
-			msg = parseMasterMessage(tmp_string.substr(0, split_index));
-			std::cout << msg << std::endl;
-		} else {
-			msg = parseMasterMessage(tmp_string);
+		while (!stop) {
+			string tmp_string = readFromMaster();
+	
+			//split receive message
+			int split_index = tmp_string.find("-");
+			if (split_index != string::npos) {
+				extra_msg = tmp_string.substr(split_index+1);
+				msg = parseMasterMessage(tmp_string.substr(0, split_index));
+				cout << msg << endl;
+			} else {
+				msg = parseMasterMessage(tmp_string);
+			}
+			if (msg == CMD_ASSEMBLE || msg == CMD_DELIVER || msg == CMD_LOAD_CAR) {
+				status = RESULT_BUSY;
+			}
+			if(msg != NO_MASTER_MSG)
+				stop = true;
+			CHECKPOINT
 		}
-		if (msg == CarFactoryLibrary::CMD_ASSEMBLE || msg == CarFactoryLibrary::CMD_DELIVER || msg == CarFactoryLibrary::CMD_LOAD_CAR) {
-			status = CarFactoryLibrary::RESULT_BUSY;
-		}
-		if (msg != CarFactoryLibrary::NO_MASTER_MSG)
-			stop = true;
-		//CHECKPOINT
-	}
 }
 
+/**
+ * 
+ */
+void FrontControlComponent::ping_response() {
+	ping_response();
+}
 
+/**
+ * 
+ */
+void FrontControlComponent::get_status_response() {
+	get_status_response();
+}
 
 /**
  * 
  */
 void FrontControlComponent::sendPrepareConveyorEvent() {
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK); //acknowledgement
+	write(MASTER_MODULE, RESULT_OK); //acknowledgement	
 	manageGreenLights();
-	LegoCarFactoryRefactoringForSync::signals::PrepareConveyor s;
-	pPrepare.outIntf->push(s);//conveyor.sendPrepareConveyor(s);
+	Events::PrepareConveyor s;
+	conveyor.sendPrepareConveyor(s);
 }
 
 /**
  * 
  */
 void FrontControlComponent::send_check_racks_event() {
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK); //acknowledgement
-	manageGreenLights();
-	CarFactoryLibrary::events::CheckRack s;
-	s.color = static_cast<CarFactoryLibrary::Colors>(std::stoi(extra_msg));
-	color = static_cast<CarFactoryLibrary::Colors>(std::stoi(extra_msg));
-	pCheckRack.outIntf->push(s);//shelf.sendCheckRack(s);
+	write(MASTER_MODULE, RESULT_OK); //acknowledgement
+		manageGreenLights();
+		CarFactoryLibrary::events::CheckRack s;
+		s.color = static_cast<Colors>(std::stoi(extra_msg));
+		color = static_cast<Colors>(std::stoi(extra_msg));
+		shelf.sendCheckRack(s);
 }
 
 /**
  * 
  */
 void FrontControlComponent::rewind() {
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK); //acknowledgement
+	write(MASTER_MODULE, RESULT_OK); //acknowledgement	
 	manageGreenLights();
-	//TODO:refactor conveyor.rewind();
+	conveyor.rewind();
 }
 
 /**
  * 
  */
 void FrontControlComponent::deliver() {
-	write(CarFactoryLibrary::MASTER_MODULE, CarFactoryLibrary::RESULT_OK); //acknowledgement
+	write(MASTER_MODULE, RESULT_OK); //acknowledgement	
 	manageGreenLights();
 	CarFactoryLibrary::events::DeliveredCarConveyor s;
-	pDelivered.outIntf->push(s);//conveyor.sendDeliveredCarConveyor(s);
+	conveyor.sendDeliveredCarConveyor(s);
 }
 
 /**
  * 
  */
-FrontControlComponent::FrontControlComponent() :
-		CarFactoryLibrary::Module("in2", "lego-ev3-color", "lego-ev3-color",
-				"lego-ev3-color", "in4", "in3:i2c88", "outB", "in3:i2c88:sv6",
-				"in3:i2c88:sv7", "in3:i2c88:sv8"), frontcontrolcomponentController(
-				this) {
+FrontControlComponent::FrontControlComponent(): CarFactoryLibrary::Module("in2", "lego-ev3-color", "lego-ev3-color", "lego-ev3-color", "in4", "in3:i2c88", "outB", "in3:i2c88:sv6", "in3:i2c88:sv7", "in3:i2c88:sv8") {
 }
+
+
 
 } // of namespace Front
 } // of namespace Modules
@@ -346,5 +268,5 @@ FrontControlComponent::FrontControlComponent() :
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of FrontControlComponent class body
+              End of FrontControlComponent class body
  ************************************************************/

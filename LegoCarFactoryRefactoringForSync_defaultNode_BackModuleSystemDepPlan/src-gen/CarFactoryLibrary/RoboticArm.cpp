@@ -5,7 +5,7 @@
 #define CarFactoryLibrary_RoboticArm_BODY
 
 /************************************************************
- RoboticArm class body
+              RoboticArm class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -24,6 +24,7 @@
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
+
 namespace CarFactoryLibrary {
 
 // static attributes (if any)
@@ -32,88 +33,86 @@ namespace CarFactoryLibrary {
  * move the robotic arm to the absolute position x, y and alpha
  * @param x distance relative to the rotation center of the two motors (in cm)
  * @param y height relative to the rotation center of the two motors (in cm)
- * @param alpha angle of the base (in degree), eg: 0°, the arm is oriented towards the conveyor
+ * @param alpha angle of the base (in degree), eg: 0Â°, the arm is oriented towards the conveyor
  * @param front_back_before_up_down if true the command for the front-back motor is send before the command for the up-down motor, otherwise it is the opposite
- *    even if the motors are moved in the same time, the command is send one by one.For some little movement it can be important.
+  *    even if the motors are moved in the same time, the command is send one by one.For some little movement it can be important.
  * @param rate it is a value which define the speed but the speed is hight when the value is low (time is millisecond the servo  travels from 0 to 100.0% (half of the full range of the servo))
  */
-void RoboticArm::move(float /*in*/x, float /*in*/y, int /*in*/alpha,
-		bool /*in*/front_back_before_up_down, int /*in*/rate) {
+void RoboticArm::move(float /*in*/ x, float /*in*/ y, int /*in*/ alpha, bool /*in*/ front_back_before_up_down, int /*in*/ rate) {
 	int ret[3] = { 0 };
-	calculate_motors_angle(x, y, alpha, ret);
-
-	int up_down_angle = *(ret);
-	int front_back_angle = *(ret + 1);
-	int right_left_angle = *(ret + 2);
-
-	motor_right_left.set_rate_sp(rate);
-	motor_right_left.set_position_sp(right_left_angle);
-
-	if (front_back_before_up_down) {
-		motor_front_back.set_rate_sp(rate);
-		motor_front_back.set_position_sp(front_back_angle);
-
-		motor_up_down.set_rate_sp(rate);
-		motor_up_down.set_position_sp(up_down_angle);
-	} else {
-		motor_up_down.set_rate_sp(rate);
-		motor_up_down.set_position_sp(up_down_angle);
-
-		motor_front_back.set_rate_sp(rate);
-		motor_front_back.set_position_sp(front_back_angle);
-	}
+		calculate_motors_angle(x, y, alpha, ret);
+	
+		int up_down_angle = *(ret);
+		int front_back_angle = *(ret + 1);
+		int right_left_angle = *(ret + 2);
+	
+		motor_right_left.set_rate_sp(rate);
+		motor_right_left.set_position_sp(right_left_angle);
+	
+		if(front_back_before_up_down) {
+			motor_front_back.set_rate_sp(rate);
+			motor_front_back.set_position_sp(front_back_angle);
+	
+			motor_up_down.set_rate_sp(rate);
+			motor_up_down.set_position_sp(up_down_angle);
+		} else {
+			motor_up_down.set_rate_sp(rate);
+			motor_up_down.set_position_sp(up_down_angle);
+	
+			motor_front_back.set_rate_sp(rate);
+			motor_front_back.set_position_sp(front_back_angle);
+		}
 }
 
 /**
  * calculate the command that must be send to motors to move the arm to the absolute position x, y and alpha
  * @param x distance relative to the rotation center of the two motors (in cm)
  * @param y height relative to the rotation center of the two motors (in cm)
- * @param alpha angle of the base (in degree), eg: 0°, the arm is oriented towards the conveyor
+ * @param alpha angle of the base (in degree), eg: 0Â°, the arm is oriented towards the conveyor
  * @param ret the result: a pointer on a array of 3 integer, 
- *    ret = the command for up_down_motor
- *    ret + 1 = the command for front_back_motor
- *    ret + 2 = the command for right_left_motor
+  *    ret = the command for up_down_motor
+  *    ret + 1 = the command for front_back_motor
+  *    ret + 2 = the command for right_left_motor
  */
-void RoboticArm::calculate_motors_angle(float /*in*/x, float /*in*/y,
-		int /*in*/alpha, int* /*out*/ret) {
+void RoboticArm::calculate_motors_angle(float /*in*/ x, float /*in*/ y, int /*in*/ alpha, int* /*out*/ ret) {
 	//omega: angle between the horizontal and the vertical part of the arm
-	//beta: angle between the vertical part of the arm and the horizontal part
-	//gamma = Pi - omega - beta
-	float a = 8.8;  //length of the  vertical part of the arm
-	float b = 8; //length of the horizontal part of the arm
-
-	float theta = acos(
-			(pow(x, 2) + pow(y, 2) - pow(a, 2) - pow(b, 2)) / (2 * a * b)); //Pi - beta
-	float omega = 0;
-	if (y > 0) {
-		omega = acos(x / sqrt(pow(x, 2) + pow(y, 2)))
-				+ acos(
-						(pow(a, 2) - pow(b, 2) + pow(x, 2) + pow(y, 2))
-								/ (2 * a * sqrt(pow(x, 2) + pow(y, 2))));
-	} else {
-		omega = -acos(x / sqrt(pow(x, 2) + pow(y, 2)))
-				+ acos(
-						(pow(a, 2) - pow(b, 2) + pow(x, 2) + pow(y, 2))
-								/ (2 * a * sqrt(pow(x, 2) + pow(y, 2))));
-	}
-
-	float beta = M_PI - theta;
-	omega = omega * 180 / M_PI;
-	beta = beta * 180 / M_PI;
-
-	float front_back_angle = omega;
-	float up_down_angle = beta - 90 + omega;
-	float right_left_angle = 0;
-
-	//convert into motor angle supposing the motor amplitude is 220°
-	front_back_angle = -((90 - front_back_angle) * 100 / 110
-			- motor_front_back_offset);
-	up_down_angle = (90 - up_down_angle) * 100 / 110 - motor_up_down_offset;
-	right_left_angle = alpha - motor_right_left_offset;
-
-	*ret = round(up_down_angle);
-	*(ret + 1) = round(front_back_angle);
-	*(ret + 2) = round(right_left_angle);
+		//beta: angle between the vertical part of the arm and the horizontal part
+		//gamma = Pi - omega - beta
+		float a = 8.8;  //length of the  vertical part of the arm
+		float b = 8; //length of the horizontal part of the arm
+	
+		float theta = acos(
+				(pow(x, 2) + pow(y, 2) - pow(a, 2) - pow(b, 2)) / (2 * a * b)); //Pi - beta
+		float omega = 0;
+		if (y > 0) {
+			omega = acos(x / sqrt(pow(x, 2) + pow(y, 2)))
+					+ acos(
+							(pow(a, 2) - pow(b, 2) + pow(x, 2) + pow(y, 2))
+									/ (2 * a * sqrt(pow(x, 2) + pow(y, 2))));
+		} else {
+			omega = -acos(x / sqrt(pow(x, 2) + pow(y, 2)))
+					+ acos(
+							(pow(a, 2) - pow(b, 2) + pow(x, 2) + pow(y, 2))
+									/ (2 * a * sqrt(pow(x, 2) + pow(y, 2))));
+		}
+	
+		float beta = M_PI - theta;
+		omega = omega * 180 / M_PI;
+		beta = beta * 180 / M_PI;
+	
+		float front_back_angle = omega;
+		float up_down_angle = beta - 90 + omega;
+		float right_left_angle = 0;
+	
+		//convert into motor angle supposing the motor amplitude is 220Â°
+		front_back_angle = -((90 - front_back_angle) * 100 / 110
+				- motor_front_back_offset);
+		up_down_angle = (90 - up_down_angle) * 100 / 110 - motor_up_down_offset;
+		right_left_angle = alpha - motor_right_left_offset;
+	
+		*ret = round(up_down_angle);
+		*(ret + 1) = round(front_back_angle);
+		*(ret + 2) = round(right_left_angle);
 }
 
 /**
@@ -149,22 +148,22 @@ void RoboticArm::go_rest_position_conveyor() {
  */
 void RoboticArm::go_rest_position_rack() {
 	int ret[3] = { 0 };
-	calculate_motors_angle(5, 2, 95, ret);
-
-	int up_down_angle = *(ret);
-	int front_back_angle = *(ret + 1);
-	int right_left_angle = *(ret + 2);
-
-	motor_right_left.set_rate_sp(30);
-	motor_right_left.set_position_sp(right_left_angle);
-
-	motor_up_down.set_rate_sp(30);
-	motor_up_down.set_position_sp(up_down_angle);
-
-	motor_front_back.set_rate_sp(30);
-	motor_front_back.set_position_sp(-motor_front_back_offset);
-
-	usleep(900 * 1000);
+		calculate_motors_angle(5, 2, 95, ret);
+	
+		int up_down_angle = *(ret);
+		int front_back_angle = *(ret + 1);
+		int right_left_angle = *(ret + 2);
+	
+		motor_right_left.set_rate_sp(30);
+		motor_right_left.set_position_sp(right_left_angle);
+	
+		motor_up_down.set_rate_sp(30);
+		motor_up_down.set_position_sp(up_down_angle);
+	
+		motor_front_back.set_rate_sp(30);
+		motor_front_back.set_position_sp(-motor_front_back_offset);
+	
+		usleep(900 * 1000);
 }
 
 /**
@@ -174,28 +173,21 @@ void RoboticArm::go_rest_position_rack() {
  * @param right_left_motor_port the servo motor port name which allow to go right and left
  * @param plier_motor_port the servo motor port name for the pliers
  * @param up_down_offset calibration parameter: the position_sp of the servo motor, which allow to go up and down, when it is in the calibration position 
- *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+  *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
  * @param front_back_offset calibration parameter: the position_sp of the servo motor, which allow to go front and back, when it is in the calibration position 
- *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+  *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
  * @param right_left_offset calibration parameter: the position_sp of the servo motor, which allow to go right and left, when it is in the calibration position 
- *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+  *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
  * @param open_pliers_motor_position the command to send to the servo motor of the plier to open it
  * @param close_pliers_motor_position the command to send to the servo motor of the plier to close it
  */
-RoboticArm::RoboticArm(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/up_down_motor_port,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/front_back_motor_port,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/right_left_motor_port,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/plier_motor_port,
-		int /*in*/up_down_offset, int /*in*/front_back_offset,
-		int /*in*/right_left_offset, int /*in*/open_pliers_motor_position,
-		int /*in*/close_pliers_motor_position) :
-		motor_up_down(up_down_motor_port), motor_front_back(
-				front_back_motor_port), motor_right_left(right_left_motor_port), motor_pliers(
-				plier_motor_port, open_pliers_motor_position,
-				close_pliers_motor_position), motor_up_down_offset(
-				up_down_offset), motor_front_back_offset(front_back_offset), motor_right_left_offset(
-				right_left_offset) {
+RoboticArm::RoboticArm(::EV3PapyrusLibrary::Types::LocalString /*in*/ up_down_motor_port, ::EV3PapyrusLibrary::Types::LocalString /*in*/ front_back_motor_port, ::EV3PapyrusLibrary::Types::LocalString /*in*/ right_left_motor_port, ::EV3PapyrusLibrary::Types::LocalString /*in*/ plier_motor_port, int /*in*/ up_down_offset, int /*in*/ front_back_offset, int /*in*/ right_left_offset, int /*in*/ open_pliers_motor_position, int /*in*/ close_pliers_motor_position): motor_up_down(up_down_motor_port), 
+motor_front_back(front_back_motor_port), 
+motor_right_left(right_left_motor_port),
+motor_pliers(plier_motor_port, open_pliers_motor_position, close_pliers_motor_position),
+motor_up_down_offset(up_down_offset), 
+motor_front_back_offset(front_back_offset), 
+motor_right_left_offset(right_left_offset) {
 }
 
 /**
@@ -203,8 +195,7 @@ RoboticArm::RoboticArm(
  * @param sig 
  * @return ret 
  */
-void RoboticArm::sendRoboticArmPickPiece(
-		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
+ void RoboticArm::sendRoboticArmPickPiece(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/ sig) {
 }
 
 /**
@@ -212,22 +203,23 @@ void RoboticArm::sendRoboticArmPickPiece(
  * @param sig 
  * @return ret 
  */
-void RoboticArm::sendEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+ void RoboticArm::sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig) {
 }
 
 /**
  * 
  */
 void RoboticArm::connectorConfiguration() {
-	bindPorts(frontBackMotor, motor_front_back.servoMotorPort);
-	bindPorts(rightLeftMotor, motor_right_left.servoMotorPort);
-	bindPorts(upDownMotor, motor_up_down.servoMotorPort);
-	bindPorts(plierMotor, motor_pliers.plierMotor);
+	bindPorts(this->frontBackMotor, motor_front_back.servoMotorPort);
+	bindPorts(this->rightLeftMotor, motor_right_left.servoMotorPort);
+	bindPorts(this->upDownMotor, motor_up_down.servoMotorPort);
+	bindPorts(this->plierMotor, motor_pliers.plierMotor);
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of RoboticArm class body
+              End of RoboticArm class body
  ************************************************************/

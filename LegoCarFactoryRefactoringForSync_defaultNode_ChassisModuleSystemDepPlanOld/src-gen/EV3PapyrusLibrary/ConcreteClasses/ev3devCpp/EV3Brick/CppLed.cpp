@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_EV3Brick_CppLed_BODY
 
 /************************************************************
- CppLed class body
+              CppLed class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppLed.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -25,7 +27,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLed::max_brightness() {
+ ::PrimitiveTypes::Integer CppLed::max_brightness() {
 	return referencedLed.max_brightness();
 }
 
@@ -33,7 +35,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLed::brightness() {
+ ::PrimitiveTypes::Integer CppLed::brightness() {
 	return referencedLed.brightness();
 }
 
@@ -41,7 +43,7 @@ namespace EV3Brick {
  * generated comment
  * @param v 
  */
-void CppLed::set_brightness(::PrimitiveTypes::Integer /*in*/v) {
+void CppLed::set_brightness(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLed.set_brightness(v);
 }
 
@@ -49,7 +51,7 @@ void CppLed::set_brightness(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppLed::triggers() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppLed::triggers() {
 	return referencedLed.triggers();
 }
 
@@ -57,7 +59,7 @@ void CppLed::set_brightness(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLed::trigger() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLed::trigger() {
 	return referencedLed.trigger();
 }
 
@@ -65,7 +67,7 @@ void CppLed::set_brightness(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLed::set_trigger(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppLed::set_trigger(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedLed.set_trigger(v);
 }
 
@@ -73,7 +75,7 @@ void CppLed::set_trigger(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLed::delay_on() {
+ ::PrimitiveTypes::Integer CppLed::delay_on() {
 	return referencedLed.delay_on();
 }
 
@@ -81,7 +83,7 @@ void CppLed::set_trigger(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLed::set_delay_on(::PrimitiveTypes::Integer /*in*/v) {
+void CppLed::set_delay_on(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLed.set_delay_on(v);
 }
 
@@ -89,7 +91,7 @@ void CppLed::set_delay_on(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLed::delay_off() {
+ ::PrimitiveTypes::Integer CppLed::delay_off() {
 	return referencedLed.delay_off();
 }
 
@@ -97,7 +99,7 @@ void CppLed::set_delay_on(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLed::set_delay_off(::PrimitiveTypes::Integer /*in*/v) {
+void CppLed::set_delay_off(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLed.set_delay_off(v);
 }
 
@@ -105,7 +107,7 @@ void CppLed::set_delay_off(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-float CppLed::brightness_pct() {
+ float CppLed::brightness_pct() {
 	return referencedLed.brightness_pct();
 }
 
@@ -113,7 +115,7 @@ float CppLed::brightness_pct() {
  * generated comment
  * @param v 
  */
-void CppLed::set_brightness_pct(float /*in*/v) {
+void CppLed::set_brightness_pct(float /*in*/ v) {
 	referencedLed.set_brightness_pct(v);
 }
 
@@ -121,7 +123,7 @@ void CppLed::set_brightness_pct(float /*in*/v) {
  * generated comment
  * @return ret 
  */
-void CppLed::on() {
+ void CppLed::on() {
 	return referencedLed.on();
 }
 
@@ -129,7 +131,7 @@ void CppLed::on() {
  * generated comment
  * @return ret 
  */
-void CppLed::off() {
+ void CppLed::off() {
 	return referencedLed.off();
 }
 
@@ -139,8 +141,8 @@ void CppLed::off() {
  * @param on_ms 
  * @param off_ms 
  */
-void CppLed::flash(unsigned int /*in*/on_ms, unsigned int /*in*/off_ms) {
-	return referencedLed.flash(on_ms, off_ms);
+ void CppLed::flash(unsigned int /*in*/ on_ms, unsigned int /*in*/ off_ms) {
+	return referencedLed.flash(on_ms , off_ms);
 }
 
 /**
@@ -149,8 +151,8 @@ void CppLed::flash(unsigned int /*in*/on_ms, unsigned int /*in*/off_ms) {
  * @param red 
  * @param green 
  */
-void CppLed::mix_colors(float /*in*/red, float /*in*/green) {
-	return referencedLed.mix_colors(red, green);
+ void CppLed::mix_colors(float /*in*/ red, float /*in*/ green) {
+	return referencedLed.mix_colors(red , green);
 }
 
 /**
@@ -158,7 +160,7 @@ void CppLed::mix_colors(float /*in*/red, float /*in*/green) {
  * @return ret 
  * @param intensity 
  */
-void CppLed::set_red(float /*in*/intensity) {
+ void CppLed::set_red(float /*in*/ intensity) {
 	referencedLed.set_red(intensity);
 }
 
@@ -166,7 +168,7 @@ void CppLed::set_red(float /*in*/intensity) {
  * generated comment
  * @return ret 
  */
-void CppLed::red_on() {
+ void CppLed::red_on() {
 	return referencedLed.red_on();
 }
 
@@ -175,7 +177,7 @@ void CppLed::red_on() {
  * @return ret 
  * @param intensity 
  */
-void CppLed::set_green(float /*in*/intensity) {
+ void CppLed::set_green(float /*in*/ intensity) {
 	referencedLed.set_green(intensity);
 }
 
@@ -183,7 +185,7 @@ void CppLed::set_green(float /*in*/intensity) {
  * generated comment
  * @return ret 
  */
-void CppLed::green_on() {
+ void CppLed::green_on() {
 	return referencedLed.green_on();
 }
 
@@ -192,7 +194,7 @@ void CppLed::green_on() {
  * @return ret 
  * @param intensity 
  */
-void CppLed::set_amber(float /*in*/intensity) {
+ void CppLed::set_amber(float /*in*/ intensity) {
 	referencedLed.set_amber(intensity);
 }
 
@@ -200,7 +202,7 @@ void CppLed::set_amber(float /*in*/intensity) {
  * generated comment
  * @return ret 
  */
-void CppLed::amber_on() {
+ void CppLed::amber_on() {
 	return referencedLed.amber_on();
 }
 
@@ -209,7 +211,7 @@ void CppLed::amber_on() {
  * @return ret 
  * @param intensity 
  */
-void CppLed::set_orange(float /*in*/intensity) {
+ void CppLed::set_orange(float /*in*/ intensity) {
 	referencedLed.set_orange(intensity);
 }
 
@@ -217,7 +219,7 @@ void CppLed::set_orange(float /*in*/intensity) {
  * generated comment
  * @return ret 
  */
-void CppLed::orange_on() {
+ void CppLed::orange_on() {
 	return referencedLed.orange_on();
 }
 
@@ -226,7 +228,7 @@ void CppLed::orange_on() {
  * @return ret 
  * @param intensity 
  */
-void CppLed::set_yellow(float /*in*/intensity) {
+ void CppLed::set_yellow(float /*in*/ intensity) {
 	referencedLed.set_yellow(intensity);
 }
 
@@ -234,7 +236,7 @@ void CppLed::set_yellow(float /*in*/intensity) {
  * generated comment
  * @return ret 
  */
-void CppLed::yellow_on() {
+ void CppLed::yellow_on() {
 	return referencedLed.yellow_on();
 }
 
@@ -242,7 +244,7 @@ void CppLed::yellow_on() {
  * generated comment
  * @return ret 
  */
-void CppLed::all_off() {
+ void CppLed::all_off() {
 	return referencedLed.all_off();
 }
 
@@ -253,18 +255,15 @@ void CppLed::all_off() {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean CppLed::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
-	return ((device*) &referencedLed)->connect(dir, pattern, match);
+ ::PrimitiveTypes::Boolean CppLed::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
+	return ((device*) &referencedLed)->connect(dir , pattern , match);
 }
 
 /**
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppLed::connected() {
+ ::PrimitiveTypes::Boolean CppLed::connected() {
 	return ((device*) &referencedLed)->connected();
 }
 
@@ -272,7 +271,7 @@ void CppLed::all_off() {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLed::device_index() {
+ ::PrimitiveTypes::Integer CppLed::device_index() {
 	return ((device*) &referencedLed)->device_index();
 }
 
@@ -281,8 +280,7 @@ void CppLed::all_off() {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer CppLed::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer CppLed::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedLed)->get_attr_int(name);
 }
 
@@ -292,9 +290,8 @@ void CppLed::all_off() {
  * @param name 
  * @param value 
  */
-void CppLed::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
-	return ((device*) &referencedLed)->set_attr_int(name, value);
+ void CppLed::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
+	return ((device*) &referencedLed)->set_attr_int(name , value);
 }
 
 /**
@@ -302,8 +299,7 @@ void CppLed::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLed::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppLed::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedLed)->get_attr_string(name);
 }
 
@@ -313,10 +309,8 @@ void CppLed::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
  * @param name 
  * @param value 
  */
-void CppLed::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
-	((device*) &referencedLed)->set_attr_string(name, value);
+ void CppLed::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
+	((device*) &referencedLed)->set_attr_string(name , value);
 }
 
 /**
@@ -324,8 +318,7 @@ void CppLed::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLed::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppLed::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedLed)->get_attr_line(name);
 }
 
@@ -335,10 +328,8 @@ void CppLed::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppLed::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
-	return ((device*) &referencedLed)->get_attr_set(name, pCur);
+ ::EV3PapyrusLibrary::Types::ModeSet CppLed::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
+	return ((device*) &referencedLed)->get_attr_set(name , pCur);
 }
 
 /**
@@ -346,8 +337,7 @@ void CppLed::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLed::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppLed::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedLed)->get_attr_from_set(name);
 }
 
@@ -355,9 +345,10 @@ void CppLed::set_attr_string(
  * 
  * @param ledPath 
  */
-CppLed::CppLed(::EV3PapyrusLibrary::Types::LocalString /*in*/ledPath) :
-		referencedLed(ledPath), cppledController(this) {
+CppLed::CppLed(::EV3PapyrusLibrary::Types::LocalString /*in*/ ledPath): referencedLed(ledPath) {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -365,5 +356,5 @@ CppLed::CppLed(::EV3PapyrusLibrary::Types::LocalString /*in*/ledPath) :
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppLed class body
+              End of CppLed class body
  ************************************************************/

@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_Sensors_CppTouchSensor_BODY
 
 /************************************************************
- CppTouchSensor class body
+              CppTouchSensor class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Sensors/CppTouchSensor.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/Sensors/ITouchSensor.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -26,7 +28,7 @@ namespace Sensors {
  * @return ret 
  * @param index 
  */
-::PrimitiveTypes::Integer CppTouchSensor::value(unsigned int /*in*/index) {
+ ::PrimitiveTypes::Integer CppTouchSensor::value(unsigned int /*in*/ index) {
 	return referencedTouch_sensor.value(index);
 }
 
@@ -35,7 +37,7 @@ namespace Sensors {
  * @return ret 
  * @param index 
  */
-float CppTouchSensor::float_value(unsigned int /*in*/index) {
+ float CppTouchSensor::float_value(unsigned int /*in*/ index) {
 	return referencedTouch_sensor.float_value(index);
 }
 
@@ -43,7 +45,7 @@ float CppTouchSensor::float_value(unsigned int /*in*/index) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::type_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::type_name() {
 	return referencedTouch_sensor.type_name();
 }
 
@@ -51,7 +53,7 @@ float CppTouchSensor::float_value(unsigned int /*in*/index) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::bin_data_format() {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::bin_data_format() {
 	return referencedTouch_sensor.bin_data_format();
 }
 
@@ -59,7 +61,7 @@ float CppTouchSensor::float_value(unsigned int /*in*/index) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::CustomVectorChar CppTouchSensor::bin_data() {
+ ::EV3PapyrusLibrary::Types::CustomVectorChar CppTouchSensor::bin_data() {
 	return referencedTouch_sensor.bin_data();
 }
 
@@ -67,8 +69,7 @@ float CppTouchSensor::float_value(unsigned int /*in*/index) {
  * generated comment
  * @param v 
  */
-void CppTouchSensor::set_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppTouchSensor::set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedTouch_sensor.set_command(v);
 }
 
@@ -76,7 +77,7 @@ void CppTouchSensor::set_command(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppTouchSensor::commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppTouchSensor::commands() {
 	return referencedTouch_sensor.commands();
 }
 
@@ -84,7 +85,7 @@ void CppTouchSensor::set_command(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppTouchSensor::decimals() {
+ ::PrimitiveTypes::Integer CppTouchSensor::decimals() {
 	return referencedTouch_sensor.decimals();
 }
 
@@ -92,7 +93,7 @@ void CppTouchSensor::set_command(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::driver_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::driver_name() {
 	return referencedTouch_sensor.driver_name();
 }
 
@@ -100,7 +101,7 @@ void CppTouchSensor::set_command(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::mode() {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::mode() {
 	return referencedTouch_sensor.mode();
 }
 
@@ -108,7 +109,7 @@ void CppTouchSensor::set_command(
  * generated comment
  * @param v 
  */
-void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedTouch_sensor.set_mode(v);
 }
 
@@ -116,7 +117,7 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppTouchSensor::modes() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppTouchSensor::modes() {
 	return referencedTouch_sensor.modes();
 }
 
@@ -124,7 +125,7 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppTouchSensor::num_values() {
+ ::PrimitiveTypes::Integer CppTouchSensor::num_values() {
 	return referencedTouch_sensor.num_values();
 }
 
@@ -132,7 +133,7 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::port_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::port_name() {
 	return referencedTouch_sensor.port_name();
 }
 
@@ -140,7 +141,7 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::units() {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::units() {
 	return referencedTouch_sensor.units();
 }
 
@@ -151,18 +152,15 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean CppTouchSensor::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
-	return ((device*) &referencedTouch_sensor)->connect(dir, pattern, match);
+ ::PrimitiveTypes::Boolean CppTouchSensor::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
+	return ((device*) &referencedTouch_sensor)->connect(dir , pattern , match);
 }
 
 /**
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppTouchSensor::connected() {
+ ::PrimitiveTypes::Boolean CppTouchSensor::connected() {
 	return referencedTouch_sensor.connected();
 }
 
@@ -170,7 +168,7 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppTouchSensor::device_index() {
+ ::PrimitiveTypes::Integer CppTouchSensor::device_index() {
 	return referencedTouch_sensor.device_index();
 }
 
@@ -179,8 +177,7 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer CppTouchSensor::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer CppTouchSensor::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedTouch_sensor)->get_attr_int(name);
 }
 
@@ -190,10 +187,8 @@ void CppTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * @param name 
  * @param value 
  */
-void CppTouchSensor::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
-	return ((device*) &referencedTouch_sensor)->set_attr_int(name, value);
+ void CppTouchSensor::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
+	return ((device*) &referencedTouch_sensor)->set_attr_int(name , value);
 }
 
 /**
@@ -201,8 +196,7 @@ void CppTouchSensor::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedTouch_sensor)->get_attr_string(name);
 }
 
@@ -212,10 +206,8 @@ void CppTouchSensor::set_attr_int(
  * @param name 
  * @param value 
  */
-void CppTouchSensor::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
-	return ((device*) &referencedTouch_sensor)->set_attr_string(name, value);
+ void CppTouchSensor::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
+	return ((device*) &referencedTouch_sensor)->set_attr_string(name , value);
 }
 
 /**
@@ -223,8 +215,7 @@ void CppTouchSensor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedTouch_sensor)->get_attr_line(name);
 }
 
@@ -234,10 +225,8 @@ void CppTouchSensor::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppTouchSensor::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
-	return ((device*) &referencedTouch_sensor)->get_attr_set(name, pCur);
+ ::EV3PapyrusLibrary::Types::ModeSet CppTouchSensor::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
+	return ((device*) &referencedTouch_sensor)->get_attr_set(name , pCur);
 }
 
 /**
@@ -245,8 +234,7 @@ void CppTouchSensor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppTouchSensor::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedTouch_sensor)->get_attr_from_set(name);
 }
 
@@ -254,7 +242,7 @@ void CppTouchSensor::set_attr_string(
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppTouchSensor::isTouch() {
+ ::PrimitiveTypes::Boolean CppTouchSensor::isTouch() {
 	return referencedTouch_sensor.value();
 }
 
@@ -262,10 +250,10 @@ void CppTouchSensor::set_attr_string(
  * 
  * @param portAdress 
  */
-CppTouchSensor::CppTouchSensor(
-		::EV3PapyrusLibrary::Types::PortType /*in*/portAdress) :
-		referencedTouch_sensor(portAdress), cpptouchsensorController(this) {
+CppTouchSensor::CppTouchSensor(::EV3PapyrusLibrary::Types::PortType /*in*/ portAdress): referencedTouch_sensor(portAdress) {
 }
+
+
 
 } // of namespace Sensors
 } // of namespace ev3devCpp
@@ -273,5 +261,5 @@ CppTouchSensor::CppTouchSensor(
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppTouchSensor class body
+              End of CppTouchSensor class body
  ************************************************************/

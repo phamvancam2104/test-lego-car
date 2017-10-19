@@ -13,7 +13,7 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/RoboticArm.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/RoofRoofRoboticArm__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Roof/RoofRoboticArm__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
@@ -84,47 +84,46 @@ namespace Roof {
  */
 class RoofRoboticArm: public ::CarFactoryLibrary::RoboticArm {
 public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::RoofRoofRoboticArm__Controller roofroboticarmController;
+	DECLARE_DELEGATEE_COMPONENT (RoofRoboticArm)
 
 	StateMachine RoofRoboticArmStateMachine {
 		InitialState PrincipalState {
 			InitialState Initialization {
-				StateEntry init;
+				StateEntry init();
 			};
 			State StartMotors {
-				StateEntry start_motors;
+				StateEntry start_motors();
 			};
 			State PickRoof {
-				StateEntry pick_roof;
+				StateEntry pick_roof();
 			};
 			State DeliverRoof {
-				StateEntry deliver_roof;
-				StateDoActivity sendGoToPressEvent;
+				StateEntry deliver_roof();
+				StateDoActivity sendGoToPressEvent ();
 			};
 			State Finalization {
-				StateEntry stop_motors;
+				StateEntry stop_motors();
 			};
 		};
-		State Restart;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
-		SignalEvent<CarFactoryLibrary::events::RoboticArmPickPiece> RoboticArmPickPiece;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
+		State Restart {
+		};
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
+		SignalEvent(CarFactoryLibrary::events::RoboticArmPickPiece) RoboticArmPickPiece;
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
-			ExT(fromInitializationtoStartMotors , Initialization , StartMotors , NULL , RoboticArmPickPiece , save_rack_number );
-			ExT(fromStartMotorstoPickRoof , StartMotors , PickRoof , NULL , NULL , NULL );
-			ExT(fromPickRooftoDeliverRoof , PickRoof , DeliverRoof , NULL , NULL , NULL );
-			ExT(fromDeliverRooftoFinalization , DeliverRoof , Finalization , NULL , NULL , NULL );
-			ExT(fromFinalizationtoInitialization , Finalization , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, NULL);
+			ExT(fromInitializationtoStartMotors, Initialization, StartMotors, NULL, RoboticArmPickPiece, save_rack_number);
+			ExT(fromStartMotorstoPickRoof, StartMotors, PickRoof, NULL, void, NULL);
+			ExT(fromPickRooftoDeliverRoof, PickRoof, DeliverRoof, NULL, void, NULL);
+			ExT(fromDeliverRooftoFinalization, DeliverRoof, Finalization, NULL, void, NULL);
+			ExT(fromFinalizationtoInitialization, Finalization, Initialization, NULL, EndOfModule, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+		};
 	};
 	/**
 	 * 

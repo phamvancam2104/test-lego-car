@@ -6,13 +6,15 @@
 #define BOOTLOADERCPP_BOOTLOADER_H
 
 /************************************************************
- BootLoader class header
+              BootLoader class header
  ************************************************************/
 
 #include "BootLoaderCpp/Pkg_BootLoaderCpp.h"
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisModuleSystem.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
+
+
 
 namespace BootLoaderCpp {
 
@@ -21,7 +23,7 @@ namespace BootLoaderCpp {
  * 
  */
 class BootLoader {
-public:
+	public:
 	/**
 	 * 
 	 */
@@ -33,23 +35,26 @@ public:
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisModuleSystem mainInstance;
+	 ::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Chassis::ChassisModuleSystem mainInstance;
 	/**
 	 * 
 	 */
 	void init();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace BootLoaderCpp
 
 /************************************************************
- End of BootLoader class header
+              End of BootLoader class header
  ************************************************************/
 
 #endif

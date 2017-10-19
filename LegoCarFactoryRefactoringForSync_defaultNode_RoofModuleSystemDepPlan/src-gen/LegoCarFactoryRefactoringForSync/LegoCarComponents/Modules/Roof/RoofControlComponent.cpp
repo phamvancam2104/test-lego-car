@@ -38,7 +38,6 @@ namespace Roof {
  * 
  */
 void RoofControlComponent::send_check_racks_event() {
-
 	write(MASTER_MODULE, RESULT_OK); //acknowledgement
 	manageGreenLights();
 	CarFactoryLibrary::events::CheckRack s;
@@ -52,7 +51,6 @@ void RoofControlComponent::send_check_racks_event() {
  * @return ret 
  */
 bool RoofControlComponent::init_bluetooth_communication() {
-
 	cout << "init " << endl;
 	if (!ev3Brick.bluetoothDevice.accept_connection(
 			bluetooth_name[MASTER_MODULE])) {
@@ -67,8 +65,7 @@ bool RoofControlComponent::init_bluetooth_communication() {
 /**
  * 
  */
-RoofControlComponent::RoofControlComponent() :
-		roofcontrolcomponentController(this) {
+RoofControlComponent::RoofControlComponent() {
 }
 
 /**
@@ -77,7 +74,6 @@ RoofControlComponent::RoofControlComponent() :
  */
 void RoofControlComponent::effectFromEmnergencyStopStatetoMisplace(
 		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
-
 	error_detection_is_misplace = sig.is_misplace;
 }
 
@@ -86,7 +82,6 @@ void RoofControlComponent::effectFromEmnergencyStopStatetoMisplace(
  * @return ret 
  */
 bool RoofControlComponent::fromWaittoEmergencyButtonPressGuard() {
-
 	return emergency_button.value(0);
 }
 
@@ -95,7 +90,6 @@ bool RoofControlComponent::fromWaittoEmergencyButtonPressGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoice2toRestartGuard() {
-
 	return ev3Brick.topButton.pressed();
 }
 
@@ -104,7 +98,6 @@ bool RoofControlComponent::fromChoice2toRestartGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoice1toRestartGuard() {
-
 	return ev3Brick.topButton.pressed();
 }
 
@@ -113,7 +106,6 @@ bool RoofControlComponent::fromChoice1toRestartGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoPingGuard() {
-
 	return msg == CMD_PING;
 }
 
@@ -122,7 +114,6 @@ bool RoofControlComponent::fromChoicetoPingGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoGetStatusGuard() {
-
 	return msg == CMD_GET_STATUS;
 }
 
@@ -131,7 +122,6 @@ bool RoofControlComponent::fromChoicetoGetStatusGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoLoadCarGuard() {
-
 	return msg == CMD_LOAD_CAR;
 }
 
@@ -140,7 +130,6 @@ bool RoofControlComponent::fromChoicetoLoadCarGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoDeliverGuard() {
-
 	return msg == CMD_DELIVER;
 }
 
@@ -149,7 +138,6 @@ bool RoofControlComponent::fromChoicetoDeliverGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoRewindGuard() {
-
 	return msg == CMD_REWIND;
 }
 
@@ -158,7 +146,6 @@ bool RoofControlComponent::fromChoicetoRewindGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoAssembleGuard() {
-
 	return msg == CMD_ASSEMBLE;
 }
 
@@ -167,7 +154,6 @@ bool RoofControlComponent::fromChoicetoAssembleGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoResetGuard() {
-
 	return msg == CMD_RESET;
 }
 
@@ -176,7 +162,6 @@ bool RoofControlComponent::fromChoicetoResetGuard() {
  * @return ret 
  */
 bool RoofControlComponent::fromChoicetoFinalState1Guard() {
-
 	return msg == CMD_STOP;
 }
 
@@ -185,7 +170,6 @@ bool RoofControlComponent::fromChoicetoFinalState1Guard() {
  * @return ret 
  */
 bool RoofControlComponent::fromInitializationtoPrincipalStateGuard() {
-
 	return init_bluetooth_communication();
 }
 
@@ -193,7 +177,6 @@ bool RoofControlComponent::fromInitializationtoPrincipalStateGuard() {
  * 
  */
 void RoofControlComponent::init() {
-
 	led_status.all_led_on();
 	usleep(50000);
 	led_status.all_led_off();
@@ -204,7 +187,6 @@ void RoofControlComponent::init() {
  * 
  */
 void RoofControlComponent::doActivityCheck() {
-
 	//CHECKPOINT
 }
 
@@ -212,7 +194,6 @@ void RoofControlComponent::doActivityCheck() {
  * 
  */
 void RoofControlComponent::sendStopProcessEvent() {
-
 	ev3Brick.soundDevice.tone(100, 100);
 	pFloatMotor.requiredIntf->float_motors(); //robotic_arm.float_motors();
 	pLargeMotor_Convoyer.requiredIntf->stop(); //conveyor.motor.stop(false);
@@ -230,7 +211,6 @@ void RoofControlComponent::sendStopProcessEvent() {
  * 
  */
 void RoofControlComponent::sendStopProcess() {
-
 	if (error_detection_is_misplace) {
 		showMisplacePartGUI();
 	} else {
@@ -247,7 +227,6 @@ void RoofControlComponent::sendStopProcess() {
  * 
  */
 void RoofControlComponent::send_restart_event() {
-
 	LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop s;
 	pOutRestart_Shelf.outIntf->push(s); //shelf.sendRestartAfterEmergencyStop(s);
 	pOutRestart_Robotic.outIntf->push(s); //robotic_arm.sendRestartAfterEmergencyStop(s);
@@ -260,7 +239,6 @@ void RoofControlComponent::send_restart_event() {
  * 
  */
 void RoofControlComponent::show_stop_GUI() {
-
 	showStopGUI();
 }
 
@@ -268,7 +246,6 @@ void RoofControlComponent::show_stop_GUI() {
  * 
  */
 void RoofControlComponent::read() {
-
 	bool stop = false;
 	while (!stop) {
 		string tmp_string = readFromMaster();
@@ -295,7 +272,6 @@ void RoofControlComponent::read() {
  * 
  */
 void RoofControlComponent::reset() {
-
 	write(MASTER_MODULE, RESULT_OK); //acknowledgement
 	pFloatMotor.requiredIntf->float_motors(); //robotic_arm.float_motors();
 	pLargeMotor_Convoyer.requiredIntf->stop(); //conveyor.motor.stop(false);
@@ -320,7 +296,6 @@ void RoofControlComponent::reset() {
  * 
  */
 void RoofControlComponent::ping_response() {
-
 	ping_response();
 }
 
@@ -328,7 +303,6 @@ void RoofControlComponent::ping_response() {
  * 
  */
 void RoofControlComponent::get_status_response() {
-
 	get_status_response();
 }
 
@@ -336,7 +310,6 @@ void RoofControlComponent::get_status_response() {
  * 
  */
 void RoofControlComponent::sendPrepareConveyorEvent() {
-
 	write(MASTER_MODULE, RESULT_OK); //acknowledgement	
 	manageGreenLights();
 	LegoCarFactoryRefactoringForSync::signals::PrepareConveyor s;
@@ -347,7 +320,6 @@ void RoofControlComponent::sendPrepareConveyorEvent() {
  * 
  */
 void RoofControlComponent::deliver() {
-
 	write(MASTER_MODULE, RESULT_OK); //acknowledgement	
 	manageGreenLights();
 	CarFactoryLibrary::events::DeliveredCarConveyor s;
@@ -358,7 +330,6 @@ void RoofControlComponent::deliver() {
  * 
  */
 void RoofControlComponent::rewind() {
-
 	write(MASTER_MODULE, RESULT_OK); //acknowledgement	
 	manageGreenLights();
 	//TODO:conveyor.rewind();

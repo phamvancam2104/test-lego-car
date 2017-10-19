@@ -5,13 +5,15 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_EV3Brick_CppDevice_BODY
 
 /************************************************************
- CppDevice class body
+              CppDevice class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppDevice.h"
 
 // Derived includes directives
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -27,18 +29,15 @@ namespace EV3Brick {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean CppDevice::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
-	return ((device*) &referencedDevice)->connect(dir, pattern, match);
+ ::PrimitiveTypes::Boolean CppDevice::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
+	return ((device*)&referencedDevice)->connect(dir , pattern , match);
 }
 
 /**
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppDevice::connected() {
+ ::PrimitiveTypes::Boolean CppDevice::connected() {
 	return referencedDevice.connected();
 }
 
@@ -46,7 +45,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppDevice::device_index() {
+ ::PrimitiveTypes::Integer CppDevice::device_index() {
 	return referencedDevice.device_index();
 }
 
@@ -55,9 +54,8 @@ namespace EV3Brick {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer CppDevice::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedDevice)->get_attr_int(name);
+ ::PrimitiveTypes::Integer CppDevice::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedDevice)->get_attr_int(name);
 }
 
 /**
@@ -66,10 +64,8 @@ namespace EV3Brick {
  * @param name 
  * @param value 
  */
-void CppDevice::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
-	((device*) &referencedDevice)->set_attr_int(name, value);
+ void CppDevice::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
+	((device*)&referencedDevice)->set_attr_int(name , value);
 }
 
 /**
@@ -77,9 +73,8 @@ void CppDevice::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppDevice::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedDevice)->get_attr_string(name);
+ ::EV3PapyrusLibrary::Types::LocalString CppDevice::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedDevice)->get_attr_string(name);
 }
 
 /**
@@ -88,10 +83,8 @@ void CppDevice::set_attr_int(
  * @param name 
  * @param value 
  */
-void CppDevice::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
-	((device*) &referencedDevice)->set_attr_string(name, value);
+ void CppDevice::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
+	((device*)&referencedDevice)->set_attr_string(name , value);
 }
 
 /**
@@ -99,9 +92,8 @@ void CppDevice::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppDevice::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedDevice)->get_attr_line(name);
+ ::EV3PapyrusLibrary::Types::LocalString CppDevice::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedDevice)->get_attr_line(name);
 }
 
 /**
@@ -110,10 +102,8 @@ void CppDevice::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppDevice::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
-	return ((device*) &referencedDevice)->get_attr_set(name, pCur);
+ ::EV3PapyrusLibrary::Types::ModeSet CppDevice::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
+	return ((device*)&referencedDevice)->get_attr_set(name , pCur);
 }
 
 /**
@@ -121,9 +111,8 @@ void CppDevice::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppDevice::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedDevice)->get_attr_from_set(name);
+ ::EV3PapyrusLibrary::Types::LocalString CppDevice::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedDevice)->get_attr_from_set(name);
 }
 
 /**
@@ -132,11 +121,13 @@ void CppDevice::set_attr_string(
 CppDevice::CppDevice() {
 }
 
+
+
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
 } // of namespace ConcreteClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppDevice class body
+              End of CppDevice class body
  ************************************************************/

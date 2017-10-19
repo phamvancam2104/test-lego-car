@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_AbstractClasses_Sensors_AbstractTouchSensor_BODY
 
 /************************************************************
- AbstractTouchSensor class body
+              AbstractTouchSensor class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/Sensors/AbstractTouchSensor.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/Sensors/ITouchSensor.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -25,7 +27,7 @@ namespace Sensors {
  * @return ret 
  * @param index 
  */
-::PrimitiveTypes::Integer AbstractTouchSensor::value(unsigned int /*in*/index) {
+ ::PrimitiveTypes::Integer AbstractTouchSensor::value(unsigned int /*in*/ index) {
 }
 
 /**
@@ -33,100 +35,98 @@ namespace Sensors {
  * @return ret 
  * @param index 
  */
-float AbstractTouchSensor::float_value(unsigned int /*in*/index) {
+ float AbstractTouchSensor::float_value(unsigned int /*in*/ index) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::type_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::type_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::bin_data_format() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::bin_data_format() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::CustomVectorChar AbstractTouchSensor::bin_data() {
+ ::EV3PapyrusLibrary::Types::CustomVectorChar AbstractTouchSensor::bin_data() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractTouchSensor::set_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractTouchSensor::set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractTouchSensor::commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractTouchSensor::commands() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractTouchSensor::decimals() {
+ ::PrimitiveTypes::Integer AbstractTouchSensor::decimals() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::driver_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::driver_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::mode() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::mode() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractTouchSensor::set_mode(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractTouchSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractTouchSensor::modes() {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractTouchSensor::modes() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractTouchSensor::num_values() {
+ ::PrimitiveTypes::Integer AbstractTouchSensor::num_values() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::port_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::port_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::units() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::units() {
 }
 
 /**
@@ -134,8 +134,7 @@ void AbstractTouchSensor::set_mode(
  * @return ret 
  * @param  
  */
-::PrimitiveTypes::Boolean AbstractTouchSensor::connect(
-		::EV3PapyrusLibrary::Types::MapStringSetString /*in*/) {
+ ::PrimitiveTypes::Boolean AbstractTouchSensor::connect(::EV3PapyrusLibrary::Types::MapStringSetString /*in*/ ) {
 }
 
 /**
@@ -145,24 +144,21 @@ void AbstractTouchSensor::set_mode(
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean AbstractTouchSensor::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
+ ::PrimitiveTypes::Boolean AbstractTouchSensor::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractTouchSensor::connected() {
+ ::PrimitiveTypes::Boolean AbstractTouchSensor::connected() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractTouchSensor::device_index() {
+ ::PrimitiveTypes::Integer AbstractTouchSensor::device_index() {
 }
 
 /**
@@ -170,8 +166,7 @@ void AbstractTouchSensor::set_mode(
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer AbstractTouchSensor::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name) {
+ ::PrimitiveTypes::Integer AbstractTouchSensor::get_attr_int(::EV3PapyrusLibrary::Types::LocalString /*in*/ name) {
 }
 
 /**
@@ -180,9 +175,7 @@ void AbstractTouchSensor::set_mode(
  * @param name 
  * @param value 
  */
-void AbstractTouchSensor::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
+ void AbstractTouchSensor::set_attr_int(::EV3PapyrusLibrary::Types::LocalString /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
 }
 
 /**
@@ -190,8 +183,7 @@ void AbstractTouchSensor::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::get_attr_string(::EV3PapyrusLibrary::Types::LocalString /*in*/ name) {
 }
 
 /**
@@ -200,9 +192,7 @@ void AbstractTouchSensor::set_attr_int(
  * @param name 
  * @param value 
  */
-void AbstractTouchSensor::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/value) {
+ void AbstractTouchSensor::set_attr_string(::EV3PapyrusLibrary::Types::LocalString /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString /*in*/ value) {
 }
 
 /**
@@ -210,8 +200,7 @@ void AbstractTouchSensor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::get_attr_line(::EV3PapyrusLibrary::Types::LocalString /*in*/ name) {
 }
 
 /**
@@ -220,9 +209,7 @@ void AbstractTouchSensor::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractTouchSensor::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/pCur) {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractTouchSensor::get_attr_set(::EV3PapyrusLibrary::Types::LocalString /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString /*in*/ pCur) {
 }
 
 /**
@@ -230,21 +217,22 @@ void AbstractTouchSensor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractTouchSensor::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString /*in*/ name) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractTouchSensor::isTouch() {
+ ::PrimitiveTypes::Boolean AbstractTouchSensor::isTouch() {
 }
+
+
 
 } // of namespace Sensors
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractTouchSensor class body
+              End of AbstractTouchSensor class body
  ************************************************************/

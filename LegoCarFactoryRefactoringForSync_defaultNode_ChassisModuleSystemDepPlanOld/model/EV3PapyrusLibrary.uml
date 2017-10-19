@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_e0buohklEeeSaotqwVljHg" name="EV3PapyrusLibrary">
-    <packagedElement xmi:type="uml:Package" xmi:id="_e0buoxklEeeSaotqwVljHg" name="Interfaces">
-      <packagedElement xmi:type="uml:Package" xmi:id="_e0cVwhklEeeSaotqwVljHg" name="EV3Brick">
+  <uml:Model xmi:id="_HuMS0rUYEee94q5Wi6avnA" name="EV3PapyrusLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_HuMS07UYEee94q5Wi6avnA" name="Interfaces">
+      <packagedElement xmi:type="uml:Package" xmi:id="_HuM55bUYEee94q5Wi6avnA" name="EV3Brick">
         <packagedElement xmi:type="uml:Interface" xmi:id="_Vqw6NrufEeWoXOFMIAWWaA" name="ILcd">
           <ownedOperation xmi:id="_Vqw6S7ufEeWoXOFMIAWWaA" name="available" visibility="public">
             <ownedParameter xmi:id="_Vqw6TLufEeWoXOFMIAWWaA" name="ret" direction="return">
@@ -497,7 +497,7 @@
           </ownedOperation>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_e6nPIxklEeeSaotqwVljHg" name="Sensors">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Hz1n1LUYEee94q5Wi6avnA" name="Sensors">
         <packagedElement xmi:type="uml:Interface" xmi:id="_Vq2ZyrufEeWoXOFMIAWWaA" name="ISensor">
           <generalization xmi:id="_Vq2Zy7ufEeWoXOFMIAWWaA" general="_VqvsELufEeWoXOFMIAWWaA"/>
           <ownedOperation xmi:id="_Vq2Z7rufEeWoXOFMIAWWaA" name="value" visibility="public">
@@ -579,7 +579,7 @@
           </ownedOperation>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_e7eKwhklEeeSaotqwVljHg" name="Actuators">
+      <packagedElement xmi:type="uml:Package" xmi:id="_H0iLYrUYEee94q5Wi6avnA" name="Actuators">
         <packagedElement xmi:type="uml:Interface" xmi:id="_Vqw6MLufEeWoXOFMIAWWaA" name="ILargeMotor">
           <generalization xmi:id="_Vqw6MbufEeWoXOFMIAWWaA" general="_VqzWdrufEeWoXOFMIAWWaA"/>
         </packagedElement>
@@ -891,7 +891,7 @@
         </packagedElement>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_e0jDYhklEeeSaotqwVljHg" name="Types">
+    <packagedElement xmi:type="uml:Package" xmi:id="_HuSZcrUYEee94q5Wi6avnA" name="Types">
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_yDQfoMkaEeWYC4KNqzxWOw" name="LocalString"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-vo0MDIsEealTsQJVHeUlg" name="TextSize"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_zC_zcMQ6EeWMDdeM9STG6A" name="MapStringSetString"/>
@@ -995,35 +995,35 @@
       <appliedProfile href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_16oYAD-SEeKj6r7ThQagKA"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_e0c8wBklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vqw6NrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ptr xmi:id="_e0gnIBklEeeSaotqwVljHg" base_parameter="_Vqw6WLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_e0jDZhklEeeSaotqwVljHg" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;#include &lt;stdio.h>" base_package="_e0jDYhklEeeSaotqwVljHg"/>
-  <C_Cpp:Typedef xmi:id="_e0jqchklEeeSaotqwVljHg" definition="std::string" base_primitivetype="_yDQfoMkaEeWYC4KNqzxWOw"/>
-  <C_Cpp:Typedef xmi:id="_e0kRgBklEeeSaotqwVljHg" definition="ev3dev::lcd::TextSize" base_primitivetype="_-vo0MDIsEealTsQJVHeUlg"/>
-  <C_Cpp:Include xmi:id="_e6nPIhklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vqt24LufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_e6nPJhklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vq2ZyrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_e6n2MBklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_VqvsELufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6n2MxklEeeSaotqwVljHg" base_parameter="_VqvsGLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6n2NRklEeeSaotqwVljHg" base_parameter="_VqvsGbufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Typedef xmi:id="_e6odQBklEeeSaotqwVljHg" definition="std::map&lt;std::string, std::set&lt;std::string>>" base_primitivetype="_zC_zcMQ6EeWMDdeM9STG6A"/>
-  <C_Cpp:Ref xmi:id="_e6odQRklEeeSaotqwVljHg" base_parameter="_VqvsGrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6qScBklEeeSaotqwVljHg" base_parameter="_VqvsIbufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6qSdBklEeeSaotqwVljHg" base_parameter="_VqvsJLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6q5gBklEeeSaotqwVljHg" base_parameter="_VqvsKLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6q5hBklEeeSaotqwVljHg" base_parameter="_VqvsK7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6q5hhklEeeSaotqwVljHg" base_parameter="_VqvsLLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6rgkBklEeeSaotqwVljHg" base_parameter="_VqvsL7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Typedef xmi:id="_e6rglBklEeeSaotqwVljHg" definition="ev3dev::mode_set" base_primitivetype="_s4reEL-LEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6sHoBklEeeSaotqwVljHg" base_parameter="_VqvsMrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ptr xmi:id="_e6sHoxklEeeSaotqwVljHg" base_parameter="_VqvsM7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_e6susRklEeeSaotqwVljHg" base_parameter="_VqvsN7ufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Typedef xmi:id="_e6uj4hklEeeSaotqwVljHg" definition="std::vector&lt;char>" base_primitivetype="_aRzBsMvwEeWAr_trtbj9nQ"/>
-  <C_Cpp:Include xmi:id="_e7ex0hklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vqw6MLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_e7ex1RklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_VqzWdrufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_fCA3oxklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vq3n4LufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_fLGiNBklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_VqxhQLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_fLm4ghklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_VqsowLufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_fMd0JBklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vq4O8LufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Ref xmi:id="_fMfCQhklEeeSaotqwVljHg" base_parameter="_Vq4PArufEeWoXOFMIAWWaA"/>
-  <C_Cpp:Include xmi:id="_fM2OoBklEeeSaotqwVljHg" header="#include &lt;stdint.h>" base_Classifier="_Vq42CLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_HuM56LUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vqw6NrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ptr xmi:id="_HuQkQLUYEee94q5Wi6avnA" base_parameter="_Vqw6WLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_HuSZdrUYEee94q5Wi6avnA" header="#include &quot;ev3dev.h&quot;&#xD;&#xA;#include &lt;stdio.h>" base_package="_HuSZcrUYEee94q5Wi6avnA"/>
+  <C_Cpp:Typedef xmi:id="_HuTAgLUYEee94q5Wi6avnA" definition="std::string" base_primitivetype="_yDQfoMkaEeWYC4KNqzxWOw"/>
+  <C_Cpp:Typedef xmi:id="_HuTnkLUYEee94q5Wi6avnA" definition="ev3dev::lcd::TextSize" base_primitivetype="_-vo0MDIsEealTsQJVHeUlg"/>
+  <C_Cpp:Include xmi:id="_Hz1n07UYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vqt24LufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_Hz2O4LUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vq2ZyrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_Hz2O47UYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_VqvsELufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz2O5rUYEee94q5Wi6avnA" base_parameter="_VqvsGLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz218LUYEee94q5Wi6avnA" base_parameter="_VqvsGbufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_Hz2187UYEee94q5Wi6avnA" definition="std::map&lt;std::string, std::set&lt;std::string>>" base_primitivetype="_zC_zcMQ6EeWMDdeM9STG6A"/>
+  <C_Cpp:Ref xmi:id="_Hz219LUYEee94q5Wi6avnA" base_parameter="_VqvsGrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz4rILUYEee94q5Wi6avnA" base_parameter="_VqvsIbufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz4rJLUYEee94q5Wi6avnA" base_parameter="_VqvsJLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz5SM7UYEee94q5Wi6avnA" base_parameter="_VqvsKLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz55QbUYEee94q5Wi6avnA" base_parameter="_VqvsK7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz55Q7UYEee94q5Wi6avnA" base_parameter="_VqvsLLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz55R7UYEee94q5Wi6avnA" base_parameter="_VqvsL7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_Hz6gU7UYEee94q5Wi6avnA" definition="ev3dev::mode_set" base_primitivetype="_s4reEL-LEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz7HYLUYEee94q5Wi6avnA" base_parameter="_VqvsMrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ptr xmi:id="_Hz7HY7UYEee94q5Wi6avnA" base_parameter="_VqvsM7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_Hz7ucLUYEee94q5Wi6avnA" base_parameter="_VqvsN7ufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Typedef xmi:id="_Hz9jpLUYEee94q5Wi6avnA" definition="std::vector&lt;char>" base_primitivetype="_aRzBsMvwEeWAr_trtbj9nQ"/>
+  <C_Cpp:Include xmi:id="_H0iycLUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vqw6MLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_H0iyc7UYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_VqzWdrufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_H5-sELUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vq3n4LufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_IDemUrUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_VqxhQLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_ID9HcLUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_VqsowLufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_IErgMLUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vq4O8LufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Ref xmi:id="_IEsuUrUYEee94q5Wi6avnA" base_parameter="_Vq4PArufEeWoXOFMIAWWaA"/>
+  <C_Cpp:Include xmi:id="_IFFv4LUYEee94q5Wi6avnA" header="#include &lt;stdint.h>" base_Classifier="_Vq42CLufEeWoXOFMIAWWaA"/>
 </xmi:XMI>

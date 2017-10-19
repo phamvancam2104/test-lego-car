@@ -278,7 +278,7 @@ void CppServoMotor::set_attr_string(
  * @param port_ 
  */
 CppServoMotor::CppServoMotor(::EV3PapyrusLibrary::Types::PortType /*in*/port_) :
-		referencedServo_motor(port_), cppservomotorController(this) {
+		referencedServo_motor(port_) {
 }
 
 } // of namespace Actuators

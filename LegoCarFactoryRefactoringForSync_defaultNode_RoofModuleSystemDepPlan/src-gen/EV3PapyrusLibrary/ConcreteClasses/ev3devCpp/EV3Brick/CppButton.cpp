@@ -50,7 +50,7 @@ namespace EV3Brick {
  * @param index 
  */
 CppButton::CppButton(::PrimitiveTypes::Integer /*in*/index) :
-		referencedButton(index), cppbuttonController(this) {
+		referencedButton(index) {
 }
 
 } // of namespace EV3Brick

@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_INTERFACES_ACTUATORS_ISERVOMOTOR_H
 
 /************************************************************
- IServoMotor class header
+              IServoMotor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Interfaces/Actuators/Pkg_Actuators.h"
@@ -20,6 +20,7 @@
 #include <stdint.h>
 // End of Include stereotype (header)
 
+
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
@@ -28,114 +29,117 @@ namespace Actuators {
 /**
  * 
  */
-class IServoMotor: public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IDevice {
-public:
+class IServoMotor : 
+public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IDevice	
+ {
+	public:
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_command(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString driver_name() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString driver_name() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer max_pulse_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer max_pulse_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_max_pulse_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_max_pulse_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer mid_pulse_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer mid_pulse_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_mid_pulse_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_mid_pulse_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer min_pulse_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer min_pulse_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_min_pulse_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_min_pulse_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString polarity() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString polarity() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_polarity(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString port_name() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString port_name() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer position_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer position_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_position_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_position_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer rate_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer rate_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_rate_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_rate_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::ModeSet state() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::ModeSet state() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void run() = 0;
+	virtual  void run() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void float_() = 0;
+	virtual  void float_() = 0;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Actuators
 } // of namespace Interfaces
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of IServoMotor class header
+              End of IServoMotor class header
  ************************************************************/
 
 #endif

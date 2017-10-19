@@ -2,7 +2,7 @@
 #define PKG_MINDSENSORSPAPYRUSLIBRARY_TYPES
 
 /************************************************************
- Pkg_Types package header
+              Pkg_Types package header
  ************************************************************/
 
 #include "MindsensorsPapyrusLibrary/Pkg_MindsensorsPapyrusLibrary.h"
@@ -17,6 +17,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
@@ -30,13 +31,14 @@ namespace Types {
 /**
  * 
  */
-typedef std::vector<EV3PapyrusLibrary::Types::LocalString> VectorLocalString;
-
+typedef std::vector<EV3PapyrusLibrary::Types::LocalString> 
+	VectorLocalString;
+	
 } // of namespace Types
 } // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of Pkg_Types package header
+              End of Pkg_Types package header
  ************************************************************/
 
 #endif

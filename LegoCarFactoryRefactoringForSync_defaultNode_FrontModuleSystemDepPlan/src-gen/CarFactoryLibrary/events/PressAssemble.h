@@ -6,10 +6,13 @@
 #define CARFACTORYLIBRARY_EVENTS_PRESSASSEMBLE_H
 
 /************************************************************
- PressAssemble class header
+              PressAssemble class header
  ************************************************************/
 
 #include "CarFactoryLibrary/events/Pkg_events.h"
+
+
+
 
 namespace CarFactoryLibrary {
 namespace events {
@@ -20,18 +23,21 @@ namespace events {
  */
 class PressAssemble {
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace events
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of PressAssemble class header
+              End of PressAssemble class header
  ************************************************************/
 
 #endif

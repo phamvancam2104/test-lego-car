@@ -2,8 +2,9 @@
 #define PKG_EV3DEV_CPP
 
 /************************************************************
- Pkg_ev3dev_Cpp package header
+              Pkg_ev3dev_Cpp package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,9 +16,11 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace ev3dev_Cpp {
@@ -26,17 +29,19 @@ namespace ev3dev_Cpp {
 /**
  * 
  */
-typedef std::set<mode_type> mode_set;
-
+typedef std::set<mode_type>
+	mode_set;
+	
 /**
  * 
  */
-typedef std::string port_type;
-
+typedef std::string
+	port_type;
+	
 } // of namespace ev3dev_Cpp
 
 /************************************************************
- End of Pkg_ev3dev_Cpp package header
+              End of Pkg_ev3dev_Cpp package header
  ************************************************************/
 
 #endif

@@ -43,13 +43,85 @@ namespace BootLoaderCpp {
  * 
  */
 void BootLoader::init() {
-	mainInstance.roofmodulesystemController.createConnections();
+	mainInstance.press.motor.CppLargeMotorDelegatee.setComponent(
+			&(mainInstance.press.motor));
+	mainInstance.press.SlavePressDelegatee.setComponent(&(mainInstance.press));
+	mainInstance.shelf.rack_3.color_sensor.CppColorSensorDelegatee.setComponent(
+			&(mainInstance.shelf.rack_3.color_sensor));
+	mainInstance.shelf.rack_3.RackDelegatee.setComponent(
+			&(mainInstance.shelf.rack_3));
+	mainInstance.shelf.rack_2.color_sensor.CppColorSensorDelegatee.setComponent(
+			&(mainInstance.shelf.rack_2.color_sensor));
+	mainInstance.shelf.rack_2.RackDelegatee.setComponent(
+			&(mainInstance.shelf.rack_2));
+	mainInstance.shelf.rack_1.color_sensor.CppColorSensorDelegatee.setComponent(
+			&(mainInstance.shelf.rack_1.color_sensor));
+	mainInstance.shelf.rack_1.RackDelegatee.setComponent(
+			&(mainInstance.shelf.rack_1));
+	mainInstance.shelf.SlaveShelfDelegatee.setComponent(&(mainInstance.shelf));
+	mainInstance.robotic_arm.motor_right_left.CppServoMotorDelegatee.setComponent(
+			&(mainInstance.robotic_arm.motor_right_left));
+	mainInstance.robotic_arm.motor_front_back.CppServoMotorDelegatee.setComponent(
+			&(mainInstance.robotic_arm.motor_front_back));
+	mainInstance.robotic_arm.motor_up_down.CppServoMotorDelegatee.setComponent(
+			&(mainInstance.robotic_arm.motor_up_down));
+	mainInstance.robotic_arm.RoofRoboticArmDelegatee.setComponent(
+			&(mainInstance.robotic_arm));
+	mainInstance.convoyer.color_sensor.CppColorSensorDelegatee.setComponent(
+			&(mainInstance.convoyer.color_sensor));
+	mainInstance.convoyer.motor.CppLargeMotorDelegatee.setComponent(
+			&(mainInstance.convoyer.motor));
+	mainInstance.convoyer.RoofConvoyerDelegatee.setComponent(
+			&(mainInstance.convoyer));
+	mainInstance.control.emergency_button.CppTouchSensorDelegatee.setComponent(
+			&(mainInstance.control.emergency_button));
+	mainInstance.control.ev3Brick.bluetoothDevice.CppBlutoothDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.bluetoothDevice));
+	mainInstance.control.ev3Brick.soundDevice.CppSoundDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.soundDevice));
+	mainInstance.control.ev3Brick.lcdScreen.CppLcdDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.lcdScreen));
+	mainInstance.control.ev3Brick.okButton.CppButtonDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.okButton));
+	mainInstance.control.ev3Brick.downButton.CppButtonDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.downButton));
+	mainInstance.control.ev3Brick.topButton.CppButtonDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.topButton));
+	mainInstance.control.ev3Brick.rightButton.CppButtonDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.rightButton));
+	mainInstance.control.ev3Brick.leftButton.CppButtonDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.leftButton));
+	mainInstance.control.ev3Brick.backButton.CppButtonDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.backButton));
+	mainInstance.control.ev3Brick.rightRedLed.CppLedDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.rightRedLed));
+	mainInstance.control.ev3Brick.leftRedLed.CppLedDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.leftRedLed));
+	mainInstance.control.ev3Brick.rightGreenLed.CppLedDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.rightGreenLed));
+	mainInstance.control.ev3Brick.leftGreenLed.CppLedDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick.leftGreenLed));
+	mainInstance.control.ev3Brick.CppEV3BrickDelegatee.setComponent(
+			&(mainInstance.control.ev3Brick));
+	mainInstance.control.RoofControlComponentDelegatee.setComponent(
+			&(mainInstance.control));
+	mainInstance.RoofModuleSystemDelegatee.setComponent(&mainInstance);
+	mainInstance.RoofModuleSystemDelegatee.createConnections();
 
-	mainInstance.control.roofcontrolcomponentController.startBehavior();
-	mainInstance.convoyer.roofconvoyerController.startBehavior();
-	mainInstance.robotic_arm.roofroboticarmController.startBehavior();
-	mainInstance.shelf.slaveshelfController.startBehavior();
-	mainInstance.press.slavepressController.startBehavior();
+	mainInstance.control.RoofControlComponentDelegatee.configure_queue_size();
+	mainInstance.control.RoofControlComponentDelegatee.startBehavior();
+	mainInstance.convoyer.RoofConvoyerDelegatee.configure_queue_size();
+	mainInstance.convoyer.RoofConvoyerDelegatee.startBehavior();
+	mainInstance.robotic_arm.RoofRoboticArmDelegatee.configure_queue_size();
+	mainInstance.robotic_arm.RoofRoboticArmDelegatee.startBehavior();
+	mainInstance.shelf.SlaveShelfDelegatee.configure_queue_size();
+	mainInstance.shelf.SlaveShelfDelegatee.startBehavior();
+	mainInstance.press.SlavePressDelegatee.configure_queue_size();
+	mainInstance.press.SlavePressDelegatee.startBehavior();
+	//do we always really need a default infinitive loop?
+	for (;;) {
+		//do nothing
+	}
 }
 
 } // of namespace BootLoaderCpp

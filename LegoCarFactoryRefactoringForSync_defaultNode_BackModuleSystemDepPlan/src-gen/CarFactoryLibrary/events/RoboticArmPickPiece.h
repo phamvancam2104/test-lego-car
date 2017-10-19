@@ -6,12 +6,14 @@
 #define CARFACTORYLIBRARY_EVENTS_ROBOTICARMPICKPIECE_H
 
 /************************************************************
- RoboticArmPickPiece class header
+              RoboticArmPickPiece class header
  ************************************************************/
 
 #include "CarFactoryLibrary/events/Pkg_events.h"
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
+
+
 
 namespace CarFactoryLibrary {
 namespace events {
@@ -21,24 +23,27 @@ namespace events {
  * 
  */
 class RoboticArmPickPiece {
-public:
+	public:
 	/**
 	 * 
 	 */
-	int rack_number;
+	 int rack_number;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace events
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of RoboticArmPickPiece class header
+              End of RoboticArmPickPiece class header
  ************************************************************/
 
 #endif

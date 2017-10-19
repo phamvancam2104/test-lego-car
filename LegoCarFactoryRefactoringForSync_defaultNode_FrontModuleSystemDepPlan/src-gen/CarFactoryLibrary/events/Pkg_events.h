@@ -2,7 +2,7 @@
 #define PKG_CARFACTORYLIBRARY_EVENTS
 
 /************************************************************
- Pkg_events package header
+              Pkg_events package header
  ************************************************************/
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace CarFactoryLibrary {
 namespace events {
 
 // Types defined within the package
-}// of namespace events
+} // of namespace events
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Pkg_events package header
+              End of Pkg_events package header
  ************************************************************/
 
 #endif

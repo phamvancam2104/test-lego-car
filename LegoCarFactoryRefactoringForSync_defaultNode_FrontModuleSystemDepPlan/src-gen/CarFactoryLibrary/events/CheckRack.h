@@ -6,12 +6,14 @@
 #define CARFACTORYLIBRARY_EVENTS_CHECKRACK_H
 
 /************************************************************
- CheckRack class header
+              CheckRack class header
  ************************************************************/
 
 #include "CarFactoryLibrary/events/Pkg_events.h"
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
+
+
 
 namespace CarFactoryLibrary {
 namespace events {
@@ -21,24 +23,27 @@ namespace events {
  * 
  */
 class CheckRack {
-public:
+	public:
 	/**
 	 * 
 	 */
-	::CarFactoryLibrary::Colors color;
+	 ::CarFactoryLibrary::Colors color;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace events
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of CheckRack class header
+              End of CheckRack class header
  ************************************************************/
 
 #endif

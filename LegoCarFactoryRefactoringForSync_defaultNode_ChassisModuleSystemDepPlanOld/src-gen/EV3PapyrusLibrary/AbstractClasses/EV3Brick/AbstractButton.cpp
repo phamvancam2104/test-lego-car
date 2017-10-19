@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_AbstractClasses_EV3Brick_AbstractButton_BODY
 
 /************************************************************
- AbstractButton class body
+              AbstractButton class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractButton.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -24,27 +26,29 @@ namespace EV3Brick {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractButton::pressed() {
+ ::PrimitiveTypes::Boolean AbstractButton::pressed() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractButton::process() {
+ ::PrimitiveTypes::Boolean AbstractButton::process() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractButton::process_all() {
+ ::PrimitiveTypes::Boolean AbstractButton::process_all() {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractButton class body
+              End of AbstractButton class body
  ************************************************************/

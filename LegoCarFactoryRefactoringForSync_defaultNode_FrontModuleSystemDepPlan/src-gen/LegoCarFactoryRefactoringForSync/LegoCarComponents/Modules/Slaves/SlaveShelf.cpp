@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Slaves_SlaveShelf_BODY
 
 /************************************************************
- SlaveShelf class body
+              SlaveShelf class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlaveShelf.h"
@@ -18,6 +19,7 @@
 #include "CarFactoryLibrary/events/RoboticArmPickPiece.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -31,15 +33,15 @@ namespace Slaves {
  */
 void SlaveShelf::sendRoboticArmPickPieceEvent() {
 	CarFactoryLibrary::events::RoboticArmPickPiece s;
-	s.rack_number = which_rack;
-	pPickPiece.outIntf->push(s);//get_roboticArm()->sendRoboticArmPickPiece(s);
+		s.rack_number = which_rack;
+		pPickPiece.outIntf->push(s);//get_roboticArm()->sendRoboticArmPickPiece(s);
 }
 
 /**
  * 
  * @return ret 
  */
-::CarFactoryLibrary::BluetoothSlaveEnum SlaveShelf::get_status() {
+ ::CarFactoryLibrary::BluetoothSlaveEnum SlaveShelf::get_status() {
 	return pModule.requiredIntf->getStatus();
 }
 
@@ -47,8 +49,7 @@ void SlaveShelf::sendRoboticArmPickPieceEvent() {
  * 
  * @param status 
  */
-void SlaveShelf::set_status(
-		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
+void SlaveShelf::set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status) {
 	pModule.requiredIntf->setStatus(status);
 }
 
@@ -56,16 +57,15 @@ void SlaveShelf::set_status(
  * 
  * @param sig 
  */
-void SlaveShelf::save_which_rack(
-		::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
-	which_rack = sig.color;
+void SlaveShelf::save_which_rack(::CarFactoryLibrary::events::CheckRack& /*in*/ sig) {
+	which_rack =sig.color;
 }
 
 /**
  * 
  * @return ret 
  */
-bool SlaveShelf::fromWhich_racktoNoEmptyRackGuard() {
+ bool SlaveShelf::() {
 	return !is_empty(which_rack);
 }
 
@@ -75,17 +75,17 @@ bool SlaveShelf::fromWhich_racktoNoEmptyRackGuard() {
 void SlaveShelf::sendErrorDetectionEvent() {
 	CarFactoryLibrary::events::ErrorDetection s;
 	s.is_misplace = false;
-	pErrDetect.outIntf->push(s);//get_module()->sendErrorDetection(s);
+	get_module()->sendErrorDetection(s);
 	set_status(CarFactoryLibrary::RESULT_ERROR);
 }
 
 /**
  * 
  */
-SlaveShelf::SlaveShelf() :
-		::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2"), slaveshelfController(
-				this) {
+SlaveShelf::SlaveShelf(): ::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2") {
 }
+
+
 
 } // of namespace Slaves
 } // of namespace Modules
@@ -93,5 +93,5 @@ SlaveShelf::SlaveShelf() :
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of SlaveShelf class body
+              End of SlaveShelf class body
  ************************************************************/

@@ -44,7 +44,7 @@ void SlavePress::effectFromChoicetoPress() {
  * 
  * @return ret 
  */
-bool SlavePress::fromChoicetoGoTopPressGuard() {
+bool SlavePress::() {
 	return counter == 2;
 }
 
@@ -80,7 +80,7 @@ void SlavePress::assemble() {
  * 
  */
 SlavePress::SlavePress() :
-		CarFactoryLibrary::Press("outD"), slavepressController(this) {
+		CarFactoryLibrary::Press("outD") {
 }
 
 } // of namespace Slaves

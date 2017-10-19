@@ -2,8 +2,9 @@
 #define PKG_BOOTLOADERCPP
 
 /************************************************************
- Pkg_BootLoaderCpp package header
+              Pkg_BootLoaderCpp package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,18 +16,20 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace BootLoaderCpp {
 
 // Types defined within the package
-}// of namespace BootLoaderCpp
+} // of namespace BootLoaderCpp
 
 /************************************************************
- End of Pkg_BootLoaderCpp package header
+              End of Pkg_BootLoaderCpp package header
  ************************************************************/
 
 #endif

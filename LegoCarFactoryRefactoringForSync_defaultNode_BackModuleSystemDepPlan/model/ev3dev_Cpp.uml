@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_W0PeYSBLEee-iMjYxC0caQ" name="ev3dev_Cpp">
+  <uml:Model xmi:id="_OdhRkLUYEee94q5Wi6avnA" name="ev3dev_Cpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_f3Solrh-EeWbZ5V_nFbu7g" name="device">
       <ownedAttribute xmi:id="_f_6ZErh-EeWbZ5V_nFbu7g" name="_path" visibility="protected" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
       <ownedAttribute xmi:id="_f_6ZE7h-EeWbZ5V_nFbu7g" name="_device_index" visibility="protected">
@@ -101,7 +101,7 @@ eturn _device_index;</body>
         <ownedParameter xmi:id="_f_woI7h-EeWbZ5V_nFbu7g" name="name" type="_f_KyMrh-EeWbZ5V_nFbu7g"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_W0QFciBLEee-iMjYxC0caQ" name="external">
+    <packagedElement xmi:type="uml:Package" xmi:id="_OdifsLUYEee94q5Wi6avnA" name="external">
       <packagedElement xmi:type="uml:DataType" xmi:id="_f_KyMrh-EeWbZ5V_nFbu7g" name="string"/>
       <packagedElement xmi:type="uml:DataType" xmi:id="_f_UjM7h-EeWbZ5V_nFbu7g" name="Map_String__Set_String">
         <ownedComment xmi:id="_H1YWsMQOEeW0VLtHtqlTkw" annotatedElement="_f_UjM7h-EeWbZ5V_nFbu7g"/>
@@ -2313,212 +2313,212 @@ os &lt;&lt; v;
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_W0QFcCBLEee-iMjYxC0caQ" base_class="_f3Solrh-EeWbZ5V_nFbu7g" base_Classifier="_f3Solrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W0QFcSBLEee-iMjYxC0caQ" base_Classifier="_f3Solrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:NoCodeGen xmi:id="_W0QFdCBLEee-iMjYxC0caQ" base_element="_W0QFciBLEee-iMjYxC0caQ"/>
-  <C_Cpp:External xmi:id="_W0QFdSBLEee-iMjYxC0caQ" base_Classifier="_f_KyMrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Inline xmi:id="_W0RTkCBLEee-iMjYxC0caQ" base_operation="_f_UjOLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0RTkSBLEee-iMjYxC0caQ" base_parameter="_f_UjOrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0R6oiBLEee-iMjYxC0caQ" base_parameter="_f_UjPrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0ShsyBLEee-iMjYxC0caQ" base_parameter="_f_KyNLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0ShtCBLEee-iMjYxC0caQ" base_parameter="_f_KyNLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0ShtiBLEee-iMjYxC0caQ" base_parameter="_f_UjMLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0ShtyBLEee-iMjYxC0caQ" base_parameter="_f_UjMLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W0TIwSBLEee-iMjYxC0caQ" name="map&lt;string,set&lt;string>>" base_Classifier="_f_UjM7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0TIwiBLEee-iMjYxC0caQ" base_parameter="_f_UjNbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0TIwyBLEee-iMjYxC0caQ" base_parameter="_f_UjNbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0UW4SBLEee-iMjYxC0caQ" base_parameter="_f_dtIrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0UW4yBLEee-iMjYxC0caQ" base_parameter="_f_dtJLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0UW5CBLEee-iMjYxC0caQ" base_parameter="_f_dtJLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0U98iBLEee-iMjYxC0caQ" base_parameter="_f_dtKbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0U98yBLEee-iMjYxC0caQ" base_parameter="_f_dtKbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0U99yBLEee-iMjYxC0caQ" base_parameter="_f_neIrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0VlACBLEee-iMjYxC0caQ" base_parameter="_f_neJLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0VlASBLEee-iMjYxC0caQ" base_parameter="_f_neJLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0WMECBLEee-iMjYxC0caQ" base_parameter="_f_neKbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0WMESBLEee-iMjYxC0caQ" base_parameter="_f_neKbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0WMEyBLEee-iMjYxC0caQ" base_parameter="_f_neLLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0WMFCBLEee-iMjYxC0caQ" base_parameter="_f_neLLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0WzISBLEee-iMjYxC0caQ" base_parameter="_f_woErh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0WzIyBLEee-iMjYxC0caQ" base_parameter="_f_woFLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0WzJCBLEee-iMjYxC0caQ" base_parameter="_f_woFLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Typedef xmi:id="_W0XaMiBLEee-iMjYxC0caQ" definition="std::set&lt;mode_type>" base_primitivetype="_f3Sokrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W0XaMyBLEee-iMjYxC0caQ" base_Classifier="_f3Sokrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0XaNCBLEee-iMjYxC0caQ" base_parameter="_f_woGLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0ZPYCBLEee-iMjYxC0caQ" base_parameter="_f_woGrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0ZPYSBLEee-iMjYxC0caQ" base_parameter="_f_woGrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ptr xmi:id="_W0ZPZCBLEee-iMjYxC0caQ" base_parameter="_f_woHbh-EeWbZ5V_nFbu7g" declaration="*"/>
-  <C_Cpp:Const xmi:id="_W0Z2cSBLEee-iMjYxC0caQ" base_parameter="_f_woIbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W0Z2cyBLEee-iMjYxC0caQ" base_parameter="_f_woI7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W0Z2dCBLEee-iMjYxC0caQ" base_parameter="_f_woI7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_W1GaAyBLEee-iMjYxC0caQ" base_class="_gFHCK7h-EeWbZ5V_nFbu7g" base_Classifier="_gFHCK7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W1GaBCBLEee-iMjYxC0caQ" base_Classifier="_gFHCK7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1HBECBLEee-iMjYxC0caQ" base_property="_gFHCL7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1HBEiBLEee-iMjYxC0caQ" base_property="_gFHCMbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1IPMCBLEee-iMjYxC0caQ" base_property="_gFHCM7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1I2QCBLEee-iMjYxC0caQ" base_property="_gFHCNbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W1LSgCBLEee-iMjYxC0caQ" base_Classifier="_gAXFCbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1OV0SBLEee-iMjYxC0caQ" base_parameter="_gFQzJrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1O84iBLEee-iMjYxC0caQ" base_parameter="_gFQzKrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1SnQiBLEee-iMjYxC0caQ" base_parameter="_gFakILh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1UccCBLEee-iMjYxC0caQ" base_parameter="_gFakKLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1VqkSBLEee-iMjYxC0caQ" base_parameter="_gFjuEbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1YG0CBLEee-iMjYxC0caQ" base_parameter="_gFjuGbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1YG1CBLEee-iMjYxC0caQ" base_parameter="_gFjuHbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1ZU8SBLEee-iMjYxC0caQ" base_parameter="_gFtfErh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W1ajEyBLEee-iMjYxC0caQ" base_parameter="_gFtfGrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Typedef xmi:id="_W1dmYCBLEee-iMjYxC0caQ" definition="std::string" base_primitivetype="_f3I3n7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W1dmYSBLEee-iMjYxC0caQ" base_Classifier="_f3I3n7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_W8VDYyBLEee-iMjYxC0caQ" base_class="_N4CnAObcEeWJFIMNgBB27A" base_Classifier="_N4CnAObcEeWJFIMNgBB27A"/>
-  <C_Cpp:External xmi:id="_W8VDZCBLEee-iMjYxC0caQ" base_Classifier="_N4CnAObcEeWJFIMNgBB27A"/>
-  <C_Cpp:External xmi:id="_W8VqcSBLEee-iMjYxC0caQ" base_Classifier="_gAXFA7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W8WRhSBLEee-iMjYxC0caQ" name="std::vector&lt;EV3PapyrusLibrary::Types::LocalString>" base_Classifier="_OFWLgOeSEeW5Q61Wstt_xQ"/>
-  <C_Cpp:Const xmi:id="_W8W4kyBLEee-iMjYxC0caQ" base_parameter="_-MqCMerLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8XfoiBLEee-iMjYxC0caQ" base_parameter="_-MtskerLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8YGsSBLEee-iMjYxC0caQ" base_parameter="_-MwI0erLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8YtwyBLEee-iMjYxC0caQ" base_parameter="_-M0aQerLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8ZU0iBLEee-iMjYxC0caQ" base_parameter="_-M22gerLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8Z74SBLEee-iMjYxC0caQ" base_parameter="_-Mnl8erLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8Z75SBLEee-iMjYxC0caQ" base_parameter="_-MrQUerLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Ref xmi:id="_W8Z75iBLEee-iMjYxC0caQ" base_parameter="_-MrQUerLEeWaiccf-oyb9Q"/>
-  <C_Cpp:Const xmi:id="_W8ai8yBLEee-iMjYxC0caQ" base_parameter="_4o_Z4ubcEeWJFIMNgBB27A"/>
-  <C_Cpp:Ref xmi:id="_W8ai9CBLEee-iMjYxC0caQ" base_parameter="_4o_Z4ubcEeWJFIMNgBB27A"/>
+  <C_Cpp:Include xmi:id="_Odh4obUYEee94q5Wi6avnA" base_class="_f3Solrh-EeWbZ5V_nFbu7g" base_Classifier="_f3Solrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_Odh4orUYEee94q5Wi6avnA" base_Classifier="_f3Solrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:NoCodeGen xmi:id="_OdjGwbUYEee94q5Wi6avnA" base_element="_OdifsLUYEee94q5Wi6avnA"/>
+  <C_Cpp:External xmi:id="_Odjt0LUYEee94q5Wi6avnA" base_Classifier="_f_KyMrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Inline xmi:id="_OdljALUYEee94q5Wi6avnA" base_operation="_f_UjOLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdljAbUYEee94q5Wi6avnA" base_parameter="_f_UjOrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdnYMbUYEee94q5Wi6avnA" base_parameter="_f_UjPrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odn_QrUYEee94q5Wi6avnA" base_parameter="_f_KyNLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_Odn_Q7UYEee94q5Wi6avnA" base_parameter="_f_KyNLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdomULUYEee94q5Wi6avnA" base_parameter="_f_UjMLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OdomUbUYEee94q5Wi6avnA" base_parameter="_f_UjMLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_OdpNYbUYEee94q5Wi6avnA" name="map&lt;string,set&lt;string>>" base_Classifier="_f_UjM7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odp0cLUYEee94q5Wi6avnA" base_parameter="_f_UjNbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_Odp0cbUYEee94q5Wi6avnA" base_parameter="_f_UjNbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdqbgbUYEee94q5Wi6avnA" base_parameter="_f_dtIrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odqbg7UYEee94q5Wi6avnA" base_parameter="_f_dtJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OdqbhLUYEee94q5Wi6avnA" base_parameter="_f_dtJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdrCkrUYEee94q5Wi6avnA" base_parameter="_f_dtKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OdrCk7UYEee94q5Wi6avnA" base_parameter="_f_dtKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdsQsLUYEee94q5Wi6avnA" base_parameter="_f_neIrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdsQsrUYEee94q5Wi6avnA" base_parameter="_f_neJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OdsQs7UYEee94q5Wi6avnA" base_parameter="_f_neJLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odte0LUYEee94q5Wi6avnA" base_parameter="_f_neKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_Odte0bUYEee94q5Wi6avnA" base_parameter="_f_neKbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odte07UYEee94q5Wi6avnA" base_parameter="_f_neLLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_Odte1LUYEee94q5Wi6avnA" base_parameter="_f_neLLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odus8LUYEee94q5Wi6avnA" base_parameter="_f_woErh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odus8rUYEee94q5Wi6avnA" base_parameter="_f_woFLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_Odus87UYEee94q5Wi6avnA" base_parameter="_f_woFLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_Odv7ELUYEee94q5Wi6avnA" definition="std::set&lt;mode_type>" base_primitivetype="_f3Sokrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_Odv7EbUYEee94q5Wi6avnA" base_Classifier="_f3Sokrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Odv7ErUYEee94q5Wi6avnA" base_parameter="_f_woGLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdwiILUYEee94q5Wi6avnA" base_parameter="_f_woGrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OdwiIbUYEee94q5Wi6avnA" base_parameter="_f_woGrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ptr xmi:id="_OdwiJLUYEee94q5Wi6avnA" base_parameter="_f_woHbh-EeWbZ5V_nFbu7g" declaration="*"/>
+  <C_Cpp:Const xmi:id="_OdxwQbUYEee94q5Wi6avnA" base_parameter="_f_woIbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OdyXULUYEee94q5Wi6avnA" base_parameter="_f_woI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OdyXUbUYEee94q5Wi6avnA" base_parameter="_f_woI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_OejMUbUYEee94q5Wi6avnA" base_class="_gFHCK7h-EeWbZ5V_nFbu7g" base_Classifier="_gFHCK7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_OejMUrUYEee94q5Wi6avnA" base_Classifier="_gFHCK7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OejzYLUYEee94q5Wi6avnA" base_property="_gFHCL7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OekacLUYEee94q5Wi6avnA" base_property="_gFHCMbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OelBgLUYEee94q5Wi6avnA" base_property="_gFHCM7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OelokLUYEee94q5Wi6avnA" base_property="_gFHCNbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_Oem2sLUYEee94q5Wi6avnA" base_Classifier="_gAXFCbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oeor4LUYEee94q5Wi6avnA" base_parameter="_gFQzJrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oep6ALUYEee94q5Wi6avnA" base_parameter="_gFQzKrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OesWQLUYEee94q5Wi6avnA" base_parameter="_gFakILh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OeuLcbUYEee94q5Wi6avnA" base_parameter="_gFakKLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OewnsrUYEee94q5Wi6avnA" base_parameter="_gFjuEbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oeyc4rUYEee94q5Wi6avnA" base_parameter="_gFjuGbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OezrAbUYEee94q5Wi6avnA" base_parameter="_gFjuHbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oe2HQLUYEee94q5Wi6avnA" base_parameter="_gFtfErh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oe3VYbUYEee94q5Wi6avnA" base_parameter="_gFtfGrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_Oe7m0LUYEee94q5Wi6avnA" definition="std::string" base_primitivetype="_f3I3n7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_Oe7m0bUYEee94q5Wi6avnA" base_Classifier="_f3I3n7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_OrL6ILUYEee94q5Wi6avnA" base_class="_N4CnAObcEeWJFIMNgBB27A" base_Classifier="_N4CnAObcEeWJFIMNgBB27A"/>
+  <C_Cpp:External xmi:id="_OrL6IbUYEee94q5Wi6avnA" base_Classifier="_N4CnAObcEeWJFIMNgBB27A"/>
+  <C_Cpp:External xmi:id="_OrMhMLUYEee94q5Wi6avnA" base_Classifier="_gAXFA7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_OrOWYLUYEee94q5Wi6avnA" name="std::vector&lt;EV3PapyrusLibrary::Types::LocalString>" base_Classifier="_OFWLgOeSEeW5Q61Wstt_xQ"/>
+  <C_Cpp:Const xmi:id="_OrO9crUYEee94q5Wi6avnA" base_parameter="_-MqCMerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrQLkbUYEee94q5Wi6avnA" base_parameter="_-MtskerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrQyobUYEee94q5Wi6avnA" base_parameter="_-MwI0erLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrSAwrUYEee94q5Wi6avnA" base_parameter="_-M0aQerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrTO4LUYEee94q5Wi6avnA" base_parameter="_-M22gerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrT18bUYEee94q5Wi6avnA" base_parameter="_-Mnl8erLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrUdAbUYEee94q5Wi6avnA" base_parameter="_-MrQUerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Ref xmi:id="_OrUdArUYEee94q5Wi6avnA" base_parameter="_-MrQUerLEeWaiccf-oyb9Q"/>
+  <C_Cpp:Const xmi:id="_OrVEE7UYEee94q5Wi6avnA" base_parameter="_4o_Z4ubcEeWJFIMNgBB27A"/>
+  <C_Cpp:Ref xmi:id="_OrVEFLUYEee94q5Wi6avnA" base_parameter="_4o_Z4ubcEeWJFIMNgBB27A"/>
   <C_Cpp:Include xmi:id="_gAzJ5rh-EeWbZ5V_nFbu7g" base_class="_f_6ZFrh-EeWbZ5V_nFbu7g" base_Classifier="_f_6ZFrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W8bKBSBLEee-iMjYxC0caQ" base_Classifier="_f_6ZFrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Typedef xmi:id="_W8bxECBLEee-iMjYxC0caQ" definition="device_type" base_primitivetype="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8bxESBLEee-iMjYxC0caQ" base_property="_f_6ZF7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8bxEyBLEee-iMjYxC0caQ" base_property="_f_6ZG7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8bxFSBLEee-iMjYxC0caQ" base_property="_f_6ZHbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8cYICBLEee-iMjYxC0caQ" base_property="_f_6ZH7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8cYIiBLEee-iMjYxC0caQ" base_property="_f_6ZIbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8cYJCBLEee-iMjYxC0caQ" base_property="_gAEKEbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8cYJiBLEee-iMjYxC0caQ" base_property="_gAEKE7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8c_MSBLEee-iMjYxC0caQ" base_property="_gAEKFbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8c_MyBLEee-iMjYxC0caQ" base_property="_gAEKF7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8c_NSBLEee-iMjYxC0caQ" base_property="_gAEKGbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8c_NyBLEee-iMjYxC0caQ" base_property="_gAEKG7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8dmQyBLEee-iMjYxC0caQ" base_parameter="_gANUD7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8eNViBLEee-iMjYxC0caQ" base_parameter="_gAXFD7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8e0YiBLEee-iMjYxC0caQ" base_parameter="_gAgO8Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8fbcCBLEee-iMjYxC0caQ" base_parameter="_gAgO9Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8fbdCBLEee-iMjYxC0caQ" base_parameter="_gAgO-Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8gChSBLEee-iMjYxC0caQ" base_parameter="_gAgPALh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8gpkiBLEee-iMjYxC0caQ" base_parameter="_gAp_8rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8hQoSBLEee-iMjYxC0caQ" base_parameter="_gAp_9rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8hQpSBLEee-iMjYxC0caQ" base_parameter="_gAp_-rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8iewCBLEee-iMjYxC0caQ" base_parameter="_gANUALh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W8iewyBLEee-iMjYxC0caQ" base_Classifier="_gANUArh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8jF0SBLEee-iMjYxC0caQ" base_parameter="_gANUB7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8js4SBLEee-iMjYxC0caQ" base_parameter="_gAXFBbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W8js4iBLEee-iMjYxC0caQ" base_parameter="_gAXFBbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W8kT8CBLEee-iMjYxC0caQ" base_Classifier="_gAEKIbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8kT8SBLEee-iMjYxC0caQ" base_parameter="_gAEKI7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W8kT8iBLEee-iMjYxC0caQ" base_parameter="_gAEKI7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8kT9iBLEee-iMjYxC0caQ" base_parameter="_gAzJ4bh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_W8kT9yBLEee-iMjYxC0caQ" base_parameter="_gAzJ4bh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W8k7ASBLEee-iMjYxC0caQ" base_parameter="_gANUDLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_W_gTNyBLEee-iMjYxC0caQ" base_class="_gA8677h-EeWbZ5V_nFbu7g" base_Classifier="_gA8677h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_W_gTOCBLEee-iMjYxC0caQ" base_Classifier="_gA8677h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W_g6QCBLEee-iMjYxC0caQ" base_property="_gBGr4rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W_g6QiBLEee-iMjYxC0caQ" base_property="_gBGr5Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W_g6RCBLEee-iMjYxC0caQ" base_property="_gBGr5rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W_g6RiBLEee-iMjYxC0caQ" base_property="_gBGr6Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_W_hhUCBLEee-iMjYxC0caQ" base_property="_gBGr6rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XAr-8yBLEee-iMjYxC0caQ" base_class="_gBiw0rh-EeWbZ5V_nFbu7g" base_Classifier="_gBiw0rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XAr-9CBLEee-iMjYxC0caQ" base_Classifier="_gBiw0rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Typedef xmi:id="_XAsmACBLEee-iMjYxC0caQ" definition="device_type" base_primitivetype="_gBshw7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAsmASBLEee-iMjYxC0caQ" base_property="_gBshyLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAsmAyBLEee-iMjYxC0caQ" base_property="_gBshyrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAtNESBLEee-iMjYxC0caQ" base_property="_gBshzLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAtNEyBLEee-iMjYxC0caQ" base_property="_gBshzrh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAtNFSBLEee-iMjYxC0caQ" base_property="_gBsh0Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAt0ICBLEee-iMjYxC0caQ" base_property="_gBsh0rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAt0IiBLEee-iMjYxC0caQ" base_property="_gBsh1Lh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAt0JCBLEee-iMjYxC0caQ" base_property="_gBsh1rh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAubMCBLEee-iMjYxC0caQ" base_property="_gB2Swbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAubMiBLEee-iMjYxC0caQ" base_property="_gB2Sw7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvCQCBLEee-iMjYxC0caQ" base_property="_gB2Sxbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvCQiBLEee-iMjYxC0caQ" base_property="_gB2Sx7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvCRCBLEee-iMjYxC0caQ" base_property="_gB2Sybh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvCRiBLEee-iMjYxC0caQ" base_property="_gB2Sy7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvpUCBLEee-iMjYxC0caQ" base_property="_gB2Szbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvpUiBLEee-iMjYxC0caQ" base_property="_gB2Sz7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAvpVCBLEee-iMjYxC0caQ" base_property="_gB2S0bh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAwQYCBLEee-iMjYxC0caQ" base_property="_gB2S07h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAw3ciBLEee-iMjYxC0caQ" base_parameter="_gB_cs7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAxegSBLEee-iMjYxC0caQ" base_parameter="_gB_ct7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAyFkCBLEee-iMjYxC0caQ" base_parameter="_gB_cu7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAyFlCBLEee-iMjYxC0caQ" base_parameter="_gB_cv7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAysoiBLEee-iMjYxC0caQ" base_parameter="_gCJNsLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAzTtSBLEee-iMjYxC0caQ" base_parameter="_gCJNuLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XAz6xiBLEee-iMjYxC0caQ" base_parameter="_gCJNwLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA0h1iBLEee-iMjYxC0caQ" base_parameter="_gCJNyLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA1I4SBLEee-iMjYxC0caQ" base_parameter="_gCSXoLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA1v8SBLEee-iMjYxC0caQ" base_parameter="_gCSXqLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA2XASBLEee-iMjYxC0caQ" base_parameter="_gCSXsLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA2-ESBLEee-iMjYxC0caQ" base_parameter="_gCcIp7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA3lIiBLEee-iMjYxC0caQ" base_parameter="_gCcIr7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA5aUiBLEee-iMjYxC0caQ" base_parameter="_gCl5pLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA6BYiBLEee-iMjYxC0caQ" base_parameter="_gCl5qLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA7PgSBLEee-iMjYxC0caQ" base_parameter="_gCl5sLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA72kSBLEee-iMjYxC0caQ" base_parameter="_gCvDl7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA72mSBLEee-iMjYxC0caQ" base_parameter="_gCvDn7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA8dpyBLEee-iMjYxC0caQ" base_parameter="_gC40kLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA9EtyBLEee-iMjYxC0caQ" base_parameter="_gC40mLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA9rxiBLEee-iMjYxC0caQ" base_parameter="_gDB-gLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA-S1SBLEee-iMjYxC0caQ" base_parameter="_gDB-iLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA-54iBLEee-iMjYxC0caQ" base_parameter="_gDB-jLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XA_g9SBLEee-iMjYxC0caQ" base_parameter="_gDB-lLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XBAIACBLEee-iMjYxC0caQ" base_parameter="_gDLvgLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XBDLUyBLEee-iMjYxC0caQ" base_parameter="_gBshxbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_XBDLVCBLEee-iMjYxC0caQ" base_parameter="_gBshxbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XBDyYiBLEee-iMjYxC0caQ" base_parameter="_gDU5fLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_XBDyYyBLEee-iMjYxC0caQ" base_parameter="_gDU5fLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XBiTgiBLEee-iMjYxC0caQ" base_class="_gDeqd7h-EeWbZ5V_nFbu7g" base_Classifier="_gDeqd7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XBiTgyBLEee-iMjYxC0caQ" base_Classifier="_gDeqd7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XC3JMSBLEee-iMjYxC0caQ" base_class="_gA866bh-EeWbZ5V_nFbu7g" base_Classifier="_gA866bh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XC3JMiBLEee-iMjYxC0caQ" base_Classifier="_gA866bh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XDZ7wCBLEee-iMjYxC0caQ" base_class="_BkDgAAC-EeaEZbF_jdRB_g" base_Classifier="_BkDgAAC-EeaEZbF_jdRB_g"/>
-  <C_Cpp:External xmi:id="_XDZ7wSBLEee-iMjYxC0caQ" base_Classifier="_BkDgAAC-EeaEZbF_jdRB_g"/>
-  <C_Cpp:ConstInit xmi:id="_XDai0iBLEee-iMjYxC0caQ" initialisation="nxt_servo(sensor_port_)" base_operation="_imjlsADAEeaEZbF_jdRB_g"/>
-  <C_Cpp:Include xmi:id="_XEZaRyBLEee-iMjYxC0caQ" base_class="_gF2pB7h-EeWbZ5V_nFbu7g" base_Classifier="_gF2pB7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XEaBUCBLEee-iMjYxC0caQ" base_Classifier="_gF2pB7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEaoYyBLEee-iMjYxC0caQ" base_parameter="_gF2pC7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEbPciBLEee-iMjYxC0caQ" base_parameter="_gGAaALh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEb2hSBLEee-iMjYxC0caQ" base_parameter="_gGAaCLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEcdkSBLEee-iMjYxC0caQ" base_parameter="_gGAaDLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEdEpCBLEee-iMjYxC0caQ" base_parameter="_gGKLALh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEeSwCBLEee-iMjYxC0caQ" base_parameter="_gGKLCLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XEe50iBLEee-iMjYxC0caQ" base_parameter="_gGTU87h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XFNSliBLEee-iMjYxC0caQ" base_class="_gHfnwLh-EeWbZ5V_nFbu7g" base_Classifier="_gHfnwLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XFNSlyBLEee-iMjYxC0caQ" base_Classifier="_gHfnwLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XFN5oCBLEee-iMjYxC0caQ" base_Classifier="_gHfnx7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XFOgtSBLEee-iMjYxC0caQ" base_Classifier="_gHoxvbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XFPHwSBLEee-iMjYxC0caQ" base_Classifier="_gHyisLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XFPu0yBLEee-iMjYxC0caQ" base_parameter="_gHfnxLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XFiCsCBLEee-iMjYxC0caQ" base_class="_gH8Tw7h-EeWbZ5V_nFbu7g" base_Classifier="_gH8Tw7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XFiCsSBLEee-iMjYxC0caQ" base_Classifier="_gH8Tw7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ptr xmi:id="_XFiCsiBLEee-iMjYxC0caQ" base_property="_gIYYmrh-EeWbZ5V_nFbu7g" declaration="*"/>
-  <C_Cpp:Const xmi:id="_XFipwiBLEee-iMjYxC0caQ" base_parameter="_gIFdo7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XFjQ0SBLEee-iMjYxC0caQ" base_parameter="_gIFdp7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XFjQ1SBLEee-iMjYxC0caQ" base_parameter="_gIFdq7h-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XFj34iBLEee-iMjYxC0caQ" base_parameter="_gIPOoLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XFj35iBLEee-iMjYxC0caQ" base_parameter="_gIPOpLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XFke8iBLEee-iMjYxC0caQ" base_parameter="_gIPOqLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ptr xmi:id="_XFlGASBLEee-iMjYxC0caQ" base_parameter="_gIYYkLh-EeWbZ5V_nFbu7g" declaration="*"/>
-  <C_Cpp:Include xmi:id="_XGP0YiBLEee-iMjYxC0caQ" base_class="_gHyitbh-EeWbZ5V_nFbu7g" base_Classifier="_gHyitbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:External xmi:id="_XGP0YyBLEee-iMjYxC0caQ" base_Classifier="_gHyitbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XGRplCBLEee-iMjYxC0caQ" base_parameter="_gH8Tsbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_XGRplSBLEee-iMjYxC0caQ" base_parameter="_gH8Tsbh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Const xmi:id="_XGSQoiBLEee-iMjYxC0caQ" base_parameter="_gH8TuLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Ref xmi:id="_XGSQoyBLEee-iMjYxC0caQ" base_parameter="_gH8TuLh-EeWbZ5V_nFbu7g"/>
-  <C_Cpp:Include xmi:id="_XGjWZSBLEee-iMjYxC0caQ" base_class="_EwxysPJwEeWh6f8lDd7bfg" base_Classifier="_EwxysPJwEeWh6f8lDd7bfg"/>
-  <C_Cpp:External xmi:id="_XGjWZiBLEee-iMjYxC0caQ" base_Classifier="_EwxysPJwEeWh6f8lDd7bfg"/>
-  <C_Cpp:External xmi:id="_XGj9cCBLEee-iMjYxC0caQ" base_Classifier="_dfdS8PJwEeWh6f8lDd7bfg"/>
-  <C_Cpp:Ref xmi:id="_XGj9dCBLEee-iMjYxC0caQ" base_parameter="_dAXtwfJxEeWh6f8lDd7bfg"/>
-  <C_Cpp:Ref xmi:id="_XGkkgSBLEee-iMjYxC0caQ" base_parameter="_dAZi8fJxEeWh6f8lDd7bfg"/>
-  <C_Cpp:Ref xmi:id="_XGlLkCBLEee-iMjYxC0caQ" base_parameter="_dAaxEfJxEeWh6f8lDd7bfg"/>
-  <C_Cpp:Ptr xmi:id="_XGlLkiBLEee-iMjYxC0caQ" base_parameter="_dAaxEvJxEeWh6f8lDd7bfg" declaration="*"/>
-  <C_Cpp:Ref xmi:id="_XGlyoSBLEee-iMjYxC0caQ" base_parameter="_dAb_MfJxEeWh6f8lDd7bfg"/>
-  <C_Cpp:Ref xmi:id="_XGlyoyBLEee-iMjYxC0caQ" base_parameter="_dAb_MvJxEeWh6f8lDd7bfg"/>
+  <C_Cpp:External xmi:id="_OrXgUrUYEee94q5Wi6avnA" base_Classifier="_f_6ZFrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_OrYucLUYEee94q5Wi6avnA" definition="device_type" base_primitivetype="_f_6ZGLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrYucbUYEee94q5Wi6avnA" base_property="_f_6ZF7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrZVgLUYEee94q5Wi6avnA" base_property="_f_6ZG7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrZ8kLUYEee94q5Wi6avnA" base_property="_f_6ZHbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrZ8krUYEee94q5Wi6avnA" base_property="_f_6ZH7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrajoLUYEee94q5Wi6avnA" base_property="_f_6ZIbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrajorUYEee94q5Wi6avnA" base_property="_gAEKEbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrbKsLUYEee94q5Wi6avnA" base_property="_gAEKE7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrbxwLUYEee94q5Wi6avnA" base_property="_gAEKFbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrbxwrUYEee94q5Wi6avnA" base_property="_gAEKF7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrcY0LUYEee94q5Wi6avnA" base_property="_gAEKGbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrcY0rUYEee94q5Wi6avnA" base_property="_gAEKG7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Ordm8bUYEee94q5Wi6avnA" base_parameter="_gANUD7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Ore1ErUYEee94q5Wi6avnA" base_parameter="_gAXFD7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrgDMbUYEee94q5Wi6avnA" base_parameter="_gAgO8Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrgqQrUYEee94q5Wi6avnA" base_parameter="_gAgO9Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Orh4YLUYEee94q5Wi6avnA" base_parameter="_gAgO-Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrjtkLUYEee94q5Wi6avnA" base_parameter="_gAgPALh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrkUobUYEee94q5Wi6avnA" base_parameter="_gAp_8rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Ork7srUYEee94q5Wi6avnA" base_parameter="_gAp_9rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrmJ0LUYEee94q5Wi6avnA" base_parameter="_gAp_-rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OromELUYEee94q5Wi6avnA" base_parameter="_gANUALh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_OrpNILUYEee94q5Wi6avnA" base_Classifier="_gANUArh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrqbQLUYEee94q5Wi6avnA" base_parameter="_gANUB7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrrCUrUYEee94q5Wi6avnA" base_parameter="_gAXFBbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OrrCU7UYEee94q5Wi6avnA" base_parameter="_gAXFBbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_OrsQcLUYEee94q5Wi6avnA" base_Classifier="_gAEKIbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrsQcbUYEee94q5Wi6avnA" base_parameter="_gAEKI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_OrsQcrUYEee94q5Wi6avnA" base_parameter="_gAEKI7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Ors3grUYEee94q5Wi6avnA" base_parameter="_gAzJ4bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_Ors3g7UYEee94q5Wi6avnA" base_parameter="_gAzJ4bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OrtekbUYEee94q5Wi6avnA" base_parameter="_gANUDLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_OypNArUYEee94q5Wi6avnA" base_class="_gA8677h-EeWbZ5V_nFbu7g" base_Classifier="_gA8677h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_OypNA7UYEee94q5Wi6avnA" base_Classifier="_gA8677h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oyp0ELUYEee94q5Wi6avnA" base_property="_gBGr4rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_Oyp0ErUYEee94q5Wi6avnA" base_property="_gBGr5Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OyqbILUYEee94q5Wi6avnA" base_property="_gBGr5rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OyqbIrUYEee94q5Wi6avnA" base_property="_gBGr6Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_OyqbJLUYEee94q5Wi6avnA" base_property="_gBGr6rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_O0zwMrUYEee94q5Wi6avnA" base_class="_gBiw0rh-EeWbZ5V_nFbu7g" base_Classifier="_gBiw0rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_O0zwM7UYEee94q5Wi6avnA" base_Classifier="_gBiw0rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Typedef xmi:id="_O00XQLUYEee94q5Wi6avnA" definition="device_type" base_primitivetype="_gBshw7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O00XQbUYEee94q5Wi6avnA" base_property="_gBshyLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O00-ULUYEee94q5Wi6avnA" base_property="_gBshyrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O00-UrUYEee94q5Wi6avnA" base_property="_gBshzLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O01lYLUYEee94q5Wi6avnA" base_property="_gBshzrh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O01lYrUYEee94q5Wi6avnA" base_property="_gBsh0Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O01lZLUYEee94q5Wi6avnA" base_property="_gBsh0rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O02McbUYEee94q5Wi6avnA" base_property="_gBsh1Lh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O02Mc7UYEee94q5Wi6avnA" base_property="_gBsh1rh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O02zgLUYEee94q5Wi6avnA" base_property="_gB2Swbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O02zgrUYEee94q5Wi6avnA" base_property="_gB2Sw7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O03akLUYEee94q5Wi6avnA" base_property="_gB2Sxbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O03akrUYEee94q5Wi6avnA" base_property="_gB2Sx7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O04BoLUYEee94q5Wi6avnA" base_property="_gB2Sybh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O04BorUYEee94q5Wi6avnA" base_property="_gB2Sy7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O04osLUYEee94q5Wi6avnA" base_property="_gB2Szbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O04osrUYEee94q5Wi6avnA" base_property="_gB2Sz7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O04otLUYEee94q5Wi6avnA" base_property="_gB2S0bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O05PwLUYEee94q5Wi6avnA" base_property="_gB2S07h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O06d4bUYEee94q5Wi6avnA" base_parameter="_gB_cs7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O07E8bUYEee94q5Wi6avnA" base_parameter="_gB_ct7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O07sAbUYEee94q5Wi6avnA" base_parameter="_gB_cu7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O08TEbUYEee94q5Wi6avnA" base_parameter="_gB_cv7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O086IbUYEee94q5Wi6avnA" base_parameter="_gCJNsLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O0-IQbUYEee94q5Wi6avnA" base_parameter="_gCJNuLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O0_WYrUYEee94q5Wi6avnA" base_parameter="_gCJNwLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1BLkLUYEee94q5Wi6avnA" base_parameter="_gCJNyLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1ByobUYEee94q5Wi6avnA" base_parameter="_gCSXoLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1DAwbUYEee94q5Wi6avnA" base_parameter="_gCSXqLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1EO4bUYEee94q5Wi6avnA" base_parameter="_gCSXsLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1FdAbUYEee94q5Wi6avnA" base_parameter="_gCcIp7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1IgULUYEee94q5Wi6avnA" base_parameter="_gCcIr7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1KVgLUYEee94q5Wi6avnA" base_parameter="_gCl5pLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1K8kbUYEee94q5Wi6avnA" base_parameter="_gCl5qLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1MKsbUYEee94q5Wi6avnA" base_parameter="_gCl5sLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1NY0rUYEee94q5Wi6avnA" base_parameter="_gCvDl7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1POALUYEee94q5Wi6avnA" base_parameter="_gCvDn7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1QcIrUYEee94q5Wi6avnA" base_parameter="_gC40kLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1RqQrUYEee94q5Wi6avnA" base_parameter="_gC40mLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1S4Y7UYEee94q5Wi6avnA" base_parameter="_gDB-gLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1UtkbUYEee94q5Wi6avnA" base_parameter="_gDB-iLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1VUobUYEee94q5Wi6avnA" base_parameter="_gDB-jLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1WiwbUYEee94q5Wi6avnA" base_parameter="_gDB-lLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1XJ0bUYEee94q5Wi6avnA" base_parameter="_gDLvgLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1d3grUYEee94q5Wi6avnA" base_parameter="_gBshxbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_O1d3g7UYEee94q5Wi6avnA" base_parameter="_gBshxbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O1eekrUYEee94q5Wi6avnA" base_parameter="_gDU5fLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_O1eek7UYEee94q5Wi6avnA" base_parameter="_gDU5fLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_O2nHALUYEee94q5Wi6avnA" base_class="_gDeqd7h-EeWbZ5V_nFbu7g" base_Classifier="_gDeqd7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_O2nHAbUYEee94q5Wi6avnA" base_Classifier="_gDeqd7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_O6qgkrUYEee94q5Wi6avnA" base_class="_gA866bh-EeWbZ5V_nFbu7g" base_Classifier="_gA866bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_O6rHoLUYEee94q5Wi6avnA" base_Classifier="_gA866bh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_O8BLcLUYEee94q5Wi6avnA" base_class="_BkDgAAC-EeaEZbF_jdRB_g" base_Classifier="_BkDgAAC-EeaEZbF_jdRB_g"/>
+  <C_Cpp:External xmi:id="_O8BLcbUYEee94q5Wi6avnA" base_Classifier="_BkDgAAC-EeaEZbF_jdRB_g"/>
+  <C_Cpp:ConstInit xmi:id="_O8DAobUYEee94q5Wi6avnA" initialisation="nxt_servo(sensor_port_)" base_operation="_imjlsADAEeaEZbF_jdRB_g"/>
+  <C_Cpp:Include xmi:id="_O-rd4LUYEee94q5Wi6avnA" base_class="_gF2pB7h-EeWbZ5V_nFbu7g" base_Classifier="_gF2pB7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_O-rd4bUYEee94q5Wi6avnA" base_Classifier="_gF2pB7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-uhMbUYEee94q5Wi6avnA" base_parameter="_gF2pC7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-vvULUYEee94q5Wi6avnA" base_parameter="_gGAaALh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-xkgbUYEee94q5Wi6avnA" base_parameter="_gGAaCLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-yLkrUYEee94q5Wi6avnA" base_parameter="_gGAaDLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-0AwbUYEee94q5Wi6avnA" base_parameter="_gGKLALh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-118rUYEee94q5Wi6avnA" base_parameter="_gGKLCLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_O-3rIrUYEee94q5Wi6avnA" base_parameter="_gGTU87h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_PA984LUYEee94q5Wi6avnA" base_class="_gHfnwLh-EeWbZ5V_nFbu7g" base_Classifier="_gHfnwLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_PA984bUYEee94q5Wi6avnA" base_Classifier="_gHfnwLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_PA-j8LUYEee94q5Wi6avnA" base_Classifier="_gHfnx7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_PBCOULUYEee94q5Wi6avnA" base_Classifier="_gHoxvbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_PBC1YbUYEee94q5Wi6avnA" base_Classifier="_gHyisLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PBFRoLUYEee94q5Wi6avnA" base_parameter="_gHfnxLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_PB2tsbUYEee94q5Wi6avnA" base_class="_gH8Tw7h-EeWbZ5V_nFbu7g" base_Classifier="_gH8Tw7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_PB2tsrUYEee94q5Wi6avnA" base_Classifier="_gH8Tw7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ptr xmi:id="_PB2ts7UYEee94q5Wi6avnA" base_property="_gIYYmrh-EeWbZ5V_nFbu7g" declaration="*"/>
+  <C_Cpp:Const xmi:id="_PB5xAbUYEee94q5Wi6avnA" base_parameter="_gIFdo7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PB6YErUYEee94q5Wi6avnA" base_parameter="_gIFdp7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PB7mMbUYEee94q5Wi6avnA" base_parameter="_gIFdq7h-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PB80ULUYEee94q5Wi6avnA" base_parameter="_gIPOoLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PB9bYbUYEee94q5Wi6avnA" base_parameter="_gIPOpLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PB-pgLUYEee94q5Wi6avnA" base_parameter="_gIPOqLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ptr xmi:id="_PB_QkbUYEee94q5Wi6avnA" base_parameter="_gIYYkLh-EeWbZ5V_nFbu7g" declaration="*"/>
+  <C_Cpp:Include xmi:id="_PDsgwrUYEee94q5Wi6avnA" base_class="_gHyitbh-EeWbZ5V_nFbu7g" base_Classifier="_gHyitbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:External xmi:id="_PDsgw7UYEee94q5Wi6avnA" base_Classifier="_gHyitbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PDwyMrUYEee94q5Wi6avnA" base_parameter="_gH8Tsbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_PDwyM7UYEee94q5Wi6avnA" base_parameter="_gH8Tsbh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Const xmi:id="_PDyAULUYEee94q5Wi6avnA" base_parameter="_gH8TuLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Ref xmi:id="_PDyAUbUYEee94q5Wi6avnA" base_parameter="_gH8TuLh-EeWbZ5V_nFbu7g"/>
+  <C_Cpp:Include xmi:id="_PEa5grUYEee94q5Wi6avnA" base_class="_EwxysPJwEeWh6f8lDd7bfg" base_Classifier="_EwxysPJwEeWh6f8lDd7bfg"/>
+  <C_Cpp:External xmi:id="_PEa5g7UYEee94q5Wi6avnA" base_Classifier="_EwxysPJwEeWh6f8lDd7bfg"/>
+  <C_Cpp:External xmi:id="_PEbgkLUYEee94q5Wi6avnA" base_Classifier="_dfdS8PJwEeWh6f8lDd7bfg"/>
+  <C_Cpp:Ref xmi:id="_PEcusLUYEee94q5Wi6avnA" base_parameter="_dAXtwfJxEeWh6f8lDd7bfg"/>
+  <C_Cpp:Ref xmi:id="_PEd80LUYEee94q5Wi6avnA" base_parameter="_dAZi8fJxEeWh6f8lDd7bfg"/>
+  <C_Cpp:Ref xmi:id="_PEfK8bUYEee94q5Wi6avnA" base_parameter="_dAaxEfJxEeWh6f8lDd7bfg"/>
+  <C_Cpp:Ptr xmi:id="_PEfK87UYEee94q5Wi6avnA" base_parameter="_dAaxEvJxEeWh6f8lDd7bfg" declaration="*"/>
+  <C_Cpp:Ref xmi:id="_PEgZEbUYEee94q5Wi6avnA" base_parameter="_dAb_MfJxEeWh6f8lDd7bfg"/>
+  <C_Cpp:Ref xmi:id="_PEgZE7UYEee94q5Wi6avnA" base_parameter="_dAb_MvJxEeWh6f8lDd7bfg"/>
 </xmi:XMI>

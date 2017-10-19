@@ -2,7 +2,7 @@
 #define PKG_CARFACTORYLIBRARY_COMMUNICATIONINTERFACES
 
 /************************************************************
- Pkg_CommunicationInterfaces package header
+              Pkg_CommunicationInterfaces package header
  ************************************************************/
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace CarFactoryLibrary {
 namespace CommunicationInterfaces {
 
 // Types defined within the package
-}// of namespace CommunicationInterfaces
+} // of namespace CommunicationInterfaces
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Pkg_CommunicationInterfaces package header
+              End of Pkg_CommunicationInterfaces package header
  ************************************************************/
 
 #endif

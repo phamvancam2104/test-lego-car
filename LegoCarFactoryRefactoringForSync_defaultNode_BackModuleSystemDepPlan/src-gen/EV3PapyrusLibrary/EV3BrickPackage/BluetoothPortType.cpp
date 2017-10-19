@@ -5,22 +5,27 @@
 #define EV3PapyrusLibrary_EV3BrickPackage_BluetoothPortType_BODY
 
 /************************************************************
- BluetoothPortType class body
+              BluetoothPortType class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/EV3BrickPackage/BluetoothPortType.h"
 
 // Derived includes directives
 
+
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
 
 // static attributes (if any)
 
-}// of namespace EV3BrickPackage
+
+
+
+} // of namespace EV3BrickPackage
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of BluetoothPortType class body
+              End of BluetoothPortType class body
  ************************************************************/

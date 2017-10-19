@@ -5,13 +5,15 @@
 #define BootLoaderCpp_NodeInfo_BODY
 
 /************************************************************
- NodeInfo class body
+              NodeInfo class body
  ************************************************************/
+
 
 // include associated header file
 #include "BootLoaderCpp/NodeInfo.h"
 
 // Derived includes directives
+
 
 namespace BootLoaderCpp {
 
@@ -19,14 +21,17 @@ namespace BootLoaderCpp {
 /**
  * 
  */
-::PrimitiveTypes::Integer NodeInfo::nodeIndex = 0;
+ ::PrimitiveTypes::Integer  NodeInfo::nodeIndex=0;
 /**
  * 
  */
-::PrimitiveTypes::Integer NodeInfo::numberOfNodes = 0;
+ ::PrimitiveTypes::Integer  NodeInfo::numberOfNodes=0;
+
+
+
 
 } // of namespace BootLoaderCpp
 
 /************************************************************
- End of NodeInfo class body
+              End of NodeInfo class body
  ************************************************************/

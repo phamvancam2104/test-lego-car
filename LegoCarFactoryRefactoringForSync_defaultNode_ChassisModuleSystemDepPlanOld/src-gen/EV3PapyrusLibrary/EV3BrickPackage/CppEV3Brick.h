@@ -6,45 +6,22 @@
 #define EV3PAPYRUSLIBRARY_EV3BRICKPACKAGE_CPPEV3BRICK_H
 
 /************************************************************
- CppEV3Brick class header
+              CppEV3Brick class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/EV3BrickPackage/Pkg_EV3BrickPackage.h"
 
 #include "EV3PapyrusLibrary/EV3BrickPackage/AbstractEV3Brick.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickPackageCppEV3Brick__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3BrickPackage/CppEV3Brick__Delegatee.h"
 
 // Include from Include stereotype (header)
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILed;
-}
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class IButton;
-}
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ISound;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ILed;}}}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class IButton;}}}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ILcd;}}}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ISound;}}}
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
@@ -53,12 +30,11 @@ namespace EV3BrickPackage {
 /**
  * 
  */
-class CppEV3Brick: public AbstractEV3Brick {
-public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickPackageCppEV3Brick__Controller cppev3brickController;
+class CppEV3Brick : 
+public AbstractEV3Brick	
+ {
+	public:
+	DECLARE_DELEGATEE_COMPONENT (CppEV3Brick)
 	/**
 	 * 
 	 */
@@ -72,18 +48,21 @@ public:
 	 */
 	CppEV3Brick();
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3BrickPackage
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppEV3Brick class header
+              End of CppEV3Brick class header
  ************************************************************/
 
 #endif

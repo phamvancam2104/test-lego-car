@@ -5,14 +5,16 @@
 #define MindsensorsPapyrusLibrary_AbstractClasses_AbstractNumericPad_BODY
 
 /************************************************************
- AbstractNumericPad class body
+              AbstractNumericPad class body
  ************************************************************/
+
 
 // include associated header file
 #include "MindsensorsPapyrusLibrary/AbstractClasses/AbstractNumericPad.h"
 
 // Derived includes directives
 #include "MindsensorsPapyrusLibrary/Interfaces/INumericPad.h"
+
 
 namespace MindsensorsPapyrusLibrary {
 namespace AbstractClasses {
@@ -23,14 +25,14 @@ namespace AbstractClasses {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractNumericPad::read_current_touched_key() {
+ ::PrimitiveTypes::Integer AbstractNumericPad::read_current_touched_key() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractNumericPad::read_next_touched_key() {
+ ::PrimitiveTypes::Integer AbstractNumericPad::read_next_touched_key() {
 }
 
 /**
@@ -40,24 +42,21 @@ namespace AbstractClasses {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean AbstractNumericPad::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
+ ::PrimitiveTypes::Boolean AbstractNumericPad::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractNumericPad::connected() {
+ ::PrimitiveTypes::Boolean AbstractNumericPad::connected() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractNumericPad::device_index() {
+ ::PrimitiveTypes::Integer AbstractNumericPad::device_index() {
 }
 
 /**
@@ -65,8 +64,7 @@ namespace AbstractClasses {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer AbstractNumericPad::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer AbstractNumericPad::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -75,9 +73,7 @@ namespace AbstractClasses {
  * @param name 
  * @param value 
  */
-void AbstractNumericPad::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
+ void AbstractNumericPad::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
 }
 
 /**
@@ -85,8 +81,7 @@ void AbstractNumericPad::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractNumericPad::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractNumericPad::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -95,9 +90,7 @@ void AbstractNumericPad::set_attr_int(
  * @param name 
  * @param value 
  */
-void AbstractNumericPad::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
+ void AbstractNumericPad::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
 }
 
 /**
@@ -105,8 +98,7 @@ void AbstractNumericPad::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractNumericPad::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractNumericPad::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -115,9 +107,7 @@ void AbstractNumericPad::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractNumericPad::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractNumericPad::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
 }
 
 /**
@@ -125,13 +115,14 @@ void AbstractNumericPad::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractNumericPad::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractNumericPad::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
+
+
 
 } // of namespace AbstractClasses
 } // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of AbstractNumericPad class body
+              End of AbstractNumericPad class body
  ************************************************************/

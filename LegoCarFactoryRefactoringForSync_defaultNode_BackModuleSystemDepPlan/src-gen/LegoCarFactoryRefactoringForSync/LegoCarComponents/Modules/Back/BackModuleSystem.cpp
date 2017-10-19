@@ -5,13 +5,15 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Back_BackModuleSystem_BODY
 
 /************************************************************
- BackModuleSystem class body
+              BackModuleSystem class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Back/BackModuleSystem.h"
 
 // Derived includes directives
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -23,8 +25,7 @@ namespace Back {
 /**
  * 
  */
-BackModuleSystem::BackModuleSystem() :
-		backmodulesystemController(this) {
+BackModuleSystem::BackModuleSystem() {
 }
 
 /**
@@ -39,8 +40,7 @@ void BackModuleSystem::connectorConfiguration() {
 	bindPorts(conveyor.pEndOfMo_Press, press.pEndOfMo);
 	bindPorts(press.pPressAssemble, conveyor.pOutPressAssemble);
 	bindPorts(controller.pOutStopProcess_Shelf, shelf.pInStopProcess);
-	bindPorts(controller.pOutStopProcess_RoboticArm,
-			robotic_arm.pInStopProcess);
+	bindPorts(controller.pOutStopProcess_RoboticArm, robotic_arm.pInStopProcess);
 	bindPorts(controller.pStopProcess_Convoyer, conveyor.pInStopProcess);
 	bindPorts(shelf.pInRestart, controller.pOutRestart_Shelf);
 	bindPorts(conveyor.pRestart, controller.pOutRestart_Convoyer);
@@ -60,11 +60,13 @@ void BackModuleSystem::connectorConfiguration() {
 	bindPorts(conveyor.pGotoProcess, robotic_arm.pOutGotoProcess);
 }
 
+
+
 } // of namespace Back
 } // of namespace Modules
 } // of namespace LegoCarComponents
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of BackModuleSystem class body
+              End of BackModuleSystem class body
  ************************************************************/

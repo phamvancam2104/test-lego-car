@@ -2,8 +2,9 @@
 #define PKG_ECOREPRIMITIVETYPES
 
 /************************************************************
- Pkg_EcorePrimitiveTypes package header
+              Pkg_EcorePrimitiveTypes package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,9 +16,11 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace EcorePrimitiveTypes {
@@ -26,11 +29,11 @@ namespace EcorePrimitiveTypes {
 /**
  * 
  */
-
-}// of namespace EcorePrimitiveTypes
+ 
+} // of namespace EcorePrimitiveTypes
 
 /************************************************************
- End of Pkg_EcorePrimitiveTypes package header
+              End of Pkg_EcorePrimitiveTypes package header
  ************************************************************/
 
 #endif

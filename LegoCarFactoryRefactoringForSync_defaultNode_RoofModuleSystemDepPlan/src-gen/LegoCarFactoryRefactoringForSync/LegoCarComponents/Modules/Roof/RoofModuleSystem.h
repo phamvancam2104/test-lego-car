@@ -16,7 +16,7 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Roof/RoofRoboticArm.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlavePress.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlaveShelf.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/RoofRoofModuleSystem__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Roof/RoofModuleSystem__Delegatee.h"
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -49,10 +49,7 @@ public:
 	 * 
 	 */
 	::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlavePress press;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::RoofRoofModuleSystem__Controller roofmodulesystemController;
+	DECLARE_DELEGATEE_COMPONENT (RoofModuleSystem)
 	/**
 	 * 
 	 */

@@ -94,8 +94,7 @@ void CppLcd::fill(unsigned char /*in*/pixel) {
 /**
  * 
  */
-CppLcd::CppLcd() :
-		cpplcdController(this) {
+CppLcd::CppLcd() {
 	if (!referencedLcd.available()) {
 		cout << endl << "###error: lcd not available ###" << endl;
 	}
@@ -195,7 +194,6 @@ void CppLcd::draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
 void CppLcd::draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
 		int /*in*/radiusy, bool /*in*/isBlack) {
 	referencedLcd.draw_full_ellipse(x, y, radiusx, radiusy, isBlack);
-
 }
 
 /**
@@ -209,7 +207,6 @@ void CppLcd::draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
 void CppLcd::draw_empty_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
 		int /*in*/radiusy, bool /*in*/isBlack) {
 	referencedLcd.draw_empty_ellipse(x, y, radiusx, radiusy, isBlack);
-
 }
 
 /**
@@ -223,7 +220,6 @@ void CppLcd::draw_bmp_image(
 		::EV3PapyrusLibrary::Types::LocalString /*in*/filename, int /*in*/x,
 		int /*in*/y, bool /*in*/invertColor) {
 	referencedLcd.draw_bmp_image(filename, x, y, invertColor);
-
 }
 
 /**

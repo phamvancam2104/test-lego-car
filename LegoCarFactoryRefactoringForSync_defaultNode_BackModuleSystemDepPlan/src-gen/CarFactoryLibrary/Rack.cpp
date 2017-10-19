@@ -5,14 +5,16 @@
 #define CarFactoryLibrary_Rack_BODY
 
 /************************************************************
- Rack class body
+              Rack class body
  ************************************************************/
+
 
 // include associated header file
 #include "CarFactoryLibrary/Rack.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/IColorSensor.h"
+
 
 namespace CarFactoryLibrary {
 
@@ -22,12 +24,12 @@ namespace CarFactoryLibrary {
  * check if the rack is empty
  * @return ret true if the rack is empty and false otherwise
  */
-bool Rack::is_empty() {
+ bool Rack::is_empty() {
 	color_sensor.set_mode("COL-COLOR");
-	if (!color_sensor.value(0)) { //the color is known
+	if(!color_sensor.value(0)) { //the color is known
 		return true;
 	}
-
+		
 	return false;
 }
 
@@ -35,10 +37,9 @@ bool Rack::is_empty() {
  * constructor of the Rack
  * @param sensorPort the color sensor port name
  */
-Rack::Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/sensorPort) :
-		color_sensor(sensorPort), rackController(this) {
+Rack::Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/ sensorPort): color_sensor(sensorPort) {
 	color_sensor.set_mode("COL-COLOR");
-	while (color_sensor.mode() != "COL-COLOR") { //Solve problem with robot user in the initialization of the sensor
+	while(color_sensor.mode() != "COL-COLOR"){//Solve problem with robot user in the initialization of the sensor
 		color_sensor.set_mode("COL-COLOR");
 	}
 }
@@ -46,19 +47,20 @@ Rack::Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/sensorPort) :
 /**
  * empty constructor of the rack (must not be use)
  */
-Rack::Rack() :
-		rackController(this) {
+Rack::Rack() {
 }
 
 /**
  * 
  */
 void Rack::connectorConfiguration() {
-	bindPorts(color_sensor.colorSensorPort, sensor);
+	bindPorts(color_sensor.colorSensorPort, this->sensor);
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Rack class body
+              End of Rack class body
  ************************************************************/

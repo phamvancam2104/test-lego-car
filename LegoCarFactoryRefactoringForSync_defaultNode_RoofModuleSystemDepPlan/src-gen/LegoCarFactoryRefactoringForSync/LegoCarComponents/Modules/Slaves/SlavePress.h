@@ -13,7 +13,7 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Press.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/SlavesSlavePress__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Slaves/SlavePress__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
@@ -63,49 +63,48 @@ public:
 	 * 
 	 */
 	int counter;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SlavesSlavePress__Controller slavepressController;
+	DECLARE_DELEGATEE_COMPONENT (SlavePress)
 
 	StateMachine SlavePressStateMachine {
 		InitialState PrincipalState {
 			State SetStatusIsReady {
-				StateEntry SetStatusIsReady;
+				StateEntry SetStatusIsReady();
 			};
 			State LiftUp {
-				StateEntry lift_up;
+				StateEntry lift_up();
 			};
-			PseudoChoice choice;
+			PseudoChoice choice {};
 			State GoTopPress {
-				StateEntry go_top;
+				StateEntry go_top();
 			};
 			State Press {
-				StateDoActivity assemble;
+				StateDoActivity assemble ();
 			};
 			InitialState Initialization {
-				StateEntry init;
+				StateEntry init();
 			};
 		};
-		State Restart;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
-		SignalEvent<CarFactoryLibrary::events::PressAssemble> PressAssemble;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
+		State Restart {
+		};
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
+		SignalEvent(CarFactoryLibrary::events::PressAssemble) PressAssemble;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
-			ExT(fromSetStatusIsReadytoInitialization , SetStatusIsReady , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromLiftUptoChoice , LiftUp , choice , NULL , NULL , NULL );
-			ExT(fromGoTopPresstoSetStatusIsReady , GoTopPress , SetStatusIsReady , NULL , NULL , NULL );
-			ExT(fromPresstoLiftUp , Press , LiftUp , NULL , NULL , NULL );
-			ExT(fromInitializationtoPress , Initialization , Press , NULL , PressAssemble , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-			ExT(fromChoicetoGoTopPress , choice , GoTopPress , fromChoicetoGoTopPressGuard , NULL , NULL );
-			ExT(fromChoicetoPress , choice , Press , NULL , NULL , effectFromChoicetoPress );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, NULL);
+			ExT(fromSetStatusIsReadytoInitialization, SetStatusIsReady, Initialization, NULL, EndOfModule, NULL);
+			ExT(fromLiftUptoChoice, LiftUp, choice, NULL, void, NULL);
+			ExT(fromGoTopPresstoSetStatusIsReady, GoTopPress, SetStatusIsReady, NULL, void, NULL);
+			ExT(fromPresstoLiftUp, Press, LiftUp, NULL, void, NULL);
+			ExT(fromInitializationtoPress, Initialization, Press, NULL, PressAssemble, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+			ExT(fromChoicetoGoTopPress, choice, GoTopPress, fromChoicetoGoTopPressGuard, void, NULL);
+			ExT(fromChoicetoPress, choice, Press, NULL, void, effectFromChoicetoPress);
+		};
 	};
 	/**
 	 * 
@@ -140,7 +139,7 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoicetoGoTopPressGuard();
+	bool ();
 	/**
 	 * 
 	 */

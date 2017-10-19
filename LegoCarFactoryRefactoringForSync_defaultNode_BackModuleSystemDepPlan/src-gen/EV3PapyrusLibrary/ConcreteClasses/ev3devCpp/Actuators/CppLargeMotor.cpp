@@ -5,7 +5,7 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_Actuators_CppLargeMotor_BODY
 
 /************************************************************
- CppLargeMotor class body
+              CppLargeMotor class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -18,6 +18,7 @@
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 
+
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
 namespace ev3devCpp {
@@ -29,7 +30,7 @@ namespace Actuators {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::run_to_rel_pos() {
+ void CppLargeMotor::run_to_rel_pos() {
 	referencedLarge_motor.run_to_rel_pos();
 }
 
@@ -37,8 +38,7 @@ void CppLargeMotor::run_to_rel_pos() {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppLargeMotor::set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedLarge_motor.set_command(v);
 }
 
@@ -46,7 +46,7 @@ void CppLargeMotor::set_command(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::commands() {
 	return referencedLarge_motor.commands();
 }
 
@@ -54,7 +54,7 @@ void CppLargeMotor::set_command(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::count_per_rot() {
+ ::PrimitiveTypes::Integer CppLargeMotor::count_per_rot() {
 	return referencedLarge_motor.count_per_rot();
 }
 
@@ -62,7 +62,7 @@ void CppLargeMotor::set_command(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::driver_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::driver_name() {
 	return referencedLarge_motor.driver_name();
 }
 
@@ -70,7 +70,7 @@ void CppLargeMotor::set_command(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::duty_cycle() {
+ ::PrimitiveTypes::Integer CppLargeMotor::duty_cycle() {
 	return referencedLarge_motor.duty_cycle();
 }
 
@@ -78,7 +78,7 @@ void CppLargeMotor::set_command(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::duty_cycle_sp() {
+ ::PrimitiveTypes::Integer CppLargeMotor::duty_cycle_sp() {
 	return referencedLarge_motor.duty_cycle_sp();
 }
 
@@ -86,7 +86,7 @@ void CppLargeMotor::set_command(
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_duty_cycle_sp(v);
 }
 
@@ -94,7 +94,7 @@ void CppLargeMotor::set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::encoder_polarity() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::encoder_polarity() {
 	return referencedLarge_motor.encoder_polarity();
 }
 
@@ -102,8 +102,7 @@ void CppLargeMotor::set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_encoder_polarity(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppLargeMotor::set_encoder_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedLarge_motor.set_encoder_polarity(v);
 }
 
@@ -111,7 +110,7 @@ void CppLargeMotor::set_encoder_polarity(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::polarity() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::polarity() {
 	return referencedLarge_motor.polarity();
 }
 
@@ -119,8 +118,7 @@ void CppLargeMotor::set_encoder_polarity(
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_polarity(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppLargeMotor::set_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedLarge_motor.set_polarity(v);
 }
 
@@ -128,7 +126,7 @@ void CppLargeMotor::set_polarity(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::port_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::port_name() {
 	return referencedLarge_motor.port_name();
 }
 
@@ -136,7 +134,7 @@ void CppLargeMotor::set_polarity(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::position() {
+ ::PrimitiveTypes::Integer CppLargeMotor::position() {
 	return referencedLarge_motor.position();
 }
 
@@ -144,7 +142,7 @@ void CppLargeMotor::set_polarity(
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_position(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_position(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_position(v);
 }
 
@@ -152,7 +150,7 @@ void CppLargeMotor::set_position(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::position_p() {
+ ::PrimitiveTypes::Integer CppLargeMotor::position_p() {
 	return referencedLarge_motor.position_p();
 }
 
@@ -160,7 +158,7 @@ void CppLargeMotor::set_position(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_position_p(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_position_p(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_position_p(v);
 }
 
@@ -168,7 +166,7 @@ void CppLargeMotor::set_position_p(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::position_i() {
+ ::PrimitiveTypes::Integer CppLargeMotor::position_i() {
 	return referencedLarge_motor.position_i();
 }
 
@@ -176,7 +174,7 @@ void CppLargeMotor::set_position_p(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_position_i(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_position_i(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_position_i(v);
 }
 
@@ -184,7 +182,7 @@ void CppLargeMotor::set_position_i(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::position_d() {
+ ::PrimitiveTypes::Integer CppLargeMotor::position_d() {
 	return referencedLarge_motor.position_d();
 }
 
@@ -192,7 +190,7 @@ void CppLargeMotor::set_position_i(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_position_d(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_position_d(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_position_d(v);
 }
 
@@ -200,7 +198,7 @@ void CppLargeMotor::set_position_d(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::position_sp() {
+ ::PrimitiveTypes::Integer CppLargeMotor::position_sp() {
 	return referencedLarge_motor.position_sp();
 }
 
@@ -208,7 +206,7 @@ void CppLargeMotor::set_position_d(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_position_sp(v);
 }
 
@@ -216,7 +214,7 @@ void CppLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::speed() {
+ ::PrimitiveTypes::Integer CppLargeMotor::speed() {
 	return referencedLarge_motor.speed();
 }
 
@@ -224,7 +222,7 @@ void CppLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::speed_sp() {
+ ::PrimitiveTypes::Integer CppLargeMotor::speed_sp() {
 	return referencedLarge_motor.speed_sp();
 }
 
@@ -232,7 +230,7 @@ void CppLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_speed_sp(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_speed_sp(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_speed_sp(v);
 }
 
@@ -240,7 +238,7 @@ void CppLargeMotor::set_speed_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::ramp_up_sp() {
+ ::PrimitiveTypes::Integer CppLargeMotor::ramp_up_sp() {
 	return referencedLarge_motor.ramp_up_sp();
 }
 
@@ -248,7 +246,7 @@ void CppLargeMotor::set_speed_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_ramp_up_sp(v);
 }
 
@@ -256,7 +254,7 @@ void CppLargeMotor::set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::ramp_down_sp() {
+ ::PrimitiveTypes::Integer CppLargeMotor::ramp_down_sp() {
 	return referencedLarge_motor.ramp_down_sp();
 }
 
@@ -264,7 +262,7 @@ void CppLargeMotor::set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_ramp_down_sp(v);
 }
 
@@ -272,7 +270,7 @@ void CppLargeMotor::set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::speed_regulation_enabled() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::speed_regulation_enabled() {
 	return referencedLarge_motor.speed_regulation_enabled();
 }
 
@@ -280,8 +278,7 @@ void CppLargeMotor::set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_speed_regulation_enabled(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppLargeMotor::set_speed_regulation_enabled(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedLarge_motor.set_speed_regulation_enabled(v);
 }
 
@@ -289,7 +286,7 @@ void CppLargeMotor::set_speed_regulation_enabled(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::speed_regulation_p() {
+ ::PrimitiveTypes::Integer CppLargeMotor::speed_regulation_p() {
 	return referencedLarge_motor.speed_regulation_p();
 }
 
@@ -297,7 +294,7 @@ void CppLargeMotor::set_speed_regulation_enabled(
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_speed_regulation_p(v);
 }
 
@@ -305,7 +302,7 @@ void CppLargeMotor::set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::speed_regulation_i() {
+ ::PrimitiveTypes::Integer CppLargeMotor::speed_regulation_i() {
 	return referencedLarge_motor.speed_regulation_i();
 }
 
@@ -313,7 +310,7 @@ void CppLargeMotor::set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_speed_regulation_i(v);
 }
 
@@ -321,7 +318,7 @@ void CppLargeMotor::set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::speed_regulation_d() {
+ ::PrimitiveTypes::Integer CppLargeMotor::speed_regulation_d() {
 	return referencedLarge_motor.speed_regulation_d();
 }
 
@@ -329,7 +326,7 @@ void CppLargeMotor::set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_speed_regulation_d(v);
 }
 
@@ -337,7 +334,7 @@ void CppLargeMotor::set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::state() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::state() {
 	return referencedLarge_motor.state();
 }
 
@@ -345,7 +342,7 @@ void CppLargeMotor::set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::stop_command() {
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::stop_command() {
 	return referencedLarge_motor.stop_command();
 }
 
@@ -353,8 +350,7 @@ void CppLargeMotor::set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_stop_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppLargeMotor::set_stop_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedLarge_motor.set_stop_command(v);
 }
 
@@ -362,7 +358,7 @@ void CppLargeMotor::set_stop_command(
  * generated comment
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::stop_commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::stop_commands() {
 	return referencedLarge_motor.stop_commands();
 }
 
@@ -370,7 +366,7 @@ void CppLargeMotor::set_stop_command(
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::time_sp() {
+ ::PrimitiveTypes::Integer CppLargeMotor::time_sp() {
 	return referencedLarge_motor.time_sp();
 }
 
@@ -378,7 +374,7 @@ void CppLargeMotor::set_stop_command(
  * generated comment
  * @param v 
  */
-void CppLargeMotor::set_time_sp(::PrimitiveTypes::Integer /*in*/v) {
+void CppLargeMotor::set_time_sp(::PrimitiveTypes::Integer /*in*/ v) {
 	referencedLarge_motor.set_time_sp(v);
 }
 
@@ -386,7 +382,7 @@ void CppLargeMotor::set_time_sp(::PrimitiveTypes::Integer /*in*/v) {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::run_forever() {
+ void CppLargeMotor::run_forever() {
 	referencedLarge_motor.run_forever();
 }
 
@@ -394,7 +390,7 @@ void CppLargeMotor::run_forever() {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::run_to_abs_pos() {
+ void CppLargeMotor::run_to_abs_pos() {
 	referencedLarge_motor.run_to_abs_pos();
 }
 
@@ -402,7 +398,7 @@ void CppLargeMotor::run_to_abs_pos() {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::run_timed() {
+ void CppLargeMotor::run_timed() {
 	return referencedLarge_motor.run_timed();
 }
 
@@ -410,7 +406,7 @@ void CppLargeMotor::run_timed() {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::run_direct() {
+ void CppLargeMotor::run_direct() {
 	referencedLarge_motor.run_direct();
 }
 
@@ -418,7 +414,7 @@ void CppLargeMotor::run_direct() {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::stop() {
+ void CppLargeMotor::stop() {
 	referencedLarge_motor.stop();
 }
 
@@ -426,7 +422,7 @@ void CppLargeMotor::stop() {
  * generated comment
  * @return ret 
  */
-void CppLargeMotor::reset() {
+ void CppLargeMotor::reset() {
 	referencedLarge_motor.reset();
 }
 
@@ -437,18 +433,15 @@ void CppLargeMotor::reset() {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean CppLargeMotor::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
-	return ((device*) &referencedLarge_motor)->connect(dir, pattern, match);
+ ::PrimitiveTypes::Boolean CppLargeMotor::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
+	return ((device*)&referencedLarge_motor)->connect(dir , pattern , match);
 }
 
 /**
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppLargeMotor::connected() {
+ ::PrimitiveTypes::Boolean CppLargeMotor::connected() {
 	return referencedLarge_motor.connected();
 }
 
@@ -456,7 +449,7 @@ void CppLargeMotor::reset() {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Integer CppLargeMotor::device_index() {
+ ::PrimitiveTypes::Integer CppLargeMotor::device_index() {
 	return referencedLarge_motor.device_index();
 }
 
@@ -465,9 +458,8 @@ void CppLargeMotor::reset() {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer CppLargeMotor::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedLarge_motor)->get_attr_int(name);
+ ::PrimitiveTypes::Integer CppLargeMotor::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedLarge_motor)->get_attr_int(name);
 }
 
 /**
@@ -476,10 +468,8 @@ void CppLargeMotor::reset() {
  * @param name 
  * @param value 
  */
-void CppLargeMotor::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
-	((device*) &referencedLarge_motor)->set_attr_int(name, value);
+ void CppLargeMotor::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
+	((device*)&referencedLarge_motor)->set_attr_int(name , value);
 }
 
 /**
@@ -487,9 +477,8 @@ void CppLargeMotor::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedLarge_motor)->get_attr_string(name);
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedLarge_motor)->get_attr_string(name);
 }
 
 /**
@@ -498,10 +487,8 @@ void CppLargeMotor::set_attr_int(
  * @param name 
  * @param value 
  */
-void CppLargeMotor::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
-	((device*) &referencedLarge_motor)->set_attr_string(name, value);
+ void CppLargeMotor::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
+	((device*)&referencedLarge_motor)->set_attr_string(name , value);
 }
 
 /**
@@ -509,9 +496,8 @@ void CppLargeMotor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedLarge_motor)->get_attr_line(name);
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedLarge_motor)->get_attr_line(name);
 }
 
 /**
@@ -520,10 +506,8 @@ void CppLargeMotor::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
-	return ((device*) &referencedLarge_motor)->get_attr_set(name, pCur);
+ ::EV3PapyrusLibrary::Types::ModeSet CppLargeMotor::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
+	return ((device*)&referencedLarge_motor)->get_attr_set(name , pCur);
 }
 
 /**
@@ -531,9 +515,8 @@ void CppLargeMotor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
-	return ((device*) &referencedLarge_motor)->get_attr_from_set(name);
+ ::EV3PapyrusLibrary::Types::LocalString CppLargeMotor::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
+	return ((device*)&referencedLarge_motor)->get_attr_from_set(name);
 }
 
 /**
@@ -544,22 +527,21 @@ void CppLargeMotor::set_attr_string(
  * @param invert_sens true is the rotation is inverted, false otherwise
  * @return  
  */
-void CppLargeMotor::run_for_second(int /*in*/power, int /*in*/second,
-		bool /*in*/brake, bool /*in*/invert_sens) {
+ void CppLargeMotor::run_for_second(int /*in*/ power, int /*in*/ second, bool /*in*/ brake, bool /*in*/ invert_sens) {
 	set_duty_cycle_sp(power);
-	if (brake) {
-		set_stop_command("brake");
-	} else {
-		set_stop_command("coast");
-	}
-	if (invert_sens) {
-		set_polarity("inversed");
-	} else {
-		set_polarity("normal");
-	}
-	run_forever();
-	sleep(second);
-	stop();
+		if (brake) {
+			set_stop_command("brake");
+		} else {
+			set_stop_command("coast");
+		}
+		if (invert_sens) {
+			set_polarity("inversed");
+		} else {
+			set_polarity("normal");
+		}
+		run_forever();
+		sleep (second);
+		stop();
 }
 
 /**
@@ -570,21 +552,20 @@ void CppLargeMotor::run_for_second(int /*in*/power, int /*in*/second,
  * @param invert_sens true is the rotation is inverted, false otherwise
  * @return  
  */
-void CppLargeMotor::run_for_degres(int /*in*/power, int /*in*/degres,
-		bool /*in*/brake, bool /*in*/invert_sens) {
+ void CppLargeMotor::run_for_degres(int /*in*/ power, int /*in*/ degres, bool /*in*/ brake, bool /*in*/ invert_sens) {
 	set_duty_cycle_sp(power);
-	if (brake) {
-		set_stop_command("brake");
-	} else {
-		set_stop_command("coast");
-	}
-	if (invert_sens) {
-		set_polarity("inversed");
-	} else {
-		set_polarity("normal");
-	}
-	set_position_sp(degres);
-	run_to_rel_pos();
+		if (brake) {
+			set_stop_command("brake");
+		} else {
+			set_stop_command("coast");
+		}
+		if (invert_sens) {
+			set_polarity("inversed");
+		} else {
+			set_polarity("normal");
+		}
+		set_position_sp(degres);
+		run_to_rel_pos();
 }
 
 /**
@@ -595,20 +576,19 @@ void CppLargeMotor::run_for_degres(int /*in*/power, int /*in*/degres,
  * @param invert_sens true is the rotation is inverted, false otherwise
  * @return  
  */
-void CppLargeMotor::run_for_turn(int /*in*/power, int /*in*/nb_turn,
-		bool /*in*/brake, bool /*in*/invert_sens) {
+ void CppLargeMotor::run_for_turn(int /*in*/ power, int /*in*/ nb_turn, bool /*in*/ brake, bool /*in*/ invert_sens) {
 	set_duty_cycle_sp(power);
-	if (brake) {
-		set_stop_command("brake");
-	} else {
-		set_stop_command("coast");
-	}
-	if (invert_sens) {
-		set_polarity("inversed");
-	} else {
-		set_polarity("normal");
-	}
-	run_for_degres(power, nb_turn * 360, brake, invert_sens);
+		if (brake) {
+			set_stop_command("brake");
+		} else {
+			set_stop_command("coast");
+		}
+		if (invert_sens) {
+			set_polarity("inversed");
+		} else {
+			set_polarity("normal");
+		}
+		run_for_degres(power, nb_turn * 360, brake, invert_sens);
 }
 
 /**
@@ -617,14 +597,14 @@ void CppLargeMotor::run_for_turn(int /*in*/power, int /*in*/nb_turn,
  * @param invert_sens true is the rotation is inverted, false otherwise
  * @return  
  */
-void CppLargeMotor::start(int /*in*/power, bool /*in*/invert_sens) {
+ void CppLargeMotor::start(int /*in*/ power, bool /*in*/ invert_sens) {
 	set_duty_cycle_sp(power);
-	if (invert_sens) {
-		set_polarity("inversed");
-	} else {
-		set_polarity("normal");
-	}
-	run_forever();
+		if (invert_sens) {
+			set_polarity("inversed");
+		} else {
+			set_polarity("normal");
+		}
+		run_forever();
 }
 
 /**
@@ -632,24 +612,23 @@ void CppLargeMotor::start(int /*in*/power, bool /*in*/invert_sens) {
  * @param brake true if there is a brake at the end of the movement, false otherwise
  * @return  
  */
-void CppLargeMotor::stop(bool /*in*/brake) {
+ void CppLargeMotor::stop(bool /*in*/ brake) {
 	if (brake) {
-		set_stop_command("brake");
-	} else {
-		set_stop_command("coast");
-	}
-	stop();
-
+			set_stop_command("brake");
+		} else {
+			set_stop_command("coast");
+		}
+		stop();
 }
 
 /**
  * 
  * @param portAdress 
  */
-CppLargeMotor::CppLargeMotor(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/portAdress) :
-		referencedLarge_motor(portAdress), cpplargemotorController(this) {
+CppLargeMotor::CppLargeMotor(::EV3PapyrusLibrary::Types::LocalString /*in*/ portAdress): referencedLarge_motor(portAdress) {
 }
+
+
 
 } // of namespace Actuators
 } // of namespace ev3devCpp
@@ -657,5 +636,5 @@ CppLargeMotor::CppLargeMotor(
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppLargeMotor class body
+              End of CppLargeMotor class body
  ************************************************************/

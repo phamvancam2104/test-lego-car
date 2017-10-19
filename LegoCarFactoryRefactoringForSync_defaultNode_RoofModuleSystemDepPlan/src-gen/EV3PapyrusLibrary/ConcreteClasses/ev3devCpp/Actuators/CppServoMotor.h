@@ -16,7 +16,7 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppDevice.h"
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ActuatorsCppServoMotor__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Actuators/CppServoMotor__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -49,10 +49,7 @@ public:
 	 * 
 	 */
 	servo_motor referencedServo_motor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsCppServoMotor__Controller cppservomotorController;
+	DECLARE_DELEGATEE_COMPONENT (CppServoMotor)
 	/**
 	 * generated comment
 	 * @param v 

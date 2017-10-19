@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_AbstractClasses_EV3Brick_AbstractSound_BODY
 
 /************************************************************
- AbstractSound class body
+              AbstractSound class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractSound.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -24,7 +26,7 @@ namespace EV3Brick {
  * 
  * @return ret 
  */
-void AbstractSound::beep() {
+ void AbstractSound::beep() {
 }
 
 /**
@@ -33,7 +35,7 @@ void AbstractSound::beep() {
  * @param frequency 
  * @param ms 
  */
-void AbstractSound::tone(unsigned int /*in*/frequency, unsigned int /*in*/ms) {
+ void AbstractSound::tone(unsigned int /*in*/ frequency, unsigned int /*in*/ ms) {
 }
 
 /**
@@ -42,9 +44,7 @@ void AbstractSound::tone(unsigned int /*in*/frequency, unsigned int /*in*/ms) {
  * @param soundfile 
  * @param bSynchronous 
  */
-void AbstractSound::play(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/soundfile,
-		::PrimitiveTypes::Boolean /*in*/bSynchronous) {
+ void AbstractSound::play(::EV3PapyrusLibrary::Types::LocalString /*in*/ soundfile, ::PrimitiveTypes::Boolean /*in*/ bSynchronous) {
 }
 
 /**
@@ -53,15 +53,14 @@ void AbstractSound::play(
  * @param text 
  * @param bSynchronous 
  */
-void AbstractSound::speak(::EV3PapyrusLibrary::Types::LocalString& /*in*/text,
-		::PrimitiveTypes::Boolean /*in*/bSynchronous) {
+ void AbstractSound::speak(::EV3PapyrusLibrary::Types::LocalString& /*in*/ text, ::PrimitiveTypes::Boolean /*in*/ bSynchronous) {
 }
 
 /**
  * 
  * @return ret 
  */
-unsigned int AbstractSound::volume() {
+ unsigned int AbstractSound::volume() {
 }
 
 /**
@@ -69,13 +68,15 @@ unsigned int AbstractSound::volume() {
  * @return ret 
  * @param v 
  */
-void AbstractSound::set_volume(unsigned int /*in*/v) {
+ void AbstractSound::set_volume(unsigned int /*in*/ v) {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractSound class body
+              End of AbstractSound class body
  ************************************************************/

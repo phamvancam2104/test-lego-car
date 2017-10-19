@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_INTERFACES_SENSORS_ITOUCHSENSOR_H
 
 /************************************************************
- ITouchSensor class header
+              ITouchSensor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Interfaces/Sensors/Pkg_Sensors.h"
@@ -18,6 +18,7 @@
 #include <stdint.h>
 // End of Include stereotype (header)
 
+
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Sensors {
@@ -26,27 +27,32 @@ namespace Sensors {
 /**
  * 
  */
-class ITouchSensor: public ISensor {
-public:
+class ITouchSensor : 
+public ISensor	
+ {
+	public:
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Boolean isTouch() = 0;
+	virtual  ::PrimitiveTypes::Boolean isTouch() = 0;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Sensors
 } // of namespace Interfaces
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of ITouchSensor class header
+              End of ITouchSensor class header
  ************************************************************/
 
 #endif

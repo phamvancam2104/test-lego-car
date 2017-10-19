@@ -129,8 +129,8 @@ bool Conveyor::go_check_presence_position() {
  * 
  */
 void Conveyor::connectorConfiguration() {
-	bindPorts(pMotor, motor.largeMotorPort);
-	bindPorts(sensor, color_sensor.colorSensorPort);
+	bindPorts(this->pMotor, motor.largeMotorPort);
+	bindPorts(this->sensor, color_sensor.colorSensorPort);
 }
 
 } // of namespace CarFactoryLibrary

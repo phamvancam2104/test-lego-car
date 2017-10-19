@@ -30,7 +30,6 @@ namespace Slaves {
  * 
  */
 void SlaveShelf::sendRoboticArmPickPieceEvent() {
-
 	CarFactoryLibrary::events::RoboticArmPickPiece s;
 	s.rack_number = which_rack;
 	pPickPiece.outIntf->push(s); //get_roboticArm()->sendRoboticArmPickPiece(s);
@@ -41,7 +40,6 @@ void SlaveShelf::sendRoboticArmPickPieceEvent() {
  * @return ret 
  */
 ::CarFactoryLibrary::BluetoothSlaveEnum SlaveShelf::get_status() {
-
 	return pModule.requiredIntf->getStatus();
 }
 
@@ -67,7 +65,7 @@ void SlaveShelf::save_which_rack(
  * 
  * @return ret 
  */
-bool SlaveShelf::fromWhich_racktoNoEmptyRackGuard() {
+bool SlaveShelf::() {
 	return !is_empty(which_rack);
 }
 
@@ -85,8 +83,7 @@ void SlaveShelf::sendErrorDetectionEvent() {
  * 
  */
 SlaveShelf::SlaveShelf() :
-		::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2"), slaveshelfController(
-				this) {
+		::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2") {
 }
 
 } // of namespace Slaves

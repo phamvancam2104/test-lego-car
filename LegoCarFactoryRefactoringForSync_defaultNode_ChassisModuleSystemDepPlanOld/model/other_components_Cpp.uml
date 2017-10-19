@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_ef6QIBklEeeSaotqwVljHg" name="other_components_Cpp">
+  <uml:Model xmi:id="_HgLsALUYEee94q5Wi6avnA" name="other_components_Cpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_DcplYAbJEeaF1M78KmUHVQ" name="led_status">
       <ownedAttribute xmi:id="_h1RpUAbMEeaVw9eaWLzosg" name="red_led_index" visibility="protected">
         <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
@@ -69,16 +69,16 @@ leds[green_led_index].run();</body>
       </eAnnotations>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
-    <profileApplication xmi:id="_hzkZQBklEeeSaotqwVljHg">
-      <eAnnotations xmi:id="_hzkZQRklEeeSaotqwVljHg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="_Ke1OcLUYEee94q5Wi6avnA">
+      <eAnnotations xmi:id="_Ke11gLUYEee94q5Wi6avnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:External xmi:id="_ef7eQRklEeeSaotqwVljHg" base_Classifier="_DcplYAbJEeaF1M78KmUHVQ"/>
-  <C_Cpp:Ref xmi:id="_ef9TchklEeeSaotqwVljHg" base_parameter="_IbUpYAbKEeaB05f6i8NhVA"/>
-  <C_Cpp:Ref xmi:id="_ef96gBklEeeSaotqwVljHg" base_parameter="_EJdqQAbYEeaz_pWDQeuMMg"/>
-  <C_Cpp:Ref xmi:id="_ef96ghklEeeSaotqwVljHg" base_parameter="_ER9e8AbYEeaz_pWDQeuMMg"/>
-  <C_Cpp:Include xmi:id="_h0UnMBklEeeSaotqwVljHg" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_ef6QIBklEeeSaotqwVljHg"/>
+  <C_Cpp:External xmi:id="_HgLsBbUYEee94q5Wi6avnA" base_Classifier="_DcplYAbJEeaF1M78KmUHVQ"/>
+  <C_Cpp:Ref xmi:id="_HgM6IrUYEee94q5Wi6avnA" base_parameter="_IbUpYAbKEeaB05f6i8NhVA"/>
+  <C_Cpp:Ref xmi:id="_HgM6JLUYEee94q5Wi6avnA" base_parameter="_EJdqQAbYEeaz_pWDQeuMMg"/>
+  <C_Cpp:Ref xmi:id="_HgM6JrUYEee94q5Wi6avnA" base_parameter="_ER9e8AbYEeaz_pWDQeuMMg"/>
+  <C_Cpp:Include xmi:id="_Ke3DoLUYEee94q5Wi6avnA" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_HgLsALUYEee94q5Wi6avnA"/>
 </xmi:XMI>

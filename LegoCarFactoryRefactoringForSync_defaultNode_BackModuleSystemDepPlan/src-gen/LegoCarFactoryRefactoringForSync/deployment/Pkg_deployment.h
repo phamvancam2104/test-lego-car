@@ -2,7 +2,7 @@
 #define PKG_LEGOCARFACTORYREFACTORINGFORSYNC_DEPLOYMENT
 
 /************************************************************
- Pkg_deployment package header
+              Pkg_deployment package header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace deployment {
 
 // Types defined within the package
-}// of namespace deployment
+} // of namespace deployment
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of Pkg_deployment package header
+              End of Pkg_deployment package header
  ************************************************************/
 
 #endif

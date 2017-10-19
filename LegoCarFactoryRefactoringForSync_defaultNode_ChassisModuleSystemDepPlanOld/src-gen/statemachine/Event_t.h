@@ -6,7 +6,7 @@
 #define STATEMACHINE_EVENT_T_H
 
 /************************************************************
- Event_t class header
+              Event_t class header
  ************************************************************/
 
 #include "statemachine/Pkg_statemachine.h"
@@ -17,6 +17,7 @@
 #define EVENT_DATA_SIZE (50)
 // End of Include stereotype (header)
 
+
 namespace statemachine {
 
 /************************************************************/
@@ -24,42 +25,43 @@ namespace statemachine {
  * 
  */
 class Event_t {
-public:
-	Event_t() :
-			priority(PRIORITY_2) {
-	}
+	public:
+	Event_t() : priority(PRIORITY_2) {}
 	/**
 	 * 
 	 */
-	EventPriority_t priority;
+	 EventPriority_t priority;
 	/**
 	 * 
 	 */
-	char data[EVENT_DATA_SIZE];
+	 char data[EVENT_DATA_SIZE];
 	/**
 	 * 
 	 */
-	unsigned int eventID;
+	 unsigned int eventID;
 	/**
 	 * 
 	 */
-	EventType_t eventType;
+	 EventType_t eventType;
 	/**
 	 * 
 	 */
-	unsigned int associatedState;
+	 unsigned int associatedState;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace statemachine
 
 /************************************************************
- End of Event_t class header
+              End of Event_t class header
  ************************************************************/
 
 #endif

@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_AbstractClasses_Actuators_AbstractLargeMotor_BODY
 
 /************************************************************
- AbstractLargeMotor class body
+              AbstractLargeMotor class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/Actuators/AbstractLargeMotor.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -24,358 +26,350 @@ namespace Actuators {
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractLargeMotor::set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::commands() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::count_per_rot() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::count_per_rot() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::driver_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::driver_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::duty_cycle() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::duty_cycle() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::duty_cycle_sp() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::duty_cycle_sp() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::encoder_polarity() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::encoder_polarity() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_encoder_polarity(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractLargeMotor::set_encoder_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::polarity() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::polarity() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_polarity(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractLargeMotor::set_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::port_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::port_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::position() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::position() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_position(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_position(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::position_p() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::position_p() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_position_p(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_position_p(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::position_i() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::position_i() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_position_i(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_position_i(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::position_d() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::position_d() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_position_d(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_position_d(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::position_sp() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::position_sp() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_position_sp(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::speed() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::speed() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::speed_sp() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::speed_sp() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_speed_sp(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_speed_sp(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::ramp_up_sp() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::ramp_up_sp() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::ramp_down_sp() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::ramp_down_sp() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::speed_regulation_enabled() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::speed_regulation_enabled() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_speed_regulation_enabled(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractLargeMotor::set_speed_regulation_enabled(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::speed_regulation_p() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::speed_regulation_p() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_speed_regulation_p(
-		::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::speed_regulation_i() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::speed_regulation_i() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_speed_regulation_i(
-		::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::speed_regulation_d() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::speed_regulation_d() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_speed_regulation_d(
-		::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::state() {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::state() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::stop_command() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::stop_command() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_stop_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractLargeMotor::set_stop_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::stop_commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::stop_commands() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::time_sp() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::time_sp() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractLargeMotor::set_time_sp(::PrimitiveTypes::Integer /*in*/v) {
+void AbstractLargeMotor::set_time_sp(::PrimitiveTypes::Integer /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::run_forever() {
+ void AbstractLargeMotor::run_forever() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::run_to_abs_pos() {
+ void AbstractLargeMotor::run_to_abs_pos() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::run_to_rel_pos() {
+ void AbstractLargeMotor::run_to_rel_pos() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::run_timed() {
+ void AbstractLargeMotor::run_timed() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::run_direct() {
+ void AbstractLargeMotor::run_direct() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::stop() {
+ void AbstractLargeMotor::stop() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLargeMotor::reset() {
+ void AbstractLargeMotor::reset() {
 }
 
 /**
@@ -383,8 +377,7 @@ void AbstractLargeMotor::reset() {
  * @return ret 
  * @param arg0 
  */
-::PrimitiveTypes::Boolean AbstractLargeMotor::connect(
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/arg0) {
+ ::PrimitiveTypes::Boolean AbstractLargeMotor::connect(::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ arg0) {
 }
 
 /**
@@ -394,24 +387,21 @@ void AbstractLargeMotor::reset() {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean AbstractLargeMotor::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
+ ::PrimitiveTypes::Boolean AbstractLargeMotor::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractLargeMotor::connected() {
+ ::PrimitiveTypes::Boolean AbstractLargeMotor::connected() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::device_index() {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::device_index() {
 }
 
 /**
@@ -419,8 +409,7 @@ void AbstractLargeMotor::reset() {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer AbstractLargeMotor::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer AbstractLargeMotor::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -429,9 +418,7 @@ void AbstractLargeMotor::reset() {
  * @param name 
  * @param value 
  */
-void AbstractLargeMotor::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
+ void AbstractLargeMotor::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
 }
 
 /**
@@ -439,8 +426,7 @@ void AbstractLargeMotor::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -449,9 +435,7 @@ void AbstractLargeMotor::set_attr_int(
  * @param name 
  * @param value 
  */
-void AbstractLargeMotor::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
+ void AbstractLargeMotor::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
 }
 
 /**
@@ -459,8 +443,7 @@ void AbstractLargeMotor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -469,9 +452,7 @@ void AbstractLargeMotor::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractLargeMotor::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
 }
 
 /**
@@ -479,14 +460,15 @@ void AbstractLargeMotor::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractLargeMotor::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
+
+
 
 } // of namespace Actuators
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractLargeMotor class body
+              End of AbstractLargeMotor class body
  ************************************************************/

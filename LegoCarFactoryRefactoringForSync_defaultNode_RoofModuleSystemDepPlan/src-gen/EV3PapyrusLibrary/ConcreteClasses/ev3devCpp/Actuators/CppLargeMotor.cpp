@@ -639,7 +639,6 @@ void CppLargeMotor::stop(bool /*in*/brake) {
 		set_stop_command("coast");
 	}
 	stop();
-
 }
 
 /**
@@ -648,7 +647,7 @@ void CppLargeMotor::stop(bool /*in*/brake) {
  */
 CppLargeMotor::CppLargeMotor(
 		::EV3PapyrusLibrary::Types::LocalString /*in*/portAdress) :
-		referencedLarge_motor(portAdress), cpplargemotorController(this) {
+		referencedLarge_motor(portAdress) {
 }
 
 } // of namespace Actuators

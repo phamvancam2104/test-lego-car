@@ -6,10 +6,13 @@
 #define EV3PAPYRUSLIBRARY_EV3BRICKPACKAGE_IEV3BRICK_H
 
 /************************************************************
- IEV3Brick class header
+              IEV3Brick class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/EV3BrickPackage/Pkg_EV3BrickPackage.h"
+
+
+
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
@@ -19,7 +22,7 @@ namespace EV3BrickPackage {
  * 
  */
 class IEV3Brick {
-public:
+	public:
 	/**
 	 * 
 	 */
@@ -29,18 +32,21 @@ public:
 	 */
 	virtual void allLedOff() = 0;
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3BrickPackage
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of IEV3Brick class header
+              End of IEV3Brick class header
  ************************************************************/
 
 #endif

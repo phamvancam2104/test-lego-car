@@ -197,8 +197,7 @@ void CppSensorMux::set_attr_string(
 CppSensorMux::CppSensorMux(
 		::EV3PapyrusLibrary::Types::LocalString /*in*/portAddress,
 		::MindsensorsPapyrusLibrary::Types::VectorLocalString /*in*/sensorTypes) :
-		referencedSensor_mux(portAddress, sensorTypes), cppsensormuxController(
-				this) {
+		referencedSensor_mux(portAddress, sensorTypes) {
 }
 
 } // of namespace ConcreteClasses

@@ -5,13 +5,15 @@
 #define EV3PapyrusLibrary_EV3BrickPackage_CppEV3Brick_BODY
 
 /************************************************************
- CppEV3Brick class body
+              CppEV3Brick class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/EV3BrickPackage/CppEV3Brick.h"
 
 // Derived includes directives
+
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
@@ -41,8 +43,7 @@ void CppEV3Brick::allLedOff() {
 /**
  * 
  */
-CppEV3Brick::CppEV3Brick() :
-		cppev3brickController(this) {
+CppEV3Brick::CppEV3Brick() {
 	//we init the led
 	//leftGreenLed.referencedLed=&led::green_left;
 	//rightGreenLed.referencedLed=&led::green_right;
@@ -50,9 +51,11 @@ CppEV3Brick::CppEV3Brick() :
 	//rightRedLed.referencedLed=&led::red_right;
 }
 
+
+
 } // of namespace EV3BrickPackage
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppEV3Brick class body
+              End of CppEV3Brick class body
  ************************************************************/

@@ -6,12 +6,14 @@
 #define CARFACTORYLIBRARY_EVENTS_ERRORDETECTION_H
 
 /************************************************************
- ErrorDetection class header
+              ErrorDetection class header
  ************************************************************/
 
 #include "CarFactoryLibrary/events/Pkg_events.h"
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
+
+
 
 namespace CarFactoryLibrary {
 namespace events {
@@ -21,24 +23,27 @@ namespace events {
  * 
  */
 class ErrorDetection {
-public:
+	public:
 	/**
 	 * 
 	 */
-	bool is_misplace;
+	 bool is_misplace;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace events
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of ErrorDetection class header
+              End of ErrorDetection class header
  ************************************************************/
 
 #endif

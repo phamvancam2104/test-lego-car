@@ -16,7 +16,7 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppDevice.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppLed__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppLed__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -49,10 +49,7 @@ public:
 	 * 
 	 */
 	led referencedLed;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppLed__Controller cppledController;
+	DECLARE_DELEGATEE_COMPONENT (CppLed)
 	/**
 	 * generated comment
 	 * @return ret 

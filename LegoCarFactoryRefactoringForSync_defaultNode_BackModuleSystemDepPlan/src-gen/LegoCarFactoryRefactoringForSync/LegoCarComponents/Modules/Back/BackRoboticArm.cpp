@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Back_BackRoboticArm_BODY
 
 /************************************************************
- BackRoboticArm class body
+              BackRoboticArm class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Back/BackRoboticArm.h"
@@ -37,7 +38,6 @@ namespace Back {
  * 
  */
 void BackRoboticArm::stop_motors() {
-
 	float_motors();
 }
 
@@ -45,91 +45,86 @@ void BackRoboticArm::stop_motors() {
  * 
  * @param rack_number 
  */
-void BackRoboticArm::pick_back_part(int /*in*/rack_number) {
-
+void BackRoboticArm::pick_back_part(int /*in*/ rack_number) {
 	if (rack_number == CarFactoryLibrary::RED) {
-		//go to REST
-		go_rest_position_rack();
-
-		//go to BEFORE PICK PART
-		move(5.1, -2, 97);
-		usleep(800 * 1000);
-
-		//go to DOWN
-		move(5.6, -4, 97, true, 100);
-		usleep(500 * 1000);
-
-		//CLOSE PLIERS
-		motor_pliers.close();
-		usleep(200 * 1000);
-
-		//go UP
-		move(5.6, 2, 97, false);
-		usleep(500 * 1000);
-
-		//go to REST
-		go_rest_position_rack();
-	} else if (rack_number == CarFactoryLibrary::WHITE) {
-		//go to REST
-		go_rest_position_rack();
-
-		//go to BEFORE PICK PART
-		move(9.6, -3, 97);
-		usleep(500 * 1000);
-
-		//go to DOWN
-		move(9.4, -4.9, 97, true, 100);
-		usleep(500 * 1000);
-
-		//CLOSE PLIERS
-		motor_pliers.close();
-
-		//go UP
-		move(10, 2, 97, false);
-		usleep(500 * 1000);
-
-		//go to REST
-		go_rest_position_rack();
-	} else if (rack_number == CarFactoryLibrary::BLUE) {
-		//go to REST
-		go_rest_position_rack();
-
-		//go to BEFORE PICK PART
-		move(14, -3, 97);
-		usleep(500 * 1000);
-
-		//go DOWN
-		move(13.8, -5, 97, false);
-		usleep(500 * 1000);
-
-		//CLOSE PLIERS
-		motor_pliers.close();
-
-		//go UP
-		move(13.8, 2, 97, false);
-		usleep(500 * 1000);
-
-		//go to REST
-		go_rest_position_rack();
-	}
+			//go to REST
+			go_rest_position_rack();
+	
+			//go to BEFORE PICK PART
+			move(5.1, -2, 97);
+			usleep(800 * 1000);
+	
+			//go to DOWN
+			move(5.6, -4, 97, true, 100);
+			usleep(500 * 1000);
+	
+			//CLOSE PLIERS
+			motor_pliers.close();
+			usleep(200 * 1000);
+	
+			//go UP
+			move(5.6, 2, 97, false);
+			usleep(500 * 1000);
+	
+			//go to REST
+			go_rest_position_rack();
+		} else if (rack_number == CarFactoryLibrary::WHITE) {
+			//go to REST
+			go_rest_position_rack();
+	
+			//go to BEFORE PICK PART
+			move(9.6, -3, 97);
+			usleep(500 * 1000);
+	
+			//go to DOWN
+			move(9.4, -4.9, 97, true, 100);
+			usleep(500 * 1000);
+	
+			//CLOSE PLIERS
+			motor_pliers.close();
+	
+			//go UP
+			move(10, 2, 97, false);
+			usleep(500 * 1000);
+	
+			//go to REST
+			go_rest_position_rack();
+		} else if (rack_number == CarFactoryLibrary::BLUE) {
+			//go to REST
+			go_rest_position_rack();
+	
+			//go to BEFORE PICK PART
+			move(14, -3, 97);
+			usleep(500 * 1000);
+	
+			//go DOWN
+			move(13.8, -5, 97, false);
+			usleep(500 * 1000);
+	
+			//CLOSE PLIERS
+			motor_pliers.close();
+	
+			//go UP
+			move(13.8, 2, 97, false);
+			usleep(500 * 1000);
+	
+			//go to REST
+			go_rest_position_rack();
+		}
 }
 
 /**
  * 
  */
-BackRoboticArm::BackRoboticArm() :
-		CarFactoryLibrary::RoboticArm("in3:i2c88:sv3", "in3:i2c88:sv2",
-				"in3:i2c88:sv1", "in3:i2c88:sv4"), backroboticarmController(
-				this) {
+BackRoboticArm::BackRoboticArm(): CarFactoryLibrary::RoboticArm("in3:i2c88:sv3", "in3:i2c88:sv2",
+				"in3:i2c88:sv1", "in3:i2c88:sv4") {
 }
 
 /**
  * 
  * @param sig 
  */
-void BackRoboticArm::save_rack_number(
-		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
-
+void BackRoboticArm::save_rack_number(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/ sig) {
 	rack_number = sig.rack_number;
 }
 
@@ -137,29 +132,26 @@ void BackRoboticArm::save_rack_number(
  * 
  */
 void BackRoboticArm::init() {
-
 	run_motors();
-	motor_pliers.open();
-	go_rest_position_rack();
-	float_motors();
+		motor_pliers.open();
+		go_rest_position_rack();
+		float_motors();
 }
 
 /**
  * 
  */
 void BackRoboticArm::start_motors() {
-
 	pLCD.requiredIntf->clear(); //get_module()->ev3Brick.lcdScreen.clear();
-	pLCD.requiredIntf->write_text(0, 20, "Pick place...", lcd::TextSize::LARGE);
-
-	run_motors();
+		pLCD.requiredIntf->write_text(0, 20, "Pick place...", lcd::TextSize::LARGE);
+	
+		run_motors();
 }
 
 /**
  * 
  */
 void BackRoboticArm::pick_back_part() {
-
 	pick_back_part (rack_number);
 }
 
@@ -167,7 +159,6 @@ void BackRoboticArm::pick_back_part() {
  * 
  */
 void BackRoboticArm::retake_back_part() {
-
 	retake_back_part();
 }
 
@@ -175,7 +166,6 @@ void BackRoboticArm::retake_back_part() {
  * 
  */
 void BackRoboticArm::deliver_back_part() {
-
 	deliver_back_part();
 }
 
@@ -183,11 +173,12 @@ void BackRoboticArm::deliver_back_part() {
  * 
  */
 void BackRoboticArm::sendGoToPressEvent() {
-
 	LegoCarFactoryRefactoringForSync::signals::GoToPress s;
-	s.color = static_cast<CarFactoryLibrary::Colors>(rack_number);
-	pOutGotoProcess.outIntf->push(s); //static_cast<BackConveyor*>(get_conveyor())->sendGoToPress(s);
+		s.color = static_cast<CarFactoryLibrary::Colors>(rack_number);
+		pOutGotoProcess.outIntf->push(s);//static_cast<BackConveyor*>(get_conveyor())->sendGoToPress(s);
 }
+
+
 
 } // of namespace Back
 } // of namespace Modules
@@ -195,5 +186,5 @@ void BackRoboticArm::sendGoToPressEvent() {
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of BackRoboticArm class body
+              End of BackRoboticArm class body
  ************************************************************/

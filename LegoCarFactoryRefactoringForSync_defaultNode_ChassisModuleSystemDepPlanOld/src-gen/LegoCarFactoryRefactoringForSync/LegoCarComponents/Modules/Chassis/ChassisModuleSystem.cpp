@@ -5,13 +5,15 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Chassis_ChassisModuleSystem_BODY
 
 /************************************************************
- ChassisModuleSystem class body
+              ChassisModuleSystem class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisModuleSystem.h"
 
 // Derived includes directives
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -23,8 +25,7 @@ namespace Chassis {
 /**
  * 
  */
-ChassisModuleSystem::ChassisModuleSystem() :
-		chassismodulesystemController(this) {
+ChassisModuleSystem::ChassisModuleSystem() {
 }
 
 /**
@@ -32,8 +33,7 @@ ChassisModuleSystem::ChassisModuleSystem() :
  */
 void ChassisModuleSystem::connectorConfiguration() {
 	bindPorts(chassisController.pOutStopProcess_Shelf, shelf.pInStopProcess);
-	bindPorts(chassisController.pOutStopProcess_RoboticArm,
-			robotic_arm.pInStopProcess);
+	bindPorts(chassisController.pOutStopProcess_RoboticArm, robotic_arm.pInStopProcess);
 	bindPorts(chassisController.pStopProcess_Convoyer, convoyer.pStopProcess);
 	bindPorts(chassisController.pOutRestart_Shelf, shelf.pInRestart);
 	bindPorts(chassisController.pOutRestart_Robotic, robotic_arm.pInRestart);
@@ -55,11 +55,13 @@ void ChassisModuleSystem::connectorConfiguration() {
 	bindPorts(chassisController.pLCD, shelf.pLCD);
 }
 
+
+
 } // of namespace Chassis
 } // of namespace Modules
 } // of namespace LegoCarComponents
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of ChassisModuleSystem class body
+              End of ChassisModuleSystem class body
  ************************************************************/

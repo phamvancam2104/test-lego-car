@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_INTERFACES_ACTUATORS_ILARGEMOTOR_H
 
 /************************************************************
- ILargeMotor class header
+              ILargeMotor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Interfaces/Actuators/Pkg_Actuators.h"
@@ -17,6 +17,7 @@
 #include <stdint.h>
 // End of Include stereotype (header)
 
+
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
@@ -25,21 +26,26 @@ namespace Actuators {
 /**
  * 
  */
-class ILargeMotor: public IMotor {
+class ILargeMotor : 
+public IMotor	
+ {
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Actuators
 } // of namespace Interfaces
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of ILargeMotor class header
+              End of ILargeMotor class header
  ************************************************************/
 
 #endif

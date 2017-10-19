@@ -2,7 +2,7 @@
 #define PKG_LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS
 
 /************************************************************
- Pkg_LegoCarComponents package header
+              Pkg_LegoCarComponents package header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
@@ -17,11 +17,12 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
 #ifdef __linux__ 
-//linux code goes here
+    //linux code goes here
 #elif _WIN32
 #include "windows.h"
 #else
@@ -39,11 +40,11 @@ namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 
 // Types defined within the package
-}// of namespace LegoCarComponents
+} // of namespace LegoCarComponents
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of Pkg_LegoCarComponents package header
+              End of Pkg_LegoCarComponents package header
  ************************************************************/
 
 #endif

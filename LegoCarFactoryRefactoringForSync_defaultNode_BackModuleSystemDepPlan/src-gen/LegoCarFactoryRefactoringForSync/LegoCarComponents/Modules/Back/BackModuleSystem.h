@@ -6,7 +6,7 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_BACK_BACKMODULESYSTEM_H
 
 /************************************************************
- BackModuleSystem class header
+              BackModuleSystem class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Back/Pkg_Back.h"
@@ -16,7 +16,7 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Back/BackRoboticArm.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlavePress.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlaveShelf.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/BackBackModuleSystem__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Back/BackModuleSystem__Delegatee.h"
 
 // Include from Include stereotype (header)
 
@@ -29,6 +29,7 @@
 #include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/BackBackModuleSystem__Controller.h"
 // End of Include stereotype (header)
 
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
@@ -39,31 +40,28 @@ namespace Back {
  * 
  */
 class BackModuleSystem {
-public:
+	public:
 	/**
 	 * 
 	 */
-	BackConvoyer conveyor;
+	 BackConvoyer conveyor;
 	/**
 	 * 
 	 */
-	BackRoboticArm robotic_arm;
+	 BackRoboticArm robotic_arm;
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlaveShelf shelf;
+	 ::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlaveShelf shelf;
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlavePress press;
+	 ::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlavePress press;
 	/**
 	 * 
 	 */
-	BackControlComponent controller;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::BackBackModuleSystem__Controller backmodulesystemController;
+	 BackControlComponent controller;
+	DECLARE_DELEGATEE_COMPONENT (BackModuleSystem)
 	/**
 	 * 
 	 */
@@ -73,12 +71,15 @@ public:
 	 */
 	void connectorConfiguration();
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Back
 } // of namespace Modules
@@ -86,7 +87,7 @@ public:
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of BackModuleSystem class header
+              End of BackModuleSystem class header
  ************************************************************/
 
 #endif

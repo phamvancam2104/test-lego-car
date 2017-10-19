@@ -5,8 +5,9 @@
 #define BootLoaderCpp_BootLoader_BODY
 
 /************************************************************
- BootLoader class body
+              BootLoader class body
  ************************************************************/
+
 
 // include associated header file
 #include "BootLoaderCpp/BootLoader.h"
@@ -16,7 +17,8 @@
 // Include from Include declaration (body)
 BootLoaderCpp::BootLoader bootloader;
 
-int main(int argc, const char* argv[]) {
+int main (int argc, const char* argv[])
+{
 	// store arguments for future access
 	BootLoaderCpp::BootLoader::argc = argc;
 	BootLoaderCpp::BootLoader::argv = argv;
@@ -33,27 +35,71 @@ namespace BootLoaderCpp {
 /**
  * 
  */
-::PrimitiveTypes::Integer BootLoader::argc;
+ ::PrimitiveTypes::Integer  BootLoader::argc;
 /**
  * 
  */
-::PrimitiveTypes::String* BootLoader::argv;
+ ::PrimitiveTypes::String*  BootLoader::argv;
 
 /**
  * 
  */
 void BootLoader::init() {
-	mainInstance.backmodulesystemController.createConnections();
-
-	mainInstance.conveyor.backconvoyerController.startBehavior();
-	mainInstance.robotic_arm.backroboticarmController.startBehavior();
-	mainInstance.shelf.slaveshelfController.startBehavior();
-	mainInstance.press.slavepressController.startBehavior();
-	mainInstance.controller.backcontrolcomponentController.startBehavior();
+	mainInstance.controller.emergency_button.CppTouchSensorDelegatee.setComponent(&(mainInstance.controller.emergency_button));
+					mainInstance.controller.ev3Brick.bluetoothDevice.CppBlutoothDelegatee.setComponent(&(mainInstance.controller.ev3Brick.bluetoothDevice));
+					mainInstance.controller.ev3Brick.soundDevice.CppSoundDelegatee.setComponent(&(mainInstance.controller.ev3Brick.soundDevice));
+					mainInstance.controller.ev3Brick.lcdScreen.CppLcdDelegatee.setComponent(&(mainInstance.controller.ev3Brick.lcdScreen));
+					mainInstance.controller.ev3Brick.okButton.CppButtonDelegatee.setComponent(&(mainInstance.controller.ev3Brick.okButton));
+					mainInstance.controller.ev3Brick.downButton.CppButtonDelegatee.setComponent(&(mainInstance.controller.ev3Brick.downButton));
+					mainInstance.controller.ev3Brick.topButton.CppButtonDelegatee.setComponent(&(mainInstance.controller.ev3Brick.topButton));
+					mainInstance.controller.ev3Brick.rightButton.CppButtonDelegatee.setComponent(&(mainInstance.controller.ev3Brick.rightButton));
+					mainInstance.controller.ev3Brick.leftButton.CppButtonDelegatee.setComponent(&(mainInstance.controller.ev3Brick.leftButton));
+					mainInstance.controller.ev3Brick.backButton.CppButtonDelegatee.setComponent(&(mainInstance.controller.ev3Brick.backButton));
+					mainInstance.controller.ev3Brick.rightRedLed.CppLedDelegatee.setComponent(&(mainInstance.controller.ev3Brick.rightRedLed));
+					mainInstance.controller.ev3Brick.leftRedLed.CppLedDelegatee.setComponent(&(mainInstance.controller.ev3Brick.leftRedLed));
+					mainInstance.controller.ev3Brick.rightGreenLed.CppLedDelegatee.setComponent(&(mainInstance.controller.ev3Brick.rightGreenLed));
+					mainInstance.controller.ev3Brick.leftGreenLed.CppLedDelegatee.setComponent(&(mainInstance.controller.ev3Brick.leftGreenLed));
+					mainInstance.controller.ev3Brick.CppEV3BrickDelegatee.setComponent(&(mainInstance.controller.ev3Brick));
+					mainInstance.controller.BackControlComponentDelegatee.setComponent(&(mainInstance.controller));
+					mainInstance.press.motor.CppLargeMotorDelegatee.setComponent(&(mainInstance.press.motor));
+					mainInstance.press.SlavePressDelegatee.setComponent(&(mainInstance.press));
+					mainInstance.shelf.rack_3.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.shelf.rack_3.color_sensor));
+					mainInstance.shelf.rack_3.RackDelegatee.setComponent(&(mainInstance.shelf.rack_3));
+					mainInstance.shelf.rack_2.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.shelf.rack_2.color_sensor));
+					mainInstance.shelf.rack_2.RackDelegatee.setComponent(&(mainInstance.shelf.rack_2));
+					mainInstance.shelf.rack_1.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.shelf.rack_1.color_sensor));
+					mainInstance.shelf.rack_1.RackDelegatee.setComponent(&(mainInstance.shelf.rack_1));
+					mainInstance.shelf.SlaveShelfDelegatee.setComponent(&(mainInstance.shelf));
+					mainInstance.robotic_arm.motor_right_left.CppServoMotorDelegatee.setComponent(&(mainInstance.robotic_arm.motor_right_left));
+					mainInstance.robotic_arm.motor_front_back.CppServoMotorDelegatee.setComponent(&(mainInstance.robotic_arm.motor_front_back));
+					mainInstance.robotic_arm.motor_up_down.CppServoMotorDelegatee.setComponent(&(mainInstance.robotic_arm.motor_up_down));
+					mainInstance.robotic_arm.BackRoboticArmDelegatee.setComponent(&(mainInstance.robotic_arm));
+					mainInstance.conveyor.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.conveyor.color_sensor));
+					mainInstance.conveyor.motor.CppLargeMotorDelegatee.setComponent(&(mainInstance.conveyor.motor));
+					mainInstance.conveyor.BackConvoyerDelegatee.setComponent(&(mainInstance.conveyor));
+				mainInstance.BackModuleSystemDelegatee.setComponent(&mainInstance);
+	mainInstance.BackModuleSystemDelegatee.createConnections();
+	
+	mainInstance.conveyor.BackConvoyerDelegatee.configure_queue_size();
+	mainInstance.conveyor.BackConvoyerDelegatee.startBehavior();
+	mainInstance.robotic_arm.BackRoboticArmDelegatee.configure_queue_size();
+	mainInstance.robotic_arm.BackRoboticArmDelegatee.startBehavior();
+	mainInstance.shelf.SlaveShelfDelegatee.configure_queue_size();
+	mainInstance.shelf.SlaveShelfDelegatee.startBehavior();
+	mainInstance.press.SlavePressDelegatee.configure_queue_size();
+	mainInstance.press.SlavePressDelegatee.startBehavior();
+	mainInstance.controller.BackControlComponentDelegatee.configure_queue_size();
+	mainInstance.controller.BackControlComponentDelegatee.startBehavior();
+	//do we always really need a default infinitive loop?
+	for(;;) {
+		//do nothing
+	}
 }
+
+
 
 } // of namespace BootLoaderCpp
 
 /************************************************************
- End of BootLoader class body
+              End of BootLoader class body
  ************************************************************/

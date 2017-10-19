@@ -264,7 +264,7 @@ void CppTouchSensor::set_attr_string(
  */
 CppTouchSensor::CppTouchSensor(
 		::EV3PapyrusLibrary::Types::PortType /*in*/portAdress) :
-		referencedTouch_sensor(portAdress), cpptouchsensorController(this) {
+		referencedTouch_sensor(portAdress) {
 }
 
 } // of namespace Sensors

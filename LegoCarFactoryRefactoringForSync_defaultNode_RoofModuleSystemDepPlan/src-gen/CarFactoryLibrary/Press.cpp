@@ -115,7 +115,7 @@ void Press::sendEndOfModule(
  * 
  */
 void Press::connectorConfiguration() {
-	bindPorts(motor_port, motor.largeMotorPort);
+	bindPorts(this->motor_port, motor.largeMotorPort);
 }
 
 } // of namespace CarFactoryLibrary

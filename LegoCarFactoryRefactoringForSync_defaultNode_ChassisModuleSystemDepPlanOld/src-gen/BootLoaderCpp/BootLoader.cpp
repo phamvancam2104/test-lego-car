@@ -5,8 +5,9 @@
 #define BootLoaderCpp_BootLoader_BODY
 
 /************************************************************
- BootLoader class body
+              BootLoader class body
  ************************************************************/
+
 
 // include associated header file
 #include "BootLoaderCpp/BootLoader.h"
@@ -16,7 +17,8 @@
 // Include from Include declaration (body)
 BootLoaderCpp::BootLoader bootloader;
 
-int main(int argc, const char* argv[]) {
+int main (int argc, const char* argv[])
+{
 	// store arguments for future access
 	BootLoaderCpp::BootLoader::argc = argc;
 	BootLoaderCpp::BootLoader::argv = argv;
@@ -33,26 +35,68 @@ namespace BootLoaderCpp {
 /**
  * 
  */
-::PrimitiveTypes::Integer BootLoader::argc;
+ ::PrimitiveTypes::Integer  BootLoader::argc;
 /**
  * 
  */
-::PrimitiveTypes::String* BootLoader::argv;
+ ::PrimitiveTypes::String*  BootLoader::argv;
 
 /**
  * 
  */
 void BootLoader::init() {
-	mainInstance.chassismodulesystemController.createConnections();
-
-	mainInstance.chassisController.chassiscontrolcomponentController.startBehavior();
-	mainInstance.convoyer.chassisconvoyerController.startBehavior();
-	mainInstance.robotic_arm.chassisroboticarmController.startBehavior();
-	mainInstance.shelf.chassisshelfController.startBehavior();
+	mainInstance.shelf.rack_3.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.shelf.rack_3.color_sensor));
+					mainInstance.shelf.rack_3.RackDelegatee.setComponent(&(mainInstance.shelf.rack_3));
+					mainInstance.shelf.rack_2.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.shelf.rack_2.color_sensor));
+					mainInstance.shelf.rack_2.RackDelegatee.setComponent(&(mainInstance.shelf.rack_2));
+					mainInstance.shelf.rack_1.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.shelf.rack_1.color_sensor));
+					mainInstance.shelf.rack_1.RackDelegatee.setComponent(&(mainInstance.shelf.rack_1));
+					mainInstance.shelf.ChassisShelfDelegatee.setComponent(&(mainInstance.shelf));
+					mainInstance.robotic_arm.motor_right_left.CppServoMotorDelegatee.setComponent(&(mainInstance.robotic_arm.motor_right_left));
+					mainInstance.robotic_arm.motor_front_back.CppServoMotorDelegatee.setComponent(&(mainInstance.robotic_arm.motor_front_back));
+					mainInstance.robotic_arm.motor_up_down.CppServoMotorDelegatee.setComponent(&(mainInstance.robotic_arm.motor_up_down));
+					mainInstance.robotic_arm.ChassisRoboticArmDelegatee.setComponent(&(mainInstance.robotic_arm));
+					mainInstance.convoyer.color_sensor.CppColorSensorDelegatee.setComponent(&(mainInstance.convoyer.color_sensor));
+					mainInstance.convoyer.motor.CppLargeMotorDelegatee.setComponent(&(mainInstance.convoyer.motor));
+					mainInstance.convoyer.ChassisConvoyerDelegatee.setComponent(&(mainInstance.convoyer));
+					mainInstance.chassisController.emergency_button.CppTouchSensorDelegatee.setComponent(&(mainInstance.chassisController.emergency_button));
+					mainInstance.chassisController.ev3Brick.bluetoothDevice.CppBlutoothDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.bluetoothDevice));
+					mainInstance.chassisController.ev3Brick.soundDevice.CppSoundDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.soundDevice));
+					mainInstance.chassisController.ev3Brick.lcdScreen.CppLcdDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.lcdScreen));
+					mainInstance.chassisController.ev3Brick.okButton.CppButtonDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.okButton));
+					mainInstance.chassisController.ev3Brick.downButton.CppButtonDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.downButton));
+					mainInstance.chassisController.ev3Brick.topButton.CppButtonDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.topButton));
+					mainInstance.chassisController.ev3Brick.rightButton.CppButtonDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.rightButton));
+					mainInstance.chassisController.ev3Brick.leftButton.CppButtonDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.leftButton));
+					mainInstance.chassisController.ev3Brick.backButton.CppButtonDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.backButton));
+					mainInstance.chassisController.ev3Brick.rightRedLed.CppLedDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.rightRedLed));
+					mainInstance.chassisController.ev3Brick.leftRedLed.CppLedDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.leftRedLed));
+					mainInstance.chassisController.ev3Brick.rightGreenLed.CppLedDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.rightGreenLed));
+					mainInstance.chassisController.ev3Brick.leftGreenLed.CppLedDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick.leftGreenLed));
+					mainInstance.chassisController.ev3Brick.CppEV3BrickDelegatee.setComponent(&(mainInstance.chassisController.ev3Brick));
+					mainInstance.chassisController.keypad.CppNumericPadDelegatee.setComponent(&(mainInstance.chassisController.keypad));
+					mainInstance.chassisController.ChassisControlComponentDelegatee.setComponent(&(mainInstance.chassisController));
+				mainInstance.ChassisModuleSystemDelegatee.setComponent(&mainInstance);
+	mainInstance.ChassisModuleSystemDelegatee.createConnections();
+	
+	mainInstance.chassisController.ChassisControlComponentDelegatee.configure_queue_size();
+	mainInstance.chassisController.ChassisControlComponentDelegatee.startBehavior();
+	mainInstance.convoyer.ChassisConvoyerDelegatee.configure_queue_size();
+	mainInstance.convoyer.ChassisConvoyerDelegatee.startBehavior();
+	mainInstance.robotic_arm.ChassisRoboticArmDelegatee.configure_queue_size();
+	mainInstance.robotic_arm.ChassisRoboticArmDelegatee.startBehavior();
+	mainInstance.shelf.ChassisShelfDelegatee.configure_queue_size();
+	mainInstance.shelf.ChassisShelfDelegatee.startBehavior();
+	//do we always really need a default infinitive loop?
+	for(;;) {
+		//do nothing
+	}
 }
+
+
 
 } // of namespace BootLoaderCpp
 
 /************************************************************
- End of BootLoader class body
+              End of BootLoader class body
  ************************************************************/

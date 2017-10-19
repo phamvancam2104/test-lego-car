@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Slaves_SlavePress_BODY
 
 /************************************************************
- SlavePress class body
+              SlavePress class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlavePress.h"
@@ -17,6 +18,7 @@
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -44,7 +46,7 @@ void SlavePress::effectFromChoicetoPress() {
  * 
  * @return ret 
  */
-bool SlavePress::fromChoicetoGoTopPressGuard() {
+ bool SlavePress::() {
 	return counter == 2;
 }
 
@@ -52,7 +54,7 @@ bool SlavePress::fromChoicetoGoTopPressGuard() {
  * 
  */
 void SlavePress::SetStatusIsReady() {
-	set_status (RESULT_READY);
+	set_status(RESULT_READY);
 }
 
 /**
@@ -79,9 +81,10 @@ void SlavePress::assemble() {
 /**
  * 
  */
-SlavePress::SlavePress() :
-		CarFactoryLibrary::Press("outD"), slavepressController(this) {
+SlavePress::SlavePress(): CarFactoryLibrary::Press("outD") {
 }
+
+
 
 } // of namespace Slaves
 } // of namespace Modules
@@ -89,5 +92,5 @@ SlavePress::SlavePress() :
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of SlavePress class body
+              End of SlavePress class body
  ************************************************************/

@@ -71,7 +71,7 @@ namespace EV3Brick {
  */
 CppBlutooth::CppBlutooth(
 		::EV3PapyrusLibrary::Types::LocalString /*in*/uselessString) :
-		referencedBluetooth(), cppblutoothController(this) {
+		referencedBluetooth() {
 }
 
 } // of namespace EV3Brick

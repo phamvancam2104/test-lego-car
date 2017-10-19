@@ -15,7 +15,7 @@
 #include "CarFactoryLibrary/Module.h"
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/RoofRoofControlComponent__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Roof/RoofControlComponent__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
@@ -98,106 +98,105 @@ public:
 	 * 
 	 */
 	::CarFactoryLibrary::Colors color;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::RoofRoofControlComponent__Controller roofcontrolcomponentController;
+	DECLARE_DELEGATEE_COMPONENT (RoofControlComponent)
 
 	StateMachine RoofControlStateMachine {
 		InitialState Initialization {
-			StateEntry init;
+			StateEntry init();
 		};
 		State PrincipalState {
 			Region Region1 {
 				InitialState EmnergencyStopState {
 					InitialState Check {
-						StateDoActivity doActivityCheck;
+						StateDoActivity doActivityCheck ();
 					};
-					PseudoChoice wait;
+					PseudoChoice wait {};
 					State EmergencyButtonPress {
-						StateEntry sendStopProcessEvent;
+						StateEntry sendStopProcessEvent();
 					};
 				};
 				State Misplace {
-					StateEntry sendStopProcess;
+					StateEntry sendStopProcess();
 				};
 				State Restart {
-					StateEntry send_restart_event;
+					StateEntry send_restart_event();
 				};
 				State ShowStopGUI {
-					StateEntry show_stop_GUI;
+					StateEntry show_stop_GUI();
 				};
-				PseudoChoice choice2;
-				PseudoChoice choice1;
+				PseudoChoice choice2 {};
+				PseudoChoice choice1 {};
 			};
 			Region Region2 {
 				InitialState CheckMessage {
-					StateDoActivity read;
+					StateDoActivity read ();
 				};
 				State Reset {
-					StateEntry reset;
+					StateEntry reset();
 				};
-				PseudoChoice choice;
+				PseudoChoice choice {};
 				State Ping {
-					StateEntry ping_response;
+					StateEntry ping_response();
 				};
 				State GetStatus {
-					StateEntry get_status_response;
+					StateEntry get_status_response();
 				};
 				State LoadCar {
-					StateEntry sendPrepareConveyorEvent;
+					StateEntry sendPrepareConveyorEvent();
 				};
 				State Deliver {
-					StateEntry deliver;
+					StateEntry deliver();
 				};
 				State Rewind {
-					StateEntry rewind;
+					StateEntry rewind();
 				};
 				State Assemble {
-					StateEntry send_check_racks_event;
+					StateEntry send_check_racks_event();
 				};
 			};
 		};
-		FinalState FinalState1;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
-		SignalEvent<CarFactoryLibrary::events::ErrorDetection> ErrorDetection;
-		TimeEvent(TE_50_ms_, 50)
+		FinalState FinalState1 {
+		};
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
+		SignalEvent(CarFactoryLibrary::events::ErrorDetection) ErrorDetection;
+		TimeEvent(50) TE_50_ms_ {};
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromInitializationtoPrincipalState , Initialization , PrincipalState , fromInitializationtoPrincipalStateGuard , NULL , NULL );
-			ExT(fromEmnergencyStopStatetoEmnergencyStopState , EmnergencyStopState , EmnergencyStopState , NULL , EndOfModule , NULL );
-			ExT(fromEmnergencyStopStatetoMisplace , EmnergencyStopState , Misplace , NULL , ErrorDetection , effectFromEmnergencyStopStatetoMisplace );
-			ExT(fromChecktoWait , Check , wait , NULL , NULL , NULL );
-			ExT(fromEmergencyButtonPresstoShowStopGUI , EmergencyButtonPress , ShowStopGUI , NULL , NULL , NULL );
-			ExT(fromMisplacetoChoice2 , Misplace , choice2 , NULL , NULL , NULL );
-			ExT(fromRestarttoEmnergencyStopState , Restart , EmnergencyStopState , NULL , NULL , NULL );
-			ExT(fromShowStopGUItoChoice1 , ShowStopGUI , choice1 , NULL , NULL , NULL );
-			ExT(fromCheckMessagetoChoice , CheckMessage , choice , NULL , NULL , NULL );
-			ExT(fromResettoCheckMessage , Reset , CheckMessage , NULL , NULL , NULL );
-			ExT(fromPingtoCheckMessage , Ping , CheckMessage , NULL , NULL , NULL );
-			ExT(fromGetStatustoCheckMessage , GetStatus , CheckMessage , NULL , NULL , NULL );
-			ExT(fromLoadCartoCheckMessage , LoadCar , CheckMessage , NULL , NULL , NULL );
-			ExT(fromDelivertoCheckMessage , Deliver , CheckMessage , NULL , NULL , NULL );
-			ExT(fromRewindtoCheckMessage , Rewind , CheckMessage , NULL , NULL , NULL );
-			ExT(fromAssembletoCheckMessage , Assemble , CheckMessage , NULL , NULL , NULL );
-			ExT(fromWaittoCheck , wait , Check , NULL , TE_50_ms_ , NULL );
-			ExT(fromWaittoEmergencyButtonPress , wait , EmergencyButtonPress , fromWaittoEmergencyButtonPressGuard , NULL , NULL );
-			ExT(fromChoice2toMisplace , choice2 , Misplace , NULL , NULL , NULL );
-			ExT(fromChoice2toRestart , choice2 , Restart , fromChoice2toRestartGuard , NULL , NULL );
-			ExT(fromChoice1toRestart , choice1 , Restart , fromChoice1toRestartGuard , NULL , NULL );
-			ExT(fromChoice1toShowStopGUI , choice1 , ShowStopGUI , NULL , NULL , NULL );
-			ExT(fromChoicetoPing , choice , Ping , fromChoicetoPingGuard , NULL , NULL );
-			ExT(fromChoicetoGetStatus , choice , GetStatus , fromChoicetoGetStatusGuard , NULL , NULL );
-			ExT(fromChoicetoLoadCar , choice , LoadCar , fromChoicetoLoadCarGuard , NULL , NULL );
-			ExT(fromChoicetoCheckMessage , choice , CheckMessage , NULL , NULL , NULL );
-			ExT(fromChoicetoDeliver , choice , Deliver , fromChoicetoDeliverGuard , NULL , NULL );
-			ExT(fromChoicetoRewind , choice , Rewind , fromChoicetoRewindGuard , NULL , NULL );
-			ExT(fromChoicetoAssemble , choice , Assemble , fromChoicetoAssembleGuard , NULL , NULL );
-			ExT(fromChoicetoReset , choice , Reset , fromChoicetoResetGuard , NULL , NULL );
-			ExT(fromChoicetoFinalState1 , choice , FinalState1 , fromChoicetoFinalState1Guard , NULL , NULL );
-		}
+			ExT(fromInitializationtoPrincipalState, Initialization, PrincipalState, fromInitializationtoPrincipalStateGuard, void, NULL);
+			ExT(fromEmnergencyStopStatetoEmnergencyStopState, EmnergencyStopState, EmnergencyStopState, NULL, EndOfModule, NULL);
+			ExT(fromEmnergencyStopStatetoMisplace, EmnergencyStopState, Misplace, NULL, ErrorDetection, effectFromEmnergencyStopStatetoMisplace);
+			ExT(fromChecktoWait, Check, wait, NULL, void, NULL);
+			ExT(fromEmergencyButtonPresstoShowStopGUI, EmergencyButtonPress, ShowStopGUI, NULL, void, NULL);
+			ExT(fromMisplacetoChoice2, Misplace, choice2, NULL, void, NULL);
+			ExT(fromRestarttoEmnergencyStopState, Restart, EmnergencyStopState, NULL, void, NULL);
+			ExT(fromShowStopGUItoChoice1, ShowStopGUI, choice1, NULL, void, NULL);
+			ExT(fromCheckMessagetoChoice, CheckMessage, choice, NULL, void, NULL);
+			ExT(fromResettoCheckMessage, Reset, CheckMessage, NULL, void, NULL);
+			ExT(fromPingtoCheckMessage, Ping, CheckMessage, NULL, void, NULL);
+			ExT(fromGetStatustoCheckMessage, GetStatus, CheckMessage, NULL, void, NULL);
+			ExT(fromLoadCartoCheckMessage, LoadCar, CheckMessage, NULL, void, NULL);
+			ExT(fromDelivertoCheckMessage, Deliver, CheckMessage, NULL, void, NULL);
+			ExT(fromRewindtoCheckMessage, Rewind, CheckMessage, NULL, void, NULL);
+			ExT(fromAssembletoCheckMessage, Assemble, CheckMessage, NULL, void, NULL);
+			ExT(fromWaittoCheck, wait, Check, NULL, TE_50_ms_, NULL);
+			ExT(fromWaittoEmergencyButtonPress, wait, EmergencyButtonPress, fromWaittoEmergencyButtonPressGuard, void, NULL);
+			ExT(fromChoice2toMisplace, choice2, Misplace, NULL, void, NULL);
+			ExT(fromChoice2toRestart, choice2, Restart, fromChoice2toRestartGuard, void, NULL);
+			ExT(fromChoice1toRestart, choice1, Restart, fromChoice1toRestartGuard, void, NULL);
+			ExT(fromChoice1toShowStopGUI, choice1, ShowStopGUI, NULL, void, NULL);
+			ExT(fromChoicetoPing, choice, Ping, fromChoicetoPingGuard, void, NULL);
+			ExT(fromChoicetoGetStatus, choice, GetStatus, fromChoicetoGetStatusGuard, void, NULL);
+			ExT(fromChoicetoLoadCar, choice, LoadCar, fromChoicetoLoadCarGuard, void, NULL);
+			ExT(fromChoicetoCheckMessage, choice, CheckMessage, NULL, void, NULL);
+			ExT(fromChoicetoDeliver, choice, Deliver, fromChoicetoDeliverGuard, void, NULL);
+			ExT(fromChoicetoRewind, choice, Rewind, fromChoicetoRewindGuard, void, NULL);
+			ExT(fromChoicetoAssemble, choice, Assemble, fromChoicetoAssembleGuard, void, NULL);
+			ExT(fromChoicetoReset, choice, Reset, fromChoicetoResetGuard, void, NULL);
+			ExT(fromChoicetoFinalState1, choice, FinalState1, fromChoicetoFinalState1Guard, void, NULL);
+		};
 	};
 	/**
 	 * 

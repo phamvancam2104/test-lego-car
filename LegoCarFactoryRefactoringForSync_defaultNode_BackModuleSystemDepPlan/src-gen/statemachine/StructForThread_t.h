@@ -6,12 +6,14 @@
 #define STATEMACHINE_STRUCTFORTHREAD_T_H
 
 /************************************************************
- StructForThread_t class header
+              StructForThread_t class header
  ************************************************************/
 
 #include "statemachine/Pkg_statemachine.h"
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
+
+
 
 namespace statemachine {
 
@@ -20,27 +22,27 @@ namespace statemachine {
  * 
  */
 class StructForThread_t {
-public:
+	public:
 	/**
 	 * 
 	 */
-	void* ptr;
+	 void* ptr;
 	/**
 	 * 
 	 */
-	unsigned int id;
+	 unsigned int id;
 	/**
 	 * 
 	 */
-	char enter_mode;
+	 char enter_mode;
 	/**
 	 * 
 	 */
-	char func_type;
+	 char func_type;
 	/**
 	 * 
 	 */
-	unsigned int duration;
+	 unsigned int duration;
 	/**
 	 * 
 	 * @param ptr 
@@ -49,25 +51,26 @@ public:
 	 * @param func_type 
 	 * @param duration 
 	 */
-	StructForThread_t(void* /*in*/ptr, unsigned int /*in*/id,
-			char /*in*/enter_mode, char /*in*/func_type,
-			unsigned int /*in*/duration);
+	StructForThread_t(void* /*in*/ ptr, unsigned int /*in*/ id, char /*in*/ enter_mode, char /*in*/ func_type, unsigned int /*in*/ duration);
 	/**
 	 * 
 	 */
 	StructForThread_t();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace statemachine
 
 /************************************************************
- End of StructForThread_t class header
+              End of StructForThread_t class header
  ************************************************************/
 
 #endif

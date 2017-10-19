@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_EV3Brick_CppSound_BODY
 
 /************************************************************
- CppSound class body
+              CppSound class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppSound.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -25,7 +27,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-void CppSound::beep() {
+ void CppSound::beep() {
 	return referencedSound.beep();
 }
 
@@ -35,8 +37,8 @@ void CppSound::beep() {
  * @param frequency 
  * @param ms 
  */
-void CppSound::tone(unsigned int /*in*/frequency, unsigned int /*in*/ms) {
-	return referencedSound.tone(frequency, ms);
+ void CppSound::tone(unsigned int /*in*/ frequency, unsigned int /*in*/ ms) {
+	return referencedSound.tone(frequency , ms);
 }
 
 /**
@@ -45,9 +47,8 @@ void CppSound::tone(unsigned int /*in*/frequency, unsigned int /*in*/ms) {
  * @param soundfile 
  * @param bSynchronous 
  */
-void CppSound::play(::EV3PapyrusLibrary::Types::LocalString /*in*/soundfile,
-		::PrimitiveTypes::Boolean /*in*/bSynchronous) {
-	referencedSound.play(soundfile, bSynchronous);
+ void CppSound::play(::EV3PapyrusLibrary::Types::LocalString /*in*/ soundfile, ::PrimitiveTypes::Boolean /*in*/ bSynchronous) {
+	referencedSound.play(soundfile , bSynchronous);
 }
 
 /**
@@ -56,16 +57,15 @@ void CppSound::play(::EV3PapyrusLibrary::Types::LocalString /*in*/soundfile,
  * @param text 
  * @param bSynchronous 
  */
-void CppSound::speak(::EV3PapyrusLibrary::Types::LocalString& /*in*/text,
-		::PrimitiveTypes::Boolean /*in*/bSynchronous) {
-	referencedSound.speak(text, bSynchronous);
+ void CppSound::speak(::EV3PapyrusLibrary::Types::LocalString& /*in*/ text, ::PrimitiveTypes::Boolean /*in*/ bSynchronous) {
+	referencedSound.speak(text , bSynchronous);
 }
 
 /**
  * generated comment
  * @return ret 
  */
-unsigned int CppSound::volume() {
+ unsigned int CppSound::volume() {
 	return referencedSound.volume();
 }
 
@@ -74,7 +74,7 @@ unsigned int CppSound::volume() {
  * @return ret 
  * @param v 
  */
-void CppSound::set_volume(unsigned int /*in*/v) {
+ void CppSound::set_volume(unsigned int /*in*/ v) {
 	referencedSound.set_volume(v);
 }
 
@@ -84,9 +84,7 @@ void CppSound::set_volume(unsigned int /*in*/v) {
  * @param soundfile the file name of the sound file
  * @param volume the volume to play
  */
-void CppSound::play_file(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/soundfile,
-		unsigned int /*in*/volume) {
+ void CppSound::play_file(::EV3PapyrusLibrary::Types::LocalString /*in*/ soundfile, unsigned int /*in*/ volume) {
 	set_volume(volume);
 	play(soundfile, true);
 }
@@ -98,8 +96,7 @@ void CppSound::play_file(
  * @param ms the duration the tone play (in millisecond)
  * @param volume the volume to play
  */
-void CppSound::play_tone(unsigned int /*in*/frequency, unsigned int /*in*/ms,
-		unsigned int /*in*/volume) {
+ void CppSound::play_tone(unsigned int /*in*/ frequency, unsigned int /*in*/ ms, unsigned int /*in*/ volume) {
 	set_volume(volume);
 	tone(frequency, ms);
 }
@@ -110,16 +107,16 @@ void CppSound::play_tone(unsigned int /*in*/frequency, unsigned int /*in*/ms,
  * @param frequency 
  * @param ms 
  */
-void CppSound::toneDummyForCompilation(unsigned int /*in*/frequency,
-		unsigned int /*in*/ms) {
+ void CppSound::toneDummyForCompilation(unsigned int /*in*/ frequency, unsigned int /*in*/ ms) {
 }
 
 /**
  * 
  */
-CppSound::CppSound() :
-		cppsoundController(this) {
+CppSound::CppSound() {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -127,5 +124,5 @@ CppSound::CppSound() :
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppSound class body
+              End of CppSound class body
  ************************************************************/

@@ -15,7 +15,7 @@
 #include "EV3PapyrusLibrary/AbstractColorSensor.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3PapyrusLibraryCppColorSensor__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3PapyrusLibrary/CppColorSensor__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -39,10 +39,7 @@ public:
 	 * 
 	 */
 	color_sensor referencedColor_sensor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3PapyrusLibraryCppColorSensor__Controller cppcolorsensorController;
+	DECLARE_DELEGATEE_COMPONENT (CppColorSensor)
 	/**
 	 * 
 	 * @return ret 

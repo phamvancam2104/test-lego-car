@@ -60,7 +60,6 @@ Shelf::Shelf(int /*in*/number_rack_sensor,
 		rack_2 = ::CarFactoryLibrary::Rack(rack_sensorPort2);
 		rack_3 = ::CarFactoryLibrary::Rack(rack_sensorPort3);
 	}
-
 }
 
 /**
@@ -84,9 +83,9 @@ void Shelf::sendEndOfModule(
  * 
  */
 void Shelf::connectorConfiguration() {
-	bindPorts(sensor1, rack_1.sensor);
-	bindPorts(sensor2, rack_2.sensor);
-	bindPorts(sensor3, rack_3.sensor);
+	bindPorts(this->sensor1, rack_1.sensor);
+	bindPorts(this->sensor2, rack_2.sensor);
+	bindPorts(this->sensor3, rack_3.sensor);
 }
 
 } // of namespace CarFactoryLibrary

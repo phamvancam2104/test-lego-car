@@ -2,7 +2,7 @@
 #define PKG_EV3PAPYRUSLIBRARY_ABSTRACTCLASSES_SENSORS
 
 /************************************************************
- Pkg_Sensors package header
+              Pkg_Sensors package header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/AbstractClasses/Pkg_AbstractClasses.h"
@@ -17,6 +17,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace EV3PapyrusLibrary {
@@ -24,12 +25,12 @@ namespace AbstractClasses {
 namespace Sensors {
 
 // Types defined within the package
-}// of namespace Sensors
+} // of namespace Sensors
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of Pkg_Sensors package header
+              End of Pkg_Sensors package header
  ************************************************************/
 
 #endif

@@ -15,7 +15,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractLcd.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppLcd__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppLcd__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -47,10 +47,7 @@ public:
 	 * 
 	 */
 	lcd referencedLcd;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppLcd__Controller cpplcdController;
+	DECLARE_DELEGATEE_COMPONENT (CppLcd)
 	/**
 	 * generated comment
 	 * @return ret 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_whO7Ih8FEeemTMuj8iRTuw" name="CarFactoryLibrary">
+  <uml:Model xmi:id="_SqQNMbUXEee94q5Wi6avnA" name="CarFactoryLibrary">
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_GQVYkE9EEea9H9uQpUJpyQ" name="Colors">
       <ownedLiteral xmi:id="_NiGWAE9EEea9H9uQpUJpyQ" name="NONE"/>
       <ownedLiteral xmi:id="_K3vBgE9EEea9H9uQpUJpyQ" name="BLUE"/>
@@ -114,5 +114,5 @@
       <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Ref xmi:id="_xTe3ch8FEeemTMuj8iRTuw" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
+  <C_Cpp:Ref xmi:id="_UmsrwbUXEee94q5Wi6avnA" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
 </xmi:XMI>

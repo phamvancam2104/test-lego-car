@@ -6,7 +6,7 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_CHASSIS_CHASSISCONVOYER_H
 
 /************************************************************
- ChassisConvoyer class header
+              ChassisConvoyer class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/Pkg_Chassis.h"
@@ -14,67 +14,23 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Conveyor.h"
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ChassisChassisConvoyer__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Chassis/ChassisConvoyer__Delegatee.h"
 
 // Include from Include stereotype (header)
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class StopProcess;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class RestartAfterEmergencyStop;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class PrepareConveyor;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class DeliveredCarConveyor;
-}
-}
-namespace EV3PapyrusLibrary {
-class IColorSensor;
-}
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace Actuators {
-class ILargeMotor;
-}
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class CheckRack;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class ErrorDetection;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class StopProcess;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class RestartAfterEmergencyStop;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class PrepareConveyor;}}
+namespace CarFactoryLibrary {namespace events {class DeliveredCarConveyor;}}
+namespace EV3PapyrusLibrary {class IColorSensor;}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace Actuators {class ILargeMotor;}}}
+namespace CarFactoryLibrary {namespace events {class CheckRack;}}
+namespace CarFactoryLibrary {namespace events {class ErrorDetection;}}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
 
 // End of Include stereotype (header)
 
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class PrepareConveyor;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class StopProcess;
-}
-}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class PrepareConveyor;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class StopProcess;}}
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -85,113 +41,126 @@ namespace Chassis {
 /**
  * 
  */
-class ChassisConvoyer: public ::CarFactoryLibrary::Conveyor {
-public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ChassisChassisConvoyer__Controller chassisconvoyerController;
-
+class ChassisConvoyer : 
+public ::CarFactoryLibrary::Conveyor	
+ {
+	public:
+	DECLARE_DELEGATEE_COMPONENT (ChassisConvoyer)
+	
 	StateMachine ChassisConveyorStateMachine {
 		InitialState PrincipalState {
-			InitialState go_stop_position;
-			State replace;
-			State go_check_presence_position;
-			State Deliver_car;
-			State SendEndOfModuleEvent;
-			State SendLoadCarCommand;
-			State WaitSlaveIsNotBusy;
-			State go_wait_position;
-			State Rewind;
-			State SendDeliverCommand;
-			State WaitSlaveIsNotBusy2;
-			PseudoChoice choice0;
-			PseudoChoice choice1;
-			PseudoChoice choice2;
-			PseudoChoice choice3;
-			PseudoChoice choice;
-			State Misplace;
+			InitialState go_stop_position {
+			};
+			State replace {
+			};
+			State go_check_presence_position {
+			};
+			State Deliver_car {
+			};
+			State SendEndOfModuleEvent {
+			};
+			State SendLoadCarCommand {
+			};
+			State WaitSlaveIsNotBusy {
+			};
+			State go_wait_position {
+			};
+			State Rewind {
+			};
+			State SendDeliverCommand {
+			};
+			State WaitSlaveIsNotBusy2 {
+			};
+			PseudoChoice choice0{};
+			PseudoChoice choice1{};
+			PseudoChoice choice2{};
+			PseudoChoice choice3{};
+			PseudoChoice choice{};
+			State Misplace {
+			};
 		};
-		State Restart;
-		FinalState FinalState1;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> PrepareConveyor;
-		SignalEvent<CarFactoryLibrary::events::DeliveredCarConveyor> DeliveredCarConveyor;
+		State Restart {
+		};
+		FinalState FinalState1 {
+		};
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::PrepareConveyor) PrepareConveyor;
+		SignalEvent(CarFactoryLibrary::events::DeliveredCarConveyor) DeliveredCarConveyor;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , reset_first_time );
-			ExT(fromPrincipalStatetoFinalState1 , PrincipalState , FinalState1 , NULL , NULL , NULL );
-			ExT(fromGo_stop_positiontoChoice0 , go_stop_position , choice0 , NULL , PrepareConveyor , save_color );
-			ExT(fromReplacetoGo_check_presence_position , replace , go_check_presence_position , NULL , NULL , NULL );
-			ExT(fromGo_check_presence_positiontoChoice2 , go_check_presence_position , choice2 , NULL , NULL , NULL );
-			ExT(fromDeliver_cartoSendEndOfModuleEvent , Deliver_car , SendEndOfModuleEvent , NULL , NULL , NULL );
-			ExT(fromSendEndOfModuleEventtoGo_stop_position , SendEndOfModuleEvent , go_stop_position , NULL , NULL , NULL );
-			ExT(fromSendLoadCarCommandtoWaitSlaveIsNotBusy , SendLoadCarCommand , WaitSlaveIsNotBusy , NULL , NULL , NULL );
-			ExT(fromWaitSlaveIsNotBusytoChoice3 , WaitSlaveIsNotBusy , choice3 , NULL , NULL , NULL );
-			ExT(fromGo_wait_positiontoRewind , go_wait_position , Rewind , NULL , NULL , NULL );
-			ExT(fromRewindtoChoice1 , Rewind , choice1 , NULL , DeliveredCarConveyor , NULL );
-			ExT(fromSendDeliverCommandtoWaitSlaveIsNotBusy2 , SendDeliverCommand , WaitSlaveIsNotBusy2 , NULL , NULL , NULL );
-			ExT(fromWaitSlaveIsNotBusy2toChoice , WaitSlaveIsNotBusy2 , choice , NULL , NULL , NULL );
-			ExT(fromMisplacetoRestart , Misplace , Restart , NULL , NULL , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-			ExT(fromChoice0toGo_wait_position , choice0 , go_wait_position , fromChoice0toGo_wait_positionGuard , NULL , NULL );
-			ExT(fromChoice0toSendLoadCarCommand , choice0 , SendLoadCarCommand , NULL , NULL , NULL );
-			ExT(fromChoice1toReplace , choice1 , replace , fromChoice1toReplaceGuard , NULL , NULL );
-			ExT(fromChoice1toSendDeliverCommand , choice1 , SendDeliverCommand , NULL , NULL , NULL );
-			ExT(fromChoice2toMisplace , choice2 , Misplace , fromChoice2toMisplaceGuard , NULL , NULL );
-			ExT(fromChoice2toDeliver_car , choice2 , Deliver_car , NULL , NULL , NULL );
-			ExT(fromChoice3toGo_wait_position , choice3 , go_wait_position , fromChoice3toGo_wait_positionGuard , NULL , NULL );
-			ExT(fromChoice3toRestart , choice3 , Restart , NULL , NULL , NULL );
-			ExT(fromChoicetoSendEndOfModuleEvent , choice , SendEndOfModuleEvent , fromChoicetoSendEndOfModuleEventGuard , NULL , NULL );
-			ExT(fromChoicetoMisplace , choice , Misplace , fromChoicetoMisplaceGuard , NULL , NULL );
-			ExT(fromChoicetoRestart , choice , Restart , NULL , NULL , effectFromChoicetoRestart );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, reset_first_time);
+			ExT(fromPrincipalStatetoFinalState1, PrincipalState, FinalState1, NULL, void, NULL);
+			ExT(fromGo_stop_positiontoChoice0, go_stop_position, choice0, NULL, PrepareConveyor, save_color);
+			ExT(fromReplacetoGo_check_presence_position, replace, go_check_presence_position, NULL, void, NULL);
+			ExT(fromGo_check_presence_positiontoChoice2, go_check_presence_position, choice2, NULL, void, NULL);
+			ExT(fromDeliver_cartoSendEndOfModuleEvent, Deliver_car, SendEndOfModuleEvent, NULL, void, NULL);
+			ExT(fromSendEndOfModuleEventtoGo_stop_position, SendEndOfModuleEvent, go_stop_position, NULL, void, NULL);
+			ExT(fromSendLoadCarCommandtoWaitSlaveIsNotBusy, SendLoadCarCommand, WaitSlaveIsNotBusy, NULL, void, NULL);
+			ExT(fromWaitSlaveIsNotBusytoChoice3, WaitSlaveIsNotBusy, choice3, NULL, void, NULL);
+			ExT(fromGo_wait_positiontoRewind, go_wait_position, Rewind, NULL, void, NULL);
+			ExT(fromRewindtoChoice1, Rewind, choice1, NULL, DeliveredCarConveyor, NULL);
+			ExT(fromSendDeliverCommandtoWaitSlaveIsNotBusy2, SendDeliverCommand, WaitSlaveIsNotBusy2, NULL, void, NULL);
+			ExT(fromWaitSlaveIsNotBusy2toChoice, WaitSlaveIsNotBusy2, choice, NULL, void, NULL);
+			ExT(fromMisplacetoRestart, Misplace, Restart, NULL, void, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+			ExT(fromChoice0toGo_wait_position, choice0, go_wait_position, fromChoice0toGo_wait_positionGuard, void, NULL);
+			ExT(fromChoice0toSendLoadCarCommand, choice0, SendLoadCarCommand, NULL, void, NULL);
+			ExT(fromChoice1toReplace, choice1, replace, fromChoice1toReplaceGuard, void, NULL);
+			ExT(fromChoice1toSendDeliverCommand, choice1, SendDeliverCommand, NULL, void, NULL);
+			ExT(fromChoice2toMisplace, choice2, Misplace, fromChoice2toMisplaceGuard, void, NULL);
+			ExT(fromChoice2toDeliver_car, choice2, Deliver_car, NULL, void, NULL);
+			ExT(fromChoice3toGo_wait_position, choice3, go_wait_position, fromChoice3toGo_wait_positionGuard, void, NULL);
+			ExT(fromChoice3toRestart, choice3, Restart, NULL, void, NULL);
+			ExT(fromChoicetoSendEndOfModuleEvent, choice, SendEndOfModuleEvent, fromChoicetoSendEndOfModuleEventGuard, void, NULL);
+			ExT(fromChoicetoMisplace, choice, Misplace, fromChoicetoMisplaceGuard, void, NULL);
+			ExT(fromChoicetoRestart, choice, Restart, NULL, void, effectFromChoicetoRestart);
+		};
 	};
 	/**
 	 * 
 	 */
-	InOutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pStopProcess;
+	 InOutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pStopProcess;
 	/**
 	 * 
 	 */
-	InFlowPort<
-			LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pRestart;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pRestart;
 	/**
 	 * 
 	 */
-	InFlowPort<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> pPrepare;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> pPrepare;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
+	 InFlowPort<CarFactoryLibrary::events::DeliveredCarConveyor> pDelivered;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
+	 OutFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
+	 OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Control;
+	 OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Control;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Shelf;
+	 OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Shelf;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Robotic;
+	 OutFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo_Robotic;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoicetoMisplaceGuard();
+	 bool fromChoicetoMisplaceGuard();
 	/**
 	 * 
 	 */
@@ -200,8 +169,7 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void reset_first_time(
-			::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig);
+	void reset_first_time(::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/ sig);
 	/**
 	 * 
 	 */
@@ -210,45 +178,45 @@ public:
 	 * 
 	 * @param sig 
 	 */
-	void save_color(
-			::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig);
+	void save_color(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/ sig);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice0toGo_wait_positionGuard();
+	 bool fromChoice1toReplaceGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice1toReplaceGuard();
+	 bool fromChoice0toGo_wait_positionGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice2toMisplaceGuard();
+	 bool fromChoice2toMisplaceGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoice3toGo_wait_positionGuard();
+	 bool fromChoice3toGo_wait_positionGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoicetoSendEndOfModuleEventGuard();
+	 bool fromChoicetoSendEndOfModuleEventGuard();
 
-private:
+
+	private:
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
 	 * @return ret 
 	 */
-	bool check_presence();
+	 bool check_presence();
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
 	 * @return ret 
 	 */
-	int get_current_module();
+	 int get_current_module();
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
 	 */
@@ -257,18 +225,20 @@ private:
 	 * 
 	 * @return ret 
 	 */
-	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
+	 ::CarFactoryLibrary::BluetoothSlaveEnum get_status();
 	/**
 	 * 
 	 * @param status 
 	 */
-	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status);
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Chassis
 } // of namespace Modules
@@ -276,7 +246,7 @@ private:
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of ChassisConvoyer class header
+              End of ChassisConvoyer class header
  ************************************************************/
 
 #endif

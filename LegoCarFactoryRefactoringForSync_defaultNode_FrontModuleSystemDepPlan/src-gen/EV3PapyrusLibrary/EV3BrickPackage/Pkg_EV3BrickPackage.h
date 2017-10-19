@@ -2,7 +2,7 @@
 #define PKG_EV3PAPYRUSLIBRARY_EV3BRICKPACKAGE
 
 /************************************************************
- Pkg_EV3BrickPackage package header
+              Pkg_EV3BrickPackage package header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Pkg_EV3PapyrusLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
 
 // Types defined within the package
-}// of namespace EV3BrickPackage
+} // of namespace EV3BrickPackage
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of Pkg_EV3BrickPackage package header
+              End of Pkg_EV3BrickPackage package header
  ************************************************************/
 
 #endif

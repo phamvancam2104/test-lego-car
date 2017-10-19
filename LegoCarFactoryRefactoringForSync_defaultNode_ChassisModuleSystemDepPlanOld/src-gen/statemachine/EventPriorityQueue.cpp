@@ -5,31 +5,34 @@
 #define statemachine_EventPriorityQueue_BODY
 
 /************************************************************
- EventPriorityQueue class body
+              EventPriorityQueue class body
  ************************************************************/
+
 
 // include associated header file
 #include "statemachine/EventPriorityQueue.h"
 
 // Derived includes directives
 
+
 namespace statemachine {
 
 // static attributes (if any)
+/**
+ * 
+ */
+ Event_t  EventPriorityQueue::SINGLETON_QUEUE[SINGLETON_QUEUE_SIZE];
+/**
+ * 
+ */
+ unsigned int  EventPriorityQueue::singleton_counter=0;
 
 /**
  * 
- * @param queueSize 
- * @param eventArray 
  */
-EventPriorityQueue::EventPriorityQueue(unsigned int /*in*/queueSize,
-		Event_t* /*in*/eventArray) :
-		data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(
-				0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(
-				0), numberOfDeferreds(0), readDef(0), writeDef(0) {
+EventPriorityQueue::EventPriorityQueue(): numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0)  {
 	mutex = PTHREAD_MUTEX_INITIALIZER;
 	cond = PTHREAD_COND_INITIALIZER;
-	isLock = false;
 }
 
 /**
@@ -41,39 +44,44 @@ EventPriorityQueue::EventPriorityQueue(unsigned int /*in*/queueSize,
  * @param associatedState 
  * @param dataSize 
  */
-void EventPriorityQueue::push(EventPriority_t /*in*/priority, void* /*in*/data,
-		unsigned int /*in*/eventID, EventType_t /*in*/eventType,
-		unsigned int /*in*/associatedState, int /*in*/dataSize) {
+void EventPriorityQueue::push(EventPriority_t /*in*/ priority, void* /*in*/ data, unsigned int /*in*/ eventID, EventType_t /*in*/ eventType, unsigned int /*in*/ associatedState, int /*in*/ dataSize) {
 	statemachine::Event_t* ret = NULL;
-	if (EVENT_DATA_SIZE <= dataSize) {
-		return;
-	}
-	pthread_mutex_lock (&mutex);
-	while (isLock) {
-		pthread_cond_wait(&cond, &mutex);
-	}
-	if (compNumbers < compSize && eventType == statemachine::COMPLETION_EVENT) {
-		ret = &(this->completionEvents[compWritePos]);
-		compNumbers++;
-		ret->priority = priority;
-		memcpy(ret->data, data, dataSize);
-		ret->eventID = eventID;
-		ret->eventType = eventType;
-		ret->associatedState = associatedState;
-		compWritePos = (compWritePos + 1) % compSize;
-	} else if (numberOfElements < size) {
-		ret = &(this->data[writePos]);
-		numberOfElements++;
-		ret->priority = priority;
-		memcpy(ret->data, data, dataSize);
-		ret->eventID = eventID;
-		ret->eventType = eventType;
-		ret->associatedState = associatedState;
-		writePos = (writePos + 1) % size;
-	}
-	isLock = false;
-	pthread_cond_signal (&cond);
-	pthread_mutex_unlock(&mutex);
+		if (EVENT_DATA_SIZE <= dataSize) {
+			return;
+		}
+		if (eventType == statemachine::COMPLETION_EVENT) {
+			pthread_mutex_lock (&mutex);
+			while (compNumbers >= compSize) {
+				pthread_cond_wait(&cond, &mutex);
+			}
+		} else {
+			pthread_mutex_lock (&mutex);
+			while (numberOfElements >= size) {
+				pthread_cond_wait(&cond, &mutex);
+			}
+		}
+	
+		if (compNumbers < compSize && eventType == statemachine::COMPLETION_EVENT) {
+			ret = &(this->completionEvents[compWritePos]);
+			compNumbers++;
+			ret->priority = priority;
+			memcpy(ret->data, data, dataSize);
+			ret->eventID = eventID;
+			ret->eventType = eventType;
+			ret->associatedState = associatedState;
+			compWritePos = (compWritePos + 1) % compSize;
+		} else if (numberOfElements < size) {
+			ret = &(this->data[writePos]);
+			numberOfElements++;
+			ret->priority = priority;
+			memcpy(ret->data, data, dataSize);
+			ret->eventID = eventID;
+			ret->eventType = eventType;
+			ret->associatedState = associatedState;
+			writePos = (writePos + 1) % size;
+		}
+		pthread_cond_signal (&cond);
+		pthread_mutex_unlock(&mutex);
 }
 
 /**
@@ -81,44 +89,43 @@ void EventPriorityQueue::push(EventPriority_t /*in*/priority, void* /*in*/data,
  * @return ret 
  * @param popDeferred 
  */
-Event_t* EventPriorityQueue::pop(bool /*in*/popDeferred) {
+ Event_t* EventPriorityQueue::pop(bool /*in*/ popDeferred) {
 	statemachine::Event_t* ret = NULL;
-	pthread_mutex_lock (&mutex);
-	while (isLock) {
-		pthread_cond_wait(&cond, &mutex);
-	}
-	if (compNumbers > 0) {
-		ret = &completionEvents[compReadPos];
-		compNumbers--;
-		compReadPos = (compReadPos + 1) % compSize;
-	} else if (popDeferred && (numberOfDeferreds > 0)) {
-		ret = &deferreds[readDef];
-		numberOfDeferreds--;
-		readDef = (readDef + 1) % defSize;
-	}
-	if ((ret == NULL) && (numberOfElements > 0)) {
-		ret = &data[readPos];
-		numberOfElements--;
-		readPos = (readPos + 1) % size;
-	}
-
-	if ((ret == NULL) && (numberOfDeferreds > 0)) {
-		ret = &deferreds[readDef];
-		numberOfDeferreds--;
-		readDef = (readDef + 1) % defSize;
-	}
-
-	isLock = false;
-	pthread_cond_signal (&cond);
-	pthread_mutex_unlock(&mutex);
-	return ret;
+		pthread_mutex_lock (&mutex);
+		while (numberOfElements + compNumbers == 0 && (!popDeferred || numberOfDeferreds == 0)) {
+			pthread_cond_wait(&cond, &mutex);
+		}
+		if (compNumbers > 0) {
+			ret = &completionEvents[compReadPos];
+			compNumbers--;
+			compReadPos = (compReadPos + 1) % compSize;
+		} else if (popDeferred && (numberOfDeferreds > 0)) {
+			ret = &deferreds[readDef];
+			numberOfDeferreds--;
+			readDef = (readDef + 1) % defSize;
+		}
+		if ((ret == NULL) && (numberOfElements > 0)) {
+			ret = &data[readPos];
+			numberOfElements--;
+			readPos = (readPos + 1) % size;
+		}
+	
+		if ((ret == NULL) && (numberOfDeferreds > 0)) {
+			ret = &deferreds[readDef];
+			numberOfDeferreds--;
+			readDef = (readDef + 1) % defSize;
+		}
+	
+		pthread_cond_signal (&cond);
+		pthread_mutex_unlock(&mutex);
+		return ret;
 }
 
 /**
  * 
  * @param defe 
  */
-void EventPriorityQueue::saveDeferred(Event_t& /*in*/defe) {
+void EventPriorityQueue::saveDeferred(Event_t& /*in*/ defe) {
 	if (numberOfDeferreds < defSize) {
 		deferreds[writeDef].priority = defe.priority;
 		memcpy(&deferreds[writeDef].data, &defe.data, sizeof(defe.data));
@@ -132,12 +139,36 @@ void EventPriorityQueue::saveDeferred(Event_t& /*in*/defe) {
 
 /**
  * 
+ * @param desired_size 
+ */
+void EventPriorityQueue::allocate_queue(unsigned int /*in*/ desired_size) {
+	data = &(SINGLETON_QUEUE[singleton_counter]);
+	if (singleton_counter + desired_size> SINGLETON_QUEUE_SIZE) {
+		size = SINGLETON_QUEUE_SIZE - singleton_counter;
+	} else {
+		size = desired_size;
+	}
+	singleton_counter += size;
+}
+
+/**
+ * 
+ * @return ret 
+ */
+ unsigned int EventPriorityQueue::getCompletionSize() {
+	return compNumbers;
+}
+
+/**
+ * 
  */
 void EventPriorityQueue::heapify() {
 }
 
+
+
 } // of namespace statemachine
 
 /************************************************************
- End of EventPriorityQueue class body
+              End of EventPriorityQueue class body
  ************************************************************/

@@ -6,12 +6,14 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_SIGNALS_GOTOPRESS_H
 
 /************************************************************
- GoToPress class header
+              GoToPress class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/signals/Pkg_signals.h"
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
+
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
@@ -21,24 +23,27 @@ namespace signals {
  * 
  */
 class GoToPress {
-public:
+	public:
 	/**
 	 * 
 	 */
-	::CarFactoryLibrary::Colors color;
+	 ::CarFactoryLibrary::Colors color;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace signals
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of GoToPress class header
+              End of GoToPress class header
  ************************************************************/
 
 #endif

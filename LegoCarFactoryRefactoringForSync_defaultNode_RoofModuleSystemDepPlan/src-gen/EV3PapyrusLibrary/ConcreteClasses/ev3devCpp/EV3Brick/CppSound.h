@@ -15,7 +15,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractSound.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppSound__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppSound__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -47,10 +47,7 @@ public:
 	 * 
 	 */
 	sound referencedSound;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppSound__Controller cppsoundController;
+	DECLARE_DELEGATEE_COMPONENT (CppSound)
 	/**
 	 * generated comment
 	 * @return ret 

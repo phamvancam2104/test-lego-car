@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_fgp7cBklEeeSaotqwVljHg" name="BootLoaderCpp">
+  <uml:Model xmi:id="_IoMc8LUYEee94q5Wi6avnA" name="BootLoaderCpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
       <ownedAttribute xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/PrimitiveTypes.uml#Integer"/>
@@ -10,19 +10,59 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_fgwCEBklEeeSaotqwVljHg" name="mainInstance" aggregation="composite">
+      <ownedAttribute xmi:id="_IoYDILUYEee94q5Wi6avnA" name="mainInstance" aggregation="composite">
         <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_ChassisModuleSystemDepPlanOld/model/LegoCarFactoryRefactoringForSync.uml#_bYJagDLiEd2RVeNawwNNzg"/>
       </ownedAttribute>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fg6aIBklEeeSaotqwVljHg" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_IovPgLUYEee94q5Wi6avnA" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
         <language>C/C++</language>
-        <body>mainInstance.chassismodulesystemController.createConnections();&#xD;
-
-mainInstance.chassisController.chassiscontrolcomponentController.startBehavior();
-mainInstance.convoyer.chassisconvoyerController.startBehavior();
-mainInstance.robotic_arm.chassisroboticarmController.startBehavior();
-mainInstance.shelf.chassisshelfController.startBehavior();</body>
+        <body>	mainInstance.shelf.rack_3.color_sensor.CppColorSensorDelegatee.setComponent(&amp;(mainInstance.shelf.rack_3.color_sensor));&#xD;
+				mainInstance.shelf.rack_3.RackDelegatee.setComponent(&amp;(mainInstance.shelf.rack_3));&#xD;
+				mainInstance.shelf.rack_2.color_sensor.CppColorSensorDelegatee.setComponent(&amp;(mainInstance.shelf.rack_2.color_sensor));&#xD;
+				mainInstance.shelf.rack_2.RackDelegatee.setComponent(&amp;(mainInstance.shelf.rack_2));&#xD;
+				mainInstance.shelf.rack_1.color_sensor.CppColorSensorDelegatee.setComponent(&amp;(mainInstance.shelf.rack_1.color_sensor));&#xD;
+				mainInstance.shelf.rack_1.RackDelegatee.setComponent(&amp;(mainInstance.shelf.rack_1));&#xD;
+				mainInstance.shelf.ChassisShelfDelegatee.setComponent(&amp;(mainInstance.shelf));&#xD;
+				mainInstance.robotic_arm.motor_right_left.CppServoMotorDelegatee.setComponent(&amp;(mainInstance.robotic_arm.motor_right_left));&#xD;
+				mainInstance.robotic_arm.motor_front_back.CppServoMotorDelegatee.setComponent(&amp;(mainInstance.robotic_arm.motor_front_back));&#xD;
+				mainInstance.robotic_arm.motor_up_down.CppServoMotorDelegatee.setComponent(&amp;(mainInstance.robotic_arm.motor_up_down));&#xD;
+				mainInstance.robotic_arm.ChassisRoboticArmDelegatee.setComponent(&amp;(mainInstance.robotic_arm));&#xD;
+				mainInstance.convoyer.color_sensor.CppColorSensorDelegatee.setComponent(&amp;(mainInstance.convoyer.color_sensor));&#xD;
+				mainInstance.convoyer.motor.CppLargeMotorDelegatee.setComponent(&amp;(mainInstance.convoyer.motor));&#xD;
+				mainInstance.convoyer.ChassisConvoyerDelegatee.setComponent(&amp;(mainInstance.convoyer));&#xD;
+				mainInstance.chassisController.emergency_button.CppTouchSensorDelegatee.setComponent(&amp;(mainInstance.chassisController.emergency_button));&#xD;
+				mainInstance.chassisController.ev3Brick.bluetoothDevice.CppBlutoothDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.bluetoothDevice));&#xD;
+				mainInstance.chassisController.ev3Brick.soundDevice.CppSoundDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.soundDevice));&#xD;
+				mainInstance.chassisController.ev3Brick.lcdScreen.CppLcdDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.lcdScreen));&#xD;
+				mainInstance.chassisController.ev3Brick.okButton.CppButtonDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.okButton));&#xD;
+				mainInstance.chassisController.ev3Brick.downButton.CppButtonDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.downButton));&#xD;
+				mainInstance.chassisController.ev3Brick.topButton.CppButtonDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.topButton));&#xD;
+				mainInstance.chassisController.ev3Brick.rightButton.CppButtonDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.rightButton));&#xD;
+				mainInstance.chassisController.ev3Brick.leftButton.CppButtonDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.leftButton));&#xD;
+				mainInstance.chassisController.ev3Brick.backButton.CppButtonDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.backButton));&#xD;
+				mainInstance.chassisController.ev3Brick.rightRedLed.CppLedDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.rightRedLed));&#xD;
+				mainInstance.chassisController.ev3Brick.leftRedLed.CppLedDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.leftRedLed));&#xD;
+				mainInstance.chassisController.ev3Brick.rightGreenLed.CppLedDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.rightGreenLed));&#xD;
+				mainInstance.chassisController.ev3Brick.leftGreenLed.CppLedDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick.leftGreenLed));&#xD;
+				mainInstance.chassisController.ev3Brick.CppEV3BrickDelegatee.setComponent(&amp;(mainInstance.chassisController.ev3Brick));&#xD;
+				mainInstance.chassisController.keypad.CppNumericPadDelegatee.setComponent(&amp;(mainInstance.chassisController.keypad));&#xD;
+				mainInstance.chassisController.ChassisControlComponentDelegatee.setComponent(&amp;(mainInstance.chassisController));&#xD;
+			mainInstance.ChassisModuleSystemDelegatee.setComponent(&amp;mainInstance);&#xD;
+mainInstance.ChassisModuleSystemDelegatee.createConnections();&#xD;
+&#xD;
+mainInstance.chassisController.ChassisControlComponentDelegatee.configure_queue_size();&#xD;
+mainInstance.chassisController.ChassisControlComponentDelegatee.startBehavior();&#xD;
+mainInstance.convoyer.ChassisConvoyerDelegatee.configure_queue_size();&#xD;
+mainInstance.convoyer.ChassisConvoyerDelegatee.startBehavior();&#xD;
+mainInstance.robotic_arm.ChassisRoboticArmDelegatee.configure_queue_size();&#xD;
+mainInstance.robotic_arm.ChassisRoboticArmDelegatee.startBehavior();&#xD;
+mainInstance.shelf.ChassisShelfDelegatee.configure_queue_size();&#xD;
+mainInstance.shelf.ChassisShelfDelegatee.startBehavior();&#xD;
+//do we always really need a default infinitive loop?&#xD;
+for(;;) {&#xD;
+	//do nothing&#xD;
+}</body>
       </ownedBehavior>
-      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_fg6aIBklEeeSaotqwVljHg"/>
+      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_IovPgLUYEee94q5Wi6avnA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_CS_KsHjwEeasG4qn4umteA" name="NodeInfo">
       <ownedAttribute xmi:id="_IHT5wHjwEeasG4qn4umteA" name="nodeIndex" isStatic="true">
@@ -41,7 +81,7 @@ mainInstance.shelf.chassisshelfController.startBehavior();</body>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_fgp7dRklEeeSaotqwVljHg" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
-  <C_Cpp:Ptr xmi:id="_fgsXshklEeeSaotqwVljHg" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
-  <C_Cpp:Include xmi:id="_h6ReMBklEeeSaotqwVljHg" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_fgp7cBklEeeSaotqwVljHg"/>
+  <C_Cpp:Include xmi:id="_IoNEAbUYEee94q5Wi6avnA" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Ptr xmi:id="_IoQuY7UYEee94q5Wi6avnA" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
+  <C_Cpp:Include xmi:id="_KjOmQLUYEee94q5Wi6avnA" header="&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_IoMc8LUYEee94q5Wi6avnA"/>
 </xmi:XMI>

@@ -14,7 +14,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Conveyor.h"
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/RoofRoofConvoyer__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Roof/RoofConvoyer__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
@@ -116,73 +116,72 @@ public:
 	 * 
 	 */
 	static ::CarFactoryLibrary::Colors color;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::RoofRoofConvoyer__Controller roofconvoyerController;
+	DECLARE_DELEGATEE_COMPONENT (RoofConvoyer)
 
 	StateMachine RoofConveyorStateMachine {
 		InitialState PrincipalState {
 			InitialState GoInitialPosition {
-				StateDoActivity go_initial_position;
+				StateDoActivity go_initial_position ();
 			};
 			State MoveForward {
-				StateEntry move_forward;
+				StateEntry move_forward();
 			};
 			State GoWaitPosition {
-				StateEntry go_wait_position;
+				StateEntry go_wait_position();
 			};
-			PseudoChoice Choice1;
+			PseudoChoice Choice1 {};
 			State Replace {
-				StateEntry replace;
+				StateEntry replace();
 			};
 			State DeliverCar {
-				StateEntry deliver;
+				StateEntry deliver();
 			};
 			State SendEndOfModuleEvent {
-				StateDoActivity sendEndOfModuleEvent;
+				StateDoActivity sendEndOfModuleEvent ();
 			};
 			State SendPressAssembleEvent {
-				StateEntry sendPressAssembleEvent;
+				StateEntry sendPressAssembleEvent();
 			};
 			State GoCheckPresencePosition {
-				StateEntry goCheckPresencePosition;
+				StateEntry goCheckPresencePosition();
 			};
 			State SendReady {
-				StateEntry send_ready;
+				StateEntry send_ready();
 			};
-			PseudoChoice choice;
+			PseudoChoice choice {};
 			State Misplace {
-				StateEntry sendErrorDetectionEvent;
+				StateEntry sendErrorDetectionEvent();
 			};
 		};
-		State Restart;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::PrepareConveyor> PrepareConveyor;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::GoToPress> GoToPress;
-		SignalEvent<CarFactoryLibrary::events::DeliveredCarConveyor> DeliveredCarConveyor;
+		State Restart {
+		};
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::PrepareConveyor) PrepareConveyor;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::GoToPress) GoToPress;
+		SignalEvent(CarFactoryLibrary::events::DeliveredCarConveyor) DeliveredCarConveyor;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , effectFromPrincipalStatetoRestart );
-			ExT(fromGoInitialPositiontoMoveForward , GoInitialPosition , MoveForward , NULL , PrepareConveyor , save_color );
-			ExT(fromMoveForwardtoReplace , MoveForward , Replace , NULL , NULL , NULL );
-			ExT(fromGoWaitPositiontoChoice1 , GoWaitPosition , Choice1 , NULL , GoToPress , save_color );
-			ExT(fromReplacetoGoWaitPosition , Replace , GoWaitPosition , NULL , NULL , NULL );
-			ExT(fromDeliverCartoSendEndOfModuleEvent , DeliverCar , SendEndOfModuleEvent , NULL , NULL , NULL );
-			ExT(fromSendEndOfModuleEventtoGoInitialPosition , SendEndOfModuleEvent , GoInitialPosition , NULL , NULL , NULL );
-			ExT(fromSendPressAssembleEventtoDeliverCar , SendPressAssembleEvent , DeliverCar , NULL , DeliveredCarConveyor , NULL );
-			ExT(fromGoCheckPresencePositiontoChoice , GoCheckPresencePosition , choice , NULL , NULL , NULL );
-			ExT(fromSendReadytoDeliverCar , SendReady , DeliverCar , NULL , DeliveredCarConveyor , NULL );
-			ExT(fromMisplacetoRestart , Misplace , Restart , NULL , NULL , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-			ExT(fromChoice1toGoCheckPresencePosition , Choice1 , GoCheckPresencePosition , NULL , NULL , NULL );
-			ExT(fromChoice1toSendReady , Choice1 , SendReady , fromChoice1toSendReadyGuard , NULL , NULL );
-			ExT(fromChoicetoMisplace , choice , Misplace , fromChoicetoMisplaceGuard , NULL , NULL );
-			ExT(fromChoicetoSendPressAssembleEvent , choice , SendPressAssembleEvent , NULL , NULL , NULL );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, effectFromPrincipalStatetoRestart);
+			ExT(fromGoInitialPositiontoMoveForward, GoInitialPosition, MoveForward, NULL, PrepareConveyor, save_color);
+			ExT(fromMoveForwardtoReplace, MoveForward, Replace, NULL, void, NULL);
+			ExT(fromGoWaitPositiontoChoice1, GoWaitPosition, Choice1, NULL, GoToPress, save_color);
+			ExT(fromReplacetoGoWaitPosition, Replace, GoWaitPosition, NULL, void, NULL);
+			ExT(fromDeliverCartoSendEndOfModuleEvent, DeliverCar, SendEndOfModuleEvent, NULL, void, NULL);
+			ExT(fromSendEndOfModuleEventtoGoInitialPosition, SendEndOfModuleEvent, GoInitialPosition, NULL, void, NULL);
+			ExT(fromSendPressAssembleEventtoDeliverCar, SendPressAssembleEvent, DeliverCar, NULL, DeliveredCarConveyor, NULL);
+			ExT(fromGoCheckPresencePositiontoChoice, GoCheckPresencePosition, choice, NULL, void, NULL);
+			ExT(fromSendReadytoDeliverCar, SendReady, DeliverCar, NULL, DeliveredCarConveyor, NULL);
+			ExT(fromMisplacetoRestart, Misplace, Restart, NULL, void, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+			ExT(fromChoice1toGoCheckPresencePosition, Choice1, GoCheckPresencePosition, NULL, void, NULL);
+			ExT(fromChoice1toSendReady, Choice1, SendReady, fromChoice1toSendReadyGuard, void, NULL);
+			ExT(fromChoicetoMisplace, choice, Misplace, fromChoicetoMisplaceGuard, void, NULL);
+			ExT(fromChoicetoSendPressAssembleEvent, choice, SendPressAssembleEvent, NULL, void, NULL);
+		};
 	};
 	/**
 	 * 

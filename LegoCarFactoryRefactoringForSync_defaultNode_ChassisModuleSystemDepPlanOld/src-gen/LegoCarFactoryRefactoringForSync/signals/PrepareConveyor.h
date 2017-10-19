@@ -6,12 +6,14 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_SIGNALS_PREPARECONVEYOR_H
 
 /************************************************************
- PrepareConveyor class header
+              PrepareConveyor class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/signals/Pkg_signals.h"
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
+
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
@@ -21,24 +23,27 @@ namespace signals {
  * 
  */
 class PrepareConveyor {
-public:
+	public:
 	/**
 	 * 
 	 */
-	::CarFactoryLibrary::Colors color;
+	 ::CarFactoryLibrary::Colors color;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace signals
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of PrepareConveyor class header
+              End of PrepareConveyor class header
  ************************************************************/
 
 #endif

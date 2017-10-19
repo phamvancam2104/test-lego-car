@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_INTERFACES_ACTUATORS_IMOTOR_H
 
 /************************************************************
- IMotor class header
+              IMotor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Interfaces/Actuators/Pkg_Actuators.h"
@@ -20,6 +20,7 @@
 #include <stdint.h>
 // End of Include stereotype (header)
 
+
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace Actuators {
@@ -28,277 +29,277 @@ namespace Actuators {
 /**
  * 
  */
-class IMotor: public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IDevice {
-public:
+class IMotor : 
+public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IDevice	
+ {
+	public:
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_command(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::ModeSet commands() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::ModeSet commands() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer count_per_rot() = 0;
+	virtual  ::PrimitiveTypes::Integer count_per_rot() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString driver_name() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString driver_name() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer duty_cycle() = 0;
+	virtual  ::PrimitiveTypes::Integer duty_cycle() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer duty_cycle_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer duty_cycle_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_duty_cycle_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString encoder_polarity() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString encoder_polarity() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_encoder_polarity(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_encoder_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString polarity() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString polarity() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_polarity(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString port_name() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString port_name() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer position() = 0;
+	virtual  ::PrimitiveTypes::Integer position() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_position(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_position(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer position_p() = 0;
+	virtual  ::PrimitiveTypes::Integer position_p() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_position_p(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_position_p(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer position_i() = 0;
+	virtual  ::PrimitiveTypes::Integer position_i() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_position_i(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_position_i(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer position_d() = 0;
+	virtual  ::PrimitiveTypes::Integer position_d() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_position_d(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_position_d(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer position_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer position_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_position_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_position_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer speed() = 0;
+	virtual  ::PrimitiveTypes::Integer speed() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer speed_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer speed_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_speed_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_speed_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer ramp_up_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer ramp_up_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_ramp_up_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer ramp_down_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer ramp_down_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_ramp_down_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString speed_regulation_enabled() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString speed_regulation_enabled() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_speed_regulation_enabled(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_speed_regulation_enabled(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer speed_regulation_p() = 0;
+	virtual  ::PrimitiveTypes::Integer speed_regulation_p() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_speed_regulation_p(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer speed_regulation_i() = 0;
+	virtual  ::PrimitiveTypes::Integer speed_regulation_i() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_speed_regulation_i(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer speed_regulation_d() = 0;
+	virtual  ::PrimitiveTypes::Integer speed_regulation_d() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_speed_regulation_d(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::ModeSet state() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::ModeSet state() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::LocalString stop_command() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::LocalString stop_command() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_stop_command(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/v) = 0;
+	virtual void set_stop_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::EV3PapyrusLibrary::Types::ModeSet stop_commands() = 0;
+	virtual  ::EV3PapyrusLibrary::Types::ModeSet stop_commands() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer time_sp() = 0;
+	virtual  ::PrimitiveTypes::Integer time_sp() = 0;
 	/**
 	 * 
 	 * @param v 
 	 */
-	virtual void set_time_sp(::PrimitiveTypes::Integer /*in*/v) = 0;
+	virtual void set_time_sp(::PrimitiveTypes::Integer /*in*/ v) = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void run_forever() = 0;
+	virtual  void run_forever() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void run_to_abs_pos() = 0;
+	virtual  void run_to_abs_pos() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void run_to_rel_pos() = 0;
+	virtual  void run_to_rel_pos() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void run_timed() = 0;
+	virtual  void run_timed() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void run_direct() = 0;
+	virtual  void run_direct() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void stop() = 0;
+	virtual  void stop() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual void reset() = 0;
+	virtual  void reset() = 0;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Actuators
 } // of namespace Interfaces
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of IMotor class header
+              End of IMotor class header
  ************************************************************/
 
 #endif

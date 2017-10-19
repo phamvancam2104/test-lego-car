@@ -5,7 +5,7 @@
 #define CarFactoryLibrary_Pliers_BODY
 
 /************************************************************
- Pliers class body
+              Pliers class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -17,6 +17,7 @@
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
+
 
 namespace CarFactoryLibrary {
 
@@ -44,21 +45,22 @@ void Pliers::open() {
  * @param open_motor_position the command to send to the pliers to go to the open position
  * @param close_motor_position the command to send to the pliers to go to the close position
  */
-Pliers::Pliers(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort,
-		int /*in*/open_motor_position, int /*in*/close_motor_position) :
-		motor(motorPort), open_position(open_motor_position), close_position(
-				close_motor_position), pliersController(this) {
+Pliers::Pliers(::EV3PapyrusLibrary::Types::LocalString /*in*/ motorPort, int /*in*/ open_motor_position, int /*in*/ close_motor_position): motor(motorPort), 
+open_position(open_motor_position),
+close_position(close_motor_position) {
 }
 
 /**
  * 
  */
 void Pliers::connectorConfiguration() {
-	bindPorts(plierMotor, motor.servoMotorPort);
+	bindPorts(this->plierMotor, motor.servoMotorPort);
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Pliers class body
+              End of Pliers class body
  ************************************************************/

@@ -5,13 +5,15 @@
 #define statemachine_StructForThread_t_BODY
 
 /************************************************************
- StructForThread_t class body
+              StructForThread_t class body
  ************************************************************/
+
 
 // include associated header file
 #include "statemachine/StructForThread_t.h"
 
 // Derived includes directives
+
 
 namespace statemachine {
 
@@ -25,11 +27,7 @@ namespace statemachine {
  * @param func_type 
  * @param duration 
  */
-StructForThread_t::StructForThread_t(void* /*in*/ptr, unsigned int /*in*/id,
-		char /*in*/enter_mode, char /*in*/func_type,
-		unsigned int /*in*/duration) :
-		ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(
-				duration) {
+StructForThread_t::StructForThread_t(void* /*in*/ ptr, unsigned int /*in*/ id, char /*in*/ enter_mode, char /*in*/ func_type, unsigned int /*in*/ duration): ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration) {
 }
 
 /**
@@ -38,8 +36,10 @@ StructForThread_t::StructForThread_t(void* /*in*/ptr, unsigned int /*in*/id,
 StructForThread_t::StructForThread_t() {
 }
 
+
+
 } // of namespace statemachine
 
 /************************************************************
- End of StructForThread_t class body
+              End of StructForThread_t class body
  ************************************************************/

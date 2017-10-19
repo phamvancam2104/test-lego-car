@@ -5,7 +5,7 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_EV3Brick_CppLcd_BODY
 
 /************************************************************
- CppLcd class body
+              CppLcd class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -19,6 +19,7 @@ using namespace std;
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
+
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
 namespace ev3devCpp {
@@ -30,7 +31,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppLcd::available() {
+ ::PrimitiveTypes::Boolean CppLcd::available() {
 	return referencedLcd.available();
 }
 
@@ -38,7 +39,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-uint32_t CppLcd::resolution_x() {
+ uint32_t CppLcd::resolution_x() {
 	return referencedLcd.resolution_x();
 }
 
@@ -46,7 +47,7 @@ uint32_t CppLcd::resolution_x() {
  * generated comment
  * @return ret 
  */
-uint32_t CppLcd::resolution_y() {
+ uint32_t CppLcd::resolution_y() {
 	return referencedLcd.resolution_y();
 }
 
@@ -54,7 +55,7 @@ uint32_t CppLcd::resolution_y() {
  * generated comment
  * @return ret 
  */
-uint32_t CppLcd::bits_per_pixel() {
+ uint32_t CppLcd::bits_per_pixel() {
 	return referencedLcd.bits_per_pixel();
 }
 
@@ -62,7 +63,7 @@ uint32_t CppLcd::bits_per_pixel() {
  * generated comment
  * @return ret 
  */
-uint32_t CppLcd::frame_buffer_size() {
+ uint32_t CppLcd::frame_buffer_size() {
 	return referencedLcd.frame_buffer_size();
 }
 
@@ -70,7 +71,7 @@ uint32_t CppLcd::frame_buffer_size() {
  * generated comment
  * @return ret 
  */
-uint32_t CppLcd::line_length() {
+ uint32_t CppLcd::line_length() {
 	return referencedLcd.line_length();
 }
 
@@ -78,7 +79,7 @@ uint32_t CppLcd::line_length() {
  * generated comment
  * @return ret 
  */
-unsigned char* CppLcd::frame_buffer() {
+ unsigned char* CppLcd::frame_buffer() {
 	return referencedLcd.frame_buffer();
 }
 
@@ -87,18 +88,19 @@ unsigned char* CppLcd::frame_buffer() {
  * @return ret 
  * @param pixel 
  */
-void CppLcd::fill(unsigned char /*in*/pixel) {
+ void CppLcd::fill(unsigned char /*in*/ pixel) {
 	return referencedLcd.fill(pixel);
 }
 
 /**
  * 
  */
-CppLcd::CppLcd() :
-		cpplcdController(this) {
-	if (!referencedLcd.available()) {
-		cout << endl << "###error: lcd not available ###" << endl;
-	}
+CppLcd::CppLcd() {
+	if (!referencedLcd.available())
+		  {
+		    cout << endl
+		         << "###error: lcd not available ###" << endl;
+		  }
 }
 
 /**
@@ -115,9 +117,7 @@ void CppLcd::clear() {
  * @param text 
  * @param size 
  */
-void CppLcd::write_text(int /*in*/x, int /*in*/y,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/text,
-		::EV3PapyrusLibrary::Types::TextSize /*in*/size) {
+void CppLcd::write_text(int /*in*/ x, int /*in*/ y, ::EV3PapyrusLibrary::Types::LocalString /*in*/ text, ::EV3PapyrusLibrary::Types::TextSize /*in*/ size) {
 	referencedLcd.write_text(x, y, text, size);
 }
 
@@ -129,8 +129,7 @@ void CppLcd::write_text(int /*in*/x, int /*in*/y,
  * @param y1 
  * @param isBlack 
  */
-void CppLcd::draw_line(int /*in*/x0, int /*in*/y0, int /*in*/x1, int /*in*/y1,
-		bool /*in*/isBlack) {
+void CppLcd::draw_line(int /*in*/ x0, int /*in*/ y0, int /*in*/ x1, int /*in*/ y1, bool /*in*/ isBlack) {
 	referencedLcd.draw_line(x0, y0, x1, y1, isBlack);
 }
 
@@ -142,8 +141,7 @@ void CppLcd::draw_line(int /*in*/x0, int /*in*/y0, int /*in*/x1, int /*in*/y1,
  * @param height 
  * @param isBlack 
  */
-void CppLcd::draw_full_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-		int /*in*/height, bool /*in*/isBlack) {
+void CppLcd::draw_full_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack) {
 	referencedLcd.draw_full_rectangle(x, y, width, height, isBlack);
 }
 
@@ -155,8 +153,7 @@ void CppLcd::draw_full_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
  * @param height 
  * @param isBlack 
  */
-void CppLcd::draw_empty_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-		int /*in*/height, bool /*in*/isBlack) {
+void CppLcd::draw_empty_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack) {
 	referencedLcd.draw_empty_rectangle(x, y, width, height, isBlack);
 }
 
@@ -167,8 +164,7 @@ void CppLcd::draw_empty_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
  * @param radius 
  * @param isBlack 
  */
-void CppLcd::draw_full_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-		bool /*in*/isBlack) {
+void CppLcd::draw_full_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack) {
 	referencedLcd.draw_full_circle(x, y, radius, isBlack);
 }
 
@@ -179,8 +175,7 @@ void CppLcd::draw_full_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
  * @param radius 
  * @param isBlack 
  */
-void CppLcd::draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-		bool /*in*/isBlack) {
+void CppLcd::draw_empty_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack) {
 	referencedLcd.draw_empty_circle(x, y, radius, isBlack);
 }
 
@@ -192,10 +187,8 @@ void CppLcd::draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
  * @param radiusy 
  * @param isBlack 
  */
-void CppLcd::draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-		int /*in*/radiusy, bool /*in*/isBlack) {
+void CppLcd::draw_full_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack) {
 	referencedLcd.draw_full_ellipse(x, y, radiusx, radiusy, isBlack);
-
 }
 
 /**
@@ -206,10 +199,8 @@ void CppLcd::draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
  * @param radiusy 
  * @param isBlack 
  */
-void CppLcd::draw_empty_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-		int /*in*/radiusy, bool /*in*/isBlack) {
+void CppLcd::draw_empty_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack) {
 	referencedLcd.draw_empty_ellipse(x, y, radiusx, radiusy, isBlack);
-
 }
 
 /**
@@ -219,26 +210,25 @@ void CppLcd::draw_empty_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
  * @param y 
  * @param invertColor 
  */
-void CppLcd::draw_bmp_image(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/filename, int /*in*/x,
-		int /*in*/y, bool /*in*/invertColor) {
+void CppLcd::draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/ filename, int /*in*/ x, int /*in*/ y, bool /*in*/ invertColor) {
 	referencedLcd.draw_bmp_image(filename, x, y, invertColor);
-
 }
 
 /**
  * 
  * @return ret 
  */
-void CppLcd::init() {
+ void CppLcd::init() {
 }
 
 /**
  * 
  * @return ret 
  */
-void CppLcd::deinit() {
+ void CppLcd::deinit() {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -246,5 +236,5 @@ void CppLcd::deinit() {
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppLcd class body
+              End of CppLcd class body
  ************************************************************/

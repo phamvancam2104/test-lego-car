@@ -5,13 +5,15 @@
 #define OtherComponentsPapyrusLibrary_AbstractClasses_AbstractLedStatus_BODY
 
 /************************************************************
- AbstractLedStatus class body
+              AbstractLedStatus class body
  ************************************************************/
+
 
 // include associated header file
 #include "OtherComponentsPapyrusLibrary/AbstractClasses/AbstractLedStatus.h"
 
 // Derived includes directives
+
 
 namespace OtherComponentsPapyrusLibrary {
 namespace AbstractClasses {
@@ -48,9 +50,11 @@ void AbstractLedStatus::orange_led() {
 void AbstractLedStatus::green_led() {
 }
 
+
+
 } // of namespace AbstractClasses
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of AbstractLedStatus class body
+              End of AbstractLedStatus class body
  ************************************************************/

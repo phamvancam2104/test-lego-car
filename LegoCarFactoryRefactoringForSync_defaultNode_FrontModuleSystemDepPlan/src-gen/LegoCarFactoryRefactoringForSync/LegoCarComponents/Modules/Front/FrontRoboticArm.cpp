@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Front_FrontRoboticArm_BODY
 
 /************************************************************
- FrontRoboticArm class body
+              FrontRoboticArm class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontRoboticArm.h"
@@ -19,6 +20,7 @@
 #include "LegoCarFactoryRefactoringForSync/signals/GoToPress.h"
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -38,63 +40,63 @@ void FrontRoboticArm::stop_motors() {
  * pick the front part on the rack numer "rack_number"
  * @param rack_number 
  */
-void FrontRoboticArm::pick_front_part(int /*in*/rack_number) {
+void FrontRoboticArm::pick_front_part(int /*in*/ rack_number) {
 	if (rack_number == CarFactoryLibrary::RED) {
-		//go to REST
-		go_rest_position_rack();
-
-		//go to BEFORE PICK PART
-		move(7.6, -1, 95);
-		usleep(500 * 1000);
-
-		//go DOWN
-		move(7.6, -2.8, 95, false);
-		usleep(500 * 1000);
-
-		//CLOSE PLIERS
-		motor_pliers.close();
-
-		//go to REST
-		go_rest_position_rack();
-	} else if (rack_number == CarFactoryLibrary::WHITE) {
-		//go to REST
-		go_rest_position_rack();
-
-		//go to BEFORE PICK PART
-		move(12.2, -1, 93);
-		usleep(500 * 1000);
-
-		//go to DOWN
-		move(12.2, -2.8, 93);
-		usleep(500 * 1000);
-
-		//CLOSE PLIERS
-		motor_pliers.close();
-
-		//go to REST
-		go_rest_position_rack();
-	} else if (rack_number == CarFactoryLibrary::BLUE) {
-		//go to REST
-		go_rest_position_rack();
-
-		//go to BEFORE PICK PART
-		move(16.4, -1, 93);
-		usleep(500 * 1000);
-
-		//go DOWN
-		move(16.5, -2.8, 93, false);
-		usleep(500 * 1000);
-
-		//CLOSE PLIERS
-		motor_pliers.close();
-
-		//go UP
-		move(16.5, 5, 93, false);
-		usleep(500 * 1000);
-
-		//go to REST
-		go_rest_position_rack();
-	}
+			//go to REST
+			go_rest_position_rack();
+	
+			//go to BEFORE PICK PART
+			move(7.6, -1, 95);
+			usleep(500 * 1000);
+	
+			//go DOWN
+			move(7.6, -2.8, 95, false);
+			usleep(500 * 1000);
+	
+			//CLOSE PLIERS
+			motor_pliers.close();
+	
+			//go to REST
+			go_rest_position_rack();
+		} else if (rack_number == CarFactoryLibrary::WHITE) {
+			//go to REST
+			go_rest_position_rack();
+	
+			//go to BEFORE PICK PART
+			move(12.2, -1, 93);
+			usleep(500 * 1000);
+	
+			//go to DOWN
+			move(12.2, -2.8, 93);
+			usleep(500 * 1000);
+	
+			//CLOSE PLIERS
+			motor_pliers.close();
+	
+			//go to REST
+			go_rest_position_rack();
+		} else if (rack_number == CarFactoryLibrary::BLUE) {
+			//go to REST
+			go_rest_position_rack();
+	
+			//go to BEFORE PICK PART
+			move(16.4, -1, 93);
+			usleep(500 * 1000);
+	
+			//go DOWN
+			move(16.5, -2.8, 93, false);
+			usleep(500 * 1000);
+	
+			//CLOSE PLIERS
+			motor_pliers.close();
+	
+			//go UP
+			move(16.5, 5, 93, false);
+			usleep(500 * 1000);
+	
+			//go to REST
+			go_rest_position_rack();
+		}
 }
 
 /**
@@ -102,21 +104,21 @@ void FrontRoboticArm::pick_front_part(int /*in*/rack_number) {
  */
 void FrontRoboticArm::deliver_front_part() {
 	//go to REST
-	go_rest_position_conveyor();
-
-	//go to DELiVER FRONT PART
-	move(11, -1.5, 5);
-	usleep(500 * 1000);
-
-	//go DOWN
-	move(10.5, -2.5, 5);
-	usleep(500 * 1000);
-
-	motor_pliers.open();
-
-	//go UP
-	move(10.5, 0, 5);
-	usleep(500 * 1000);
+		go_rest_position_conveyor();
+	
+		//go to DELiVER FRONT PART
+		move(11, -1.5, 5);
+		usleep(500 * 1000);
+	
+		//go DOWN
+		move(10.5, -2.5, 5);
+		usleep(500 * 1000);
+	
+		motor_pliers.open();
+	
+		//go UP
+		move(10.5, 0, 5);
+		usleep(500 * 1000);
 }
 
 /**
@@ -124,35 +126,34 @@ void FrontRoboticArm::deliver_front_part() {
  */
 void FrontRoboticArm::replace_front_part() {
 	//TURN
-	move(9, 0, 20);
-	usleep(500 * 1000);
-
-	//go DOWN
-	move(8, -2.3, 20);
-	usleep(500 * 1000);
-
-	//TURN
-	move(8, -2.3, 10);
-	usleep(500 * 1000);
-
-	//TURN
-	move(8, -2.3, 20);
-	usleep(500 * 1000);
-
-	//go to REST
-	go_rest_position_conveyor();
-
-	//go to REST
-	go_rest_position_rack();
+		move(9, 0, 20);
+		usleep(500 * 1000);
+	
+		//go DOWN
+		move(8, -2.3, 20);
+		usleep(500 * 1000);
+	
+		//TURN
+		move(8, -2.3, 10);
+		usleep(500 * 1000);
+	
+		//TURN
+		move(8, -2.3, 20);
+		usleep(500 * 1000);
+	
+		//go to REST
+		go_rest_position_conveyor();
+	
+		//go to REST
+		go_rest_position_rack();
 }
 
 /**
  * 
  * @param sig 
  */
-void FrontRoboticArm::save_rack_number(
-		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
-	rack_number = sig.rack_number;
+void FrontRoboticArm::save_rack_number(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/ sig) {
+	rack_number =sig.rack_number;
 }
 
 /**
@@ -169,9 +170,9 @@ void FrontRoboticArm::init() {
  * 
  */
 void FrontRoboticArm::start_motors() {
-	pLCD.requiredIntf->clear();///get_module()->ev3Brick.lcdScreen.clear();
-	pLCD.requiredIntf->write_text(0, 20, "Pick place...", ev3dev::lcd::TextSize::LARGE);
-
+	get_module()->ev3Brick.lcdScreen.clear();
+	get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Pick place...", lcd::TextSize::LARGE);
+	
 	run_motors();
 }
 
@@ -179,27 +180,47 @@ void FrontRoboticArm::start_motors() {
  * 
  */
 void FrontRoboticArm::pick_front_part() {
-	pick_front_part (rack_number);
+	pick_front_part(rack_number);
 }
 
+/**
+ * 
+ */
+void FrontRoboticArm::deliver_front_part() {
+	deliver_front_part();
+}
+
+/**
+ * 
+ */
+void FrontRoboticArm::replace_front_part() {
+	replace_front_part();
+}
 
 /**
  * 
  */
 void FrontRoboticArm::sendGoToPressEvent() {
-	LegoCarFactoryRefactoringForSync::signals::GoToPress s;
+	Events::GoToPress s;
 	s.color = static_cast<CarFactoryLibrary::Colors>(rack_number);
-	pGotoProcess.outIntf->push(s);//static_cast<FrontConveyor*>(get_conveyor())->sendGoToPress(s);
+	static_cast<FrontConveyor*>(get_conveyor())->sendGoToPress(s);
 }
 
 /**
  * 
  */
-FrontRoboticArm::FrontRoboticArm() :
-		CarFactoryLibrary::RoboticArm("outA", "outA",
-				"outA", "outA", 10, 6, 60, -60, 15), frontroboticarmController(
-				this) {
+FrontRoboticArm::FrontRoboticArm(): CarFactoryLibrary::RoboticArm(up_down_motor_port, 
+front_back_motor_port,
+right_left_motor_port,
+plier_motor_port,
+10, 
+6, 
+60,
+-60,
+15) {
 }
+
+
 
 } // of namespace Front
 } // of namespace Modules
@@ -207,5 +228,5 @@ FrontRoboticArm::FrontRoboticArm() :
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of FrontRoboticArm class body
+              End of FrontRoboticArm class body
  ************************************************************/

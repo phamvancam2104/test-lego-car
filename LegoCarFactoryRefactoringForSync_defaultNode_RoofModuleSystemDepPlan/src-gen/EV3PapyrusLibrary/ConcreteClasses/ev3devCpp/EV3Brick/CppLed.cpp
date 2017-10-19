@@ -356,7 +356,7 @@ void CppLed::set_attr_string(
  * @param ledPath 
  */
 CppLed::CppLed(::EV3PapyrusLibrary::Types::LocalString /*in*/ledPath) :
-		referencedLed(ledPath), cppledController(this) {
+		referencedLed(ledPath) {
 }
 
 } // of namespace EV3Brick

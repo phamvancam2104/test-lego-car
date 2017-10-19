@@ -2,7 +2,7 @@
 #define PKG_EV3PAPYRUSLIBRARY_CONCRETECLASSES_EV3DEVCPP_SENSORS
 
 /************************************************************
- Pkg_Sensors package header
+              Pkg_Sensors package header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Pkg_ev3devCpp.h"
@@ -17,6 +17,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace EV3PapyrusLibrary {
@@ -25,13 +26,13 @@ namespace ev3devCpp {
 namespace Sensors {
 
 // Types defined within the package
-}// of namespace Sensors
+} // of namespace Sensors
 } // of namespace ev3devCpp
 } // of namespace ConcreteClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of Pkg_Sensors package header
+              End of Pkg_Sensors package header
  ************************************************************/
 
 #endif

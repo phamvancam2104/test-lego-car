@@ -6,7 +6,7 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_SLAVES_SLAVESHELF_H
 
 /************************************************************
- SlaveShelf class header
+              SlaveShelf class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/Pkg_Slaves.h"
@@ -14,51 +14,21 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 #include "CarFactoryLibrary/Shelf.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/SlavesSlaveShelf__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Slaves/SlaveShelf__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class StopProcess;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class RestartAfterEmergencyStop;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class CheckRack;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
-namespace EV3PapyrusLibrary {
-class IColorSensor;
-}
-namespace CarFactoryLibrary {
-namespace events {
-class ErrorDetection;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class RoboticArmPickPiece;
-}
-}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class StopProcess;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class RestartAfterEmergencyStop;}}
+namespace CarFactoryLibrary {namespace events {class CheckRack;}}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
+namespace EV3PapyrusLibrary {class IColorSensor;}
+namespace CarFactoryLibrary {namespace events {class ErrorDetection;}}
+namespace CarFactoryLibrary {namespace events {class RoboticArmPickPiece;}}
 
 // End of Include stereotype (header)
 
-namespace CarFactoryLibrary {
-namespace events {
-class CheckRack;
-}
-}
+namespace CarFactoryLibrary {namespace events {class CheckRack;}}
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -69,73 +39,75 @@ namespace Slaves {
 /**
  * 
  */
-class SlaveShelf: public ::CarFactoryLibrary::Shelf {
-public:
+class SlaveShelf : 
+public ::CarFactoryLibrary::Shelf	
+ {
+	public:
 	/**
 	 * 
 	 */
-	::CarFactoryLibrary::Colors which_rack;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SlavesSlaveShelf__Controller slaveshelfController;
-
+	 ::CarFactoryLibrary::Colors which_rack;
+	DECLARE_DELEGATEE_COMPONENT (SlaveShelf)
+	
 	StateMachine SlaveShelfStateMachine {
 		InitialState PrincipalState {
-			PseudoChoice Which_rack;
-			InitialState Initialization;
+			PseudoChoice Which_rack{};
+			InitialState Initialization {
+			};
 			State EmptyRack {
-				StateEntry sendErrorDetectionEvent;
+				StateEntry sendErrorDetectionEvent();
 			};
 			State NoEmptyRack {
-				StateEntry sendRoboticArmPickPieceEvent;
+				StateEntry sendRoboticArmPickPieceEvent();
 			};
-			State WaitEnd;
+			State WaitEnd {
+			};
 		};
-		State Restart;
-		SignalEvent<CarFactoryLibrary::events::CheckRack> CheckRack;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
+		State Restart {
+		};
+		SignalEvent(CarFactoryLibrary::events::CheckRack) CheckRack;
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
-			ExT(fromInitializationtoWhich_rack , Initialization , Which_rack , NULL , CheckRack , save_which_rack );
-			ExT(fromEmptyRacktoWaitEnd , EmptyRack , WaitEnd , NULL , NULL , NULL );
-			ExT(fromNoEmptyRacktoWaitEnd , NoEmptyRack , WaitEnd , NULL , NULL , NULL );
-			ExT(fromWaitEndtoInitialization , WaitEnd , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-			ExT(fromWhich_racktoNoEmptyRack , Which_rack , NoEmptyRack , fromWhich_racktoNoEmptyRackGuard , NULL , NULL );
-			ExT(fromWhich_racktoEmptyRack , Which_rack , EmptyRack , NULL , NULL , NULL );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, NULL);
+			ExT(fromInitializationtoWhich_rack, Initialization, Which_rack, NULL, CheckRack, save_which_rack);
+			ExT(fromEmptyRacktoWaitEnd, EmptyRack, WaitEnd, NULL, void, NULL);
+			ExT(fromNoEmptyRacktoWaitEnd, NoEmptyRack, WaitEnd, NULL, void, NULL);
+			ExT(fromWaitEndtoInitialization, WaitEnd, Initialization, NULL, EndOfModule, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+			ExT(fromWhich_racktoNoEmptyRack, Which_rack, NoEmptyRack, fromWhich_racktoNoEmptyRackGuard, void, NULL);
+			ExT(fromWhich_racktoEmptyRack, Which_rack, EmptyRack, NULL, void, NULL);
+		};
 	};
 	/**
 	 * 
 	 */
-	InFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
 	/**
 	 * 
 	 */
-	InFlowPort<
-			LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
+	 InFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
+	 InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
+	 OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
+	 OutFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
 	/**
 	 * 
 	 */
@@ -144,22 +116,22 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
+	 ::CarFactoryLibrary::BluetoothSlaveEnum get_status();
 	/**
 	 * 
 	 * @param status 
 	 */
-	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status);
 	/**
 	 * 
 	 * @param sig 
 	 */
-	void save_which_rack(::CarFactoryLibrary::events::CheckRack& /*in*/sig);
+	void save_which_rack(::CarFactoryLibrary::events::CheckRack& /*in*/ sig);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromWhich_racktoNoEmptyRackGuard();
+	 bool ();
 	/**
 	 * 
 	 */
@@ -169,12 +141,15 @@ public:
 	 */
 	SlaveShelf();
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Slaves
 } // of namespace Modules
@@ -182,7 +157,7 @@ public:
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of SlaveShelf class header
+              End of SlaveShelf class header
  ************************************************************/
 
 #endif

@@ -6,10 +6,13 @@
 #define OTHERCOMPONENTSPAPYRUSLIBRARY_INTERFACES_ILEDSTATUS_H
 
 /************************************************************
- ILedStatus class header
+              ILedStatus class header
  ************************************************************/
 
 #include "OtherComponentsPapyrusLibrary/Interfaces/Pkg_Interfaces.h"
+
+
+
 
 namespace OtherComponentsPapyrusLibrary {
 namespace Interfaces {
@@ -19,7 +22,7 @@ namespace Interfaces {
  * 
  */
 class ILedStatus {
-public:
+	public:
 	/**
 	 * 
 	 */
@@ -41,18 +44,21 @@ public:
 	 */
 	virtual void green_led() = 0;
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Interfaces
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of ILedStatus class header
+              End of ILedStatus class header
  ************************************************************/
 
 #endif

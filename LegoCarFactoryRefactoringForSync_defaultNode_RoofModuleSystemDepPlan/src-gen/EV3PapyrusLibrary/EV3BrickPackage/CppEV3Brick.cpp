@@ -41,8 +41,7 @@ void CppEV3Brick::allLedOff() {
 /**
  * 
  */
-CppEV3Brick::CppEV3Brick() :
-		cppev3brickController(this) {
+CppEV3Brick::CppEV3Brick() {
 	//we init the led
 	//leftGreenLed.referencedLed=&led::green_left;
 	//rightGreenLed.referencedLed=&led::green_right;

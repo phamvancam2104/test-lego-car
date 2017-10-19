@@ -5,20 +5,25 @@
 #define statemachine_Event_t_BODY
 
 /************************************************************
- Event_t class body
+              Event_t class body
  ************************************************************/
+
 
 // include associated header file
 #include "statemachine/Event_t.h"
 
 // Derived includes directives
 
+
 namespace statemachine {
 
 // static attributes (if any)
 
-}// of namespace statemachine
+
+
+
+} // of namespace statemachine
 
 /************************************************************
- End of Event_t class body
+              End of Event_t class body
  ************************************************************/

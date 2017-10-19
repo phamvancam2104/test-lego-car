@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Chassis_ChassisShelf_BODY
 
 /************************************************************
- ChassisShelf class body
+              ChassisShelf class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisShelf.h"
@@ -19,6 +20,7 @@
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
 
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
@@ -30,8 +32,7 @@ namespace Chassis {
  * 
  * @return ret 
  */
-bool ChassisShelf::fromChoicetoEmpty_rackGuard() {
-
+ bool ChassisShelf::fromChoicetoEmpty_rackGuard() {
 	return get_status() == CarFactoryLibrary::RESULT_ERROR;
 }
 
@@ -39,8 +40,7 @@ bool ChassisShelf::fromChoicetoEmpty_rackGuard() {
  * get the current module
  * @return ret 
  */
-int ChassisShelf::get_current_module() {
-
+ int ChassisShelf::get_current_module() {
 	return static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->getCurrentModule();
 }
 
@@ -48,45 +48,38 @@ int ChassisShelf::get_current_module() {
  * 
  * @param status 
  */
-void ChassisShelf::set_status(
-		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
-	static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->setStatus(
-			status);
+void ChassisShelf::set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status) {
+	static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->setStatus(status);
 }
 
 /**
  * send the RoboticArmPickPeice event
  */
 void ChassisShelf::send_robotic_arm_pick_piece_event() {
-
 	CarFactoryLibrary::events::RoboticArmPickPiece s;
-	pPickPiece.outIntf->push(s);
+		pPickPiece.outIntf->push(s);
 }
 
 /**
  * send the StopProcess event
  */
 void ChassisShelf::send_stop_process_event() {
-
 	LegoCarFactoryRefactoringForSync::signals::StopProcess s;
-	s.is_emergency_stop = true;
-	pInStopProcess.outIntf->push(s);
+		s.is_emergency_stop = true;
+		pInStopProcess.outIntf->push(s);
 }
 
 /**
  * 
  */
-ChassisShelf::ChassisShelf() :
-		::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2"), chassisshelfController(
-				this) {
+ChassisShelf::ChassisShelf(): ::CarFactoryLibrary::Shelf(2, "in2:i2c82:mux3", "in2:i2c81:mux2") {
 }
 
 /**
  * 
  * @return ret 
  */
-::CarFactoryLibrary::BluetoothSlaveEnum ChassisShelf::get_status() {
-
+ ::CarFactoryLibrary::BluetoothSlaveEnum ChassisShelf::get_status() {
 	return static_cast<CarFactoryLibrary::Shelf*>(this)->pModule.requiredIntf->getStatus();
 }
 
@@ -94,8 +87,7 @@ ChassisShelf::ChassisShelf() :
  * 
  * @return ret 
  */
-bool ChassisShelf::fromTesttoNot_Master_ModuleGuard() {
-
+ bool ChassisShelf::fromTesttoNot_Master_ModuleGuard() {
 	return get_current_module() != CarFactoryLibrary::MASTER_MODULE;
 }
 
@@ -103,8 +95,7 @@ bool ChassisShelf::fromTesttoNot_Master_ModuleGuard() {
  * 
  * @return ret 
  */
-bool ChassisShelf::fromWhich_racktoFirst_rackGuard() {
-
+ bool ChassisShelf::fromWhich_racktoFirst_rackGuard() {
 	return !is_empty(1);
 }
 
@@ -112,8 +103,7 @@ bool ChassisShelf::fromWhich_racktoFirst_rackGuard() {
  * 
  * @return ret 
  */
-bool ChassisShelf::fromWhich_racktoSecond_rackGuard() {
-
+ bool ChassisShelf::fromWhich_racktoSecond_rackGuard() {
 	return !is_empty(2);
 }
 
@@ -121,10 +111,11 @@ bool ChassisShelf::fromWhich_racktoSecond_rackGuard() {
  * 
  * @return ret 
  */
-bool ChassisShelf::fromChoicetoWait_endGuard() {
-
+ bool ChassisShelf::fromChoicetoWait_endGuard() {
 	return get_status() == CarFactoryLibrary::RESULT_READY;
 }
+
+
 
 } // of namespace Chassis
 } // of namespace Modules
@@ -132,5 +123,5 @@ bool ChassisShelf::fromChoicetoWait_endGuard() {
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of ChassisShelf class body
+              End of ChassisShelf class body
  ************************************************************/

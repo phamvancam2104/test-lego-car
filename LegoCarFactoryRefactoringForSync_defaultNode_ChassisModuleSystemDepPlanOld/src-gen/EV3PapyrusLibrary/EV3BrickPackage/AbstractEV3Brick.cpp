@@ -5,8 +5,9 @@
 #define EV3PapyrusLibrary_EV3BrickPackage_AbstractEV3Brick_BODY
 
 /************************************************************
- AbstractEV3Brick class body
+              AbstractEV3Brick class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/EV3BrickPackage/AbstractEV3Brick.h"
@@ -17,6 +18,7 @@
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILed.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace EV3BrickPackage {
@@ -40,8 +42,7 @@ void AbstractEV3Brick::allLedOff() {
  * @param name 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractEV3Brick::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Boolean AbstractEV3Brick::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -49,8 +50,7 @@ void AbstractEV3Brick::allLedOff() {
  * @param name 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractEV3Brick::accept_connection(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Boolean AbstractEV3Brick::accept_connection(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -59,9 +59,7 @@ void AbstractEV3Brick::allLedOff() {
  * @param result 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractEV3Brick::read(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/result) {
+ ::PrimitiveTypes::Boolean AbstractEV3Brick::read(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ result) {
 }
 
 /**
@@ -70,32 +68,32 @@ void AbstractEV3Brick::allLedOff() {
  * @param msg 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractEV3Brick::write(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/msg) {
+ ::PrimitiveTypes::Boolean AbstractEV3Brick::write(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ msg) {
 }
 
 /**
  * 
  */
 void AbstractEV3Brick::connectorConfiguration() {
-	bindPorts(LeftRedLedPort, leftRedLed.ledPort);
-	bindPorts(rightGreenLed.ledPort, RightGreenLedPort);
-	bindPorts(RightRedLedPort, rightRedLed.ledPort);
-	bindPorts(BackButtonPort, backButton.buttonPort);
-	bindPorts(OkButtonPort, okButton.buttonPort);
-	bindPorts(UpButtonPort, topButton.buttonPort);
-	bindPorts(rightButton.buttonPort, RightButtonPort);
-	bindPorts(downButton.buttonPort, DownButtonPort);
-	bindPorts(leftButton.buttonPort, LeftButtonPort);
-	bindPorts(screenPort, lcdScreen.lcdScreenPort);
-	bindPorts(soundPort, soundDevice.soundDevicePort);
-	bindPorts(LeftGreenLedPort, leftGreenLed.ledPort);
+	bindPorts(this->LeftRedLedPort, leftRedLed.ledPort);
+	bindPorts(rightGreenLed.ledPort, this->RightGreenLedPort);
+	bindPorts(this->RightRedLedPort, rightRedLed.ledPort);
+	bindPorts(this->BackButtonPort, backButton.buttonPort);
+	bindPorts(this->OkButtonPort, okButton.buttonPort);
+	bindPorts(this->UpButtonPort, topButton.buttonPort);
+	bindPorts(rightButton.buttonPort, this->RightButtonPort);
+	bindPorts(downButton.buttonPort, this->DownButtonPort);
+	bindPorts(leftButton.buttonPort, this->LeftButtonPort);
+	bindPorts(this->screenPort, lcdScreen.lcdScreenPort);
+	bindPorts(this->soundPort, soundDevice.soundDevicePort);
+	bindPorts(this->LeftGreenLedPort, leftGreenLed.ledPort);
 }
+
+
 
 } // of namespace EV3BrickPackage
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractEV3Brick class body
+              End of AbstractEV3Brick class body
  ************************************************************/

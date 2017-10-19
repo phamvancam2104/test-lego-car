@@ -6,7 +6,7 @@
 #define CARFACTORYLIBRARY_PRESS_H
 
 /************************************************************
- Press class header
+              Press class header
  ************************************************************/
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
@@ -16,29 +16,15 @@
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
 
 // Include from Include stereotype (header)
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace Actuators {
-class ILargeMotor;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace Actuators {class ILargeMotor;}}}
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class PressAssemble;
-}
-}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
+namespace CarFactoryLibrary {namespace events {class PressAssemble;}}
 
 namespace CarFactoryLibrary {
 
@@ -47,23 +33,23 @@ namespace CarFactoryLibrary {
  * 
  */
 class Press {
-public:
+	public:
 	/**
 	 * the motor of the press
 	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppLargeMotor motor;
+	 ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppLargeMotor motor;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> motor_port;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::ILargeMotor> motor_port;
 	/**
 	 * 
 	 */
-	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	 RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
 	/**
 	 * 
 	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
+	 RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * assemble the last part put on the car
 	 */
@@ -80,48 +66,49 @@ public:
 	 * the press constructor
 	 * @param motorPort the motor port name
 	 */
-	Press(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort = "outA");
+	Press(::EV3PapyrusLibrary::Types::LocalString /*in*/ motorPort = "outA");
 	/**
 	 * 
 	 * @param sig 
 	 * @return ret 
 	 */
-	void sendPressAssemble(
-			::CarFactoryLibrary::events::PressAssemble& /*in*/sig);
+	 void sendPressAssemble(::CarFactoryLibrary::events::PressAssemble& /*in*/ sig);
 	/**
 	 * 
 	 * @param sig 
 	 * @return ret 
 	 */
-	void sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	 void sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig);
 	/**
 	 * 
 	 */
 	void connectorConfiguration();
 
-protected:
+	protected:
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
 	 * @return ret true if the chassis is present and false otherwise
 	 */
-	BluetoothSlaveEnum get_status();
+	 BluetoothSlaveEnum get_status();
 	/**
 	 * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
 	 * @param status true if the chassis is present and false otherwise
 	 */
-	void set_status(BluetoothSlaveEnum /*in*/status);
+	void set_status(BluetoothSlaveEnum /*in*/ status);
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Press class header
+              End of Press class header
  ************************************************************/
 
 #endif

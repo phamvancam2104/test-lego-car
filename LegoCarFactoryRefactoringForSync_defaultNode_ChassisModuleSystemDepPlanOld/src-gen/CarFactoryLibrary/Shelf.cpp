@@ -5,8 +5,9 @@
 #define CarFactoryLibrary_Shelf_BODY
 
 /************************************************************
- Shelf class body
+              Shelf class body
  ************************************************************/
+
 
 // include associated header file
 #include "CarFactoryLibrary/Shelf.h"
@@ -18,6 +19,7 @@
 #include "EV3PapyrusLibrary/IColorSensor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
+
 namespace CarFactoryLibrary {
 
 // static attributes (if any)
@@ -27,17 +29,17 @@ namespace CarFactoryLibrary {
  * @param rack_number rack number to check
  * @return ret true if the rack is empty  and false otherwise
  */
-bool Shelf::is_empty(int /*in*/rack_number) {
-	if (rack_number == 1) {
-		return (&rack_1)->is_empty();
-	}
-	if (rack_number == 2) {
-		return (&rack_2)->is_empty();
-	}
-	if (rack_number == 3) {
-		return (&rack_3)->is_empty();
-	}
-	return false;
+ bool Shelf::is_empty(int /*in*/ rack_number) {
+	if(rack_number == 1) {
+			return (&rack_1)->is_empty();
+		}
+		if(rack_number == 2) {
+			return (&rack_2)->is_empty();
+		}
+		if(rack_number == 3) {
+			return (&rack_3)->is_empty();
+		}
+		return false;
 }
 
 /**
@@ -47,20 +49,15 @@ bool Shelf::is_empty(int /*in*/rack_number) {
  * @param rack_sensorPort2 port name of the rack 2
  * @param rack_sensorPort3 port name of the rack 3
  */
-Shelf::Shelf(int /*in*/number_rack_sensor,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/rack_sensorPort1,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/rack_sensorPort2,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/rack_sensorPort3) :
-		number_rack(number_rack_sensor) {
+Shelf::Shelf(int /*in*/ number_rack_sensor, ::EV3PapyrusLibrary::Types::LocalString /*in*/ rack_sensorPort1, ::EV3PapyrusLibrary::Types::LocalString /*in*/ rack_sensorPort2, ::EV3PapyrusLibrary::Types::LocalString /*in*/ rack_sensorPort3): number_rack(number_rack_sensor) {
 	if (number_rack == 2) {
-		rack_1 = ::CarFactoryLibrary::Rack(rack_sensorPort1);
-		rack_2 = ::CarFactoryLibrary::Rack(rack_sensorPort2);
-	} else if (number_rack == 3) {
-		rack_1 = ::CarFactoryLibrary::Rack(rack_sensorPort1);
-		rack_2 = ::CarFactoryLibrary::Rack(rack_sensorPort2);
-		rack_3 = ::CarFactoryLibrary::Rack(rack_sensorPort3);
-	}
-
+			rack_1 = ::CarFactoryLibrary::Rack(rack_sensorPort1);
+			rack_2 = ::CarFactoryLibrary::Rack(rack_sensorPort2);
+		} else if (number_rack == 3) {
+			rack_1 = ::CarFactoryLibrary::Rack(rack_sensorPort1);
+			rack_2 = ::CarFactoryLibrary::Rack(rack_sensorPort2);
+			rack_3 = ::CarFactoryLibrary::Rack(rack_sensorPort3);
+		}
 }
 
 /**
@@ -68,7 +65,7 @@ Shelf::Shelf(int /*in*/number_rack_sensor,
  * @return ret 
  * @param sig 
  */
-void Shelf::sendCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
+ void Shelf::sendCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/ sig) {
 }
 
 /**
@@ -76,21 +73,22 @@ void Shelf::sendCheckRack(::CarFactoryLibrary::events::CheckRack& /*in*/sig) {
  * @param sig 
  * @return ret 
  */
-void Shelf::sendEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+ void Shelf::sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig) {
 }
 
 /**
  * 
  */
 void Shelf::connectorConfiguration() {
-	bindPorts(sensor1, rack_1.sensor);
-	bindPorts(sensor2, rack_2.sensor);
-	bindPorts(sensor3, rack_3.sensor);
+	bindPorts(this->sensor1, rack_1.sensor);
+	bindPorts(this->sensor2, rack_2.sensor);
+	bindPorts(this->sensor3, rack_3.sensor);
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Shelf class body
+              End of Shelf class body
  ************************************************************/

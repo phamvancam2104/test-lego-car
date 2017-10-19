@@ -6,7 +6,7 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_CHASSIS_CHASSISSHELF_H
 
 /************************************************************
- ChassisShelf class header
+              ChassisShelf class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/Pkg_Chassis.h"
@@ -14,44 +14,19 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 #include "CarFactoryLibrary/Shelf.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ChassisChassisShelf__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Chassis/ChassisShelf__Delegatee.h"
 
 // Include from Include stereotype (header)
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class StopProcess;
-}
-}
-namespace LegoCarFactoryRefactoringForSync {
-namespace signals {
-class RestartAfterEmergencyStop;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class CheckRack;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
-namespace EV3PapyrusLibrary {
-class IColorSensor;
-}
-namespace CarFactoryLibrary {
-namespace events {
-class ErrorDetection;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class RoboticArmPickPiece;
-}
-}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class StopProcess;}}
+namespace LegoCarFactoryRefactoringForSync {namespace signals {class RestartAfterEmergencyStop;}}
+namespace CarFactoryLibrary {namespace events {class CheckRack;}}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
+namespace EV3PapyrusLibrary {class IColorSensor;}
+namespace CarFactoryLibrary {namespace events {class ErrorDetection;}}
+namespace CarFactoryLibrary {namespace events {class RoboticArmPickPiece;}}
 
 // End of Include stereotype (header)
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -62,88 +37,97 @@ namespace Chassis {
 /**
  * 
  */
-class ChassisShelf: public ::CarFactoryLibrary::Shelf {
-public:
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ChassisChassisShelf__Controller chassisshelfController;
-
+class ChassisShelf : 
+public ::CarFactoryLibrary::Shelf	
+ {
+	public:
+	DECLARE_DELEGATEE_COMPONENT (ChassisShelf)
+	
 	StateMachine ChassisShelfStateMachine {
 		InitialState PrincipalState {
-			PseudoChoice test;
-			State Not_Master_Module;
-			State WaitSlaveIsNotBusy;
-			PseudoChoice Which_rack;
-			State Display;
-			PseudoChoice choice;
-			State Wait_end;
-			InitialState Initialization;
-			State Empty_rack;
-			State First_rack;
-			State Second_rack;
+			PseudoChoice test{};
+			State Not_Master_Module {
+			};
+			State WaitSlaveIsNotBusy {
+			};
+			PseudoChoice Which_rack{};
+			State Display {
+			};
+			PseudoChoice choice{};
+			State Wait_end {
+			};
+			InitialState Initialization {
+			};
+			State Empty_rack {
+			};
+			State First_rack {
+			};
+			State Second_rack {
+			};
 		};
-		State Restart;
-		FinalState FinalState1;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
-		SignalEvent<CarFactoryLibrary::events::CheckRack> CheckRack;
+		State Restart {
+		};
+		FinalState FinalState1 {
+		};
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
+		SignalEvent(CarFactoryLibrary::events::CheckRack) CheckRack;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
-			ExT(fromPrincipalStatetoFinalState1 , PrincipalState , FinalState1 , NULL , NULL , NULL );
-			ExT(fromNot_Master_ModuletoWaitSlaveIsNotBusy , Not_Master_Module , WaitSlaveIsNotBusy , NULL , NULL , NULL );
-			ExT(fromWaitSlaveIsNotBusytoChoice , WaitSlaveIsNotBusy , choice , NULL , NULL , NULL );
-			ExT(fromDisplaytoTest , Display , test , NULL , NULL , NULL );
-			ExT(fromWait_endtoInitialization , Wait_end , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromInitializationtoDisplay , Initialization , Display , NULL , CheckRack , NULL );
-			ExT(fromEmpty_racktoWait_end , Empty_rack , Wait_end , NULL , NULL , NULL );
-			ExT(fromFirst_racktoWait_end , First_rack , Wait_end , NULL , NULL , NULL );
-			ExT(fromSecond_racktoWait_end , Second_rack , Wait_end , NULL , NULL , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-			ExT(fromTesttoNot_Master_Module , test , Not_Master_Module , fromTesttoNot_Master_ModuleGuard , NULL , NULL );
-			ExT(fromTesttoWhich_rack , test , Which_rack , NULL , NULL , NULL );
-			ExT(fromWhich_racktoFirst_rack , Which_rack , First_rack , fromWhich_racktoFirst_rackGuard , NULL , NULL );
-			ExT(fromWhich_racktoEmpty_rack , Which_rack , Empty_rack , NULL , NULL , NULL );
-			ExT(fromWhich_racktoSecond_rack , Which_rack , Second_rack , fromWhich_racktoSecond_rackGuard , NULL , NULL );
-			ExT(fromChoicetoWait_end , choice , Wait_end , fromChoicetoWait_endGuard , NULL , NULL );
-			ExT(fromChoicetoEmpty_rack , choice , Empty_rack , fromChoicetoEmpty_rackGuard , NULL , NULL );
-			ExT(fromChoicetoRestart , choice , Restart , NULL , NULL , NULL );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, NULL);
+			ExT(fromPrincipalStatetoFinalState1, PrincipalState, FinalState1, NULL, void, NULL);
+			ExT(fromNot_Master_ModuletoWaitSlaveIsNotBusy, Not_Master_Module, WaitSlaveIsNotBusy, NULL, void, NULL);
+			ExT(fromWaitSlaveIsNotBusytoChoice, WaitSlaveIsNotBusy, choice, NULL, void, NULL);
+			ExT(fromDisplaytoTest, Display, test, NULL, void, NULL);
+			ExT(fromWait_endtoInitialization, Wait_end, Initialization, NULL, EndOfModule, NULL);
+			ExT(fromInitializationtoDisplay, Initialization, Display, NULL, CheckRack, NULL);
+			ExT(fromEmpty_racktoWait_end, Empty_rack, Wait_end, NULL, void, NULL);
+			ExT(fromFirst_racktoWait_end, First_rack, Wait_end, NULL, void, NULL);
+			ExT(fromSecond_racktoWait_end, Second_rack, Wait_end, NULL, void, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+			ExT(fromTesttoNot_Master_Module, test, Not_Master_Module, fromTesttoNot_Master_ModuleGuard, void, NULL);
+			ExT(fromTesttoWhich_rack, test, Which_rack, NULL, void, NULL);
+			ExT(fromWhich_racktoFirst_rack, Which_rack, First_rack, fromWhich_racktoFirst_rackGuard, void, NULL);
+			ExT(fromWhich_racktoEmpty_rack, Which_rack, Empty_rack, NULL, void, NULL);
+			ExT(fromWhich_racktoSecond_rack, Which_rack, Second_rack, fromWhich_racktoSecond_rackGuard, void, NULL);
+			ExT(fromChoicetoWait_end, choice, Wait_end, fromChoicetoWait_endGuard, void, NULL);
+			ExT(fromChoicetoEmpty_rack, choice, Empty_rack, fromChoicetoEmpty_rackGuard, void, NULL);
+			ExT(fromChoicetoRestart, choice, Restart, NULL, void, NULL);
+		};
 	};
 	/**
 	 * 
 	 */
-	InOutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
+	 InOutFlowPort<LegoCarFactoryRefactoringForSync::signals::StopProcess> pInStopProcess;
 	/**
 	 * 
 	 */
-	InFlowPort<
-			LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
+	 InFlowPort<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> pInRestart;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
+	 InFlowPort<CarFactoryLibrary::events::CheckRack> pCheckRack;
 	/**
 	 * 
 	 */
-	InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
+	 InFlowPort<CarFactoryLibrary::events::EndOfModule> pEndOfMo;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
+	 OutFlowPort<CarFactoryLibrary::events::ErrorDetection> pErrDetect;
 	/**
 	 * 
 	 */
-	OutFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
+	 OutFlowPort<CarFactoryLibrary::events::RoboticArmPickPiece> pPickPiece;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoicetoEmpty_rackGuard();
+	 bool fromChoicetoEmpty_rackGuard();
 	/**
 	 * 
 	 */
@@ -152,34 +136,35 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromTesttoNot_Master_ModuleGuard();
+	 bool fromTesttoNot_Master_ModuleGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromWhich_racktoFirst_rackGuard();
+	 bool fromWhich_racktoFirst_rackGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromWhich_racktoSecond_rackGuard();
+	 bool fromWhich_racktoSecond_rackGuard();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	bool fromChoicetoWait_endGuard();
+	 bool fromChoicetoWait_endGuard();
 
-private:
+
+	private:
 	/**
 	 * get the current module
 	 * @return ret 
 	 */
-	int get_current_module();
+	 int get_current_module();
 	/**
 	 * 
 	 * @param status 
 	 */
-	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status);
+	void set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status);
 	/**
 	 * send the RoboticArmPickPeice event
 	 */
@@ -192,13 +177,15 @@ private:
 	 * 
 	 * @return ret 
 	 */
-	::CarFactoryLibrary::BluetoothSlaveEnum get_status();
+	 ::CarFactoryLibrary::BluetoothSlaveEnum get_status();
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Chassis
 } // of namespace Modules
@@ -206,7 +193,7 @@ private:
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of ChassisShelf class header
+              End of ChassisShelf class header
  ************************************************************/
 
 #endif

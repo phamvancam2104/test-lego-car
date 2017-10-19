@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_CONCRETECLASSES_EV3DEVCPP_ACTUATORS_CPPSERVOMOTOR_H
 
 /************************************************************
- CppServoMotor class header
+              CppServoMotor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/Pkg_Actuators.h"
@@ -16,21 +16,16 @@
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppDevice.h"
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ActuatorsCppServoMotor__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Actuators/CppServoMotor__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace Actuators {
-class IServoMotor;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace Actuators {class IServoMotor;}}}
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -41,108 +36,107 @@ namespace Actuators {
 /**
  * 
  */
-class CppServoMotor: public ::EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor,
-		public ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppDevice,
-		public ::EV3PapyrusLibrary::AbstractClasses::Actuators::AbstractServoMotor {
-public:
+class CppServoMotor : 
+public ::EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor, 
+public ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::EV3Brick::CppDevice, 
+public ::EV3PapyrusLibrary::AbstractClasses::Actuators::AbstractServoMotor	
+ {
+	public:
 	/**
 	 * 
 	 */
-	servo_motor referencedServo_motor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsCppServoMotor__Controller cppservomotorController;
+	 servo_motor referencedServo_motor;
+	DECLARE_DELEGATEE_COMPONENT (CppServoMotor)
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/v);
+	void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString driver_name();
+	 ::EV3PapyrusLibrary::Types::LocalString driver_name();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer max_pulse_sp();
+	 ::PrimitiveTypes::Integer max_pulse_sp();
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_max_pulse_sp(::PrimitiveTypes::Integer /*in*/v);
+	void set_max_pulse_sp(::PrimitiveTypes::Integer /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer mid_pulse_sp();
+	 ::PrimitiveTypes::Integer mid_pulse_sp();
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_mid_pulse_sp(::PrimitiveTypes::Integer /*in*/v);
+	void set_mid_pulse_sp(::PrimitiveTypes::Integer /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer min_pulse_sp();
+	 ::PrimitiveTypes::Integer min_pulse_sp();
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_min_pulse_sp(::PrimitiveTypes::Integer /*in*/v);
+	void set_min_pulse_sp(::PrimitiveTypes::Integer /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString polarity();
+	 ::EV3PapyrusLibrary::Types::LocalString polarity();
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/v);
+	void set_polarity(::EV3PapyrusLibrary::Types::LocalString /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString port_name();
+	 ::EV3PapyrusLibrary::Types::LocalString port_name();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer position_sp();
+	 ::PrimitiveTypes::Integer position_sp();
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_position_sp(::PrimitiveTypes::Integer /*in*/v);
+	void set_position_sp(::PrimitiveTypes::Integer /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer rate_sp();
+	 ::PrimitiveTypes::Integer rate_sp();
 	/**
 	 * generated comment
 	 * @param v 
 	 */
-	void set_rate_sp(::PrimitiveTypes::Integer /*in*/v);
+	void set_rate_sp(::PrimitiveTypes::Integer /*in*/ v);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet state();
+	 ::EV3PapyrusLibrary::Types::ModeSet state();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	void run();
+	 void run();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	void float_();
+	 void float_();
 	/**
 	 * generated comment
 	 * @return ret 
@@ -150,86 +144,77 @@ public:
 	 * @param pattern 
 	 * @param match 
 	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-			::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean connected();
+	 ::PrimitiveTypes::Boolean connected();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer device_index();
+	 ::PrimitiveTypes::Integer device_index();
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 */
-	::PrimitiveTypes::Integer get_attr_int(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::PrimitiveTypes::Integer get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::PrimitiveTypes::Integer /*in*/value);
+	 void set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_string(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/value);
+	 void set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_line(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 * @param pCur 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet get_attr_set(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur = nullptr);
+	 ::EV3PapyrusLibrary::Types::ModeSet get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur = nullptr);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * generated comment
 	 * @param port_ 
 	 */
-	CppServoMotor(
-			::EV3PapyrusLibrary::Types::PortType /*in*/port_ = OUTPUT_AUTO);
+	CppServoMotor(::EV3PapyrusLibrary::Types::PortType /*in*/ port_ = OUTPUT_AUTO);
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Actuators
 } // of namespace ev3devCpp
@@ -237,7 +222,7 @@ public:
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppServoMotor class header
+              End of CppServoMotor class header
  ************************************************************/
 
 #endif

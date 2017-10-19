@@ -14,7 +14,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractBlutooth.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IBlutooth.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppBlutooth__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppBlutooth__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -47,10 +47,7 @@ public:
 	 * 
 	 */
 	bluetooth referencedBluetooth;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppBlutooth__Controller cppblutoothController;
+	DECLARE_DELEGATEE_COMPONENT (CppBlutooth)
 	/**
 	 * 
 	 */

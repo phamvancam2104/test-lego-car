@@ -14,7 +14,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppDevice.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ConcreteClassesCppSensorMux__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/ConcreteClasses/CppSensorMux__Delegatee.h"
 #include "MindsensorsPapyrusLibrary/AbstractClasses/AbstractSensorMux.h"
 #include "MindsensorsPapyrusLibrary/Interfaces/ISensorMux.h"
 #include "MindsensorsPapyrusLibrary/Types/Pkg_Types.h"
@@ -46,10 +46,7 @@ public:
 	 * 
 	 */
 	sensor_mux referencedSensor_mux;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ConcreteClassesCppSensorMux__Controller cppsensormuxController;
+	DECLARE_DELEGATEE_COMPONENT (CppSensorMux)
 	/**
 	 * generated comment
 	 * @return ret 

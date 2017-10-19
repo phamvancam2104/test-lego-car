@@ -2,7 +2,7 @@
 #define PKG_LEGOCARFACTORYREFACTORINGFORSYNC_DEPLOYMENT_FRONTMODULESYSTEMDEPPLAN
 
 /************************************************************
- Pkg_FrontModuleSystemDepPlan package header
+              Pkg_FrontModuleSystemDepPlan package header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/deployment/Pkg_deployment.h"
@@ -17,6 +17,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace LegoCarFactoryRefactoringForSync {
@@ -24,12 +25,12 @@ namespace deployment {
 namespace FrontModuleSystemDepPlan {
 
 // Types defined within the package
-}// of namespace FrontModuleSystemDepPlan
+} // of namespace FrontModuleSystemDepPlan
 } // of namespace deployment
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of Pkg_FrontModuleSystemDepPlan package header
+              End of Pkg_FrontModuleSystemDepPlan package header
  ************************************************************/
 
 #endif

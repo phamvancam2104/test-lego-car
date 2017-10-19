@@ -6,7 +6,7 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_SIGNALS_STOPPROCESS_H
 
 /************************************************************
- StopProcess class header
+              StopProcess class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/signals/Pkg_signals.h"
@@ -19,6 +19,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 // End of Include stereotype (header)
 
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
 
@@ -27,24 +28,27 @@ namespace signals {
  * 
  */
 class StopProcess {
-public:
+	public:
 	/**
 	 * 
 	 */
-	bool is_emergency_stop;
+	 bool is_emergency_stop;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace signals
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of StopProcess class header
+              End of StopProcess class header
  ************************************************************/
 
 #endif

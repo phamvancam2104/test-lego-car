@@ -6,7 +6,7 @@
 #define CARFACTORYLIBRARY_ROBOTICARM_H
 
 /************************************************************
- RoboticArm class header
+              RoboticArm class header
  ************************************************************/
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
@@ -18,29 +18,15 @@
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
 
 // Include from Include stereotype (header)
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace Actuators {
-class IServoMotor;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace Actuators {class IServoMotor;}}}
 #include "EV3PapyrusLibrary/Interfaces/Actuators/IServoMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class RoboticArmPickPiece;
-}
-}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
+namespace CarFactoryLibrary {namespace events {class RoboticArmPickPiece;}}
 
 namespace CarFactoryLibrary {
 
@@ -48,90 +34,90 @@ namespace CarFactoryLibrary {
 /**
  * the generic robotic arm of the factory 
  */
-class RoboticArm: public ::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor {
-public:
+class RoboticArm : 
+public ::CarFactoryLibrary::CommunicationInterfaces::IRoboticArmFloatMotor	
+ {
+	public:
 	/**
 	 * the servo motor which allow to go up and down
 	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor motor_up_down;
+	 ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor motor_up_down;
 	/**
 	 * the servo motor which allow to go front and back
 	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor motor_front_back;
+	 ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor motor_front_back;
 	/**
 	 * the servo motor which allow to go right and left
 	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor motor_right_left;
+	 ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Actuators::CppServoMotor motor_right_left;
 	/**
 	 * the plier of the arm
 	 */
-	Pliers motor_pliers;
+	 Pliers motor_pliers;
 	/**
 	 * calibration parameter: the position_sp of the servo motor, which allow to go up and down, when it is in the calibration position 
-	 * the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+	  * the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
 	 */
-	int motor_up_down_offset;
+	 int motor_up_down_offset;
 	/**
 	 * calibration parameter: the position_sp of the servo motor, which allow to go front and back, when it is in the calibration position 
-	 * the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+	  * the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
 	 */
-	int motor_front_back_offset;
+	 int motor_front_back_offset;
 	/**
 	 * calibration parameter: the position_sp of the servo motor, which allow to go right and left, when it is in the calibration position 
-	 * the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+	  * the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
 	 */
-	int motor_right_left_offset;
+	 int motor_right_left_offset;
 	/**
 	 * the number of the rack that the arm should take the piece
 	 */
-	int rack_number;
+	 int rack_number;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> upDownMotor;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> upDownMotor;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> frontBackMotor;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> frontBackMotor;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> rightLeftMotor;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> rightLeftMotor;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> plierMotor;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::Actuators::IServoMotor> plierMotor;
 	/**
 	 * 
 	 */
-	RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	 RequiredPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
 	/**
 	 * 
 	 */
-	RequiredPort<CarFactoryLibrary::IModule> pModule;
+	 RequiredPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * move the robotic arm to the absolute position x, y and alpha
 	 * @param x distance relative to the rotation center of the two motors (in cm)
 	 * @param y height relative to the rotation center of the two motors (in cm)
-	 * @param alpha angle of the base (in degree), eg: 0°, the arm is oriented towards the conveyor
+	 * @param alpha angle of the base (in degree), eg: 0Â°, the arm is oriented towards the conveyor
 	 * @param front_back_before_up_down if true the command for the front-back motor is send before the command for the up-down motor, otherwise it is the opposite
-	 *    even if the motors are moved in the same time, the command is send one by one.For some little movement it can be important.
+	  *    even if the motors are moved in the same time, the command is send one by one.For some little movement it can be important.
 	 * @param rate it is a value which define the speed but the speed is hight when the value is low (time is millisecond the servo  travels from 0 to 100.0% (half of the full range of the servo))
 	 */
-	void move(float /*in*/x, float /*in*/y, int /*in*/alpha,
-			bool /*in*/front_back_before_up_down = true, int /*in*/rate = 30);
+	void move(float /*in*/ x, float /*in*/ y, int /*in*/ alpha, bool /*in*/ front_back_before_up_down = true, int /*in*/ rate = 30);
 	/**
 	 * calculate the command that must be send to motors to move the arm to the absolute position x, y and alpha
 	 * @param x distance relative to the rotation center of the two motors (in cm)
 	 * @param y height relative to the rotation center of the two motors (in cm)
-	 * @param alpha angle of the base (in degree), eg: 0°, the arm is oriented towards the conveyor
+	 * @param alpha angle of the base (in degree), eg: 0Â°, the arm is oriented towards the conveyor
 	 * @param ret the result: a pointer on a array of 3 integer, 
-	 *    ret = the command for up_down_motor
-	 *    ret + 1 = the command for front_back_motor
-	 *    ret + 2 = the command for right_left_motor
+	  *    ret = the command for up_down_motor
+	  *    ret + 1 = the command for front_back_motor
+	  *    ret + 2 = the command for right_left_motor
 	 */
-	void calculate_motors_angle(float /*in*/x, float /*in*/y, int /*in*/alpha,
-			int* /*out*/ret);
+	void calculate_motors_angle(float /*in*/ x, float /*in*/ y, int /*in*/ alpha, int* /*out*/ ret);
 	/**
 	 * activate motors
 	 */
@@ -155,55 +141,46 @@ public:
 	 * @param right_left_motor_port the servo motor port name which allow to go right and left
 	 * @param plier_motor_port the servo motor port name for the pliers
 	 * @param up_down_offset calibration parameter: the position_sp of the servo motor, which allow to go up and down, when it is in the calibration position 
-	 *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+	  *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
 	 * @param front_back_offset calibration parameter: the position_sp of the servo motor, which allow to go front and back, when it is in the calibration position 
-	 *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+	  *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
 	 * @param right_left_offset calibration parameter: the position_sp of the servo motor, which allow to go right and left, when it is in the calibration position 
-	 *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
+	  *    the calibration position of the arm is when the arm make an right angle with the table and between the two part of itself and directing in front of the conveyor 
 	 * @param open_pliers_motor_position the command to send to the servo motor of the plier to open it
 	 * @param close_pliers_motor_position the command to send to the servo motor of the plier to close it
 	 */
-	RoboticArm(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/up_down_motor_port =
-					"outA",
-			::EV3PapyrusLibrary::Types::LocalString /*in*/front_back_motor_port =
-					"outA",
-			::EV3PapyrusLibrary::Types::LocalString /*in*/right_left_motor_port =
-					"outA",
-			::EV3PapyrusLibrary::Types::LocalString /*in*/plier_motor_port =
-					"outA", int /*in*/up_down_offset = 0,
-			int /*in*/front_back_offset = 0, int /*in*/right_left_offset = 0,
-			int /*in*/open_pliers_motor_position = 0,
-			int /*in*/close_pliers_motor_position = 0);
+	RoboticArm(::EV3PapyrusLibrary::Types::LocalString /*in*/ up_down_motor_port = "outA", ::EV3PapyrusLibrary::Types::LocalString /*in*/ front_back_motor_port = "outA", ::EV3PapyrusLibrary::Types::LocalString /*in*/ right_left_motor_port = "outA", ::EV3PapyrusLibrary::Types::LocalString /*in*/ plier_motor_port = "outA", int /*in*/ up_down_offset = 0, int /*in*/ front_back_offset = 0, int /*in*/ right_left_offset = 0, int /*in*/ open_pliers_motor_position = 0, int /*in*/ close_pliers_motor_position = 0);
 	/**
 	 * 
 	 * @param sig 
 	 * @return ret 
 	 */
-	void sendRoboticArmPickPiece(
-			::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig);
+	 void sendRoboticArmPickPiece(::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/ sig);
 	/**
 	 * 
 	 * @param sig 
 	 * @return ret 
 	 */
-	void sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	 void sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig);
 	/**
 	 * 
 	 */
 	void connectorConfiguration();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of RoboticArm class header
+              End of RoboticArm class header
  ************************************************************/
 
 #endif

@@ -2,7 +2,7 @@
 #define PKG_OTHERCOMPONENTSPAPYRUSLIBRARY_TYPES
 
 /************************************************************
- Pkg_Types package header
+              Pkg_Types package header
  ************************************************************/
 
 #include "OtherComponentsPapyrusLibrary/Pkg_OtherComponentsPapyrusLibrary.h"
@@ -17,6 +17,7 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
@@ -29,13 +30,14 @@ namespace Types {
 /**
  * 
  */
-typedef std::string LocalString;
-
+typedef std::string
+	LocalString;
+	
 } // of namespace Types
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of Pkg_Types package header
+              End of Pkg_Types package header
  ************************************************************/
 
 #endif

@@ -6,7 +6,7 @@
 #define CARFACTORYLIBRARY_RACK_H
 
 /************************************************************
- Rack class header
+              Rack class header
  ************************************************************/
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
@@ -14,15 +14,14 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/CppColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryRack__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/CarFactoryLibrary/Rack__Delegatee.h"
 
 // Include from Include stereotype (header)
-namespace EV3PapyrusLibrary {
-class IColorSensor;
-}
+namespace EV3PapyrusLibrary {class IColorSensor;}
 #include "EV3PapyrusLibrary/IColorSensor.h"
 
 // End of Include stereotype (header)
+
 
 namespace CarFactoryLibrary {
 
@@ -31,29 +30,26 @@ namespace CarFactoryLibrary {
  * the rack of the shelf
  */
 class Rack {
-public:
+	public:
 	/**
 	 * the color sensor of the rack
 	 */
-	::EV3PapyrusLibrary::CppColorSensor color_sensor;
+	 ::EV3PapyrusLibrary::CppColorSensor color_sensor;
+	DECLARE_DELEGATEE_COMPONENT (Rack)
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryRack__Controller rackController;
-	/**
-	 * 
-	 */
-	ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor;
+	 ProvidedPort<EV3PapyrusLibrary::IColorSensor> sensor;
 	/**
 	 * check if the rack is empty
 	 * @return ret true if the rack is empty and false otherwise
 	 */
-	bool is_empty();
+	 bool is_empty();
 	/**
 	 * constructor of the Rack
 	 * @param sensorPort the color sensor port name
 	 */
-	Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/sensorPort);
+	Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/ sensorPort);
 	/**
 	 * empty constructor of the rack (must not be use)
 	 */
@@ -63,17 +59,20 @@ public:
 	 */
 	void connectorConfiguration();
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Rack class header
+              End of Rack class header
  ************************************************************/
 
 #endif

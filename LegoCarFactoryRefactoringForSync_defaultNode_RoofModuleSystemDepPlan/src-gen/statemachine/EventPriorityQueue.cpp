@@ -16,20 +16,24 @@
 namespace statemachine {
 
 // static attributes (if any)
+/**
+ * 
+ */
+Event_t EventPriorityQueue::SINGLETON_QUEUE[SINGLETON_QUEUE_SIZE];
+/**
+ * 
+ */
+unsigned int EventPriorityQueue::singleton_counter = 0;
 
 /**
  * 
- * @param queueSize 
- * @param eventArray 
  */
-EventPriorityQueue::EventPriorityQueue(unsigned int /*in*/queueSize,
-		Event_t* /*in*/eventArray) :
-		data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(
-				0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(
-				0), numberOfDeferreds(0), readDef(0), writeDef(0) {
+EventPriorityQueue::EventPriorityQueue() :
+		numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(
+				0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(
+				0), writeDef(0) {
 	mutex = PTHREAD_MUTEX_INITIALIZER;
 	cond = PTHREAD_COND_INITIALIZER;
-	isLock = false;
 }
 
 /**
@@ -48,10 +52,18 @@ void EventPriorityQueue::push(EventPriority_t /*in*/priority, void* /*in*/data,
 	if (EVENT_DATA_SIZE <= dataSize) {
 		return;
 	}
-	pthread_mutex_lock (&mutex);
-	while (isLock) {
-		pthread_cond_wait(&cond, &mutex);
+	if (eventType == statemachine::COMPLETION_EVENT) {
+		pthread_mutex_lock (&mutex);
+		while (compNumbers >= compSize) {
+			pthread_cond_wait(&cond, &mutex);
+		}
+	} else {
+		pthread_mutex_lock (&mutex);
+		while (numberOfElements >= size) {
+			pthread_cond_wait(&cond, &mutex);
+		}
 	}
+
 	if (compNumbers < compSize && eventType == statemachine::COMPLETION_EVENT) {
 		ret = &(this->completionEvents[compWritePos]);
 		compNumbers++;
@@ -71,9 +83,8 @@ void EventPriorityQueue::push(EventPriority_t /*in*/priority, void* /*in*/data,
 		ret->associatedState = associatedState;
 		writePos = (writePos + 1) % size;
 	}
-	isLock = false;
 	pthread_cond_signal (&cond);
-	pthread_mutex_unlock(&mutex);
+	pthread_mutex_unlock (&mutex);
 }
 
 /**
@@ -84,7 +95,8 @@ void EventPriorityQueue::push(EventPriority_t /*in*/priority, void* /*in*/data,
 Event_t* EventPriorityQueue::pop(bool /*in*/popDeferred) {
 	statemachine::Event_t* ret = NULL;
 	pthread_mutex_lock (&mutex);
-	while (isLock) {
+	while (numberOfElements + compNumbers == 0
+			&& (!popDeferred || numberOfDeferreds == 0)) {
 		pthread_cond_wait(&cond, &mutex);
 	}
 	if (compNumbers > 0) {
@@ -108,7 +120,6 @@ Event_t* EventPriorityQueue::pop(bool /*in*/popDeferred) {
 		readDef = (readDef + 1) % defSize;
 	}
 
-	isLock = false;
 	pthread_cond_signal (&cond);
 	pthread_mutex_unlock(&mutex);
 	return ret;
@@ -128,6 +139,28 @@ void EventPriorityQueue::saveDeferred(Event_t& /*in*/defe) {
 		numberOfDeferreds++;
 		writeDef = (writeDef + 1) % defSize;
 	}
+}
+
+/**
+ * 
+ * @param desired_size 
+ */
+void EventPriorityQueue::allocate_queue(unsigned int /*in*/desired_size) {
+	data = &(SINGLETON_QUEUE[singleton_counter]);
+	if (singleton_counter + desired_size > SINGLETON_QUEUE_SIZE) {
+		size = SINGLETON_QUEUE_SIZE - singleton_counter;
+	} else {
+		size = desired_size;
+	}
+	singleton_counter += size;
+}
+
+/**
+ * 
+ * @return ret 
+ */
+unsigned int EventPriorityQueue::getCompletionSize() {
+	return compNumbers;
 }
 
 /**

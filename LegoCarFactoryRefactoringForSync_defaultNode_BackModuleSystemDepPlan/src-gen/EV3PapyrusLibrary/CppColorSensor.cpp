@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_CppColorSensor_BODY
 
 /************************************************************
- CppColorSensor class body
+              CppColorSensor class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/CppColorSensor.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/IColorSensor.h"
+
 
 namespace EV3PapyrusLibrary {
 
@@ -22,7 +24,7 @@ namespace EV3PapyrusLibrary {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::bin_data_format() {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::bin_data_format() {
 	return referencedColor_sensor.bin_data_format();
 }
 
@@ -30,7 +32,7 @@ namespace EV3PapyrusLibrary {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::CustomVectorChar CppColorSensor::bin_data() {
+ ::EV3PapyrusLibrary::Types::CustomVectorChar CppColorSensor::bin_data() {
 	return referencedColor_sensor.bin_data();
 }
 
@@ -38,7 +40,7 @@ namespace EV3PapyrusLibrary {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppColorSensor::commands() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppColorSensor::commands() {
 	return referencedColor_sensor.commands();
 }
 
@@ -49,18 +51,15 @@ namespace EV3PapyrusLibrary {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean CppColorSensor::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
-	return ((device*) &referencedColor_sensor)->connect(dir, pattern, match);
+ ::PrimitiveTypes::Boolean CppColorSensor::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
+	return ((device*)&referencedColor_sensor)->connect(dir, pattern, match);
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppColorSensor::connected() {
+ ::PrimitiveTypes::Boolean CppColorSensor::connected() {
 	return referencedColor_sensor.connected();
 }
 
@@ -68,7 +67,7 @@ namespace EV3PapyrusLibrary {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppColorSensor::decimals() {
+ ::PrimitiveTypes::Integer CppColorSensor::decimals() {
 	return referencedColor_sensor.decimals();
 }
 
@@ -76,7 +75,7 @@ namespace EV3PapyrusLibrary {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppColorSensor::device_index() {
+ ::PrimitiveTypes::Integer CppColorSensor::device_index() {
 	return referencedColor_sensor.device_index();
 }
 
@@ -84,7 +83,7 @@ namespace EV3PapyrusLibrary {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::driver_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::driver_name() {
 	return referencedColor_sensor.driver_name();
 }
 
@@ -93,7 +92,7 @@ namespace EV3PapyrusLibrary {
  * @return ret 
  * @param index 
  */
-float CppColorSensor::float_value(unsigned int /*in*/index) {
+ float CppColorSensor::float_value(unsigned int /*in*/ index) {
 	return referencedColor_sensor.float_value(index);
 }
 
@@ -102,8 +101,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedColor_sensor)->get_attr_from_set(name);
 }
 
@@ -112,8 +110,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer CppColorSensor::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer CppColorSensor::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedColor_sensor)->get_attr_int(name);
 }
 
@@ -122,8 +119,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedColor_sensor)->get_attr_line(name);
 }
 
@@ -133,10 +129,8 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppColorSensor::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
-	return ((device*) &referencedColor_sensor)->get_attr_set(name, pCur);
+ ::EV3PapyrusLibrary::Types::ModeSet CppColorSensor::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
+	return ((device*) &referencedColor_sensor)->get_attr_set(name,pCur);
 }
 
 /**
@@ -144,8 +138,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 	return ((device*) &referencedColor_sensor)->get_attr_string(name);
 }
 
@@ -153,7 +146,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::mode() {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::mode() {
 	return referencedColor_sensor.mode();
 }
 
@@ -161,7 +154,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet CppColorSensor::modes() {
+ ::EV3PapyrusLibrary::Types::ModeSet CppColorSensor::modes() {
 	return referencedColor_sensor.modes();
 }
 
@@ -169,7 +162,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppColorSensor::num_values() {
+ ::PrimitiveTypes::Integer CppColorSensor::num_values() {
 	return referencedColor_sensor.num_values();
 }
 
@@ -177,7 +170,7 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::port_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::port_name() {
 	return referencedColor_sensor.port_name();
 }
 
@@ -187,10 +180,8 @@ float CppColorSensor::float_value(unsigned int /*in*/index) {
  * @param name 
  * @param value 
  */
-void CppColorSensor::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
-	((device*) &referencedColor_sensor)->set_attr_int(name, value);
+ void CppColorSensor::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
+	((device*) &referencedColor_sensor)->set_attr_int(name,value);
 }
 
 /**
@@ -199,18 +190,15 @@ void CppColorSensor::set_attr_int(
  * @param name 
  * @param value 
  */
-void CppColorSensor::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
-	((device*) &referencedColor_sensor)->set_attr_string(name, value);
+ void CppColorSensor::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
+	((device*) &referencedColor_sensor)->set_attr_string(name,value);
 }
 
 /**
  * 
  * @param v 
  */
-void CppColorSensor::set_command(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppColorSensor::set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedColor_sensor.set_command(v);
 }
 
@@ -218,7 +206,7 @@ void CppColorSensor::set_command(
  * 
  * @param v 
  */
-void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 	referencedColor_sensor.set_mode(v);
 }
 
@@ -226,7 +214,7 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::type_name() {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::type_name() {
 	return referencedColor_sensor.type_name();
 }
 
@@ -234,7 +222,7 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString CppColorSensor::units() {
+ ::EV3PapyrusLibrary::Types::LocalString CppColorSensor::units() {
 	return referencedColor_sensor.units();
 }
 
@@ -242,12 +230,12 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppColorSensor::get_reflect_intensity() {
+ ::PrimitiveTypes::Integer CppColorSensor::get_reflect_intensity() {
 	//we configure it as reflect mode
 	set_mode("COL-REFLECT");
-	while (mode() != "COL-REFLECT") { //Solve problem with robot user in the initialization of the sensor
+	while(mode() != "COL-REFLECT"){//Solve problem with robot user in the initialization of the sensor
 		set_mode("COL-REFLECT");
-	}
+	} 
 	return value(0);
 }
 
@@ -256,7 +244,7 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * @return ret 
  * @param index 
  */
-::PrimitiveTypes::Integer CppColorSensor::value(unsigned int /*in*/index) {
+ ::PrimitiveTypes::Integer CppColorSensor::value(unsigned int /*in*/ index) {
 	return referencedColor_sensor.value(index);
 }
 
@@ -264,11 +252,11 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppColorSensor::get_color() {
+ ::PrimitiveTypes::Integer CppColorSensor::get_color() {
 	set_mode("COL-COLOR");
-	while (mode() != "COL-COLOR") { //Solve problem with robot user in the initialization of the sensor
+	while(mode() != "COL-COLOR"){//Solve problem with robot user in the initialization of the sensor
 		set_mode("COL-COLOR");
-	}
+	} 
 	return value(0);
 }
 
@@ -276,11 +264,11 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer CppColorSensor::get_ambient_intensity() {
+ ::PrimitiveTypes::Integer CppColorSensor::get_ambient_intensity() {
 	set_mode("COL-AMBIENT");
-	while (mode() != "COL-AMBIENT") { //Solve problem with robot user in the initialization of the sensor
+	while(mode() != "COL-AMBIENT"){//Solve problem with robot user in the initialization of the sensor
 		set_mode("COL-AMBIENT");
-	}
+	} 
 	return value(0);
 }
 
@@ -288,13 +276,13 @@ void CppColorSensor::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
  * 
  * @param portAdress 
  */
-CppColorSensor::CppColorSensor(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/portAdress) :
-		referencedColor_sensor(portAdress), cppcolorsensorController(this) {
+CppColorSensor::CppColorSensor(::EV3PapyrusLibrary::Types::LocalString /*in*/ portAdress): referencedColor_sensor(portAdress) {
 }
+
+
 
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppColorSensor class body
+              End of CppColorSensor class body
  ************************************************************/

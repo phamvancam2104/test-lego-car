@@ -20,7 +20,13 @@
 #include "stdio.h"
 #include "string.h"
 
+#define SINGLETON_QUEUE_SIZE (200)
 #define defSize (10)
+#if defined (SINGLETON_QUEUE_SIZE)
+#undef SINGLETON_QUEUE_SIZE
+#endif
+#define SINGLETON_QUEUE_SIZE (500)
+
 // End of Include stereotype (header)
 
 namespace statemachine {
@@ -33,10 +39,16 @@ class EventPriorityQueue {
 public:
 	/**
 	 * 
-	 * @param queueSize 
-	 * @param eventArray 
 	 */
-	EventPriorityQueue(unsigned int /*in*/queueSize, Event_t* /*in*/eventArray);
+	static Event_t SINGLETON_QUEUE[SINGLETON_QUEUE_SIZE];
+	/**
+	 * 
+	 */
+	static unsigned int singleton_counter;
+	/**
+	 * 
+	 */
+	EventPriorityQueue();
 	/**
 	 * 
 	 * @param priority 
@@ -60,6 +72,16 @@ public:
 	 * @param defe 
 	 */
 	void saveDeferred(Event_t& /*in*/defe);
+	/**
+	 * 
+	 * @param desired_size 
+	 */
+	void allocate_queue(unsigned int /*in*/desired_size);
+	/**
+	 * 
+	 * @return ret 
+	 */
+	unsigned int getCompletionSize();
 
 private:
 	/**
@@ -90,10 +112,6 @@ private:
 	 * 
 	 */
 	pthread_cond_t cond;
-	/**
-	 * 
-	 */
-	bool isLock;
 	/**
 	 * 
 	 */

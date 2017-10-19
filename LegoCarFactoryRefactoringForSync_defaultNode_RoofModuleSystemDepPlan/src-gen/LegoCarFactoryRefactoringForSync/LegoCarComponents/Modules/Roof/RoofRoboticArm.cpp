@@ -32,7 +32,6 @@ namespace Roof {
  * 
  */
 void RoofRoboticArm::stop_motors() {
-
 	float_motors();
 }
 
@@ -41,7 +40,6 @@ void RoofRoboticArm::stop_motors() {
  * @param rack_number 
  */
 void RoofRoboticArm::deliver_roof(int /*in*/rack_number) {
-
 	if (rack_number != 0) { //means no roof
 		//TURN
 		move(3, 5, 2, false);
@@ -91,7 +89,6 @@ void RoofRoboticArm::deliver_roof(int /*in*/rack_number) {
  * @param rack_number 
  */
 void RoofRoboticArm::pick_roof(int /*in*/rack_number) {
-
 	if (rack_number == CarFactoryLibrary::RED) {
 		//go to REST
 		go_rest_position_rack();
@@ -188,8 +185,7 @@ void RoofRoboticArm::pick_roof(int /*in*/rack_number) {
 /**
  * 
  */
-RoofRoboticArm::RoofRoboticArm() :
-		roofroboticarmController(this) {
+RoofRoboticArm::RoofRoboticArm() {
 }
 
 /**
@@ -198,7 +194,6 @@ RoofRoboticArm::RoofRoboticArm() :
  */
 void RoofRoboticArm::save_rack_number(
 		::CarFactoryLibrary::events::RoboticArmPickPiece& /*in*/sig) {
-
 	rack_number = sig.rack_number;
 }
 
@@ -206,7 +201,6 @@ void RoofRoboticArm::save_rack_number(
  * 
  */
 void RoofRoboticArm::init() {
-
 	run_motors();
 	motor_pliers.open();
 	go_rest_position_rack();
@@ -217,7 +211,6 @@ void RoofRoboticArm::init() {
  * 
  */
 void RoofRoboticArm::start_motors() {
-
 	pLCD.requiredIntf->clear();		//get_module()->ev3Brick.lcdScreen.clear();
 	pLCD.requiredIntf->write_text(0, 20, "Pick place...", lcd::TextSize::LARGE);
 
@@ -228,7 +221,6 @@ void RoofRoboticArm::start_motors() {
  * 
  */
 void RoofRoboticArm::pick_roof() {
-
 	pick_roof (rack_number);
 }
 
@@ -236,7 +228,6 @@ void RoofRoboticArm::pick_roof() {
  * 
  */
 void RoofRoboticArm::deliver_roof() {
-
 	deliver_roof (rack_number);
 }
 
@@ -244,7 +235,6 @@ void RoofRoboticArm::deliver_roof() {
  * 
  */
 void RoofRoboticArm::sendGoToPressEvent() {
-
 	LegoCarFactoryRefactoringForSync::signals::GoToPress s;
 	s.color = static_cast<CarFactoryLibrary::Colors>(rack_number);
 	pOutGotoProcess.outIntf->push(s);//static_cast<RoofConveyor*>(get_conveyor())->sendGoToPress(s);

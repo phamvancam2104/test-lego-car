@@ -13,7 +13,7 @@
 
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractButton.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppButton__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppButton__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -45,10 +45,7 @@ public:
 	 * 
 	 */
 	button referencedButton;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppButton__Controller cppbuttonController;
+	DECLARE_DELEGATEE_COMPONENT (CppButton)
 	/**
 	 * generated comment
 	 * @return ret 

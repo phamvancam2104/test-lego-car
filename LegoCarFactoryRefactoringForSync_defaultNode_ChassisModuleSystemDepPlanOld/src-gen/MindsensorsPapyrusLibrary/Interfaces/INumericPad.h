@@ -6,13 +6,15 @@
 #define MINDSENSORSPAPYRUSLIBRARY_INTERFACES_INUMERICPAD_H
 
 /************************************************************
- INumericPad class header
+              INumericPad class header
  ************************************************************/
 
 #include "MindsensorsPapyrusLibrary/Interfaces/Pkg_Interfaces.h"
 
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IDevice.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
+
+
 
 namespace MindsensorsPapyrusLibrary {
 namespace Interfaces {
@@ -21,31 +23,36 @@ namespace Interfaces {
 /**
  * 
  */
-class INumericPad: public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IDevice {
-public:
+class INumericPad : 
+public ::EV3PapyrusLibrary::Interfaces::EV3Brick::IDevice	
+ {
+	public:
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer read_current_touched_key() = 0;
+	virtual  ::PrimitiveTypes::Integer read_current_touched_key() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Integer read_next_touched_key() = 0;
+	virtual  ::PrimitiveTypes::Integer read_next_touched_key() = 0;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Interfaces
 } // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of INumericPad class header
+              End of INumericPad class header
  ************************************************************/
 
 #endif

@@ -5,14 +5,16 @@
 #define OtherComponentsPapyrusLibrary_ConcreteClasses_CppLedStatus_BODY
 
 /************************************************************
- CppLedStatus class body
+              CppLedStatus class body
  ************************************************************/
+
 
 // include associated header file
 #include "OtherComponentsPapyrusLibrary/ConcreteClasses/CppLedStatus.h"
 
 // Derived includes directives
 #include "OtherComponentsPapyrusLibrary/Interfaces/ILedStatus.h"
+
 
 namespace OtherComponentsPapyrusLibrary {
 namespace ConcreteClasses {
@@ -60,11 +62,7 @@ void CppLedStatus::green_led() {
  * @param orange_port 
  * @param green_port 
  */
-CppLedStatus::CppLedStatus(
-		::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/red_port,
-		::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/orange_port,
-		::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/green_port) :
-		referencedLed_status(red_port, orange_port, green_port) {
+CppLedStatus::CppLedStatus(::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/ red_port, ::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/ orange_port, ::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/ green_port): referencedLed_status(red_port, orange_port, green_port) {
 }
 
 /**
@@ -73,9 +71,11 @@ CppLedStatus::CppLedStatus(
 CppLedStatus::CppLedStatus() {
 }
 
+
+
 } // of namespace ConcreteClasses
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of CppLedStatus class body
+              End of CppLedStatus class body
  ************************************************************/

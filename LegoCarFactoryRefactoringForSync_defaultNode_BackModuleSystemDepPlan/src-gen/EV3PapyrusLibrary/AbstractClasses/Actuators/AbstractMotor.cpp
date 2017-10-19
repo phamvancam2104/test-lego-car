@@ -5,13 +5,15 @@
 #define EV3PapyrusLibrary_AbstractClasses_Actuators_AbstractMotor_BODY
 
 /************************************************************
- AbstractMotor class body
+              AbstractMotor class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/Actuators/AbstractMotor.h"
 
 // Derived includes directives
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -19,10 +21,13 @@ namespace Actuators {
 
 // static attributes (if any)
 
-}// of namespace Actuators
+
+
+
+} // of namespace Actuators
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractMotor class body
+              End of AbstractMotor class body
  ************************************************************/

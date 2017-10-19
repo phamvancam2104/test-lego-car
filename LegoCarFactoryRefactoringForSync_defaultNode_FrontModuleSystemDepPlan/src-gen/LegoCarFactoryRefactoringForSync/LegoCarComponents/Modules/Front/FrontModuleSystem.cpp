@@ -5,13 +5,15 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Front_FrontModuleSystem_BODY
 
 /************************************************************
- FrontModuleSystem class body
+              FrontModuleSystem class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontModuleSystem.h"
 
 // Derived includes directives
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -23,8 +25,7 @@ namespace Front {
 /**
  * 
  */
-FrontModuleSystem::FrontModuleSystem() :
-		frontmodulesystemController(this) {
+FrontModuleSystem::FrontModuleSystem() {
 }
 
 /**
@@ -67,11 +68,13 @@ void FrontModuleSystem::connectorConfiguration() {
 	bindPorts(convoyer.pGotoProcess, roboticArm.pGotoProcess);
 }
 
+
+
 } // of namespace Front
 } // of namespace Modules
 } // of namespace LegoCarComponents
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of FrontModuleSystem class body
+              End of FrontModuleSystem class body
  ************************************************************/

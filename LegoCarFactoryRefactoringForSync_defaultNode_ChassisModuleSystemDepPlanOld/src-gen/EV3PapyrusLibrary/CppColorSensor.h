@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_CPPCOLORSENSOR_H
 
 /************************************************************
- CppColorSensor class header
+              CppColorSensor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Pkg_EV3PapyrusLibrary.h"
@@ -15,17 +15,16 @@
 #include "EV3PapyrusLibrary/AbstractColorSensor.h"
 #include "EV3PapyrusLibrary/IColorSensor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3PapyrusLibraryCppColorSensor__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3PapyrusLibrary/CppColorSensor__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
-namespace EV3PapyrusLibrary {
-class IColorSensor;
-}
+namespace EV3PapyrusLibrary {class IColorSensor;}
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 
@@ -33,31 +32,31 @@ namespace EV3PapyrusLibrary {
 /**
  * 
  */
-class CppColorSensor: public IColorSensor, public AbstractColorSensor {
-public:
+class CppColorSensor : 
+public IColorSensor, 
+public AbstractColorSensor	
+ {
+	public:
 	/**
 	 * 
 	 */
-	color_sensor referencedColor_sensor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3PapyrusLibraryCppColorSensor__Controller cppcolorsensorController;
-	/**
-	 * 
-	 * @return ret 
-	 */
-	::EV3PapyrusLibrary::Types::LocalString bin_data_format();
+	 color_sensor referencedColor_sensor;
+	DECLARE_DELEGATEE_COMPONENT (CppColorSensor)
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::CustomVectorChar bin_data();
+	 ::EV3PapyrusLibrary::Types::LocalString bin_data_format();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet commands();
+	 ::EV3PapyrusLibrary::Types::CustomVectorChar bin_data();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	 ::EV3PapyrusLibrary::Types::ModeSet commands();
 	/**
 	 * 
 	 * @return ret 
@@ -65,168 +64,159 @@ public:
 	 * @param pattern 
 	 * @param match 
 	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-			::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean connected();
+	 ::PrimitiveTypes::Boolean connected();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer decimals();
+	 ::PrimitiveTypes::Integer decimals();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer device_index();
+	 ::PrimitiveTypes::Integer device_index();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString driver_name();
+	 ::EV3PapyrusLibrary::Types::LocalString driver_name();
 	/**
 	 * 
 	 * @return ret 
 	 * @param index 
 	 */
-	float float_value(unsigned int /*in*/index);
+	 float float_value(unsigned int /*in*/ index);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::PrimitiveTypes::Integer get_attr_int(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::PrimitiveTypes::Integer get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_line(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param pCur 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet get_attr_set(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur);
+	 ::EV3PapyrusLibrary::Types::ModeSet get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_string(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString mode();
+	 ::EV3PapyrusLibrary::Types::LocalString mode();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet modes();
+	 ::EV3PapyrusLibrary::Types::ModeSet modes();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer num_values();
+	 ::PrimitiveTypes::Integer num_values();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString port_name();
+	 ::EV3PapyrusLibrary::Types::LocalString port_name();
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::PrimitiveTypes::Integer /*in*/value);
+	 void set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/value);
+	 void set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value);
 	/**
 	 * 
 	 * @param v 
 	 */
-	void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/v);
+	void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v);
 	/**
 	 * 
 	 * @param v 
 	 */
-	void set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v);
+	void set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/ v);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString type_name();
+	 ::EV3PapyrusLibrary::Types::LocalString type_name();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString units();
+	 ::EV3PapyrusLibrary::Types::LocalString units();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer get_reflect_intensity();
+	 ::PrimitiveTypes::Integer get_reflect_intensity();
 	/**
 	 * 
 	 * @return ret 
 	 * @param index 
 	 */
-	::PrimitiveTypes::Integer value(unsigned int /*in*/index);
+	 ::PrimitiveTypes::Integer value(unsigned int /*in*/ index);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer get_color();
+	 ::PrimitiveTypes::Integer get_color();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer get_ambient_intensity();
+	 ::PrimitiveTypes::Integer get_ambient_intensity();
 	/**
 	 * 
 	 * @param portAdress 
 	 */
-	CppColorSensor(::EV3PapyrusLibrary::Types::LocalString /*in*/portAdress =
-			"in1");
+	CppColorSensor(::EV3PapyrusLibrary::Types::LocalString /*in*/ portAdress = "in1");
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppColorSensor class header
+              End of CppColorSensor class header
  ************************************************************/
 
 #endif

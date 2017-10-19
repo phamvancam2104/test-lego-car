@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_CONCRETECLASSES_EV3DEVCPP_EV3BRICK_CPPSOUND_H
 
 /************************************************************
- CppSound class header
+              CppSound class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/Pkg_EV3Brick.h"
@@ -15,21 +15,16 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractSound.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ISound.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppSound__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppSound__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ISound;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ISound;}}}
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -40,64 +35,60 @@ namespace EV3Brick {
 /**
  * 
  */
-class CppSound: public ::EV3PapyrusLibrary::Interfaces::EV3Brick::ISound,
-		public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractSound {
-public:
+class CppSound : 
+public ::EV3PapyrusLibrary::Interfaces::EV3Brick::ISound, 
+public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractSound	
+ {
+	public:
 	/**
 	 * 
 	 */
-	sound referencedSound;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppSound__Controller cppsoundController;
+	 sound referencedSound;
+	DECLARE_DELEGATEE_COMPONENT (CppSound)
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	void beep();
+	 void beep();
 	/**
 	 * 
 	 * @return ret 
 	 * @param frequency 
 	 * @param ms 
 	 */
-	void tone(unsigned int /*in*/frequency, unsigned int /*in*/ms);
+	 void tone(unsigned int /*in*/ frequency, unsigned int /*in*/ ms);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param soundfile 
 	 * @param bSynchronous 
 	 */
-	void play(::EV3PapyrusLibrary::Types::LocalString /*in*/soundfile,
-			::PrimitiveTypes::Boolean /*in*/bSynchronous);
+	 void play(::EV3PapyrusLibrary::Types::LocalString /*in*/ soundfile, ::PrimitiveTypes::Boolean /*in*/ bSynchronous);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param text 
 	 * @param bSynchronous 
 	 */
-	void speak(::EV3PapyrusLibrary::Types::LocalString& /*in*/text,
-			::PrimitiveTypes::Boolean /*in*/bSynchronous);
+	 void speak(::EV3PapyrusLibrary::Types::LocalString& /*in*/ text, ::PrimitiveTypes::Boolean /*in*/ bSynchronous);
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	unsigned int volume();
+	 unsigned int volume();
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param v 
 	 */
-	void set_volume(unsigned int /*in*/v);
+	 void set_volume(unsigned int /*in*/ v);
 	/**
 	 * play a file
 	 * @return ret 
 	 * @param soundfile the file name of the sound file
 	 * @param volume the volume to play
 	 */
-	void play_file(::EV3PapyrusLibrary::Types::LocalString /*in*/soundfile,
-			unsigned int /*in*/volume = 100);
+	 void play_file(::EV3PapyrusLibrary::Types::LocalString /*in*/ soundfile, unsigned int /*in*/ volume = 100);
 	/**
 	 * 
 	 * @return ret 
@@ -105,27 +96,28 @@ public:
 	 * @param ms the duration the tone play (in millisecond)
 	 * @param volume the volume to play
 	 */
-	void play_tone(unsigned int /*in*/frequency, unsigned int /*in*/ms = 1000,
-			unsigned int /*in*/volume = 100);
+	 void play_tone(unsigned int /*in*/ frequency, unsigned int /*in*/ ms = 1000, unsigned int /*in*/ volume = 100);
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param frequency 
 	 * @param ms 
 	 */
-	void toneDummyForCompilation(unsigned int /*in*/frequency,
-			unsigned int /*in*/ms);
+	 void toneDummyForCompilation(unsigned int /*in*/ frequency, unsigned int /*in*/ ms);
 	/**
 	 * 
 	 */
 	CppSound();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -133,7 +125,7 @@ public:
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppSound class header
+              End of CppSound class header
  ************************************************************/
 
 #endif

@@ -6,7 +6,7 @@
 #define MINDSENSORSPAPYRUSLIBRARY_ABSTRACTCLASSES_ABSTRACTNUMERICPAD_H
 
 /************************************************************
- AbstractNumericPad class header
+              AbstractNumericPad class header
  ************************************************************/
 
 #include "MindsensorsPapyrusLibrary/AbstractClasses/Pkg_AbstractClasses.h"
@@ -17,14 +17,11 @@
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
-namespace MindsensorsPapyrusLibrary {
-namespace Interfaces {
-class INumericPad;
-}
-}
+namespace MindsensorsPapyrusLibrary {namespace Interfaces {class INumericPad;}}
 #include "MindsensorsPapyrusLibrary/Interfaces/INumericPad.h"
 
 // End of Include stereotype (header)
+
 
 namespace MindsensorsPapyrusLibrary {
 namespace AbstractClasses {
@@ -33,22 +30,24 @@ namespace AbstractClasses {
 /**
  * 
  */
-class AbstractNumericPad: public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractDevice {
-public:
+class AbstractNumericPad : 
+public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractDevice	
+ {
+	public:
 	/**
 	 * 
 	 */
-	ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::INumericPad> numericPadPort;
-	/**
-	 * 
-	 * @return ret 
-	 */
-	::PrimitiveTypes::Integer read_current_touched_key();
+	 ProvidedPort<MindsensorsPapyrusLibrary::Interfaces::INumericPad> numericPadPort;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer read_next_touched_key();
+	 ::PrimitiveTypes::Integer read_current_touched_key();
+	/**
+	 * 
+	 * @return ret 
+	 */
+	 ::PrimitiveTypes::Integer read_next_touched_key();
 	/**
 	 * 
 	 * @return ret 
@@ -56,86 +55,78 @@ public:
 	 * @param pattern 
 	 * @param match 
 	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-			::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean connected();
+	 ::PrimitiveTypes::Boolean connected();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer device_index();
+	 ::PrimitiveTypes::Integer device_index();
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::PrimitiveTypes::Integer get_attr_int(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::PrimitiveTypes::Integer get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::PrimitiveTypes::Integer /*in*/value);
+	 void set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_string(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/value);
+	 void set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_line(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param pCur 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet get_attr_set(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur);
+	 ::EV3PapyrusLibrary::Types::ModeSet get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name);
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace AbstractClasses
 } // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of AbstractNumericPad class header
+              End of AbstractNumericPad class header
  ************************************************************/
 
 #endif

@@ -2,8 +2,9 @@
 #define PKG_STATEMACHINE
 
 /************************************************************
- Pkg_statemachine package header
+              Pkg_statemachine package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,13 +16,14 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
 // common definitions for statemachine
 #include "time.h"
 #include "pthread.h"
-#define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}
+#define CHECKPOINT if (delegatee.systemState == statemachine::EVENT_PROCESSING || delegatee.systemState == statemachine::STOPPED) {return;}
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace statemachine {
@@ -59,31 +61,6 @@ enum ThreadFunctions {
 	 * 
 	 */
 	TF_STATE_MACHINE_TYPE
-};
-/**
- * 
- */
-enum SystemStateEnum_t {
-	/**
-	 * 
-	 */
-	IDLE,
-	/**
-	 * 
-	 */
-	EVENT_PROCESSING,
-	/**
-	 * 
-	 */
-	EVENT_DEFERRED,
-	/**
-	 * 
-	 */
-	EVENT_CONSUMED,
-	/**
-	 * 
-	 */
-	STOPPED
 };
 /**
  * 
@@ -135,10 +112,35 @@ enum EventType_t {
 	 */
 	COMPLETION_EVENT
 };
+/**
+ * 
+ */
+enum SystemStateEnum_t {
+	/**
+	 * 
+	 */
+	IDLE,
+	/**
+	 * 
+	 */
+	EVENT_PROCESSING,
+	/**
+	 * 
+	 */
+	EVENT_DEFERRED,
+	/**
+	 * 
+	 */
+	EVENT_CONSUMED,
+	/**
+	 * 
+	 */
+	STOPPED
+};
 } // of namespace statemachine
 
 /************************************************************
- End of Pkg_statemachine package header
+              End of Pkg_statemachine package header
  ************************************************************/
 
 #endif

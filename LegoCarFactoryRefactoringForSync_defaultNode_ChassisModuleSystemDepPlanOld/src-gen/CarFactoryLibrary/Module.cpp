@@ -5,7 +5,7 @@
 #define CarFactoryLibrary_Module_BODY
 
 /************************************************************
- Module class body
+              Module class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -23,24 +23,22 @@ using namespace std;
 #include "CarFactoryLibrary/events/ErrorDetection.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
+
 namespace CarFactoryLibrary {
 
 // static attributes (if any)
 /**
  * Stock the name of the bluetooth_device
  */
-::EV3PapyrusLibrary::Types::LocalString Module::bluetooth_name[] = {
-		"CEA_master", "CEA_front", "CEA_back", "CEA_roof" };
+ ::EV3PapyrusLibrary::Types::LocalString  Module::bluetooth_name[]={"CEA_master", "CEA_front", "CEA_back", "CEA_roof"};
 /**
  * the order of modules (back can be before front)
  */
-ModuleName Module::sequence_module[] = { MASTER_MODULE, FRONT_MODULE,
-		BACK_MODULE, ROOF_MODULE };
+ ModuleName  Module::sequence_module[]={MASTER_MODULE, FRONT_MODULE, BACK_MODULE, ROOF_MODULE};
 /**
  * 
  */
-const ::PrimitiveTypes::String Module::ColorsEnumToString[] = { "none", "blue",
-		"white", "red" };
+const  ::PrimitiveTypes::String  Module::ColorsEnumToString[]={"none", "blue", "white", "red"};
 
 /**
  * constructor of the Module
@@ -55,25 +53,17 @@ const ::PrimitiveTypes::String Module::ColorsEnumToString[] = { "none", "blue",
  * @param status_led_orangePort port name of the orange led of the status led
  * @param status_led_greenPort port name of the green led of the status led
  */
-Module::Module(::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_muxPort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_mux_type1,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_mux_type2,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_mux_type3,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/emergency_stopPort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/nxt_servoSensorPort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/nxt_servoMotorPort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/status_led_redPort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/status_led_orangePort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/status_led_greenPort) :
-		emergency_button(emergency_stopPort), nxt_servo(nxt_servoMotorPort,
-				nxt_servoSensorPort), led_status(status_led_redPort,
-				status_led_orangePort, status_led_greenPort), is_stop(false), is_misplace(
-				true) {
+Module::Module(::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_muxPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_mux_type1, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_mux_type2, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_mux_type3, ::EV3PapyrusLibrary::Types::LocalString /*in*/ emergency_stopPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ nxt_servoSensorPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ nxt_servoMotorPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ status_led_redPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ status_led_orangePort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ status_led_greenPort): emergency_button(emergency_stopPort), 
+nxt_servo(nxt_servoMotorPort, nxt_servoSensorPort), 
+led_status(status_led_redPort, status_led_orangePort, status_led_greenPort), 
+is_stop(false),
+is_misplace(true) {
 	std::vector < EV3PapyrusLibrary::Types::LocalString > tmp = std::vector
-			< EV3PapyrusLibrary::Types::LocalString
-			> ( {	sensor_mux_type1, sensor_mux_type2, sensor_mux_type3});
-	sensor_mux = ::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux(
-			sensor_muxPort, tmp);
+				< EV3PapyrusLibrary::Types::LocalString
+				> ( {sensor_mux_type1, sensor_mux_type2, sensor_mux_type3});
+		sensor_mux =
+				::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux(
+						sensor_muxPort, tmp);
 }
 
 /**
@@ -109,36 +99,34 @@ void Module::manageOrangeLights() {
  * @param text 
  * @param size 
  */
-void Module::showPopUpMessage(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/text,
-		::EV3PapyrusLibrary::Types::TextSize /*in*/size) {
+void Module::showPopUpMessage(::EV3PapyrusLibrary::Types::LocalString /*in*/ text, ::EV3PapyrusLibrary::Types::TextSize /*in*/ size) {
 	int text_width = 0;
-	int text_height = 0;
-	switch (size) {
-	case lcd::LARGE:
-		text_width = ev3Brick.lcdScreen.LARGE_LETTER_WIDTH * text.size();
-		text_height = ev3Brick.lcdScreen.LARGE_LETTER_HEIGHT;
-		break;
-	case lcd::NORMAL:
-		text_width = ev3Brick.lcdScreen.NORMAL_LETTER_WIDTH * text.size();
-		text_height = ev3Brick.lcdScreen.NORMAL_LETTER_HEIGHT;
-		break;
-	case lcd::SMALL:
-		text_width = ev3Brick.lcdScreen.SMALL_LETTER_WIDTH * text.size();
-		text_height = ev3Brick.lcdScreen.SMALL_LETTER_HEIGHT;
-		break;
-	case lcd::TINY:
-		text_width = ev3Brick.lcdScreen.TINY_LETTER_WIDTH * text.size();
-		text_height = ev3Brick.lcdScreen.TINY_LETTER_HEIGHT;
-		break;
-	}
-	int x_position = (ev3Brick.lcdScreen.LCD_SCREEN_WIDTH - text_width) / 2;
-	int y_position = (ev3Brick.lcdScreen.LCD_SCREEN_HEIGHT - text_height) / 2;
-	ev3Brick.lcdScreen.draw_empty_rectangle(x_position, y_position,
-			text_width + 6, text_height + 6, true);
-	ev3Brick.lcdScreen.draw_full_rectangle(x_position + 1, y_position + 1,
-			text_width + 4, text_height + 4, false);
-	ev3Brick.lcdScreen.write_text(x_position + 3, y_position + 3, text, size);
+		int text_height = 0;
+		switch (size) {
+		case lcd::LARGE:
+			text_width = ev3Brick.lcdScreen.LARGE_LETTER_WIDTH * text.size();
+			text_height = ev3Brick.lcdScreen.LARGE_LETTER_HEIGHT;
+			break;
+		case lcd::NORMAL:
+			text_width = ev3Brick.lcdScreen.NORMAL_LETTER_WIDTH * text.size();
+			text_height = ev3Brick.lcdScreen.NORMAL_LETTER_HEIGHT;
+			break;
+		case lcd::SMALL:
+			text_width = ev3Brick.lcdScreen.SMALL_LETTER_WIDTH * text.size();
+			text_height = ev3Brick.lcdScreen.SMALL_LETTER_HEIGHT;
+			break;
+		case lcd::TINY:
+			text_width = ev3Brick.lcdScreen.TINY_LETTER_WIDTH * text.size();
+			text_height = ev3Brick.lcdScreen.TINY_LETTER_HEIGHT;
+			break;
+		}
+		int x_position = (ev3Brick.lcdScreen.LCD_SCREEN_WIDTH - text_width) / 2;
+		int y_position = (ev3Brick.lcdScreen.LCD_SCREEN_HEIGHT - text_height) / 2;
+		ev3Brick.lcdScreen.draw_empty_rectangle(x_position, y_position,
+				text_width + 6, text_height + 6, true);
+		ev3Brick.lcdScreen.draw_full_rectangle(x_position + 1, y_position + 1,
+				text_width + 4, text_height + 4, false);
+		ev3Brick.lcdScreen.write_text(x_position + 3, y_position + 3, text, size);
 }
 
 /**
@@ -167,16 +155,14 @@ void Module::showMisplacePartGUI() {
  * turn on red lights and display message on screen 
  * @param color 
  */
-void Module::showEmptyRackGUI(Colors /*in*/color) {
+void Module::showEmptyRackGUI(Colors /*in*/ color) {
 	ev3Brick.lcdScreen.clear();
-	ev3Brick.lcdScreen.write_text(5, 20, "EMPTY RACK!", lcd::TextSize::LARGE);
-	std::string which_rack("");
-	which_rack += std::string("(") + ColorsEnumToString[color]
-			+ std::string(")");
-	ev3Brick.lcdScreen.write_text(5, 65, which_rack, lcd::TextSize::NORMAL);
-	ev3Brick.lcdScreen.write_text(5, 50, "Refill & press Enter",
-			lcd::TextSize::NORMAL);
-	manageRedLights();
+		ev3Brick.lcdScreen.write_text(5, 20, "EMPTY RACK!", lcd::TextSize::LARGE);
+		std::string which_rack("");
+		which_rack += std::string("(") + ColorsEnumToString[color] + std::string(")");
+		ev3Brick.lcdScreen.write_text(5, 65, which_rack, lcd::TextSize::NORMAL);
+		ev3Brick.lcdScreen.write_text(5, 50, "Refill & press Enter", lcd::TextSize::NORMAL);
+		manageRedLights();
 }
 
 /**
@@ -186,20 +172,18 @@ void Module::showEmptyRackGUI(Colors /*in*/color) {
  * @param extraValue an optional string to add information to the command (e.g. give color)
  * @return ret the answer of the slave
  */
-BluetoothSlaveEnum Module::writeWaitReply(ModuleName /*in*/name,
-		BluetoothMasterEnum /*in*/value,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue) {
+ BluetoothSlaveEnum Module::writeWaitReply(ModuleName /*in*/ name, BluetoothMasterEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue) {
 	stringstream convert;
-	int int_value = static_cast<int>(value);
-	convert << int_value;
-
-	string tmp = convert.str();
-	if (extraValue != "") {
-		tmp += "-" + extraValue;
-	}
-	ev3Brick.bluetoothDevice.write(bluetooth_name[name], tmp);
-
-	return readFromSlave(name);
+		int int_value = static_cast<int>(value);
+		convert << int_value;
+	
+		string tmp = convert.str();
+		if(extraValue != ""){
+			tmp += "-" + extraValue;
+		}
+		ev3Brick.bluetoothDevice.write(bluetooth_name[name], tmp);
+	
+		return readFromSlave(name);
 }
 
 /**
@@ -209,11 +193,9 @@ BluetoothSlaveEnum Module::writeWaitReply(ModuleName /*in*/name,
  * @param extraValue an optional string to add information to the command (e.g. give color)
  * @return ret the answer of the slave
  */
-BluetoothSlaveEnum Module::writeWaitReply(int /*in*/index,
-		BluetoothMasterEnum /*in*/value,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue) {
+ BluetoothSlaveEnum Module::writeWaitReply(int /*in*/ index, BluetoothMasterEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue) {
 	ModuleName module_name = sequence_module[index];
-	return writeWaitReply(module_name, value, extraValue);
+		return writeWaitReply(module_name, value, extraValue);
 }
 
 /**
@@ -222,17 +204,16 @@ BluetoothSlaveEnum Module::writeWaitReply(int /*in*/index,
  * @param value the command to transmit
  * @param extraValue an optional string to add information to the command (e.g. give color)
  */
-void Module::write(ModuleName /*in*/name, BluetoothSlaveEnum /*in*/value,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue) {
+void Module::write(ModuleName /*in*/ name, BluetoothSlaveEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue) {
 	stringstream convert;
-	int int_value = static_cast<int>(value);
-	convert << int_value;
-
-	string tmp = convert.str();
-	if (extraValue != "") {
-		tmp += tmp + "-" + extraValue;
-	}
-	ev3Brick.bluetoothDevice.write(bluetooth_name[name], tmp);
+		int int_value = static_cast<int>(value);
+		convert << int_value;
+	
+		string tmp = convert.str();
+		if(extraValue != ""){
+			tmp += tmp + "-" + extraValue;
+		}
+		ev3Brick.bluetoothDevice.write(bluetooth_name[name], tmp);
 }
 
 /**
@@ -241,27 +222,26 @@ void Module::write(ModuleName /*in*/name, BluetoothSlaveEnum /*in*/value,
  * @param value the command to transmit
  * @param extraValue an optional string to add information to the command (e.g. give color)
  */
-void Module::write(ModuleName /*in*/name, BluetoothMasterEnum /*in*/value,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue) {
+void Module::write(ModuleName /*in*/ name, BluetoothMasterEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue) {
 	stringstream convert;
-	int int_value = static_cast<int>(value);
-	convert << int_value;
-
-	string tmp = convert.str();
-	if (extraValue != "") {
-		tmp += tmp + "-" + extraValue;
-	}
-	ev3Brick.bluetoothDevice.write(bluetooth_name[name], tmp);
+		int int_value = static_cast<int>(value);
+		convert << int_value;
+	
+		string tmp = convert.str();
+		if(extraValue != ""){
+			tmp += tmp + "-" + extraValue;
+		}
+		ev3Brick.bluetoothDevice.write(bluetooth_name[name], tmp);
 }
 
 /**
  * send a bluetooth message (BluetoothMasterEnum) with the value as a string
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString Module::readFromMaster() {
+ ::EV3PapyrusLibrary::Types::LocalString Module::readFromMaster() {
 	std::string buf = std::string();
-	ev3Brick.bluetoothDevice.read(bluetooth_name[MASTER_MODULE], &buf);
-	return buf;
+		ev3Brick.bluetoothDevice.read(bluetooth_name[MASTER_MODULE], &buf);
+		return buf;
 }
 
 /**
@@ -269,15 +249,15 @@ void Module::write(ModuleName /*in*/name, BluetoothMasterEnum /*in*/value,
  * @param name 
  * @return ret 
  */
-BluetoothSlaveEnum Module::readFromSlave(ModuleName /*in*/name) {
+ BluetoothSlaveEnum Module::readFromSlave(ModuleName /*in*/ name) {
 	std::string buf = std::string();
-	ev3Brick.bluetoothDevice.read(bluetooth_name[name], &buf);
-	if (buf.compare("") != 0) {
-		int tmp = std::stoi(buf);
-		BluetoothSlaveEnum msg = static_cast<BluetoothSlaveEnum>(tmp);
-		return msg;
-	}
-	return NO_SLAVE_MSG;
+		ev3Brick.bluetoothDevice.read(bluetooth_name[name], &buf);
+		if (buf.compare("") != 0) {
+			int tmp = std::stoi(buf);
+			BluetoothSlaveEnum msg = static_cast<BluetoothSlaveEnum>(tmp);
+			return msg;
+		}
+		return NO_SLAVE_MSG;
 }
 
 /**
@@ -285,21 +265,20 @@ BluetoothSlaveEnum Module::readFromSlave(ModuleName /*in*/name) {
  * @param value 
  * @return ret 
  */
-BluetoothMasterEnum Module::parseMasterMessage(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/value) {
+ BluetoothMasterEnum Module::parseMasterMessage(::EV3PapyrusLibrary::Types::LocalString /*in*/ value) {
 	if (value.compare("") != 0) {
-		int tmp = std::stoi(value);
-		BluetoothMasterEnum msg = static_cast<BluetoothMasterEnum>(tmp);
-		return msg;
-	}
-	return NO_MASTER_MSG;
+			int tmp = std::stoi(value);
+			BluetoothMasterEnum msg = static_cast<BluetoothMasterEnum>(tmp);
+			return msg;
+		}
+		return NO_MASTER_MSG;
 }
 
 /**
  * 
  * @return ret 
  */
-BluetoothSlaveEnum Module::getStatus() {
+ BluetoothSlaveEnum Module::getStatus() {
 	return this->status;
 }
 
@@ -307,7 +286,7 @@ BluetoothSlaveEnum Module::getStatus() {
  * 
  * @param status 
  */
-void Module::setStatus(BluetoothSlaveEnum /*in*/status) {
+void Module::setStatus(BluetoothSlaveEnum /*in*/ status) {
 	this->status = status;
 }
 
@@ -315,7 +294,7 @@ void Module::setStatus(BluetoothSlaveEnum /*in*/status) {
  * 
  * @return ret 
  */
-int Module::getCurrentModule() {
+ int Module::getCurrentModule() {
 	return this->current_module;
 }
 
@@ -323,8 +302,8 @@ int Module::getCurrentModule() {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString& Module::getBluetoothName() {
-	return (::EV3PapyrusLibrary::Types::LocalString&) (this->bluetooth_name);
+ ::EV3PapyrusLibrary::Types::LocalString& Module::getBluetoothName() {
+	return (::EV3PapyrusLibrary::Types::LocalString&)(this->bluetooth_name);
 }
 
 /**
@@ -332,8 +311,7 @@ int Module::getCurrentModule() {
  * @param sig 
  * @return ret 
  */
-void Module::sendErrorDetection(
-		::CarFactoryLibrary::events::ErrorDetection& /*in*/sig) {
+ void Module::sendErrorDetection(::CarFactoryLibrary::events::ErrorDetection& /*in*/ sig) {
 }
 
 /**
@@ -341,12 +319,13 @@ void Module::sendErrorDetection(
  * @param sig 
  * @return ret 
  */
-void Module::sendEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+ void Module::sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig) {
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Module class body
+              End of Module class body
  ************************************************************/

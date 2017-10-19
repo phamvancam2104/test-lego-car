@@ -14,7 +14,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
 #include "CarFactoryLibrary/Shelf.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/SlavesSlaveShelf__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Slaves/SlaveShelf__Delegatee.h"
 
 // Include from Include stereotype (header)
 using namespace CarFactoryLibrary;
@@ -75,41 +75,42 @@ public:
 	 * 
 	 */
 	::CarFactoryLibrary::Colors which_rack;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::SlavesSlaveShelf__Controller slaveshelfController;
+	DECLARE_DELEGATEE_COMPONENT (SlaveShelf)
 
 	StateMachine SlaveShelfStateMachine {
 		InitialState PrincipalState {
-			PseudoChoice Which_rack;
-			InitialState Initialization;
+			PseudoChoice Which_rack {};
+			InitialState Initialization {
+			};
 			State EmptyRack {
-				StateEntry sendErrorDetectionEvent;
+				StateEntry sendErrorDetectionEvent();
 			};
 			State NoEmptyRack {
-				StateEntry sendRoboticArmPickPieceEvent;
+				StateEntry sendRoboticArmPickPieceEvent();
 			};
-			State WaitEnd;
+			State WaitEnd {
+			};
 		};
-		State Restart;
-		SignalEvent<CarFactoryLibrary::events::CheckRack> CheckRack;
-		SignalEvent<CarFactoryLibrary::events::EndOfModule> EndOfModule;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::StopProcess> StopProcess;
-		SignalEvent<LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop> RestartAfterEmergencyStop;
+		State Restart {
+		};
+		SignalEvent(CarFactoryLibrary::events::CheckRack) CheckRack;
+		SignalEvent(CarFactoryLibrary::events::EndOfModule) EndOfModule;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::StopProcess) StopProcess;
+		SignalEvent(LegoCarFactoryRefactoringForSync::signals::RestartAfterEmergencyStop) RestartAfterEmergencyStop;
 		TransitionTable {
+			//using namespace for vertices
 			//For external transtition: ExT(name, source, target, guard, event, effect)
 			//For local transtition: LoT(name, source, target, guard, event, effect)
 			//For internal transtition: ExT(name, source, guard, event, effect)
-			ExT(fromPrincipalStatetoRestart , PrincipalState , Restart , NULL , StopProcess , NULL );
-			ExT(fromInitializationtoWhich_rack , Initialization , Which_rack , NULL , CheckRack , save_which_rack );
-			ExT(fromEmptyRacktoWaitEnd , EmptyRack , WaitEnd , NULL , NULL , NULL );
-			ExT(fromNoEmptyRacktoWaitEnd , NoEmptyRack , WaitEnd , NULL , NULL , NULL );
-			ExT(fromWaitEndtoInitialization , WaitEnd , Initialization , NULL , EndOfModule , NULL );
-			ExT(fromRestarttoPrincipalState , Restart , PrincipalState , NULL , RestartAfterEmergencyStop , NULL );
-			ExT(fromWhich_racktoNoEmptyRack , Which_rack , NoEmptyRack , fromWhich_racktoNoEmptyRackGuard , NULL , NULL );
-			ExT(fromWhich_racktoEmptyRack , Which_rack , EmptyRack , NULL , NULL , NULL );
-		}
+			ExT(fromPrincipalStatetoRestart, PrincipalState, Restart, NULL, StopProcess, NULL);
+			ExT(fromInitializationtoWhich_rack, Initialization, Which_rack, NULL, CheckRack, save_which_rack);
+			ExT(fromEmptyRacktoWaitEnd, EmptyRack, WaitEnd, NULL, void, NULL);
+			ExT(fromNoEmptyRacktoWaitEnd, NoEmptyRack, WaitEnd, NULL, void, NULL);
+			ExT(fromWaitEndtoInitialization, WaitEnd, Initialization, NULL, EndOfModule, NULL);
+			ExT(fromRestarttoPrincipalState, Restart, PrincipalState, NULL, RestartAfterEmergencyStop, NULL);
+			ExT(fromWhich_racktoNoEmptyRack, Which_rack, NoEmptyRack, fromWhich_racktoNoEmptyRackGuard, void, NULL);
+			ExT(fromWhich_racktoEmptyRack, Which_rack, EmptyRack, NULL, void, NULL);
+		};
 	};
 	/**
 	 * 
@@ -159,7 +160,7 @@ public:
 	 * 
 	 * @return ret 
 	 */
-	bool fromWhich_racktoNoEmptyRackGuard();
+	bool ();
 	/**
 	 * 
 	 */

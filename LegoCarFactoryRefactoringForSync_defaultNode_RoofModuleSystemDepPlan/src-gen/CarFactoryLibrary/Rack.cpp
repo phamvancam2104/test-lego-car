@@ -36,7 +36,7 @@ bool Rack::is_empty() {
  * @param sensorPort the color sensor port name
  */
 Rack::Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/sensorPort) :
-		color_sensor(sensorPort), rackController(this) {
+		color_sensor(sensorPort) {
 	color_sensor.set_mode("COL-COLOR");
 	while (color_sensor.mode() != "COL-COLOR") { //Solve problem with robot user in the initialization of the sensor
 		color_sensor.set_mode("COL-COLOR");
@@ -46,15 +46,14 @@ Rack::Rack(::EV3PapyrusLibrary::Types::LocalString /*in*/sensorPort) :
 /**
  * empty constructor of the rack (must not be use)
  */
-Rack::Rack() :
-		rackController(this) {
+Rack::Rack() {
 }
 
 /**
  * 
  */
 void Rack::connectorConfiguration() {
-	bindPorts(color_sensor.colorSensorPort, sensor);
+	bindPorts(color_sensor.colorSensorPort, this->sensor);
 }
 
 } // of namespace CarFactoryLibrary

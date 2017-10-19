@@ -2,8 +2,9 @@
 #define PKG_ANSICLIBRARY
 
 /************************************************************
- Pkg_AnsiCLibrary package header
+              Pkg_AnsiCLibrary package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,9 +16,11 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace AnsiCLibrary {
@@ -26,39 +29,39 @@ namespace AnsiCLibrary {
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
+ 
 /**
  * 
  */
-
-}// of namespace AnsiCLibrary
+ 
+} // of namespace AnsiCLibrary
 
 /************************************************************
- End of Pkg_AnsiCLibrary package header
+              End of Pkg_AnsiCLibrary package header
  ************************************************************/
 
 #endif

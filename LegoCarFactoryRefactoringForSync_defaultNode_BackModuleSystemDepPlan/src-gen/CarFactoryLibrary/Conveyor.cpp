@@ -5,7 +5,7 @@
 #define CarFactoryLibrary_Conveyor_BODY
 
 /************************************************************
- Conveyor class body
+              Conveyor class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -21,6 +21,7 @@
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
+
 namespace CarFactoryLibrary {
 
 // static attributes (if any)
@@ -30,14 +31,14 @@ namespace CarFactoryLibrary {
  */
 void Conveyor::go_wait_position() {
 	motor.set_duty_cycle_sp(30);
-	motor.set_stop_command("hold");
-	motor.set_position_sp(wait_offset); /*-500*/
-	motor.run_to_abs_pos();
-
-	//Wait conveyor is in the well position
-	usleep(100 * 1000); //can't use while(speed == 0) (it is an absolute position so if the position is already the good one there is no move so speed never become > 0)
-	while (motor.speed() > 80 || motor.speed() < -80) {
-	}
+		motor.set_stop_command("hold");
+		motor.set_position_sp(wait_offset); /*-500*/
+		motor.run_to_abs_pos();
+	
+		//Wait conveyor is in the well position
+		usleep(100  * 1000); //can't use while(speed == 0) (it is an absolute position so if the position is already the good one there is no move so speed never become > 0)
+		while (motor.speed() > 80 || motor.speed() < -80){
+		}
 }
 
 /**
@@ -45,13 +46,13 @@ void Conveyor::go_wait_position() {
  */
 void Conveyor::delivered_car() {
 	motor.set_duty_cycle_sp(50);
-	motor.set_stop_command("coast");
-	motor.set_position_sp(delivered_car_offset);
-	motor.run_to_rel_pos();
-	while (motor.speed() == 0) {
-	}
-	while (motor.speed() != 0) {
-	}
+		motor.set_stop_command("coast");
+		motor.set_position_sp(delivered_car_offset);
+		motor.run_to_rel_pos();
+		while (motor.speed() == 0) {
+		}
+		while(motor.speed() != 0){
+		}
 }
 
 /**
@@ -66,13 +67,13 @@ void Conveyor::rewind() {
  */
 void Conveyor::replace_car() {
 	motor.set_duty_cycle_sp(50);
-	motor.set_stop_command("coast");
-	motor.set_position_sp(30);
-	motor.run_to_rel_pos();
-	while (motor.speed() == 0) {
-	}
-	while (motor.speed() != 0) {
-	}
+		motor.set_stop_command("coast");
+		motor.set_position_sp(30);
+		motor.run_to_rel_pos();
+		while (motor.speed() == 0) {
+		}
+		while (motor.speed() != 0) {
+		}
 }
 
 /**
@@ -80,19 +81,13 @@ void Conveyor::replace_car() {
  * @param motorPort the motor port name
  * @param sensorPort the sensor port name
  * @param wait_offset the command to send to the motor to go from the reference position to the position to wait the piece of the car
- *    reference position: the chassis is abutted below
+  *    reference position: the chassis is abutted below
  * @param check_presence_offset the command to send to the motor to go from wait position to check presence position
  * @param delivered_car_offset the command to send to the motor to go from check presence position to delivered position
  */
-Conveyor::Conveyor(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/sensorPort,
-		int /*in*/wait_offset, int /*in*/check_presence_offset,
-		int /*in*/delivered_car_offset) :
-		motor(motorPort), color_sensor(sensorPort), wait_offset(wait_offset), check_presence_offset(
-				check_presence_offset), delivered_car_offset(
-				delivered_car_offset), first_time(true) {
+Conveyor::Conveyor(::EV3PapyrusLibrary::Types::LocalString /*in*/ motorPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensorPort, int /*in*/ wait_offset, int /*in*/ check_presence_offset, int /*in*/ delivered_car_offset): motor(motorPort), color_sensor(sensorPort), wait_offset(wait_offset), check_presence_offset(check_presence_offset), delivered_car_offset(delivered_car_offset), first_time(true) {
 	color_sensor.set_mode("COL-COLOR");
-	while (color_sensor.mode() != "COL-COLOR") { //Solve problem with robot user in the initialization of the sensor
+	while(color_sensor.mode() != "COL-COLOR"){//Solve problem with robot user in the initialization of the sensor
 		color_sensor.set_mode("COL-COLOR");
 	}
 }
@@ -102,39 +97,41 @@ Conveyor::Conveyor(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort,
  */
 void Conveyor::go_stop_position() {
 	motor.set_duty_cycle_sp(30);
-	motor.set_stop_command("brake");
-	motor.run_forever();
-	while (motor.speed() == 0) {
-	}
-	while (motor.speed() != 0) {
-
-	}
-	motor.stop();
-	motor.reset();
+		motor.set_stop_command("brake");
+		motor.run_forever();
+		while (motor.speed() == 0) {
+		}
+		while (motor.speed() != 0){
+	
+		}
+		motor.stop();
+		motor.reset();
 }
 
 /**
  * delivered the car
  * @return ret true if the added piece is not present and false otherwise 
  */
-bool Conveyor::go_check_presence_position() {
+ bool Conveyor::go_check_presence_position() {
 	motor.set_duty_cycle_sp(50);
-	motor.set_stop_command("coast");
-	motor.set_position_sp(check_presence_offset);
-	motor.run_to_rel_pos();
-	return !check_presence();
+		motor.set_stop_command("coast");
+		motor.set_position_sp(check_presence_offset);
+		motor.run_to_rel_pos();
+		return !check_presence();
 }
 
 /**
  * 
  */
 void Conveyor::connectorConfiguration() {
-	bindPorts(pMotor, motor.largeMotorPort);
-	bindPorts(sensor, color_sensor.colorSensorPort);
+	bindPorts(this->pMotor, motor.largeMotorPort);
+	bindPorts(this->sensor, color_sensor.colorSensorPort);
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Conveyor class body
+              End of Conveyor class body
  ************************************************************/

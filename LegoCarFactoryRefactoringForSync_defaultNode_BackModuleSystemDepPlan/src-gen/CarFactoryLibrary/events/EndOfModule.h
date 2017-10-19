@@ -6,10 +6,13 @@
 #define CARFACTORYLIBRARY_EVENTS_ENDOFMODULE_H
 
 /************************************************************
- EndOfModule class header
+              EndOfModule class header
  ************************************************************/
 
 #include "CarFactoryLibrary/events/Pkg_events.h"
+
+
+
 
 namespace CarFactoryLibrary {
 namespace events {
@@ -20,18 +23,21 @@ namespace events {
  */
 class EndOfModule {
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace events
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of EndOfModule class header
+              End of EndOfModule class header
  ************************************************************/
 
 #endif

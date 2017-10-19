@@ -6,7 +6,7 @@
 #define OTHERCOMPONENTSPAPYRUSLIBRARY_CONCRETECLASSES_CPPLEDSTATUS_H
 
 /************************************************************
- CppLedStatus class header
+              CppLedStatus class header
  ************************************************************/
 
 #include "OtherComponentsPapyrusLibrary/ConcreteClasses/Pkg_ConcreteClasses.h"
@@ -20,6 +20,7 @@
 using namespace ev3dev;
 // End of Include stereotype (header)
 
+
 namespace OtherComponentsPapyrusLibrary {
 namespace ConcreteClasses {
 
@@ -27,13 +28,15 @@ namespace ConcreteClasses {
 /**
  * 
  */
-class CppLedStatus: public ::OtherComponentsPapyrusLibrary::Interfaces::ILedStatus,
-		public ::OtherComponentsPapyrusLibrary::AbstractClasses::AbstractLedStatus {
-public:
+class CppLedStatus : 
+public ::OtherComponentsPapyrusLibrary::Interfaces::ILedStatus, 
+public ::OtherComponentsPapyrusLibrary::AbstractClasses::AbstractLedStatus	
+ {
+	public:
 	/**
 	 * 
 	 */
-	led_status referencedLed_status;
+	 led_status referencedLed_status;
 	/**
 	 * 
 	 */
@@ -60,27 +63,27 @@ public:
 	 * @param orange_port 
 	 * @param green_port 
 	 */
-	CppLedStatus(
-			::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/red_port,
-			::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/orange_port,
-			::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/green_port);
+	CppLedStatus(::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/ red_port, ::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/ orange_port, ::OtherComponentsPapyrusLibrary::Types::LocalString /*in*/ green_port);
 	/**
 	 * 
 	 */
 	CppLedStatus();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace ConcreteClasses
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of CppLedStatus class header
+              End of CppLedStatus class header
  ************************************************************/
 
 #endif

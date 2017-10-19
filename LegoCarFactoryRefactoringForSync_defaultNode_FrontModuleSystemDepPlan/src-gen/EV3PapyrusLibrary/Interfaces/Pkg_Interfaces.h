@@ -2,7 +2,7 @@
 #define PKG_EV3PAPYRUSLIBRARY_INTERFACES
 
 /************************************************************
- Pkg_Interfaces package header
+              Pkg_Interfaces package header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Pkg_EV3PapyrusLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 
 // Types defined within the package
-}// of namespace Interfaces
+} // of namespace Interfaces
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of Pkg_Interfaces package header
+              End of Pkg_Interfaces package header
  ************************************************************/
 
 #endif

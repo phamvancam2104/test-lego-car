@@ -2,7 +2,7 @@
 #define PKG_OTHERCOMPONENTSPAPYRUSLIBRARY_ABSTRACTCLASSES
 
 /************************************************************
- Pkg_AbstractClasses package header
+              Pkg_AbstractClasses package header
  ************************************************************/
 
 #include "OtherComponentsPapyrusLibrary/Pkg_OtherComponentsPapyrusLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace OtherComponentsPapyrusLibrary {
 namespace AbstractClasses {
 
 // Types defined within the package
-}// of namespace AbstractClasses
+} // of namespace AbstractClasses
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of Pkg_AbstractClasses package header
+              End of Pkg_AbstractClasses package header
  ************************************************************/
 
 #endif

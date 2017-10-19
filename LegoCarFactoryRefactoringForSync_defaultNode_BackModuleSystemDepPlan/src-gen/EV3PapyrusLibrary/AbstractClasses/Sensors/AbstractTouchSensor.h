@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_ABSTRACTCLASSES_SENSORS_ABSTRACTTOUCHSENSOR_H
 
 /************************************************************
- AbstractTouchSensor class header
+              AbstractTouchSensor class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/AbstractClasses/Sensors/Pkg_Sensors.h"
@@ -18,16 +18,11 @@
 
 // Include from Include stereotype (header)
 #include <stdint.h>
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace Sensors {
-class ITouchSensor;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace Sensors {class ITouchSensor;}}}
 #include "EV3PapyrusLibrary/Interfaces/Sensors/ITouchSensor.h"
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -37,96 +32,97 @@ namespace Sensors {
 /**
  * 
  */
-class AbstractTouchSensor: public AbstractSensor {
-public:
+class AbstractTouchSensor : 
+public AbstractSensor	
+ {
+	public:
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::Sensors::ITouchSensor> touchSensorPort;
-	/**
-	 * 
-	 * @return ret 
-	 * @param index 
-	 */
-	::PrimitiveTypes::Integer value(unsigned int /*in*/index);
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::Sensors::ITouchSensor> touchSensorPort;
 	/**
 	 * 
 	 * @return ret 
 	 * @param index 
 	 */
-	float float_value(unsigned int /*in*/index);
+	 ::PrimitiveTypes::Integer value(unsigned int /*in*/ index);
+	/**
+	 * 
+	 * @return ret 
+	 * @param index 
+	 */
+	 float float_value(unsigned int /*in*/ index);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString type_name();
+	 ::EV3PapyrusLibrary::Types::LocalString type_name();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString bin_data_format();
+	 ::EV3PapyrusLibrary::Types::LocalString bin_data_format();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::CustomVectorChar bin_data();
+	 ::EV3PapyrusLibrary::Types::CustomVectorChar bin_data();
 	/**
 	 * 
 	 * @param v 
 	 */
-	void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/v);
+	void set_command(::EV3PapyrusLibrary::Types::LocalString /*in*/ v);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet commands();
+	 ::EV3PapyrusLibrary::Types::ModeSet commands();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer decimals();
+	 ::PrimitiveTypes::Integer decimals();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString driver_name();
+	 ::EV3PapyrusLibrary::Types::LocalString driver_name();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString mode();
+	 ::EV3PapyrusLibrary::Types::LocalString mode();
 	/**
 	 * 
 	 * @param v 
 	 */
-	void set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/v);
+	void set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/ v);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet modes();
+	 ::EV3PapyrusLibrary::Types::ModeSet modes();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer num_values();
+	 ::PrimitiveTypes::Integer num_values();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString port_name();
+	 ::EV3PapyrusLibrary::Types::LocalString port_name();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString units();
+	 ::EV3PapyrusLibrary::Types::LocalString units();
 	/**
 	 * 
 	 * @return ret 
 	 * @param  
 	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::MapStringSetString /*in*/);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::MapStringSetString /*in*/ );
 	/**
 	 * 
 	 * @return ret 
@@ -134,92 +130,84 @@ public:
 	 * @param pattern 
 	 * @param match 
 	 */
-	::PrimitiveTypes::Boolean connect(
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-			::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-			::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match);
+	 ::PrimitiveTypes::Boolean connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean connected();
+	 ::PrimitiveTypes::Boolean connected();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Integer device_index();
+	 ::PrimitiveTypes::Integer device_index();
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::PrimitiveTypes::Integer get_attr_int(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/name);
+	 ::PrimitiveTypes::Integer get_attr_int(::EV3PapyrusLibrary::Types::LocalString /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_int(::EV3PapyrusLibrary::Types::LocalString /*in*/name,
-			::PrimitiveTypes::Integer /*in*/value);
+	 void set_attr_int(::EV3PapyrusLibrary::Types::LocalString /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_string(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_string(::EV3PapyrusLibrary::Types::LocalString /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param value 
 	 */
-	void set_attr_string(::EV3PapyrusLibrary::Types::LocalString /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/value);
+	 void set_attr_string(::EV3PapyrusLibrary::Types::LocalString /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString /*in*/ value);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_line(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_line(::EV3PapyrusLibrary::Types::LocalString /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 * @param pCur 
 	 */
-	::EV3PapyrusLibrary::Types::ModeSet get_attr_set(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/name,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/pCur);
+	 ::EV3PapyrusLibrary::Types::ModeSet get_attr_set(::EV3PapyrusLibrary::Types::LocalString /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString /*in*/ pCur);
 	/**
 	 * 
 	 * @return ret 
 	 * @param name 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/name);
+	 ::EV3PapyrusLibrary::Types::LocalString get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString /*in*/ name);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean isTouch();
+	 ::PrimitiveTypes::Boolean isTouch();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Sensors
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractTouchSensor class header
+              End of AbstractTouchSensor class header
  ************************************************************/
 
 #endif

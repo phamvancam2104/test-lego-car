@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_INTERFACES_EV3BRICK_IBUTTON_H
 
 /************************************************************
- IButton class header
+              IButton class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/Pkg_EV3Brick.h"
@@ -17,6 +17,7 @@
 #include <stdint.h>
 // End of Include stereotype (header)
 
+
 namespace EV3PapyrusLibrary {
 namespace Interfaces {
 namespace EV3Brick {
@@ -26,36 +27,39 @@ namespace EV3Brick {
  * 
  */
 class IButton {
-public:
+	public:
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Boolean pressed() = 0;
+	virtual  ::PrimitiveTypes::Boolean pressed() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Boolean process() = 0;
+	virtual  ::PrimitiveTypes::Boolean process() = 0;
 	/**
 	 * 
 	 * @return ret 
 	 */
-	virtual ::PrimitiveTypes::Boolean process_all() = 0;
+	virtual  ::PrimitiveTypes::Boolean process_all() = 0;
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3Brick
 } // of namespace Interfaces
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of IButton class header
+              End of IButton class header
  ************************************************************/
 
 #endif

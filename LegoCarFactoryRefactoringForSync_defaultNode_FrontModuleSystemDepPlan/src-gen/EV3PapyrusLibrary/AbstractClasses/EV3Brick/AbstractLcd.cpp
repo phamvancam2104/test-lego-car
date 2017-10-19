@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_AbstractClasses_EV3Brick_AbstractLcd_BODY
 
 /************************************************************
- AbstractLcd class body
+              AbstractLcd class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractLcd.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -22,91 +24,91 @@ namespace EV3Brick {
 /**
  * 
  */
-const int AbstractLcd::LARGE_LETTER_WIDTH = 16;
+const  int  AbstractLcd::LARGE_LETTER_WIDTH=16;
 /**
  * 
  */
-const int AbstractLcd::LARGE_LETTER_HEIGHT = 16;
+const  int  AbstractLcd::LARGE_LETTER_HEIGHT=16;
 /**
  * 
  */
-const int AbstractLcd::NORMAL_LETTER_WIDTH = 8;
+const  int  AbstractLcd::NORMAL_LETTER_WIDTH=8;
 /**
  * 
  */
-const int AbstractLcd::NORMAL_LETTER_HEIGHT = 9;
+const  int  AbstractLcd::NORMAL_LETTER_HEIGHT=9;
 /**
  * 
  */
-const int AbstractLcd::SMALL_LETTER_WIDTH = 8;
+const  int  AbstractLcd::SMALL_LETTER_WIDTH=8;
 /**
  * 
  */
-const int AbstractLcd::SMALL_LETTER_HEIGHT = 8;
+const  int  AbstractLcd::SMALL_LETTER_HEIGHT=8;
 /**
  * 
  */
-const int AbstractLcd::TINY_LETTER_WIDTH = 5;
+const  int  AbstractLcd::TINY_LETTER_WIDTH=5;
 /**
  * 
  */
-const int AbstractLcd::TINY_LETTER_HEIGHT = 7;
+const  int  AbstractLcd::TINY_LETTER_HEIGHT=7;
 /**
  * 
  */
-const int AbstractLcd::LCD_SCREEN_WIDTH = 178;
+const  int  AbstractLcd::LCD_SCREEN_WIDTH=178;
 /**
  * 
  */
-const int AbstractLcd::LCD_SCREEN_HEIGHT = 128;
+const  int  AbstractLcd::LCD_SCREEN_HEIGHT=128;
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractLcd::available() {
+ ::PrimitiveTypes::Boolean AbstractLcd::available() {
 }
 
 /**
  * 
  * @return ret 
  */
-uint32_t AbstractLcd::resolution_x() {
+ uint32_t AbstractLcd::resolution_x() {
 }
 
 /**
  * 
  * @return ret 
  */
-uint32_t AbstractLcd::resolution_y() {
+ uint32_t AbstractLcd::resolution_y() {
 }
 
 /**
  * 
  * @return ret 
  */
-uint32_t AbstractLcd::bits_per_pixel() {
+ uint32_t AbstractLcd::bits_per_pixel() {
 }
 
 /**
  * 
  * @return ret 
  */
-uint32_t AbstractLcd::frame_buffer_size() {
+ uint32_t AbstractLcd::frame_buffer_size() {
 }
 
 /**
  * 
  * @return ret 
  */
-uint32_t AbstractLcd::line_length() {
+ uint32_t AbstractLcd::line_length() {
 }
 
 /**
  * 
  * @return ret 
  */
-unsigned char* AbstractLcd::frame_buffer() {
+ unsigned char* AbstractLcd::frame_buffer() {
 }
 
 /**
@@ -114,21 +116,21 @@ unsigned char* AbstractLcd::frame_buffer() {
  * @return ret 
  * @param pixel 
  */
-void AbstractLcd::fill(unsigned char /*in*/pixel) {
+ void AbstractLcd::fill(unsigned char /*in*/ pixel) {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLcd::init() {
+ void AbstractLcd::init() {
 }
 
 /**
  * 
  * @return ret 
  */
-void AbstractLcd::deinit() {
+ void AbstractLcd::deinit() {
 }
 
 /**
@@ -138,9 +140,7 @@ void AbstractLcd::deinit() {
  * @param text 
  * @param size 
  */
-void AbstractLcd::write_text(int /*in*/x, int /*in*/y,
-		::EV3PapyrusLibrary::Types::LocalString /*in*/text,
-		::EV3PapyrusLibrary::Types::TextSize /*in*/size) {
+void AbstractLcd::write_text(int /*in*/ x, int /*in*/ y, ::EV3PapyrusLibrary::Types::LocalString /*in*/ text, ::EV3PapyrusLibrary::Types::TextSize /*in*/ size) {
 }
 
 /**
@@ -151,8 +151,7 @@ void AbstractLcd::write_text(int /*in*/x, int /*in*/y,
  * @param y1 
  * @param isBlack 
  */
-void AbstractLcd::draw_line(int /*in*/x0, int /*in*/y0, int /*in*/x1,
-		int /*in*/y1, bool /*in*/isBlack) {
+void AbstractLcd::draw_line(int /*in*/ x0, int /*in*/ y0, int /*in*/ x1, int /*in*/ y1, bool /*in*/ isBlack) {
 }
 
 /**
@@ -163,8 +162,7 @@ void AbstractLcd::draw_line(int /*in*/x0, int /*in*/y0, int /*in*/x1,
  * @param height 
  * @param isBlack 
  */
-void AbstractLcd::draw_full_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-		int /*in*/height, bool /*in*/isBlack) {
+void AbstractLcd::draw_full_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack) {
 }
 
 /**
@@ -175,8 +173,7 @@ void AbstractLcd::draw_full_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
  * @param height 
  * @param isBlack 
  */
-void AbstractLcd::draw_empty_rectangle(int /*in*/x, int /*in*/y,
-		int /*in*/width, int /*in*/height, bool /*in*/isBlack) {
+void AbstractLcd::draw_empty_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack) {
 }
 
 /**
@@ -186,8 +183,7 @@ void AbstractLcd::draw_empty_rectangle(int /*in*/x, int /*in*/y,
  * @param radius 
  * @param isBlack 
  */
-void AbstractLcd::draw_full_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-		bool /*in*/isBlack) {
+void AbstractLcd::draw_full_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack) {
 }
 
 /**
@@ -197,8 +193,7 @@ void AbstractLcd::draw_full_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
  * @param radius 
  * @param isBlack 
  */
-void AbstractLcd::draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-		bool /*in*/isBlack) {
+void AbstractLcd::draw_empty_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack) {
 }
 
 /**
@@ -209,8 +204,7 @@ void AbstractLcd::draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
  * @param radiusy 
  * @param isBlack 
  */
-void AbstractLcd::draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-		int /*in*/radiusy, bool /*in*/isBlack) {
+void AbstractLcd::draw_full_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack) {
 }
 
 /**
@@ -221,8 +215,7 @@ void AbstractLcd::draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
  * @param radiusy 
  * @param isBlack 
  */
-void AbstractLcd::draw_empty_ellipse(int /*in*/x, int /*in*/y,
-		int /*in*/radiusx, int /*in*/radiusy, bool /*in*/isBlack) {
+void AbstractLcd::draw_empty_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack) {
 }
 
 /**
@@ -232,15 +225,15 @@ void AbstractLcd::draw_empty_ellipse(int /*in*/x, int /*in*/y,
  * @param y 
  * @param invertColor 
  */
-void AbstractLcd::draw_bmp_image(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/filename, int /*in*/x,
-		int /*in*/y, bool /*in*/invertColor) {
+void AbstractLcd::draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/ filename, int /*in*/ x, int /*in*/ y, bool /*in*/ invertColor) {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractLcd class body
+              End of AbstractLcd class body
  ************************************************************/

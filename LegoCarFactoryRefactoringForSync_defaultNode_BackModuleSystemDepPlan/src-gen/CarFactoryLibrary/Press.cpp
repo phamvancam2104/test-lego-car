@@ -5,7 +5,7 @@
 #define CarFactoryLibrary_Press_BODY
 
 /************************************************************
- Press class body
+              Press class body
  ************************************************************/
 
 // Include from Include stereotype (pre-body)
@@ -22,6 +22,7 @@
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 
+
 namespace CarFactoryLibrary {
 
 // static attributes (if any)
@@ -31,17 +32,17 @@ namespace CarFactoryLibrary {
  */
 void Press::assemble() {
 	motor.set_duty_cycle_sp(50);
-	motor.set_stop_command("brake");
-	motor.run_forever();
-
-	//Wait press is in stop position
-	while (motor.speed() == 0) {
-	}
-	while (motor.speed() != 0) {
-	}
-	motor.set_duty_cycle_sp(100);
-	usleep(300 * 1000);
-	motor.stop();
+			motor.set_stop_command("brake");
+			motor.run_forever();
+	
+			//Wait press is in stop position
+			while (motor.speed() == 0) {
+			}
+			while (motor.speed() != 0) {
+			}
+			motor.set_duty_cycle_sp(100);
+			usleep(300 * 1000);
+			motor.stop();
 }
 
 /**
@@ -49,14 +50,14 @@ void Press::assemble() {
  */
 void Press::go_top() {
 	motor.set_duty_cycle_sp(-50);
-	motor.set_stop_command("coast");
-	motor.run_forever();
-
-	while (motor.speed() == 0) {
-	}
-	while (motor.speed() != 0) {
-	}
-	motor.stop();
+		motor.set_stop_command("coast");
+		motor.run_forever();
+	
+		while (motor.speed() == 0) {
+		}
+		while (motor.speed() != 0) {
+		}
+		motor.stop();
 }
 
 /**
@@ -73,24 +74,23 @@ void Press::lift_up() {
  * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
  * @return ret true if the chassis is present and false otherwise
  */
-BluetoothSlaveEnum Press::get_status() {
-	return pModule.requiredIntf->getStatus();//get_module()->status;
+ BluetoothSlaveEnum Press::get_status() {
+	return pModule.requiredIntf->getStatus();
 }
 
 /**
  * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
  * @param status true if the chassis is present and false otherwise
  */
-void Press::set_status(BluetoothSlaveEnum /*in*/status) {
-	pModule.requiredIntf->setStatus(status);//get_module()->status = status;
+void Press::set_status(BluetoothSlaveEnum /*in*/ status) {
+	pModule.requiredIntf->setStatus(status);
 }
 
 /**
  * the press constructor
  * @param motorPort the motor port name
  */
-Press::Press(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort) :
-		motor(motorPort) {
+Press::Press(::EV3PapyrusLibrary::Types::LocalString /*in*/ motorPort): motor(motorPort) {
 }
 
 /**
@@ -98,8 +98,7 @@ Press::Press(::EV3PapyrusLibrary::Types::LocalString /*in*/motorPort) :
  * @param sig 
  * @return ret 
  */
-void Press::sendPressAssemble(
-		::CarFactoryLibrary::events::PressAssemble& /*in*/sig) {
+ void Press::sendPressAssemble(::CarFactoryLibrary::events::PressAssemble& /*in*/ sig) {
 }
 
 /**
@@ -107,19 +106,20 @@ void Press::sendPressAssemble(
  * @param sig 
  * @return ret 
  */
-void Press::sendEndOfModule(
-		::CarFactoryLibrary::events::EndOfModule& /*in*/sig) {
+ void Press::sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig) {
 }
 
 /**
  * 
  */
 void Press::connectorConfiguration() {
-	bindPorts(motor_port, motor.largeMotorPort);
+	bindPorts(this->motor_port, motor.largeMotorPort);
 }
+
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Press class body
+              End of Press class body
  ************************************************************/

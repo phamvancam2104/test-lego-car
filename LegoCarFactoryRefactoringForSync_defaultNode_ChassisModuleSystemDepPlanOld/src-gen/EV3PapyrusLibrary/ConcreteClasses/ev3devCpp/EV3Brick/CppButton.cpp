@@ -5,14 +5,16 @@
 #define EV3PapyrusLibrary_ConcreteClasses_ev3devCpp_EV3Brick_CppButton_BODY
 
 /************************************************************
- CppButton class body
+              CppButton class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/CppButton.h"
 
 // Derived includes directives
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/IButton.h"
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -25,7 +27,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppButton::pressed() {
+ ::PrimitiveTypes::Boolean CppButton::pressed() {
 	return referencedButton.pressed();
 }
 
@@ -33,7 +35,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppButton::process() {
+ ::PrimitiveTypes::Boolean CppButton::process() {
 	return referencedButton.process();
 }
 
@@ -41,7 +43,7 @@ namespace EV3Brick {
  * generated comment
  * @return ret 
  */
-::PrimitiveTypes::Boolean CppButton::process_all() {
+ ::PrimitiveTypes::Boolean CppButton::process_all() {
 	return referencedButton.process_all();
 }
 
@@ -49,9 +51,10 @@ namespace EV3Brick {
  * 
  * @param index 
  */
-CppButton::CppButton(::PrimitiveTypes::Integer /*in*/index) :
-		referencedButton(index), cppbuttonController(this) {
+CppButton::CppButton(::PrimitiveTypes::Integer /*in*/ index): referencedButton(index) {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -59,5 +62,5 @@ CppButton::CppButton(::PrimitiveTypes::Integer /*in*/index) :
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppButton class body
+              End of CppButton class body
  ************************************************************/

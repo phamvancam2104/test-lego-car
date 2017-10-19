@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_XJq70CBLEee-iMjYxC0caQ" name="CarFactoryLibrary">
-    <packagedElement xmi:type="uml:Package" xmi:id="_XJq70SBLEee-iMjYxC0caQ" name="events">
+  <uml:Model xmi:id="_PLmfkLUYEee94q5Wi6avnA" name="CarFactoryLibrary">
+    <packagedElement xmi:type="uml:Package" xmi:id="_PLmfkbUYEee94q5Wi6avnA" name="events">
       <packagedElement xmi:type="uml:Signal" xmi:id="_oBXZk0gyEea_D9P_OCVydQ" name="DeliveredCarConveyor">
         <ownedAttribute xmi:id="_6vpzoF05EeaqiMEruwEDIg" name="color" type="_GQVYkE9EEea9H9uQpUJpyQ"/>
       </packagedElement>
@@ -27,7 +27,7 @@
       <ownedLiteral xmi:id="_K1aGQE9EEea9H9uQpUJpyQ" name="WHITE"/>
       <ownedLiteral xmi:id="_JAsnYE9EEea9H9uQpUJpyQ" name="RED"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_XUd2kiBLEee-iMjYxC0caQ" name="CommunicationInterfaces">
+    <packagedElement xmi:type="uml:Package" xmi:id="_PnGv0LUYEee94q5Wi6avnA" name="CommunicationInterfaces">
       <packagedElement xmi:type="uml:Interface" xmi:id="_6vbrwB7JEeeSG-gXq4SEHg" name="IRoboticArmFloatMotor">
         <ownedOperation xmi:id="__QSAwB7JEeeSG-gXq4SEHg" name="float_motors">
           <ownedComment xmi:id="__QSAwR7JEeeSG-gXq4SEHg" annotatedElement="__QSAwB7JEeeSG-gXq4SEHg">
@@ -143,5 +143,5 @@
       <appliedProfile href="pathmap://Robotml_PROFILES/RobotMLProfile.profile.uml#_3QOHEPcEEd-J06U5HM_o-Q"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Ref xmi:id="_XcS84yBLEee-iMjYxC0caQ" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
+  <C_Cpp:Ref xmi:id="_QSMUNLUYEee94q5Wi6avnA" base_parameter="_XcMeEAjEEeeXzOVx8HTrSQ"/>
 </xmi:XMI>

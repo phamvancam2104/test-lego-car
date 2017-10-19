@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Front_FrontConvoyer_BODY
 
 /************************************************************
- FrontConvoyer class body
+              FrontConvoyer class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontConvoyer.h"
@@ -23,6 +24,7 @@
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
 
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
@@ -32,66 +34,64 @@ namespace Front {
 /**
  * the command to send to the motor to go from the stop position to wait car position (from the other module)
  */
-const int FrontConvoyer::wait_car_offset = -190;
+const  int  FrontConvoyer::wait_car_offset=-190;
 /**
  * the command to send to the motor to go from the wait car position to the position to take the car (before replace)
  */
-int FrontConvoyer::take_car_offset = -200;
+ int  FrontConvoyer::take_car_offset=-200;
 /**
  * 
  */
-::CarFactoryLibrary::Colors FrontConvoyer::color;
+ ::CarFactoryLibrary::Colors  FrontConvoyer::color;
 
 /**
  * 
  */
 void FrontConvoyer::sendEndOfModuleEvent() {
-	set_status (CarFactoryLibrary::RESULT_READY);
+	set_status(RESULT_READY);
 	CarFactoryLibrary::events::EndOfModule s;
-	pEndOfMo_Control.outIntf->push(s);//get_module()->sendEndOfModule(s);
-	pEndOfMo_Shelf.outIntf->push(s);//get_shelf()->sendEndOfModule(s);
-	pEndOfMo_Robotic.outIntf->push(s);//get_robotic_arm()->sendEndOfModule(s);
-	pEndOfMo_Press.outIntf->push(s);//get_press()->sendEndOfModule(s);
+	get_module()->sendEndOfModule(s);
+	get_shelf()->sendEndOfModule(s);
+	get_robotic_arm()->sendEndOfModule(s);
+	get_press()->sendEndOfModule(s);
 }
 
 /**
  * check the presence of the front part on the car (check the color)
  * @return ret true if the chassis is present and false otherwise
  */
-bool FrontConvoyer::check_presence() {
+ bool FrontConvoyer::check_presence() {
 	color_sensor.set_mode("COL-COLOR");
-	bool ret = false;
-	//wait for the and of the movement
-	while (motor.speed() == 0)
-		;
-	while (motor.speed() != 0)
-		;
-
-	//check color
-	int obtain_color = color_sensor.value(0);
-
-	switch (color) {
-	case CarFactoryLibrary::RED:
-		if (obtain_color == 5) { //blue=2; red = 5 and white=6
+		bool ret = false;
+		//wait for the and of the movement
+		while (motor.speed() == 0);
+		while (motor.speed() != 0);
+	
+		//check color
+		int obtain_color = color_sensor.value(0);
+	
+		switch (color) {
+		case CarFactoryLibrary::RED:
+			if (obtain_color == 5) { //blue=2; red = 5 and white=6
+				ret = true;
+			}
+			break;
+		case CarFactoryLibrary::WHITE:
+			if (obtain_color == 6) { //blue=2; red = 5 and white=6
+				ret = true;
+			}
+			break;
+		case CarFactoryLibrary::BLUE:
+			if (obtain_color == 2) { //blue=2; red = 5 and white=6
+				ret = true;
+			}
+			break;
+		case CarFactoryLibrary::NONE:
 			ret = true;
+			break;
 		}
-		break;
-	case CarFactoryLibrary::WHITE:
-		if (obtain_color == 6) { //blue=2; red = 5 and white=6
-			ret = true;
-		}
-		break;
-	case CarFactoryLibrary::BLUE:
-		if (obtain_color == 2) { //blue=2; red = 5 and white=6
-			ret = true;
-		}
-		break;
-	case CarFactoryLibrary::NONE:
-		ret = true;
-		break;
-	}
-
-	return ret;
+	
+		return ret;
 }
 
 /**
@@ -99,41 +99,39 @@ bool FrontConvoyer::check_presence() {
  */
 void FrontConvoyer::go_wait_car() {
 	motor.set_duty_cycle_sp(30);
-	motor.set_stop_command("brake");
-	motor.set_position_sp(wait_car_offset);
-	motor.run_to_rel_pos();
-
-	//Wait conveyor is in the well position
-	while (motor.speed() == 0) {
-	}
-	while (motor.speed() != 0) {
-	}
+		motor.set_stop_command("brake");
+		motor.set_position_sp(wait_car_offset);
+		motor.run_to_rel_pos();
+	
+		//Wait conveyor is in the well position
+		while (motor.speed() == 0) {
+		}
+		while(motor.speed() != 0){
+		}
 }
 
 /**
  * 
  * @return ret 
  */
-::CarFactoryLibrary::BluetoothSlaveEnum FrontConvoyer::get_status() {
-	return pModule.requiredIntf->getStatus();
+ ::CarFactoryLibrary::BluetoothSlaveEnum FrontConvoyer::get_status() {
+	return get_module()->status;
 }
 
 /**
  * 
  * @param status 
  */
-void FrontConvoyer::set_status(
-		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
-	 pModule.requiredIntf->setStatus(status);
+void FrontConvoyer::set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status) {
+	get_module()->status = status;
 }
 
 /**
  * 
  * @param sig 
  */
-void FrontConvoyer::effectFromPrincipalStatetoRestart(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	if (sig.is_emergency_stop)
+void FrontConvoyer::effectFromPrincipalStatetoRestart(::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/ sig) {
+	if(sig.is_emergency_stop)
 		first_time = true;
 }
 
@@ -141,8 +139,7 @@ void FrontConvoyer::effectFromPrincipalStatetoRestart(
  * 
  * @param sig 
  */
-void FrontConvoyer::save_color(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
+void FrontConvoyer::save_color(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/ sig) {
 	color = sig.color;
 }
 
@@ -150,8 +147,7 @@ void FrontConvoyer::save_color(
  * 
  * @param sig 
  */
-void FrontConvoyer::save_color(
-		::LegoCarFactoryRefactoringForSync::signals::GoToPress& /*in*/sig) {
+void FrontConvoyer::save_color(::LegoCarFactoryRefactoringForSync::signals::GoToPress& /*in*/ sig) {
 	color = sig.color;
 }
 
@@ -159,7 +155,7 @@ void FrontConvoyer::save_color(
  * 
  * @return ret 
  */
-bool FrontConvoyer::fromChoicetoMisplaceGuard() {
+ bool FrontConvoyer::() {
 	return is_misplace == true;
 }
 
@@ -167,7 +163,7 @@ bool FrontConvoyer::fromChoicetoMisplaceGuard() {
  * 
  */
 void FrontConvoyer::go_initial_position() {
-	if (first_time) {
+	if(first_time) {	
 		go_stop_position();
 		go_wait_car();
 	}
@@ -177,9 +173,9 @@ void FrontConvoyer::go_initial_position() {
  * 
  */
 void FrontConvoyer::go_wait_position() {
-	pLCD.requiredIntf->clear();	//get_module()->ev3Brick.lcdScreen.clear();
-	pLCD.requiredIntf->write_text(0, 20, "Load car ...",ev3dev::lcd::TextSize::LARGE);//get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Load car ...",lcd::TextSize::LARGE);
-
+	get_module()->ev3Brick.lcdScreen.clear();
+	get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Load car ...", lcd::TextSize::LARGE);
+	
 	go_wait_position();
 }
 
@@ -187,13 +183,13 @@ void FrontConvoyer::go_wait_position() {
  * 
  */
 void FrontConvoyer::replace() {
-	if (first_time) {
+	if(first_time){
 		replace_car();
 		go_wait_position();
 	}
-
+	
 	first_time = false;
-	set_status (CarFactoryLibrary::RESULT_READY);
+	set_status(RESULT_READY);
 }
 
 /**
@@ -208,7 +204,7 @@ void FrontConvoyer::goCheckPresencePosition() {
  */
 void FrontConvoyer::sendErrorDetectionEvent() {
 	CarFactoryLibrary::events::ErrorDetection s;
-	pErrDetect.outIntf->push(s);//get_module()->sendErrorDetection(s);
+	get_module()->sendErrorDetection(s);
 	s.is_misplace = true;
 	set_status(CarFactoryLibrary::RESULT_ERROR);
 }
@@ -218,26 +214,26 @@ void FrontConvoyer::sendErrorDetectionEvent() {
  */
 void FrontConvoyer::sendPressAssembleEvent() {
 	CarFactoryLibrary::events::PressAssemble s;
-	pOutAssemble.outIntf->push(s);//get_press()->sendPressAssemble(s);
+	get_press()->sendPressAssemble(s);
 }
 
 /**
  * 
  */
 void FrontConvoyer::deliver() {
-	pLCD.requiredIntf->clear();//get_module()->ev3Brick.lcdScreen.clear();
-	pLCD.requiredIntf->write_text(0, 20, "Deliver car ...", ev3dev::lcd::TextSize::LARGE);//get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Deliver car ...", lcd::TextSize::LARGE);
-
+	get_module()->ev3Brick.lcdScreen.clear();
+	get_module()->ev3Brick.lcdScreen.write_text(0, 20, "Deliver car ...", lcd::TextSize::LARGE);
+	
 	delivered_car();
 }
 
 /**
  * 
  */
-FrontConvoyer::FrontConvoyer() :
-		CarFactoryLibrary::Conveyor("outA", "in1", -500, -530, -250), frontconvoyerController(
-				this) {
+FrontConvoyer::FrontConvoyer(): CarFactoryLibrary::Conveyor(motorPort, sensorPort, -500, -530, -250) {
 }
+
+
 
 } // of namespace Front
 } // of namespace Modules
@@ -245,5 +241,5 @@ FrontConvoyer::FrontConvoyer() :
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of FrontConvoyer class body
+              End of FrontConvoyer class body
  ************************************************************/

@@ -2,7 +2,7 @@
 #define PKG_OTHERCOMPONENTSPAPYRUSLIBRARY_CONCRETECLASSES
 
 /************************************************************
- Pkg_ConcreteClasses package header
+              Pkg_ConcreteClasses package header
  ************************************************************/
 
 #include "OtherComponentsPapyrusLibrary/Pkg_OtherComponentsPapyrusLibrary.h"
@@ -17,17 +17,18 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 namespace OtherComponentsPapyrusLibrary {
 namespace ConcreteClasses {
 
 // Types defined within the package
-}// of namespace ConcreteClasses
+} // of namespace ConcreteClasses
 } // of namespace OtherComponentsPapyrusLibrary
 
 /************************************************************
- End of Pkg_ConcreteClasses package header
+              End of Pkg_ConcreteClasses package header
  ************************************************************/
 
 #endif

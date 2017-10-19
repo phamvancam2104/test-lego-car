@@ -5,14 +5,16 @@
 #define MindsensorsPapyrusLibrary_AbstractClasses_AbstractSensorMux_BODY
 
 /************************************************************
- AbstractSensorMux class body
+              AbstractSensorMux class body
  ************************************************************/
+
 
 // include associated header file
 #include "MindsensorsPapyrusLibrary/AbstractClasses/AbstractSensorMux.h"
 
 // Derived includes directives
 #include "MindsensorsPapyrusLibrary/Interfaces/ISensorMux.h"
+
 
 namespace MindsensorsPapyrusLibrary {
 namespace AbstractClasses {
@@ -23,57 +25,56 @@ namespace AbstractClasses {
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::type_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::type_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::bin_data_format() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::bin_data_format() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::CustomVectorChar AbstractSensorMux::bin_data() {
+ ::EV3PapyrusLibrary::Types::CustomVectorChar AbstractSensorMux::bin_data() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::driver_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::driver_name() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::mode() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::mode() {
 }
 
 /**
  * 
  * @param v 
  */
-void AbstractSensorMux::set_mode(
-		::EV3PapyrusLibrary::Types::LocalString /*in*/v) {
+void AbstractSensorMux::set_mode(::EV3PapyrusLibrary::Types::LocalString /*in*/ v) {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractSensorMux::modes() {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractSensorMux::modes() {
 }
 
 /**
  * 
  * @return ret 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::port_name() {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::port_name() {
 }
 
 /**
@@ -83,24 +84,21 @@ void AbstractSensorMux::set_mode(
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean AbstractSensorMux::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
+ ::PrimitiveTypes::Boolean AbstractSensorMux::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractSensorMux::connected() {
+ ::PrimitiveTypes::Boolean AbstractSensorMux::connected() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractSensorMux::device_index() {
+ ::PrimitiveTypes::Integer AbstractSensorMux::device_index() {
 }
 
 /**
@@ -108,8 +106,7 @@ void AbstractSensorMux::set_mode(
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer AbstractSensorMux::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer AbstractSensorMux::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -118,9 +115,7 @@ void AbstractSensorMux::set_mode(
  * @param name 
  * @param value 
  */
-void AbstractSensorMux::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
+ void AbstractSensorMux::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
 }
 
 /**
@@ -128,8 +123,7 @@ void AbstractSensorMux::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -138,9 +132,7 @@ void AbstractSensorMux::set_attr_int(
  * @param name 
  * @param value 
  */
-void AbstractSensorMux::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
+ void AbstractSensorMux::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
 }
 
 /**
@@ -148,8 +140,7 @@ void AbstractSensorMux::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -158,9 +149,7 @@ void AbstractSensorMux::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractSensorMux::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractSensorMux::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
 }
 
 /**
@@ -168,13 +157,14 @@ void AbstractSensorMux::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractSensorMux::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
+
+
 
 } // of namespace AbstractClasses
 } // of namespace MindsensorsPapyrusLibrary
 
 /************************************************************
- End of AbstractSensorMux class body
+              End of AbstractSensorMux class body
  ************************************************************/

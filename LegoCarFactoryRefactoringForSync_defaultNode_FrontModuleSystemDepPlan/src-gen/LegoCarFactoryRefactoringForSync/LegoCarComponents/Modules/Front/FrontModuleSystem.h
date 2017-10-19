@@ -6,7 +6,7 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_LEGOCARCOMPONENTS_MODULES_FRONT_FRONTMODULESYSTEM_H
 
 /************************************************************
- FrontModuleSystem class header
+              FrontModuleSystem class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/Pkg_Front.h"
@@ -16,7 +16,9 @@
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Front/FrontRoboticArm.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlavePress.h"
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Slaves/SlaveShelf.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/FrontFrontModuleSystem__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Front/FrontModuleSystem__Delegatee.h"
+
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
@@ -28,31 +30,28 @@ namespace Front {
  * 
  */
 class FrontModuleSystem {
-public:
+	public:
 	/**
 	 * 
 	 */
-	FrontControlComponent controller;
+	 FrontControlComponent controller;
 	/**
 	 * 
 	 */
-	FrontRoboticArm roboticArm;
+	 FrontRoboticArm roboticArm;
 	/**
 	 * 
 	 */
-	FrontConvoyer convoyer;
+	 FrontConvoyer convoyer;
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlaveShelf shelf;
+	 ::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlaveShelf shelf;
 	/**
 	 * 
 	 */
-	::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlavePress press;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::FrontFrontModuleSystem__Controller frontmodulesystemController;
+	 ::LegoCarFactoryRefactoringForSync::LegoCarComponents::Modules::Slaves::SlavePress press;
+	DECLARE_DELEGATEE_COMPONENT (FrontModuleSystem)
 	/**
 	 * 
 	 */
@@ -62,12 +61,15 @@ public:
 	 */
 	void connectorConfiguration();
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace Front
 } // of namespace Modules
@@ -75,7 +77,7 @@ public:
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of FrontModuleSystem class header
+              End of FrontModuleSystem class header
  ************************************************************/
 
 #endif

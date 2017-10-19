@@ -14,7 +14,7 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/Actuators/CppServoMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/CarFactoryLibraryPliers__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/CarFactoryLibrary/Pliers__Delegatee.h"
 
 // Include from Include stereotype (header)
 namespace EV3PapyrusLibrary {
@@ -48,10 +48,7 @@ public:
 	 * the command to send to the pliers to go to the close position
 	 */
 	int close_position;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::CarFactoryLibraryPliers__Controller pliersController;
+	DECLARE_DELEGATEE_COMPONENT (Pliers)
 	/**
 	 * 
 	 */

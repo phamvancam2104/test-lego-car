@@ -15,7 +15,7 @@
 #include "EV3PapyrusLibrary/AbstractClasses/Actuators/AbstractLargeMotor.h"
 #include "EV3PapyrusLibrary/Interfaces/Actuators/ILargeMotor.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/ActuatorsCppLargeMotor__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/Actuators/CppLargeMotor__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
@@ -47,10 +47,7 @@ public:
 	 * 
 	 */
 	large_motor referencedLarge_motor;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::ActuatorsCppLargeMotor__Controller cpplargemotorController;
+	DECLARE_DELEGATEE_COMPONENT (CppLargeMotor)
 	/**
 	 * generated comment
 	 * @param v 

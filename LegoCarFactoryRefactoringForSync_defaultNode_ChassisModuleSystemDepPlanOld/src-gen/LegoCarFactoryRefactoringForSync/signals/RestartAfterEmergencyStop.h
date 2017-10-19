@@ -6,10 +6,13 @@
 #define LEGOCARFACTORYREFACTORINGFORSYNC_SIGNALS_RESTARTAFTEREMERGENCYSTOP_H
 
 /************************************************************
- RestartAfterEmergencyStop class header
+              RestartAfterEmergencyStop class header
  ************************************************************/
 
 #include "LegoCarFactoryRefactoringForSync/signals/Pkg_signals.h"
+
+
+
 
 namespace LegoCarFactoryRefactoringForSync {
 namespace signals {
@@ -20,18 +23,21 @@ namespace signals {
  */
 class RestartAfterEmergencyStop {
 
+
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace signals
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of RestartAfterEmergencyStop class header
+              End of RestartAfterEmergencyStop class header
  ************************************************************/
 
 #endif

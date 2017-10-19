@@ -5,8 +5,9 @@
 #define LegoCarFactoryRefactoringForSync_LegoCarComponents_Modules_Chassis_ChassisConvoyer_BODY
 
 /************************************************************
- ChassisConvoyer class body
+              ChassisConvoyer class body
  ************************************************************/
+
 
 // include associated header file
 #include "LegoCarFactoryRefactoringForSync/LegoCarComponents/Modules/Chassis/ChassisConvoyer.h"
@@ -20,6 +21,7 @@
 #include "LegoCarFactoryRefactoringForSync/signals/RestartAfterEmergencyStop.h"
 #include "LegoCarFactoryRefactoringForSync/signals/StopProcess.h"
 
+
 namespace LegoCarFactoryRefactoringForSync {
 namespace LegoCarComponents {
 namespace Modules {
@@ -31,8 +33,7 @@ namespace Chassis {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoicetoMisplaceGuard() {
-
+ bool ChassisConvoyer::fromChoicetoMisplaceGuard() {
 	return get_status() == CarFactoryLibrary::RESULT_ERROR;
 }
 
@@ -40,64 +41,57 @@ bool ChassisConvoyer::fromChoicetoMisplaceGuard() {
  * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
  * @return ret 
  */
-bool ChassisConvoyer::check_presence() {
-
+ bool ChassisConvoyer::check_presence() {
 	color_sensor.set_mode("COL-COLOR");
-	int color_state = 0;
-	bool ret = false;
-	//check white - black - white sequence
-	while (motor.speed() == 0)
-		;
-	while (motor.speed() != 0) {
-		char color = color_sensor.value(0);
-		if (color == 6 && color_state == 0) { //first white wheel
-			color_state++;
-		}
-		if (color == 0 && color_state == 1) { //none after white wheel
-			color_state++;
-		}
-		if (color == 6 && color_state == 2) { //detect second white whell
-			color_state++;
-			ret = true;
-		}
-	}
-
-	return ret;
+		 int color_state = 0;
+		 bool ret = false;
+		 //check white - black - white sequence
+		 while(motor.speed() == 0);
+		 while (motor.speed() != 0) {
+		 char color = color_sensor.value(0);
+		 if (color == 6 && color_state==0) { //first white wheel
+		 color_state++;
+		 }
+		 if (color == 0 && color_state==1) { //none after white wheel
+		 color_state++;
+		 }
+		 if (color == 6 && color_state==2) { //detect second white whell
+		 color_state++;
+		 ret = true;
+		 }
+		 }
+		 
+		 return ret;
 }
 
 /**
  * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
  * @return ret 
  */
-int ChassisConvoyer::get_current_module() {
-
-	return ((CarFactoryLibrary::Conveyor*) this)->pModule.requiredIntf->getCurrentModule();
+ int ChassisConvoyer::get_current_module() {
+	return ((CarFactoryLibrary::Conveyor*)this)->pModule.requiredIntf->getCurrentModule();
 }
 
 /**
  * check the presence of the chassis on the conveyor (check the sequence : white - unknown color - white)
  */
 void ChassisConvoyer::send_stop_process_event() {
-
 	LegoCarFactoryRefactoringForSync::signals::StopProcess s;
-	s.is_emergency_stop = true;
-	pStopProcess.outIntf->push(s);
+		s.is_emergency_stop = true;
+		pStopProcess.outIntf->push(s);
 }
 
 /**
  * 
  */
-ChassisConvoyer::ChassisConvoyer() :
-		::CarFactoryLibrary::Conveyor("outC", "in2:i2c80:mux1"), chassisconvoyerController(
-				this) {
+ChassisConvoyer::ChassisConvoyer(): ::CarFactoryLibrary::Conveyor("outC", "in2:i2c80:mux1") {
 }
 
 /**
  * 
  * @return ret 
  */
-::CarFactoryLibrary::BluetoothSlaveEnum ChassisConvoyer::get_status() {
-
+ ::CarFactoryLibrary::BluetoothSlaveEnum ChassisConvoyer::get_status() {
 	return CarFactoryLibrary::NO_SLAVE_MSG;
 }
 
@@ -105,19 +99,16 @@ ChassisConvoyer::ChassisConvoyer() :
  * 
  * @param status 
  */
-void ChassisConvoyer::set_status(
-		::CarFactoryLibrary::BluetoothSlaveEnum /*in*/status) {
-	static_cast<CarFactoryLibrary::Convoyer*>(this)->pModule.requiredIntf->setStatus(
-			status);
+void ChassisConvoyer::set_status(::CarFactoryLibrary::BluetoothSlaveEnum /*in*/ status) {
+	static_cast<CarFactoryLibrary::Convoyer*>(this)->pModule.requiredIntf->setStatus(status);
 }
 
 /**
  * 
  * @param sig 
  */
-void ChassisConvoyer::reset_first_time(
-		::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/sig) {
-	if (sig.is_emergency_stop)
+void ChassisConvoyer::reset_first_time(::LegoCarFactoryRefactoringForSync::signals::StopProcess& /*in*/ sig) {
+	if(sig.is_emergency_stop)
 		first_time = true;
 }
 
@@ -125,17 +116,15 @@ void ChassisConvoyer::reset_first_time(
  * 
  */
 void ChassisConvoyer::effectFromChoicetoRestart() {
-
 	first_time = true;
-	send_stop_process_event();
+		send_stop_process_event();
 }
 
 /**
  * 
  * @param sig 
  */
-void ChassisConvoyer::save_color(
-		::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/sig) {
+void ChassisConvoyer::save_color(::LegoCarFactoryRefactoringForSync::signals::PrepareConveyor& /*in*/ sig) {
 	color = sig.color;
 }
 
@@ -143,8 +132,7 @@ void ChassisConvoyer::save_color(
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
-
+ bool ChassisConvoyer::fromChoice1toReplaceGuard() {
 	return get_current_module() == CarFactoryLibrary::MASTER_MODULE;
 }
 
@@ -152,8 +140,7 @@ bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice1toReplaceGuard() {
-
+ bool ChassisConvoyer::fromChoice0toGo_wait_positionGuard() {
 	return get_current_module() == CarFactoryLibrary::MASTER_MODULE;
 }
 
@@ -161,8 +148,7 @@ bool ChassisConvoyer::fromChoice1toReplaceGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
-
+ bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
 	return is_misplace;
 }
 
@@ -170,8 +156,7 @@ bool ChassisConvoyer::fromChoice2toMisplaceGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
-
+ bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
 	return get_status() == CarFactoryLibrary::RESULT_READY;
 }
 
@@ -179,10 +164,11 @@ bool ChassisConvoyer::fromChoice3toGo_wait_positionGuard() {
  * 
  * @return ret 
  */
-bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
-
+ bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
 	return get_status() == CarFactoryLibrary::RESULT_READY;
 }
+
+
 
 } // of namespace Chassis
 } // of namespace Modules
@@ -190,5 +176,5 @@ bool ChassisConvoyer::fromChoicetoSendEndOfModuleEventGuard() {
 } // of namespace LegoCarFactoryRefactoringForSync
 
 /************************************************************
- End of ChassisConvoyer class body
+              End of ChassisConvoyer class body
  ************************************************************/

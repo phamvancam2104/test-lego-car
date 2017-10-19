@@ -6,7 +6,7 @@
 #define CARFACTORYLIBRARY_MODULE_H
 
 /************************************************************
- Module class header
+              Module class header
  ************************************************************/
 
 #include "CarFactoryLibrary/Pkg_CarFactoryLibrary.h"
@@ -22,31 +22,15 @@
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ILcd;}}}
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
-namespace CarFactoryLibrary {
-class IModule;
-}
+namespace CarFactoryLibrary {class IModule;}
 #include "CarFactoryLibrary/IModule.h"
 
 // End of Include stereotype (header)
 
-namespace CarFactoryLibrary {
-namespace events {
-class EndOfModule;
-}
-}
-namespace CarFactoryLibrary {
-namespace events {
-class ErrorDetection;
-}
-}
+namespace CarFactoryLibrary {namespace events {class EndOfModule;}}
+namespace CarFactoryLibrary {namespace events {class ErrorDetection;}}
 
 namespace CarFactoryLibrary {
 
@@ -54,36 +38,38 @@ namespace CarFactoryLibrary {
 /**
  * module of the factory
  */
-class Module: public IModule {
-public:
+class Module : 
+public IModule	
+ {
+	public:
 	/**
 	 * the Brick on which the program will be launch
 	 */
-	::EV3PapyrusLibrary::EV3BrickPackage::CppEV3Brick ev3Brick;
+	 ::EV3PapyrusLibrary::EV3BrickPackage::CppEV3Brick ev3Brick;
 	/**
 	 * the multiplexer of sensors
 	 */
-	::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux sensor_mux;
+	 ::MindsensorsPapyrusLibrary::ConcreteClasses::CppSensorMux sensor_mux;
 	/**
 	 * the touch sensor represented the emergency stop
 	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Sensors::CppTouchSensor emergency_button;
+	 ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::Sensors::CppTouchSensor emergency_button;
 	/**
 	 * the led status corresponding to the traffic light
 	 */
-	::OtherComponentsPapyrusLibrary::ConcreteClasses::CppLedStatus led_status;
+	 ::OtherComponentsPapyrusLibrary::ConcreteClasses::CppLedStatus led_status;
 	/**
 	 * is true if the conveyor sensor detect that the piece is misplace
 	 */
-	bool is_misplace;
+	 bool is_misplace;
 	/**
 	 * is true if the program is stop (due to error detection or emergency stop)
 	 */
-	bool is_stop;
+	 bool is_stop;
 	/**
 	 * the nxt servo of the chassis module (which is a sort of multiplexer of motor)
 	 */
-	::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::CppNxtServo nxt_servo;
+	 ::EV3PapyrusLibrary::ConcreteClasses::ev3devCpp::CppNxtServo nxt_servo;
 	/**
 	 * Stock the name of the bluetooth_device
 	 */
@@ -91,16 +77,16 @@ public:
 	/**
 	 * the module whiwh is actualy running
 	 */
-	int current_module;
+	 int current_module;
 	/**
 	 * the order of modules (back can be before front)
 	 */
 	static ModuleName sequence_module[];
 	/**
 	 * if this is the master module, status is for status of the running slave module
-	 * if this is a stave module, status is for current status
+	  * if this is a stave module, status is for current status
 	 */
-	BluetoothSlaveEnum status;
+	 BluetoothSlaveEnum status;
 	/**
 	 * 
 	 */
@@ -108,15 +94,15 @@ public:
 	/**
 	 * is true if the error_detection signal receive is du to misplace error else it is false
 	 */
-	bool error_detection_is_misplace;
+	 bool error_detection_is_misplace;
 	/**
 	 * 
 	 */
-	ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
+	 ProvidedPort<EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd> pLCD;
 	/**
 	 * 
 	 */
-	ProvidedPort<CarFactoryLibrary::IModule> pModule;
+	 ProvidedPort<CarFactoryLibrary::IModule> pModule;
 	/**
 	 * constructor of the Module
 	 * @param sensor_muxPort host port name of the multiplexer of sensor
@@ -130,16 +116,7 @@ public:
 	 * @param status_led_orangePort port name of the orange led of the status led
 	 * @param status_led_greenPort port name of the green led of the status led
 	 */
-	Module(::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_muxPort,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_mux_type1,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_mux_type2,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/sensor_mux_type3,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/emergency_stopPort,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/nxt_servoSensorPort,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/nxt_servoMotorPort,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/status_led_redPort,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/status_led_orangePort,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/status_led_greenPort);
+	Module(::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_muxPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_mux_type1, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_mux_type2, ::EV3PapyrusLibrary::Types::LocalString /*in*/ sensor_mux_type3, ::EV3PapyrusLibrary::Types::LocalString /*in*/ emergency_stopPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ nxt_servoSensorPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ nxt_servoMotorPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ status_led_redPort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ status_led_orangePort, ::EV3PapyrusLibrary::Types::LocalString /*in*/ status_led_greenPort);
 	/**
 	 * turn on red lights
 	 */
@@ -157,8 +134,7 @@ public:
 	 * @param text 
 	 * @param size 
 	 */
-	void showPopUpMessage(::EV3PapyrusLibrary::Types::LocalString /*in*/text,
-			::EV3PapyrusLibrary::Types::TextSize /*in*/size);
+	void showPopUpMessage(::EV3PapyrusLibrary::Types::LocalString /*in*/ text, ::EV3PapyrusLibrary::Types::TextSize /*in*/ size);
 	/**
 	 * turn on red lights and display message on screen 
 	 */
@@ -171,7 +147,7 @@ public:
 	 * turn on red lights and display message on screen 
 	 * @param color 
 	 */
-	void showEmptyRackGUI(Colors /*in*/color);
+	void showEmptyRackGUI(Colors /*in*/ color);
 	/**
 	 * send a bluetooth message (BluetoothMasterEnum) with the value as a string, then it wait an answer
 	 * @param name name of the receiver
@@ -179,9 +155,7 @@ public:
 	 * @param extraValue an optional string to add information to the command (e.g. give color)
 	 * @return ret the answer of the slave
 	 */
-	BluetoothSlaveEnum writeWaitReply(ModuleName /*in*/name,
-			BluetoothMasterEnum /*in*/value,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue = "");
+	 BluetoothSlaveEnum writeWaitReply(ModuleName /*in*/ name, BluetoothMasterEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue = "");
 	/**
 	 * send a bluetooth message (BluetoothMasterEnum) with the value as a string, then it wait an answer
 	 * @param index the index of the receiver in the table sequence_module
@@ -189,88 +163,85 @@ public:
 	 * @param extraValue an optional string to add information to the command (e.g. give color)
 	 * @return ret the answer of the slave
 	 */
-	BluetoothSlaveEnum writeWaitReply(int /*in*/index,
-			BluetoothMasterEnum /*in*/value,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue = "");
+	 BluetoothSlaveEnum writeWaitReply(int /*in*/ index, BluetoothMasterEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue = "");
 	/**
 	 * send a bluetooth message (BluetoothSlaveEnum) with the value as a string
 	 * @param name name of the receiver
 	 * @param value the command to transmit
 	 * @param extraValue an optional string to add information to the command (e.g. give color)
 	 */
-	void write(ModuleName /*in*/name, BluetoothSlaveEnum /*in*/value,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue = "");
+	void write(ModuleName /*in*/ name, BluetoothSlaveEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue = "");
 	/**
 	 * send a bluetooth message (BluetoothMasterEnum) with the value as a string
 	 * @param name name of the receiver
 	 * @param value the command to transmit
 	 * @param extraValue an optional string to add information to the command (e.g. give color)
 	 */
-	void write(ModuleName /*in*/name, BluetoothMasterEnum /*in*/value,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/extraValue = "");
+	void write(ModuleName /*in*/ name, BluetoothMasterEnum /*in*/ value, ::EV3PapyrusLibrary::Types::LocalString /*in*/ extraValue = "");
 	/**
 	 * send a bluetooth message (BluetoothMasterEnum) with the value as a string
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString readFromMaster();
+	 ::EV3PapyrusLibrary::Types::LocalString readFromMaster();
 	/**
 	 * send a bluetooth message (BluetoothMasterEnum) with the value as a string
 	 * @param name 
 	 * @return ret 
 	 */
-	BluetoothSlaveEnum readFromSlave(ModuleName /*in*/name);
+	 BluetoothSlaveEnum readFromSlave(ModuleName /*in*/ name);
 	/**
 	 * send a bluetooth message (BluetoothMasterEnum) with the value as a string
 	 * @param value 
 	 * @return ret 
 	 */
-	BluetoothMasterEnum parseMasterMessage(
-			::EV3PapyrusLibrary::Types::LocalString /*in*/value);
+	 BluetoothMasterEnum parseMasterMessage(::EV3PapyrusLibrary::Types::LocalString /*in*/ value);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	BluetoothSlaveEnum getStatus();
+	 BluetoothSlaveEnum getStatus();
 	/**
 	 * 
 	 * @param status 
 	 */
-	void setStatus(BluetoothSlaveEnum /*in*/status);
+	void setStatus(BluetoothSlaveEnum /*in*/ status);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	int getCurrentModule();
+	 int getCurrentModule();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	::EV3PapyrusLibrary::Types::LocalString& getBluetoothName();
-	/**
-	 * 
-	 * @param sig 
-	 * @return ret 
-	 */
-	void sendErrorDetection(
-			::CarFactoryLibrary::events::ErrorDetection& /*in*/sig);
+	 ::EV3PapyrusLibrary::Types::LocalString& getBluetoothName();
 	/**
 	 * 
 	 * @param sig 
 	 * @return ret 
 	 */
-	void sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/sig);
+	 void sendErrorDetection(::CarFactoryLibrary::events::ErrorDetection& /*in*/ sig);
+	/**
+	 * 
+	 * @param sig 
+	 * @return ret 
+	 */
+	 void sendEndOfModule(::CarFactoryLibrary::events::EndOfModule& /*in*/ sig);
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Module class header
+              End of Module class header
  ************************************************************/
 
 #endif

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="__rvpASEfEee1_5RsPbVhsw" name="statemachine">
+  <uml:Model xmi:id="_Y_FL07UYEee94q5Wi6avnA" name="statemachine">
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_hNs5oCdSEea6h5xPEh8iAg" name="ThreadFunctions">
       <ownedLiteral xmi:id="_kWR0ICdSEea6h5xPEh8iAg" name="TF_CHANGE_EVENT"/>
       <ownedLiteral xmi:id="_tj4MICdSEea6h5xPEh8iAg" name="TF_TIME_EVENT"/>
@@ -10,12 +10,19 @@
       <ownedLiteral xmi:id="_uSWbsCdSEea6h5xPEh8iAg" name="TF_TRANSITION"/>
       <ownedLiteral xmi:id="_BF78sD0vEeaKAZ77fvU8gg" name="TF_STATE_MACHINE_TYPE"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_uYyt0CdFEea3Ob5UfxuCGA" name="SystemStateEnum_t">
-      <ownedLiteral xmi:id="_ER5vICdGEea3Ob5UfxuCGA" name="IDLE"/>
-      <ownedLiteral xmi:id="_FvfugCdGEea3Ob5UfxuCGA" name="EVENT_PROCESSING"/>
-      <ownedLiteral xmi:id="_GPdA8CdGEea3Ob5UfxuCGA" name="EVENT_DEFERRED"/>
-      <ownedLiteral xmi:id="_GrYH8CdGEea3Ob5UfxuCGA" name="EVENT_CONSUMED"/>
-      <ownedLiteral xmi:id="_E6sgoLHDEeanM9qJJBCeXw" name="STOPPED"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7lQi8ImlEee_IN9JEWbIqg" name="EventQueueAllocationConfiguration">
+      <ownedAttribute xmi:id="_LQK8oImmEee_IN9JEWbIqg" name="eventQueue" type="_dWxYQD0zEeaQfbTekb55bw" aggregation="composite"/>
+      <ownedAttribute xmi:id="_RpbkwImmEee_IN9JEWbIqg" name="currentEvent" type="_MyJIUD0zEeaQfbTekb55bw"/>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mx4IsImnEee_IN9JEWbIqg" name="configure_queue_size" specification="_a_mC4ImmEee_IN9JEWbIqg">
+        <language>C++</language>
+        <body>this->eventQueue.allocate_queue(desired_size);</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_a_mC4ImmEee_IN9JEWbIqg" name="configure_queue_size" method="_mx4IsImnEee_IN9JEWbIqg">
+        <ownedParameter xmi:id="_Faz2UImnEee_IN9JEWbIqg" name="desired_size">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_Y-BXQImnEee_IN9JEWbIqg" value="DEFAULT_EVENT_QUEUE_SIZE "/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_dWxYQD0zEeaQfbTekb55bw" name="EventPriorityQueue">
       <ownedAttribute xmi:id="_dWxYQT0zEeaQfbTekb55bw" name="data" visibility="private" type="_MyJIUD0zEeaQfbTekb55bw"/>
@@ -36,9 +43,6 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_dWxYRz0zEeaQfbTekb55bw" name="cond" visibility="private">
         <type xmi:type="uml:Class" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_dWxYSD0zEeaQfbTekb55bw" name="isLock" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_dWxYST0zEeaQfbTekb55bw" name="completionEvents" visibility="private" type="_MyJIUD0zEeaQfbTekb55bw"/>
       <ownedAttribute xmi:id="_dWxYSj0zEeaQfbTekb55bw" name="compSize" visibility="private">
@@ -63,77 +67,88 @@
       <ownedAttribute xmi:id="_dWxYUT0zEeaQfbTekb55bw" name="writeDef" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_c97KEImhEee_IN9JEWbIqg" name="SINGLETON_QUEUE" visibility="public" isStatic="true" type="_MyJIUD0zEeaQfbTekb55bw"/>
+      <ownedAttribute xmi:id="_Wup5gImjEee_IN9JEWbIqg" name="singleton_counter" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Z6Gh0ImjEee_IN9JEWbIqg"/>
+      </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dWxYUj0zEeaQfbTekb55bw" name="EventPriorityQueue" specification="_dWx_XD0zEeaQfbTekb55bw">
         <language>C++</language>
         <body>mutex = PTHREAD_MUTEX_INITIALIZER;&#xD;
 cond = PTHREAD_COND_INITIALIZER;&#xD;
-isLock = false;</body>
+</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dWxYUz0zEeaQfbTekb55bw" name="push" specification="_dWx_Vj0zEeaQfbTekb55bw">
         <language>C++</language>
         <body>statemachine::Event_t* ret = NULL;&#xD;
-if (EVENT_DATA_SIZE &lt;= dataSize) {&#xD;
-	return;&#xD;
-}&#xD;
-pthread_mutex_lock(&amp;mutex);&#xD;
-while(isLock) {&#xD;
-	pthread_cond_wait(&amp;cond, &amp;mutex);&#xD;
-}&#xD;
-if (compNumbers &lt; compSize &amp;&amp; eventType == statemachine::COMPLETION_EVENT) {&#xD;
-	ret = &amp;(this->completionEvents[compWritePos]);&#xD;
-	compNumbers++;&#xD;
-	ret->priority = priority;&#xD;
-	memcpy(ret->data, data, dataSize);&#xD;
-	ret->eventID = eventID;&#xD;
-	ret->eventType = eventType;&#xD;
-	ret->associatedState = associatedState;&#xD;
-	compWritePos = (compWritePos+1)%compSize;&#xD;
-} else if (numberOfElements &lt; size) {&#xD;
-	ret = &amp;(this->data[writePos]);&#xD;
-	numberOfElements++;&#xD;
-	ret->priority = priority;&#xD;
-	memcpy(ret->data, data, dataSize);&#xD;
-	ret->eventID = eventID;&#xD;
-	ret->eventType = eventType;&#xD;
-	ret->associatedState = associatedState;&#xD;
-	writePos = (writePos+1)%size;&#xD;
-}&#xD;
-isLock = false;&#xD;
-pthread_cond_signal(&amp;cond);&#xD;
-pthread_mutex_unlock(&amp;mutex);</body>
+	if (EVENT_DATA_SIZE &lt;= dataSize) {&#xD;
+		return;&#xD;
+	}&#xD;
+	if (eventType == statemachine::COMPLETION_EVENT) {&#xD;
+		pthread_mutex_lock (&amp;mutex);&#xD;
+		while (compNumbers >= compSize) {&#xD;
+			pthread_cond_wait(&amp;cond, &amp;mutex);&#xD;
+		}&#xD;
+	} else {&#xD;
+		pthread_mutex_lock (&amp;mutex);&#xD;
+		while (numberOfElements >= size) {&#xD;
+			pthread_cond_wait(&amp;cond, &amp;mutex);&#xD;
+		}&#xD;
+	}&#xD;
+&#xD;
+	if (compNumbers &lt; compSize &amp;&amp; eventType == statemachine::COMPLETION_EVENT) {&#xD;
+		ret = &amp;(this->completionEvents[compWritePos]);&#xD;
+		compNumbers++;&#xD;
+		ret->priority = priority;&#xD;
+		memcpy(ret->data, data, dataSize);&#xD;
+		ret->eventID = eventID;&#xD;
+		ret->eventType = eventType;&#xD;
+		ret->associatedState = associatedState;&#xD;
+		compWritePos = (compWritePos + 1) % compSize;&#xD;
+	} else if (numberOfElements &lt; size) {&#xD;
+		ret = &amp;(this->data[writePos]);&#xD;
+		numberOfElements++;&#xD;
+		ret->priority = priority;&#xD;
+		memcpy(ret->data, data, dataSize);&#xD;
+		ret->eventID = eventID;&#xD;
+		ret->eventType = eventType;&#xD;
+		ret->associatedState = associatedState;&#xD;
+		writePos = (writePos + 1) % size;&#xD;
+	}&#xD;
+	pthread_cond_signal (&amp;cond);&#xD;
+	pthread_mutex_unlock(&amp;mutex);</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dWxYVD0zEeaQfbTekb55bw" name="pop" specification="_dWx_Uj0zEeaQfbTekb55bw">
         <language>C++</language>
         <body>statemachine::Event_t* ret = NULL;&#xD;
-pthread_mutex_lock(&amp;mutex);&#xD;
-while(isLock) {&#xD;
-	pthread_cond_wait(&amp;cond, &amp;mutex);&#xD;
-}&#xD;
-if (compNumbers > 0) {&#xD;
-	ret = &amp;completionEvents[compReadPos];&#xD;
-       compNumbers--;&#xD;
-	compReadPos = (compReadPos + 1) % compSize;&#xD;
-} else if (popDeferred &amp;&amp; (numberOfDeferreds > 0)) {&#xD;
-	ret = &amp;deferreds[readDef];&#xD;
-	numberOfDeferreds--;&#xD;
-	readDef = (readDef + 1) % defSize;&#xD;
-}&#xD;
-if ((ret == NULL) &amp;&amp; (numberOfElements > 0)) {&#xD;
-	ret = &amp;data[readPos];&#xD;
-	numberOfElements--;&#xD;
-	readPos = (readPos+1)%size;&#xD;
-}&#xD;
+	pthread_mutex_lock (&amp;mutex);&#xD;
+	while (numberOfElements + compNumbers == 0 &amp;&amp; (!popDeferred || numberOfDeferreds == 0)) {&#xD;
+		pthread_cond_wait(&amp;cond, &amp;mutex);&#xD;
+	}&#xD;
+	if (compNumbers > 0) {&#xD;
+		ret = &amp;completionEvents[compReadPos];&#xD;
+		compNumbers--;&#xD;
+		compReadPos = (compReadPos + 1) % compSize;&#xD;
+	} else if (popDeferred &amp;&amp; (numberOfDeferreds > 0)) {&#xD;
+		ret = &amp;deferreds[readDef];&#xD;
+		numberOfDeferreds--;&#xD;
+		readDef = (readDef + 1) % defSize;&#xD;
+	}&#xD;
+	if ((ret == NULL) &amp;&amp; (numberOfElements > 0)) {&#xD;
+		ret = &amp;data[readPos];&#xD;
+		numberOfElements--;&#xD;
+		readPos = (readPos + 1) % size;&#xD;
+	}&#xD;
 &#xD;
-if ((ret == NULL) &amp;&amp; (numberOfDeferreds > 0)) {&#xD;
-	ret = &amp;deferreds[readDef];&#xD;
-	numberOfDeferreds--;&#xD;
-	readDef = (readDef + 1) % defSize;&#xD;
-}&#xD;
+	if ((ret == NULL) &amp;&amp; (numberOfDeferreds > 0)) {&#xD;
+		ret = &amp;deferreds[readDef];&#xD;
+		numberOfDeferreds--;&#xD;
+		readDef = (readDef + 1) % defSize;&#xD;
+	}&#xD;
 &#xD;
-isLock = false;&#xD;
-pthread_cond_signal(&amp;cond);&#xD;
-pthread_mutex_unlock(&amp;mutex);&#xD;
-return ret;</body>
+	pthread_cond_signal (&amp;cond);&#xD;
+	pthread_mutex_unlock(&amp;mutex);&#xD;
+	return ret;</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dWx_UD0zEeaQfbTekb55bw" name="saveDeferred" specification="_dWx_Xj0zEeaQfbTekb55bw">
         <language>C++</language>
@@ -148,12 +163,21 @@ return ret;</body>
 }&#xD;
 </body>
       </ownedBehavior>
-      <ownedOperation xmi:id="_dWx_XD0zEeaQfbTekb55bw" name="EventPriorityQueue" method="_dWxYUj0zEeaQfbTekb55bw">
-        <ownedParameter xmi:id="_IH20QLGDEeadbudyvwc_mA" name="queueSize">
-          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
-        </ownedParameter>
-        <ownedParameter xmi:id="_fOpsgLGKEea8TLs0FB9Z6g" name="eventArray" type="_MyJIUD0zEeaQfbTekb55bw"/>
-      </ownedOperation>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_VcnC0ImjEee_IN9JEWbIqg" name="allocate_queue" specification="__XDdwImeEeeG6dJG-gfXoA">
+        <language>C++</language>
+        <body>data = &amp;(SINGLETON_QUEUE[singleton_counter]);&#xD;
+if (singleton_counter + desired_size> SINGLETON_QUEUE_SIZE) {&#xD;
+	size = SINGLETON_QUEUE_SIZE - singleton_counter;&#xD;
+} else {&#xD;
+	size = desired_size;&#xD;
+}&#xD;
+singleton_counter += size;</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_l0LPUI5SEeefhP6Vh0ZyuQ" name="getCompletionSize" specification="_e7ECcI5SEeefhP6Vh0ZyuQ">
+        <language>C++</language>
+        <body>return compNumbers;</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_dWx_XD0zEeaQfbTekb55bw" name="EventPriorityQueue" method="_dWxYUj0zEeaQfbTekb55bw"/>
       <ownedOperation xmi:id="_dWx_Vj0zEeaQfbTekb55bw" name="push" method="_dWxYUz0zEeaQfbTekb55bw">
         <ownedParameter xmi:id="_dWx_Vz0zEeaQfbTekb55bw" name="priority" type="_Mx4poD0zEeaQfbTekb55bw"/>
         <ownedParameter xmi:id="_dWx_WD0zEeaQfbTekb55bw" name="data">
@@ -180,6 +204,16 @@ return ret;</body>
       </ownedOperation>
       <ownedOperation xmi:id="_dWx_Xj0zEeaQfbTekb55bw" name="saveDeferred" method="_dWx_UD0zEeaQfbTekb55bw">
         <ownedParameter xmi:id="_dWx_Xz0zEeaQfbTekb55bw" name="defe" type="_MyJIUD0zEeaQfbTekb55bw"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="__XDdwImeEeeG6dJG-gfXoA" name="allocate_queue" method="_VcnC0ImjEee_IN9JEWbIqg">
+        <ownedParameter xmi:id="_cbsRoImfEeeG6dJG-gfXoA" name="desired_size">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_e7ECcI5SEeefhP6Vh0ZyuQ" name="getCompletionSize" method="_l0LPUI5SEeefhP6Vh0ZyuQ">
+        <ownedParameter xmi:id="_POBsYI5TEeefhP6Vh0ZyuQ" name="ret" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="/LegoCarFactoryRefactoringForSync_defaultNode_RoofModuleSystemDepPlan/model/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+        </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:id="_dWx_XT0zEeaQfbTekb55bw" name="heapify" visibility="private"/>
     </packagedElement>
@@ -211,6 +245,13 @@ return ret;</body>
       <ownedLiteral xmi:id="_MyIhQz0zEeaQfbTekb55bw" name="TIME_EVENT"/>
       <ownedLiteral xmi:id="_MyIhRD0zEeaQfbTekb55bw" name="CHANGE_EVENT"/>
       <ownedLiteral xmi:id="_MyIhRT0zEeaQfbTekb55bw" name="COMPLETION_EVENT"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_uYyt0CdFEea3Ob5UfxuCGA" name="SystemStateEnum_t">
+      <ownedLiteral xmi:id="_ER5vICdGEea3Ob5UfxuCGA" name="IDLE"/>
+      <ownedLiteral xmi:id="_FvfugCdGEea3Ob5UfxuCGA" name="EVENT_PROCESSING"/>
+      <ownedLiteral xmi:id="_GPdA8CdGEea3Ob5UfxuCGA" name="EVENT_DEFERRED"/>
+      <ownedLiteral xmi:id="_GrYH8CdGEea3Ob5UfxuCGA" name="EVENT_CONSUMED"/>
+      <ownedLiteral xmi:id="_E6sgoLHDEeanM9qJJBCeXw" name="STOPPED"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_4Z1UwCmREearkPe7QerpcQ" name="StructForThread_t">
       <ownedAttribute xmi:id="_jliRwCkVEea0-deBroAIbQ" name="ptr">
@@ -271,29 +312,31 @@ return ret;</body>
       </eAnnotations>
       <appliedProfile href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </profileApplication>
-    <profileApplication xmi:id="_EW8z4CEgEee1_5RsPbVhsw">
-      <eAnnotations xmi:id="_EW8z4SEgEee1_5RsPbVhsw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="_chydkLUYEee94q5Wi6avnA">
+      <eAnnotations xmi:id="_chzEoLUYEee94q5Wi6avnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="__rwQECEfEee1_5RsPbVhsw" header="// common definitions for statemachine&#xD;&#xA;#include &quot;time.h&quot;&#xD;&#xA;#include &quot;pthread.h&quot;&#xD;&#xA;#define CHECKPOINT if (controller.systemState == statemachine::EVENT_PROCESSING || controller.systemState == statemachine::STOPPED) {return;}&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="__rvpASEfEee1_5RsPbVhsw"/>
-  <C_Cpp:Include xmi:id="__r_goSEfEee1_5RsPbVhsw" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Include xmi:id="__sAuwCEfEee1_5RsPbVhsw" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="__sIqkCEfEee1_5RsPbVhsw" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="__sLG0CEfEee1_5RsPbVhsw" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="__sQmYCEfEee1_5RsPbVhsw" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="__sSbkSEfEee1_5RsPbVhsw" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
-  <standard:Create xmi:id="__sU30CEfEee1_5RsPbVhsw" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:ConstInit xmi:id="__sU30SEfEee1_5RsPbVhsw" initialisation="data(eventArray), size(queueSize), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="__sWF8CEfEee1_5RsPbVhsw" base_parameter="_fOpsgLGKEea8TLs0FB9Z6g"/>
-  <C_Cpp:Ptr xmi:id="__sXUESEfEee1_5RsPbVhsw" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="__sZwUCEfEee1_5RsPbVhsw" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ref xmi:id="__sa-cCEfEee1_5RsPbVhsw" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="__shFECEfEee1_5RsPbVhsw" base_property="_jliRwCkVEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="__skIYCEfEee1_5RsPbVhsw" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:ConstInit xmi:id="__skIYSEfEee1_5RsPbVhsw" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:Ptr xmi:id="__skIYiEfEee1_5RsPbVhsw" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="__snywCEfEee1_5RsPbVhsw" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Include xmi:id="_Y_Fy4LUYEee94q5Wi6avnA" header="// common definitions for statemachine&#xD;&#xA;#include &quot;time.h&quot;&#xD;&#xA;#include &quot;pthread.h&quot;&#xD;&#xA;#define CHECKPOINT if (delegatee.systemState == statemachine::EVENT_PROCESSING || delegatee.systemState == statemachine::STOPPED) {return;}&#xA;#include &quot;LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h&quot;" base_package="_Y_FL07UYEee94q5Wi6avnA"/>
+  <C_Cpp:Include xmi:id="_Y_IPJLUYEee94q5Wi6avnA" header="#define DEFAULT_EVENT_QUEUE_SIZE (100)" base_class="_7lQi8ImlEee_IN9JEWbIqg" base_Classifier="_7lQi8ImlEee_IN9JEWbIqg"/>
+  <C_Cpp:Include xmi:id="_Y_I2MbUYEee94q5Wi6avnA" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;#define SINGLETON_QUEUE_SIZE (200)&#xD;&#xA;#define defSize (10)&#xD;&#xA;&#x9;&#x9;&#x9;#if defined (SINGLETON_QUEUE_SIZE)&#xD;&#xA;&#x9;&#x9;&#x9;#undef SINGLETON_QUEUE_SIZE&#xD;&#xA;&#x9;&#x9;&#x9;#endif&#xD;&#xA;&#x9;&#x9;&#x9;#define SINGLETON_QUEUE_SIZE (500)&#xD;&#xA;" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="_Y_JdQLUYEee94q5Wi6avnA" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_Y_KEUrUYEee94q5Wi6avnA" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Y_LScLUYEee94q5Wi6avnA" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_Y_MgkLUYEee94q5Wi6avnA" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_Y_NHoLUYEee94q5Wi6avnA" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_Y_NHpbUYEee94q5Wi6avnA" definition="[SINGLETON_QUEUE_SIZE]" base_property="_c97KEImhEee_IN9JEWbIqg"/>
+  <standard:Create xmi:id="_Y_OVwLUYEee94q5Wi6avnA" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:ConstInit xmi:id="_Y_OVwbUYEee94q5Wi6avnA" initialisation="numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Y_OVxrUYEee94q5Wi6avnA" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Y_O81bUYEee94q5Wi6avnA" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ref xmi:id="_Y_Pj4rUYEee94q5Wi6avnA" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_Y_QyAbUYEee94q5Wi6avnA" base_property="_RpbkwImmEee_IN9JEWbIqg"/>
+  <C_Cpp:Ptr xmi:id="_Y_Yt0LUYEee94q5Wi6avnA" base_property="_jliRwCkVEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_Y_Yt17UYEee94q5Wi6avnA" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:ConstInit xmi:id="_Y_Yt2LUYEee94q5Wi6avnA" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Ptr xmi:id="_Y_ZU4LUYEee94q5Wi6avnA" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_Y_bKELUYEee94q5Wi6avnA" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
 </xmi:XMI>

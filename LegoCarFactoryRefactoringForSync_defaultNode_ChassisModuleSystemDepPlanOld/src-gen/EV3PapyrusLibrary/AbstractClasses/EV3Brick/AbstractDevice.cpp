@@ -5,13 +5,15 @@
 #define EV3PapyrusLibrary_AbstractClasses_EV3Brick_AbstractDevice_BODY
 
 /************************************************************
- AbstractDevice class body
+              AbstractDevice class body
  ************************************************************/
+
 
 // include associated header file
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractDevice.h"
 
 // Derived includes directives
+
 
 namespace EV3PapyrusLibrary {
 namespace AbstractClasses {
@@ -26,24 +28,21 @@ namespace EV3Brick {
  * @param pattern 
  * @param match 
  */
-::PrimitiveTypes::Boolean AbstractDevice::connect(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/dir,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/pattern,
-		::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/match) {
+ ::PrimitiveTypes::Boolean AbstractDevice::connect(::EV3PapyrusLibrary::Types::LocalString& /*in*/ dir, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ pattern, ::EV3PapyrusLibrary::Types::MapStringSetString& /*in*/ match) {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Boolean AbstractDevice::connected() {
+ ::PrimitiveTypes::Boolean AbstractDevice::connected() {
 }
 
 /**
  * 
  * @return ret 
  */
-::PrimitiveTypes::Integer AbstractDevice::device_index() {
+ ::PrimitiveTypes::Integer AbstractDevice::device_index() {
 }
 
 /**
@@ -51,8 +50,7 @@ namespace EV3Brick {
  * @return ret 
  * @param name 
  */
-::PrimitiveTypes::Integer AbstractDevice::get_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::PrimitiveTypes::Integer AbstractDevice::get_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -61,9 +59,7 @@ namespace EV3Brick {
  * @param name 
  * @param value 
  */
-void AbstractDevice::set_attr_int(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::PrimitiveTypes::Integer /*in*/value) {
+ void AbstractDevice::set_attr_int(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::PrimitiveTypes::Integer /*in*/ value) {
 }
 
 /**
@@ -71,8 +67,7 @@ void AbstractDevice::set_attr_int(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractDevice::get_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractDevice::get_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -81,9 +76,7 @@ void AbstractDevice::set_attr_int(
  * @param name 
  * @param value 
  */
-void AbstractDevice::set_attr_string(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/value) {
+ void AbstractDevice::set_attr_string(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString& /*in*/ value) {
 }
 
 /**
@@ -91,8 +84,7 @@ void AbstractDevice::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractDevice::get_attr_line(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractDevice::get_attr_line(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
 
 /**
@@ -101,9 +93,7 @@ void AbstractDevice::set_attr_string(
  * @param name 
  * @param pCur 
  */
-::EV3PapyrusLibrary::Types::ModeSet AbstractDevice::get_attr_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name,
-		::EV3PapyrusLibrary::Types::LocalString* /*in*/pCur) {
+ ::EV3PapyrusLibrary::Types::ModeSet AbstractDevice::get_attr_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name, ::EV3PapyrusLibrary::Types::LocalString* /*in*/ pCur) {
 }
 
 /**
@@ -111,14 +101,15 @@ void AbstractDevice::set_attr_string(
  * @return ret 
  * @param name 
  */
-::EV3PapyrusLibrary::Types::LocalString AbstractDevice::get_attr_from_set(
-		::EV3PapyrusLibrary::Types::LocalString& /*in*/name) {
+ ::EV3PapyrusLibrary::Types::LocalString AbstractDevice::get_attr_from_set(::EV3PapyrusLibrary::Types::LocalString& /*in*/ name) {
 }
+
+
 
 } // of namespace EV3Brick
 } // of namespace AbstractClasses
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of AbstractDevice class body
+              End of AbstractDevice class body
  ************************************************************/

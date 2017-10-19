@@ -6,7 +6,7 @@
 #define EV3PAPYRUSLIBRARY_CONCRETECLASSES_EV3DEVCPP_EV3BRICK_CPPLCD_H
 
 /************************************************************
- CppLcd class header
+              CppLcd class header
  ************************************************************/
 
 #include "EV3PapyrusLibrary/ConcreteClasses/ev3devCpp/EV3Brick/Pkg_EV3Brick.h"
@@ -15,21 +15,16 @@
 #include "EV3PapyrusLibrary/AbstractClasses/EV3Brick/AbstractLcd.h"
 #include "EV3PapyrusLibrary/Interfaces/EV3Brick/ILcd.h"
 #include "EV3PapyrusLibrary/Types/Pkg_Types.h"
-#include "LegoCarFactoryRefactoringForSync/__Architecture__Controller/EV3BrickCppLcd__Controller.h"
+#include "LegoCarFactoryRefactoringForSync/__Architecture__Delegatee/EV3Brick/CppLcd__Delegatee.h"
 #include "PrimitiveTypes/Pkg_PrimitiveTypes.h"
 
 // Include from Include stereotype (header)
 #include "ev3dev.h"
 using namespace ev3dev;
-namespace EV3PapyrusLibrary {
-namespace Interfaces {
-namespace EV3Brick {
-class ILcd;
-}
-}
-}
+namespace EV3PapyrusLibrary {namespace Interfaces {namespace EV3Brick {class ILcd;}}}
 
 // End of Include stereotype (header)
+
 
 namespace EV3PapyrusLibrary {
 namespace ConcreteClasses {
@@ -40,58 +35,57 @@ namespace EV3Brick {
 /**
  * 
  */
-class CppLcd: public ::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd,
-		public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractLcd {
-public:
+class CppLcd : 
+public ::EV3PapyrusLibrary::Interfaces::EV3Brick::ILcd, 
+public ::EV3PapyrusLibrary::AbstractClasses::EV3Brick::AbstractLcd	
+ {
+	public:
 	/**
 	 * 
 	 */
-	lcd referencedLcd;
-	/**
-	 * 
-	 */
-	::LegoCarFactoryRefactoringForSync::__Architecture__Controller::EV3BrickCppLcd__Controller cpplcdController;
+	 lcd referencedLcd;
+	DECLARE_DELEGATEE_COMPONENT (CppLcd)
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	::PrimitiveTypes::Boolean available();
+	 ::PrimitiveTypes::Boolean available();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	uint32_t resolution_x();
+	 uint32_t resolution_x();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	uint32_t resolution_y();
+	 uint32_t resolution_y();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	uint32_t bits_per_pixel();
+	 uint32_t bits_per_pixel();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	uint32_t frame_buffer_size();
+	 uint32_t frame_buffer_size();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	uint32_t line_length();
+	 uint32_t line_length();
 	/**
 	 * generated comment
 	 * @return ret 
 	 */
-	unsigned char* frame_buffer();
+	 unsigned char* frame_buffer();
 	/**
 	 * generated comment
 	 * @return ret 
 	 * @param pixel 
 	 */
-	void fill(unsigned char /*in*/pixel);
+	 void fill(unsigned char /*in*/ pixel);
 	/**
 	 * 
 	 */
@@ -107,9 +101,7 @@ public:
 	 * @param text 
 	 * @param size 
 	 */
-	void write_text(int /*in*/x, int /*in*/y,
-			::EV3PapyrusLibrary::Types::LocalString /*in*/text,
-			::EV3PapyrusLibrary::Types::TextSize /*in*/size);
+	void write_text(int /*in*/ x, int /*in*/ y, ::EV3PapyrusLibrary::Types::LocalString /*in*/ text, ::EV3PapyrusLibrary::Types::TextSize /*in*/ size);
 	/**
 	 * 
 	 * @param x0 
@@ -118,8 +110,7 @@ public:
 	 * @param y1 
 	 * @param isBlack 
 	 */
-	void draw_line(int /*in*/x0, int /*in*/y0, int /*in*/x1, int /*in*/y1,
-			bool /*in*/isBlack);
+	void draw_line(int /*in*/ x0, int /*in*/ y0, int /*in*/ x1, int /*in*/ y1, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -128,8 +119,7 @@ public:
 	 * @param height 
 	 * @param isBlack 
 	 */
-	void draw_full_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-			int /*in*/height, bool /*in*/isBlack);
+	void draw_full_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -138,8 +128,7 @@ public:
 	 * @param height 
 	 * @param isBlack 
 	 */
-	void draw_empty_rectangle(int /*in*/x, int /*in*/y, int /*in*/width,
-			int /*in*/height, bool /*in*/isBlack);
+	void draw_empty_rectangle(int /*in*/ x, int /*in*/ y, int /*in*/ width, int /*in*/ height, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -147,8 +136,7 @@ public:
 	 * @param radius 
 	 * @param isBlack 
 	 */
-	void draw_full_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-			bool /*in*/isBlack);
+	void draw_full_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -156,8 +144,7 @@ public:
 	 * @param radius 
 	 * @param isBlack 
 	 */
-	void draw_empty_circle(int /*in*/x, int /*in*/y, int /*in*/radius,
-			bool /*in*/isBlack);
+	void draw_empty_circle(int /*in*/ x, int /*in*/ y, int /*in*/ radius, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -166,8 +153,7 @@ public:
 	 * @param radiusy 
 	 * @param isBlack 
 	 */
-	void draw_full_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-			int /*in*/radiusy, bool /*in*/isBlack);
+	void draw_full_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param x 
@@ -176,8 +162,7 @@ public:
 	 * @param radiusy 
 	 * @param isBlack 
 	 */
-	void draw_empty_ellipse(int /*in*/x, int /*in*/y, int /*in*/radiusx,
-			int /*in*/radiusy, bool /*in*/isBlack);
+	void draw_empty_ellipse(int /*in*/ x, int /*in*/ y, int /*in*/ radiusx, int /*in*/ radiusy, bool /*in*/ isBlack);
 	/**
 	 * 
 	 * @param filename 
@@ -185,25 +170,27 @@ public:
 	 * @param y 
 	 * @param invertColor 
 	 */
-	void draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/filename,
-			int /*in*/x, int /*in*/y, bool /*in*/invertColor);
+	void draw_bmp_image(::EV3PapyrusLibrary::Types::LocalString /*in*/ filename, int /*in*/ x, int /*in*/ y, bool /*in*/ invertColor);
 	/**
 	 * 
 	 * @return ret 
 	 */
-	void init();
+	 void init();
 	/**
 	 * 
 	 * @return ret 
 	 */
-	void deinit();
+	 void deinit();
+
 
 };
 /************************************************************/
 /* External declarations (package visibility)               */
 /************************************************************/
 
+
 /* Inline functions                                         */
+
 
 } // of namespace EV3Brick
 } // of namespace ev3devCpp
@@ -211,7 +198,7 @@ public:
 } // of namespace EV3PapyrusLibrary
 
 /************************************************************
- End of CppLcd class header
+              End of CppLcd class header
  ************************************************************/
 
 #endif

@@ -2,8 +2,9 @@
 #define PKG_CARFACTORYLIBRARY
 
 /************************************************************
- Pkg_CarFactoryLibrary package header
+              Pkg_CarFactoryLibrary package header
  ************************************************************/
+
 
 #ifndef _IN_
 #define _IN_
@@ -15,9 +16,11 @@
 #define _INOUT_
 #endif
 
+	
 /* Package dependency header include                        */
 
 // Include from Include stereotype (header)
+
 #include "LegoCarFactoryRefactoringForSync/Pkg_LegoCarFactoryRefactoringForSync.h"
 // End of Include stereotype (header)
 namespace CarFactoryLibrary {
@@ -146,7 +149,7 @@ enum ModuleName {
 } // of namespace CarFactoryLibrary
 
 /************************************************************
- End of Pkg_CarFactoryLibrary package header
+              End of Pkg_CarFactoryLibrary package header
  ************************************************************/
 
 #endif
